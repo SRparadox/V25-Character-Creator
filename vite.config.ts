@@ -11,7 +11,7 @@ export default defineConfig({
         port: 3000,
     },
     plugins: [react()],
-    base: "/",
+    base: "/Updated-VTM-5-Creator/",
     resolve: {
         alias: {
             "~": path.resolve(__dirname, "src"),
