@@ -152,7 +152,7 @@ const ClanPicker = ({ character, setCharacter, nextStep }: ClanPickerProps) => {
                 </Grid>
 
                 <Text ta="center" fz="xl" fw={700} mb={"sm"} mt={"md"} c="teal">
-                    Advanced & special Clans
+                    Bloodlines & Special Clans
                 </Text>
                 <Grid grow m={0}>
                     {["Caitiff", "Thin-blood"]
