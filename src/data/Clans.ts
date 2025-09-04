@@ -15,6 +15,11 @@ import toreadorLogo from "../resources/clanIcons/Toreador.webp"
 import tremereLogo from "../resources/clanIcons/Tremere.webp"
 import tzimisceLogo from "../resources/clanIcons/Tzimisce.webp"
 import ventrueLogo from "../resources/clanIcons/Ventrue.webp"
+import lamiaLogo from "../resources/clanIcons/Lamia.webp"
+import nagarajaLogo from "../resources/clanIcons/Nagaraja.webp"
+import daughtersofCacophonyLogo from "../resources/clanIcons/DaughtersofCacophony.webp"
+import ahrimanesLogo from "../resources/clanIcons/Ahrimanes.webp"
+import lhiannanLogo from "../resources/clanIcons/Lhiannan.webp"
 import { ClanName, clanNameSchema, disciplineNameSchema } from "./NameSchemas"
 
 export const clanSchema = z.object({
@@ -160,7 +165,7 @@ export const clans: Record<ClanName, Clan> = {
         Lamia: {
             name: "Lamia",
             description: "Bloodline of Hecata with a unique connection to death and resurrection.",
-            logo: require("../resources/clanIcons/Lamia.webp"),
+            logo: lamiaLogo,
             bane: "Hecata may only take harmful drinks from mortals which result in blood loss. Unwilling mortals that are able to escape will make the attempt, even those who are convinced or willing must succeed in a Stamina + Resolve test against Difficulty 2 + Bane Severity in order to not recoil. Vampires who are willingly bit must make a Frenzy test against Difficulty 3 to avoid terror Frenzy.",
             compulsion: "The vampire must move something from life to death or vice versa, any action not taken to end or resurrect something suffers a two-dice penalty. The subject does not have to be a living thing and can instead be an object or more abstract such as ideas or conversation points. This Compulsion lasts until they manage to kill or return something to life.",
             nativeDisciplines: ["auspex", "fortitude", "oblivion"],
@@ -168,7 +173,7 @@ export const clans: Record<ClanName, Clan> = {
         Nagaraja: {
             name: "Nagaraja",
             description: "Necromantic bloodline compelled to be among the dead.",
-            logo: require("../resources/clanIcons/Nagaraja.webp"),
+            logo: nagarajaLogo,
             bane: "They must consume flesh, as well as drinking blood in order to slack their Hunger and hold back decay. For every night the Nagaraja doesn’t consume flesh they rot. The type of flesh varies with the severity of the Bane. Each night that they do not consume Flesh they lose a die in all social rolls and for every 5 days they rot persists they loose two dice to all physical attributes. The negative effects are reversed for ever health level of flesh consumed, die rolls never can be drop below 1.",
             compulsion: "The vampire is compelled be among the dead, they feel an overwhelming urge to surround themselves with the dead, even a pile of bones will comfort them. If they cannot find a corpse they will be compelled to make one.",
             nativeDisciplines: ["auspex", "dominate", "necromancy"],
@@ -176,7 +181,7 @@ export const clans: Record<ClanName, Clan> = {
         DaughtersofCacophony: {
             name: "Daughters of Cacophony",
             description: "Masters of the Voice, their powers allow them to control music and its effects.",
-            logo: require("../resources/clanIcons/DaughtersofCacophony.webp"),
+            logo: daughtersofCacophonyLogo,
             bane: "Tune - The Daughters of Cacophony constantly hear music. The tune is different for each Daughter. Some of them hear violins, some an orchestra, some pounding drums, and a few a chorus of screams. Each Fugue is unique to the Daughter who hears it, and while it has driven some of them mad, it is always beautiful to them in its own way. You can often hear a Daughter humming along to the tune in their head. This might be a form of synaesthesia, or it might be a hallucination. This constant song distracts the Daughters as much as it guides them, some say the songs contains words of insight. Because of this constant tune the difficulties of all their Awareness rolls increase by 1 for every level of their Bane and no Daughter of Cacophony may have Awareness above 3 dots.",
             compulsion: "DIN OF DELUSION - The song in the Daughters head becomes so intense it can make them mad. For one scene the Siren hears the Fugue so load they must concentrate to hear anything else. They also see colours and flickering images from their peripheral vision. They receive a two-dice penalty to rolls involving Manipulation, Composure, and Wits as well as on rolls to resist terror frenzy.",
             nativeDisciplines: ["fortitude", "auspex", "presence"],
@@ -184,7 +189,7 @@ export const clans: Record<ClanName, Clan> = {
         Ahrimanes: {
             name: "Ahrimanes",
             description: "Rare, all-female bloodline originally headed by Ádísa during the Dark Ages.",
-            logo: require("../resources/clanIcons/Ahrimanes.webp"),
+            logo: ahrimanesLogo,
             bane: "An Ahrimanes' blood is inert, and resists the ties of bondage. They are unable to create blood bonds or ghouls, and the modern Ahrimanes struggle to create additional childer.",
             compulsion: "CO-SURVIVOR: The pack is as strong as its weakest link, and failure out here in the wilderness means death. This compulsion tends to manifest when both you and another utterly fail in succession. You get a -2 penalty on all pools until you, or someone you're helping, succeeds on a Teamwork Dice Pool.",
             nativeDisciplines: ["animalism", "protean", "auspex"],
@@ -192,7 +197,7 @@ export const clans: Record<ClanName, Clan> = {
         Lhiannan: {
             name: "Lhiannan",
             description: "Territorial, matriarchal and druidic Cainite bloodline with a unique connection to nature and spirits.",
-            logo: require("../resources/clanIcons/Lhiannan.webp"),
+            logo: lhiannanLogo,
             bane: "The Lhiannan were part nature spirit, and so had a unique connection to the world of spirits, most notably in the form of their Ogham; this connection gave them an inhuman aura obvious even to humans (and it was exceedingly easy for others to gauge their natures through the use of Auspex).",
             compulsion: "ZOOCHOSIS: Modern life is closing in around you. Streets packed with loud vehicles, narrow alleyways reeking of rot and garbage, the cries and constructions of unnatural society layered onto itself. When this compulsion manifests you tend to revert to a more primitive mental state; Repeating monotonous tasks, scratching the surface of your desk into a groove, or grinding your teeth. These effects confer a -2 Dice penalty to Social Pools until you can manage to find an open and more natural locale or speak with someone who understands your mental state.",
             nativeDisciplines: ["animalism", "presence", "protean"],
