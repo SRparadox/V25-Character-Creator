@@ -21,8 +21,15 @@ export const clanNameSchema = z.union([
 
     z.literal("Caitiff"),
     z.literal("Thin-blood"),
-
-    z.literal(""),
+    z.literal("Gargoyle"),
+    z.literal("Kiasyd"),
+    z.literal("Baali"),
+    z.literal("DaughtersofCacophony"),
+    z.literal("Lhiannan"),
+    z.literal("Ahrimanes"),
+    z.literal("Lamia"),
+    z.literal("Nagaraja"),
+    z.literal("")
 ])
 export type ClanName = z.infer<typeof clanNameSchema>
 

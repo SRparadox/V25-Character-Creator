@@ -21,6 +21,9 @@ import daughtersofCacophonyLogo from "../resources/clanIcons/DaughtersofCacophon
 import ahrimanesLogo from "../resources/clanIcons/Ahrimanes.webp"
 import lhiannanLogo from "../resources/clanIcons/Lhiannan.webp"
 import { ClanName, clanNameSchema, disciplineNameSchema } from "./NameSchemas"
+import gargoyleLogo from "../resources/clanIcons/Gargoyles.webp"
+import kiasydLogo from "../resources/clanIcons/Kiasyd.webp"
+import baaliLogo from "../resources/clanIcons/Baali.webp"
 
 export const clanSchema = z.object({
     name: clanNameSchema,
@@ -166,16 +169,16 @@ export const clans: Record<ClanName, Clan> = {
             name: "Lamia",
             description: "Bloodline of Hecata with a unique connection to death and resurrection.",
             logo: lamiaLogo,
-            bane: "Hecata may only take harmful drinks from mortals which result in blood loss. Unwilling mortals that are able to escape will make the attempt, even those who are convinced or willing must succeed in a Stamina + Resolve test against Difficulty 2 + Bane Severity in order to not recoil. Vampires who are willingly bit must make a Frenzy test against Difficulty 3 to avoid terror Frenzy.",
-            compulsion: "The vampire must move something from life to death or vice versa, any action not taken to end or resurrect something suffers a two-dice penalty. The subject does not have to be a living thing and can instead be an object or more abstract such as ideas or conversation points. This Compulsion lasts until they manage to kill or return something to life.",
+            bane: "Painful Kiss: Hecata may only take harmful drinks from mortals which result in blood loss. Unwilling mortals that are able to escape will make the attempt, even those who are convinced or willing must succeed in a Stamina + Resolve test against Difficulty 2 + Bane Severity in order to not recoil. Vampires who are willingly bit must make a Frenzy test against Difficulty 3 to avoid terror Frenzy.",
+            compulsion: "Morbidity: The vampire must move something from life to death or vice versa, any action not taken to end or resurrect something suffers a two-dice penalty. The subject does not have to be a living thing and can instead be an object or more abstract such as ideas or conversation points. This Compulsion lasts until they manage to kill or return something to life.",
             nativeDisciplines: ["auspex", "fortitude", "oblivion"],
         },
         Nagaraja: {
             name: "Nagaraja",
             description: "Necromantic bloodline compelled to be among the dead.",
             logo: nagarajaLogo,
-            bane: "They must consume flesh, as well as drinking blood in order to slack their Hunger and hold back decay. For every night the Nagaraja doesn’t consume flesh they rot. The type of flesh varies with the severity of the Bane. Each night that they do not consume Flesh they lose a die in all social rolls and for every 5 days they rot persists they loose two dice to all physical attributes. The negative effects are reversed for ever health level of flesh consumed, die rolls never can be drop below 1.",
-            compulsion: "The vampire is compelled be among the dead, they feel an overwhelming urge to surround themselves with the dead, even a pile of bones will comfort them. If they cannot find a corpse they will be compelled to make one.",
+            bane: "Organvore: They must consume flesh, as well as drinking blood in order to slack their Hunger and hold back decay. For every night the Nagaraja doesn’t consume flesh they rot. The type of flesh varies with the severity of the Bane. Each night that they do not consume Flesh they lose a die in all social rolls and for every 5 days they rot persists they loose two dice to all physical attributes. The negative effects are reversed for ever health level of flesh consumed, die rolls never can be drop below 1.",
+            compulsion: "Dead Temple: The vampire is compelled be among the dead, they feel an overwhelming urge to surround themselves with the dead, even a pile of bones will comfort them. If they cannot find a corpse they will be compelled to make one.",
             nativeDisciplines: ["auspex", "dominate", "necromancy"],
         },
         DaughtersofCacophony: {
@@ -230,7 +233,31 @@ export const clans: Record<ClanName, Clan> = {
         compulsion: "Caitiffs have no compulsion",
         nativeDisciplines: ["thin-blood alchemy"],
     },
-
+    // Blood of Outsiders
+    Gargoyle: {
+        name: "Gargoyle",
+        description: "Gargoyle Bloodline - Born from the blood of Beasts, Dragons, and Horrors, Gargoyles manifest atavistic, downright inhuman visages.",
+        logo: gargoyleLogo, // purple icon
+        bane: "Primordial Flesh - Gargoyles manifest inhuman anatomy. Whenever engaged in a physical task requiring finesse and roll a 1 on a Hunger Die, subtract Bane Severity from successes.",
+        compulsion: "Dysphoria - In the throes of their Beast, the wrongness of their bodies becomes disconcerting. Until completely alone and unseen, take a 2-Die penalty to all dice pools.",
+        nativeDisciplines: ["protean", "fortitude", "obfuscate"],
+    },
+    Kiasyd: {
+        name: "Kiasyd",
+        description: "Kiasyd Bloodline - Possessed of arcane taboos and impish tendencies.",
+        logo: kiasydLogo, // purple icon
+        bane: "Taboo - Each Kiasyd has specific taboos equal to half Bane Severity (round up). Violating a taboo causes 1 Aggravated Willpower damage.",
+        compulsion: "Chicanerous - Must inflict a serious mishap causing at least 1 Superficial Health or Willpower damage to someone nearby, or take a 2-Die penalty to all dice pools not contributing to this.",
+        nativeDisciplines: ["dominate", "auspex", "oblivion"],
+    },
+    Baali: {
+        name: "Baali",
+        description: "Baali Bloodline - Vampires cursed with demonic influence and holy repulsion.",
+        logo: baaliLogo, // purple icon
+        bane: "HOLY REPULSION - Must spend Willpower equal to Bane Severity to avoid repulsion by holy iconography, scripture, or prayer. Direct contact causes Superficial Damage equal to Bane Severity. In presence of True Faith, lose dice equal to Bane Severity in Willpower Tests, and damage from True Faith is doubled.",
+        compulsion: "Devil's Bargain - Take a two dice penalty to all dice pools until you fail a test and agree to Succeed at a Cost, which brings success via demonic interference but always causes another problem.",
+        nativeDisciplines: ["blood sorcery", "oblivion", "presence"],
+    },
     "": {
         name: "",
         description: "",
@@ -239,4 +266,4 @@ export const clans: Record<ClanName, Clan> = {
         compulsion: "",
         nativeDisciplines: [],
     },
-}
+};
