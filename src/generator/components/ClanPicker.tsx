@@ -155,7 +155,7 @@ const ClanPicker = ({ character, setCharacter, nextStep }: ClanPickerProps) => {
                     Bloodlines & Special Cases
                 </Text>
                 <Grid grow m={0}>
-                    {["Caitiff", "Thin-blood", "Nagaraja", "Lamia", "Daughters of Cacophony", "Ahrimanes", "Lhiannan"]
+                    {["Caitiff", "Thin-blood", "Nagaraja", "Lamia", "Lhiannan", "Ahrimanes", "Daughters of Cacophony"]
                         .map((c) => clanNameSchema.parse(c))
                         .map((clan) => createClanPick(clan, theme.fn.rgba(theme.colors.teal[8], 0.9)))}
                 </Grid>
