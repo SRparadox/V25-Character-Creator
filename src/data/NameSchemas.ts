@@ -25,6 +25,7 @@ export const clanNameSchema = z.union([
     z.literal("Kiasyd"),
     z.literal("Baali"),
     z.literal("DaughtersofCacophony"),
+    z.literal("Daughters of Cacophony"),
     z.literal("Lhiannan"),
     z.literal("Ahrimanes"),
     z.literal("Lamia"),

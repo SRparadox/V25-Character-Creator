@@ -179,7 +179,15 @@ export const clans: Record<ClanName, Clan> = {
             logo: nagarajaLogo,
             bane: "Organvore: They must consume flesh, as well as drinking blood in order to slack their Hunger and hold back decay. For every night the Nagaraja doesn’t consume flesh they rot. The type of flesh varies with the severity of the Bane. Each night that they do not consume Flesh they lose a die in all social rolls and for every 5 days they rot persists they loose two dice to all physical attributes. The negative effects are reversed for ever health level of flesh consumed, die rolls never can be drop below 1.",
             compulsion: "Dead Temple: The vampire is compelled be among the dead, they feel an overwhelming urge to surround themselves with the dead, even a pile of bones will comfort them. If they cannot find a corpse they will be compelled to make one.",
-            nativeDisciplines: ["auspex", "dominate", "necromancy"],
+            nativeDisciplines: ["auspex", "dominate", "oblivion"],
+        },
+        "Daughters of Cacophony": {
+            name: "Daughters of Cacophony",
+            description: "Masters of the Voice, their powers allow them to control music and its effects.",
+            logo: daughtersofCacophonyLogo,
+            bane: "Tune - The Daughters of Cacophony constantly hear music. The tune is different for each Daughter. Some of them hear violins, some an orchestra, some pounding drums, and a few a chorus of screams. Each Fugue is unique to the Daughter who hears it, and while it has driven some of them mad, it is always beautiful to them in its own way. You can often hear a Daughter humming along to the tune in their head. This might be a form of synaesthesia, or it might be a hallucination. This constant song distracts the Daughters as much as it guides them, some say the songs contains words of insight. Because of this constant tune the difficulties of all their Awareness rolls increase by 1 for every level of their Bane and no Daughter of Cacophony may have Awareness above 3 dots.",
+            compulsion: "DIN OF DELUSION - The song in the Daughters head becomes so intense it can make them mad. For one scene the Siren hears the Fugue so load they must concentrate to hear anything else. They also see colours and flickering images from their peripheral vision. They receive a two-dice penalty to rolls involving Manipulation, Composure, and Wits as well as on rolls to resist terror frenzy.",
+            nativeDisciplines: ["fortitude", "auspex", "presence"],
         },
         DaughtersofCacophony: {
             name: "Daughters of Cacophony",
