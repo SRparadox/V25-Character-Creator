@@ -96,6 +96,9 @@ export const predatorTypeNameSchema = z.union([
     z.literal("Rival Predators"),
     z.literal("Cardillac"),
     z.literal("Patron Of The Arts"),
+    z.literal("Two Face"),
+    z.literal("Fear Monger"),
+    z.literal("Reputation"),
     z.literal("")
 ])
 export type PredatorTypeName = z.infer<typeof predatorTypeNameSchema>

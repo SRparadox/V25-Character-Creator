@@ -866,4 +866,8 @@ export const PredatorTypes: Record<PredatorTypeName, PredatorType> = {
         humanityChange: 0,
         bloodPotencyChange: 0,
     },
+    // Add only truly missing predator types with placeholder data
+    "Two Face": { name: "Two Face", summary: "[Placeholder]", specialtyOptions: [], disciplineOptions: [], meritsAndFlaws: [], selectableMeritsAndFlaws: [], humanityChange: 0, bloodPotencyChange: 0 },
+    "Fear Monger": { name: "Fear Monger", summary: "[Placeholder]", specialtyOptions: [], disciplineOptions: [], meritsAndFlaws: [], selectableMeritsAndFlaws: [], humanityChange: 0, bloodPotencyChange: 0 },
+    "Reputation": { name: "Reputation", summary: "[Placeholder]", specialtyOptions: [], disciplineOptions: [], meritsAndFlaws: [], selectableMeritsAndFlaws: [], humanityChange: 0, bloodPotencyChange: 0 },
 }
