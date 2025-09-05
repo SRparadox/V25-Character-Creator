@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Group, Stack, Text, Title, Center } from "@mantine/core";
+import { Card, Center, Grid, Image, ScrollArea, Text, Title, useMantineTheme } from "@mantine/core";
 // Update the import to match the actual export from Character.ts
 // For example, if it's a default export:
 // import Character from "../../data/Character";
@@ -30,15 +30,8 @@ export type Sect =
   | "Sabbat"
   | "TalMaheRa";
 
-const sects: { name: Sect; color: string; icon: string }[] = [
-  { name: "Camarilla", color: "#bfc9d9", icon: CamarillaIcon },
-  { name: "Anarch", color: "#e63946", icon: AnarchIcon },
-  { name: "Independent", color: "#f4a259", icon: IndependentIcon },
-  { name: "Ashirra", color: "#2a9d8f", icon: AshirraIcon },
-  { name: "Black Hand", color: "#22223b", icon: BlackHandIcon },
-  { name: "Sabbat", color: "#6d597a", icon: SabbatIcon },
-  { name: "TalMaheRa", color: "#f72585", icon: TalMaheRaIcon },
-];
+
+const sectNames = Object.keys(sectsData) as Sect[];
 
 export type SectPickerProps = {
   character: Character;
@@ -46,42 +39,60 @@ export type SectPickerProps = {
   nextStep: () => void;
 };
 
+
 const SectPicker = ({ character, setCharacter, nextStep }: SectPickerProps) => {
+  const theme = useMantineTheme();
   const [selectedSect, setSelectedSect] = useState<Sect | null>(
-    sects.some(s => s.name === character.sect) ? (character.sect as Sect) : null
+    sectNames.includes(character.sect as Sect) ? (character.sect as Sect) : null
   );
 
-  const handleSelect = (sect: Sect) => {
-    setSelectedSect(sect);
-    setCharacter({ ...character, sect });
+  const createSectPick = (sect: Sect) => {
+    const { color, icon, summary } = sectsData[sect];
+    const bgColor = theme.fn.linearGradient(0, "rgba(26, 27, 30, 0.90)", color);
+    return (
+      <Grid.Col key={sect} span={4}>
+        <Card
+          className="hoverCard"
+          shadow="sm"
+          padding="lg"
+          radius="md"
+          h={275}
+          style={{ background: bgColor, cursor: "pointer", border: selectedSect === sect ? `2px solid ${color}` : undefined }}
+          onClick={() => {
+            setCharacter({ ...character, sect });
+            setSelectedSect(sect);
+            nextStep();
+          }}
+        >
+          <Card.Section>
+            <Center pt={10}>
+              <Image fit="contain" withPlaceholder src={icon} height={120} width={120} alt={sect} />
+            </Center>
+          </Card.Section>
+          <Center>
+            <Title p="md">{sect}</Title>
+          </Center>
+          <Text h={55} size="sm" color="dimmed" ta="center">
+            {summary}
+          </Text>
+        </Card>
+      </Grid.Col>
+    );
   };
 
   return (
-    <Center h="100%">
-      <Stack spacing="xl" align="center">
-        <Title order={2}>Choose a Sect</Title>
-        <Group spacing="lg">
-          {sects.map(({ name, color, icon }) => (
-            <Button
-              key={name}
-              variant={selectedSect === name ? "filled" : "outline"}
-              color={color}
-              onClick={() => handleSelect(name)}
-              style={{ display: "flex", flexDirection: "column", alignItems: "center", width: 160, height: 180, padding: 0 }}
-            >
-              <img src={icon} alt={name} style={{ width: 48, height: 48, marginTop: 12, marginBottom: 8 }} />
-              <Text fw={700} size="lg">{name}</Text>
-              <Text size="sm" color="dimmed" ta="center" style={{ minHeight: 40, marginTop: 4, marginBottom: 0, padding: 2 }}>
-                {sectsData[name].summary}
-              </Text>
-            </Button>
-          ))}
-        </Group>
-        <Button disabled={!selectedSect} onClick={nextStep} color="grape" size="lg">
-          Next
-        </Button>
-      </Stack>
-    </Center>
+    <div>
+      <Text fz={"30px"} ta={"center"}>
+        Pick your <b>Sect</b>
+      </Text>
+      <Text ta="center" fz="xl" fw={700} c="grape">
+        Sect
+      </Text>
+      <hr color="#b5179e" />
+      <ScrollArea h={500} w={"100%"} p={20}>
+        <Grid grow m={0}>{sectNames.map((sect) => createSectPick(sect))}</Grid>
+      </ScrollArea>
+    </div>
   );
 };
 
