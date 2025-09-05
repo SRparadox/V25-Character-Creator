@@ -41,86 +41,266 @@ export type Discipline = z.infer<typeof disciplineSchema>
 
 export const disciplines: Record<DisciplineName, Discipline> = {
     animalism: {
-        clans: ["Nosferatu", "Gangrel", "Ravnos", "Tzimisce"],
+        clans: [
+            "Nosferatu", "Gangrel", "Ravnos", "Tzimisce", "Ahrimanes", "Lhiannan", "Caitiff"
+        ],
         summary: "Interact with and control animals",
         logo: animalismLogo,
         powers: [
+            // Level 1
             {
                 name: "Bond Famulus",
-                description: "",
+                description: "Bond to an animal to make other Animalism powers more effective.",
                 rouseChecks: 3,
                 amalgamPrerequisites: [],
-                summary:
-                    "bond an animal companion. It will listen to basic commands, but full communication is not possible (unless you have Feral Whispers)",
+                summary: "Bond an animal companion. It will listen to basic commands, but full communication is not possible (unless you have Feral Whispers)",
                 dicePool: "Charisma + Animal Ken",
                 level: 1,
                 discipline: "animalism",
             },
             {
-                name: "Sense the Beast",
-                description: "",
+                name: "Pack Mentality",
+                description: "Share Fortitude to resist mental domination collectively.",
                 rouseChecks: 0,
-                amalgamPrerequisites: [],
-                summary: "sense hostility and supernatural traits in people",
-                dicePool: "Resolve + Animalism",
+                amalgamPrerequisites: [{ discipline: "fortitude", level: 1 }],
+                summary: "Share Fortitude to resist mental domination collectively among bonded animals and yourself.",
+                dicePool: "Composure + Animalism",
                 level: 1,
                 discipline: "animalism",
             },
             {
-                name: "Feral Whispers",
-                description: "",
-                rouseChecks: 1,
+                name: "Sense the Beast",
+                description: "Sense anger, hunger, and Beasts.",
+                rouseChecks: 0,
                 amalgamPrerequisites: [],
-                summary: "communicate with animals. You can also call for animals and if they are nearby, they will come.",
-                dicePool: "Manipulation / Charisma + Animalism",
+                summary: "Sense hostility and supernatural traits in people.",
+                dicePool: "Resolve + Animalism",
+                level: 1,
+                discipline: "animalism",
+            },
+            // Level 2
+            {
+                name: "Animal Messenger",
+                description: "Send messages through your famulus.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [{ discipline: "auspex", level: 1 }],
+                summary: "Send messages through your bonded animal (famulus).",
+                dicePool: "Manipulation + Animalism",
                 level: 2,
                 discipline: "animalism",
             },
             {
                 name: "Atavism",
-                description: "",
+                description: "Force an animal into fear or rage frenzy.",
                 rouseChecks: 1,
                 amalgamPrerequisites: [],
-                summary: "make an animal enrage or flee",
+                summary: "Make an animal enrage or flee.",
                 dicePool: "Composure + Animalism",
                 level: 2,
                 discipline: "animalism",
             },
-
+            {
+                name: "Bestial Wrath",
+                description: "Have the beast possess an animal that has fed from you, Frenzy Test.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [{ discipline: "fortitude", level: 2 }],
+                summary: "Have the beast possess an animal that has fed from you. Frenzy Test required.",
+                dicePool: "Resolve + Animalism",
+                level: 2,
+                discipline: "animalism",
+            },
+            {
+                name: "Feral Whispers",
+                description: "Speak to and summon animals.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+                summary: "Communicate with animals. You can also call for animals and if they are nearby, they will come.",
+                dicePool: "Manipulation / Charisma + Animalism",
+                level: 2,
+                discipline: "animalism",
+            },
+            // Level 3
+            {
+                name: "Augury",
+                description: "Answer questions about the city using animal senses.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [{ discipline: "auspex", level: 1 }],
+                summary: "Answer questions about the city using animal senses.",
+                dicePool: "Wits + Animalism",
+                level: 3,
+                discipline: "animalism",
+            },
+            {
+                name: "Awaken the Parasite",
+                description: "Fill someone's body with parasites.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+                summary: "Fill someone's body with parasites.",
+                dicePool: "Stamina + Animalism",
+                level: 3,
+                discipline: "animalism",
+            },
+            {
+                name: "Rabid Bite",
+                description: "Animal bites cause frenzy.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+                summary: "Animal bites cause frenzy in targets.",
+                dicePool: "Strength + Animalism",
+                level: 3,
+                discipline: "animalism",
+            },
             {
                 name: "Animal Succulence",
-                description: "",
+                description: "Feed more effectively on animals. You can consume your famulus to temporarily gain their aspect.",
                 rouseChecks: 0,
                 amalgamPrerequisites: [],
-                summary: "Feed more effectively on animals. You can consume your famulus to temporarily gain their aspect",
+                summary: "Feed more effectively on animals. You can consume your famulus to temporarily gain their aspect.",
                 dicePool: "",
                 level: 3,
                 discipline: "animalism",
             },
             {
+                name: "Messenger's Command",
+                description: "Convey Compel or Mesmerize through your famulus.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [
+                    { discipline: "dominate", level: 1 },
+                    { discipline: "animalism", level: 2 }
+                ],
+                summary: "Convey Compel or Mesmerize through your famulus (requires Animal Messenger, Compel or Mesmerize).",
+                dicePool: "Manipulation + Animalism",
+                level: 3,
+                discipline: "animalism",
+            },
+            {
                 name: "Scent of Prey",
-                description: "",
+                description: "Detect mortals who saw breaches.",
                 rouseChecks: 1,
                 amalgamPrerequisites: [],
-                summary: "Detect Mortals who saw Masquerade breaches",
+                summary: "Detect mortals who saw Masquerade breaches.",
                 dicePool: "Resolve + Animalism",
                 level: 3,
                 discipline: "animalism",
             },
             {
-                name: "Quell the Beast",
-                description: "",
+                name: "Plague of Beasts",
+                description: "Send animals to harass a target.",
                 rouseChecks: 1,
                 amalgamPrerequisites: [],
-                summary: "Shut down a target's drives and desires, pull vampires out of frenzy",
+                summary: "Send animals to harass a target.",
+                dicePool: "Manipulation + Animalism",
+                level: 3,
+                discipline: "animalism",
+            },
+            {
+                name: "Quell the Beast",
+                description: "Shut down a target's drives and desires, pull vampires out of frenzy.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+                summary: "Shut down a target's drives and desires, pull vampires out of frenzy.",
                 dicePool: "Charisma + Animalism",
                 level: 3,
+                discipline: "animalism",
+            },
+            {
+                name: "Unliving Hive",
+                description: "Other Animalism powers affect insects.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [{ discipline: "obfuscate", level: 2 }],
+                summary: "Other Animalism powers affect insects.",
+                dicePool: "Wits + Animalism",
+                level: 3,
+                discipline: "animalism",
+            },
+            // Level 4
+            {
+                name: "Feral Dialogue",
+                description: "Convey complex messages via discreet howls.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+                summary: "Convey complex messages via discreet howls.",
+                dicePool: "Manipulation + Animalism",
+                level: 4,
+                discipline: "animalism",
+            },
+            {
+                name: "Subsume the Spirit",
+                description: "Possess an animal.",
+                rouseChecks: 2,
+                amalgamPrerequisites: [],
+                summary: "Possess an animal.",
+                dicePool: "Resolve + Animalism",
+                level: 4,
+                discipline: "animalism",
+            },
+            {
+                name: "Sway the Flock",
+                description: "Change behavior of animals in an area.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+                summary: "Change behavior of animals in an area.",
+                dicePool: "Manipulation + Animalism",
+                level: 4,
+                discipline: "animalism",
+            },
+            // Level 5
+            {
+                name: "Living Menagerie",
+                description: "Unify the beasts of all around.",
+                rouseChecks: 2,
+                amalgamPrerequisites: [],
+                summary: "Unify the beasts of all around.",
+                dicePool: "Charisma + Animalism",
+                level: 5,
+                discipline: "animalism",
+            },
+            {
+                name: "Animal Dominion",
+                description: "Control large groups of animals.",
+                rouseChecks: 2,
+                amalgamPrerequisites: [],
+                summary: "Control large groups of animals.",
+                dicePool: "Charisma + Animalism",
+                level: 5,
+                discipline: "animalism",
+            },
+            {
+                name: "Coax the Bestial Temper",
+                description: "Increase or decrease frenzy difficulties in an area.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+                summary: "Increase or decrease frenzy difficulties in an area.",
+                dicePool: "Manipulation + Animalism",
+                level: 5,
+                discipline: "animalism",
+            },
+            {
+                name: "Drawing Out the Beast",
+                description: "When you would frenzy, make someone else frenzy instead.",
+                rouseChecks: 2,
+                amalgamPrerequisites: [],
+                summary: "When you would frenzy, make someone else frenzy instead.",
+                dicePool: "Manipulation + Animalism",
+                level: 5,
+                discipline: "animalism",
+            },
+            {
+                name: "Spirit Walk",
+                description: "Subsume the Spirit lasts indefinitely, can transfer between animals.",
+                rouseChecks: 2,
+                amalgamPrerequisites: [{ discipline: "animalism", level: 4 }],
+                summary: "Subsume the Spirit lasts indefinitely, can transfer between animals.",
+                dicePool: "Resolve + Animalism",
+                level: 5,
                 discipline: "animalism",
             },
         ],
     },
     auspex: {
-        clans: ["Toreador", "Tremere", "Malkavian", "Hecata", "Salubri"],
+        clans: [
+            "Toreador", "Tremere", "Malkavian", "Hecata", "Salubri", "Ahrimanes", "Kiasyd", "Lamia", "Nagaraja", "Caitiff"
+        ],
         summary: "Supernatural senses and premonitions",
         logo: auspexLogo,
         powers: [
@@ -208,7 +388,9 @@ export const disciplines: Record<DisciplineName, Discipline> = {
         ],
     },
     celerity: {
-        clans: ["Toreador", "Brujah", "Banu Haqim"],
+        clans: [
+            "Toreador", "Brujah", "Banu Haqim", "Caitiff"
+        ],
         summary: "Move with supernatural speed",
         logo: celerityLogo,
         powers: [
@@ -276,7 +458,9 @@ export const disciplines: Record<DisciplineName, Discipline> = {
         ],
     },
     dominate: {
-        clans: ["Ventrue", "Malkavian", "Tremere", "Lasombra", "Tzimisce", "Salubri"],
+        clans: [
+            "Ventrue", "Malkavian", "Tremere", "Lasombra", "Tzimisce", "Salubri", "Kiasyd", "Nagaraja", "Caitiff"
+        ],
         summary: "Control other's minds",
         logo: dominateLogo,
         powers: [
@@ -356,7 +540,9 @@ export const disciplines: Record<DisciplineName, Discipline> = {
         ],
     },
     fortitude: {
-        clans: ["Ventrue", "Gangrel", "Hecata", "Salubri"],
+        clans: [
+            "Ventrue", "Gangrel", "Hecata", "Salubri", "Lamia", "Gargoyle", "Caitiff"
+        ],
         summary: "Resist damage and influence",
         logo: fortitudeLogo,
         powers: [
@@ -435,7 +621,9 @@ export const disciplines: Record<DisciplineName, Discipline> = {
         ],
     },
     obfuscate: {
-        clans: ["Nosferatu", "Malkavian", "Banu Haqim", "Ministry", "Ravnos"],
+        clans: [
+            "Nosferatu", "Malkavian", "Banu Haqim", "Ministry", "Ravnos", "Gargoyle", "Caitiff"
+        ],
         summary: "Remain undetected",
         logo: obfuscateLogo,
         powers: [
@@ -524,7 +712,9 @@ export const disciplines: Record<DisciplineName, Discipline> = {
         ],
     },
     potence: {
-        clans: ["Nosferatu", "Brujah", "Lasombra"],
+        clans: [
+            "Nosferatu", "Brujah", "Lasombra", "Caitiff"
+        ],
         summary: "Gain supernatural strength",
         logo: potenceLogo,
         powers: [
@@ -591,7 +781,9 @@ export const disciplines: Record<DisciplineName, Discipline> = {
         ],
     },
     presence: {
-        clans: ["Toreador", "Brujah", "Ventrue", "Ministry", "Ravnos"],
+        clans: [
+            "Toreador", "Brujah", "Ventrue", "Ministry", "Ravnos", "Lhiannan", "Baali", "Caitiff"
+        ],
         summary: "Supernatural appearance and vibe",
         logo: presenceLogo,
         powers: [
@@ -678,7 +870,9 @@ export const disciplines: Record<DisciplineName, Discipline> = {
         ],
     },
     protean: {
-        clans: ["Gangrel", "Ministry", "Tzimisce"],
+        clans: [
+            "Gangrel", "Ministry", "Tzimisce", "Ahrimanes", "Lhiannan", "Gargoyle", "Caitiff"
+        ],
         summary: "Shape your body to gain power",
         logo: proteanLogo,
         powers: [
@@ -746,7 +940,9 @@ export const disciplines: Record<DisciplineName, Discipline> = {
         ],
     },
     "blood sorcery": {
-        clans: ["Tremere", "Banu Haqim"],
+        clans: [
+            "Tremere", "Banu Haqim", "Baali", "Caitiff"
+        ],
         summary: "Use blood-related magic and rituals",
         logo: bloodSorceryLogo,
         powers: [
@@ -834,7 +1030,9 @@ export const disciplines: Record<DisciplineName, Discipline> = {
         ],
     },
     oblivion: {
-        clans: ["Lasombra", "Hecata"],
+        clans: [
+            "Lasombra", "Hecata", "Kiasyd", "Baali", "Lamia", "Nagaraja", "Caitiff"
+        ],
         summary: "Shadow powers and necromancy",
         logo: oblivionLogo,
         powers: [
@@ -934,7 +1132,7 @@ export const disciplines: Record<DisciplineName, Discipline> = {
         ],
     },
     "thin-blood alchemy": {
-        clans: [],
+        clans: ["Thin-blood"],
         summary: "",
         logo: "",
         powers: [],
