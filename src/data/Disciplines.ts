@@ -924,16 +924,52 @@ export const ceremonySchema = z.object({
 export type Ceremony = z.infer<typeof ceremonySchema>
 
 export const Ceremonies: Ceremony[] = [
-    // Add Oblivion ceremonies here, e.g.:
-    // {
-    //     name: "Name of Ceremony",
-    //     summary: "Summary of the ceremony's effect.",
-    //     rouseChecks: 1,
-    //     requiredTime: "1 hour",
-    //     dicePool: "Intelligence + Oblivion",
-    //     ingredients: "List of ingredients",
-    //     level: 1,
-    // },
+    { name: "Gift of False Life", summary: "Reanimate a corpse to perform one task (Ashes to Ashes)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 1 },
+    { name: "Knowing Stone", summary: "Scry a ghost's location from its name (Ashes to Ashes or Binding Fetter)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 1 },
+    { name: "Summon Spirit", summary: "Summon a ghost with its fetter (Binding Fetter)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 1 },
+    { name: "Gift of the Blood Pearl", summary: "Blood Pearls animate corpses (Blood Sorcery 1)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 1 },
+    { name: "Glutton's Insight", summary: "Absorbs victims' memories through feasting (Carrion Banquet or Rapacious Communion)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 1 },
+    { name: "Desperate Cry", summary: "Desperate pact heals wounds but inflicts lasting harm (Rapacious Communion)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 1 },
+    { name: "Traveler's Call", summary: "Alert another Shalimite to your location (Oblivion Sight, Shalimite)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 1 },
+    { name: "Poet's Prose", summary: "Blood-scribed messages glow for Oblivion's eyes alone (Lambent Dark)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 1 },
+    { name: "Sin's Graceful Flame", summary: "Balefire candle, revealing sins and fueling infernal power. (Daimonion)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 1 },
+    // Level 2
+    { name: "Repulsion Of Corposes", summary: "Glyphs repel undead, revealing caster's name if scrutinized (Carrion Banquet or Where the Veil Thins)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 2 },
+    { name: "Birth The Barghest", summary: "Fuse corpses into an undead Barghest guardian (Soul Swap)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 2 },
+    { name: "Ashen Relic", summary: "Preserve Kindred body parts as relics (Ashes to Ashes or Oblivion Sight)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 2 },
+    { name: "Awaken the Homuncular Servant", summary: "Create a small programmable minion (Where the Veil Thins)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 2 },
+    { name: "Blinding the Alloy Eye", summary: "Cameras cannot perceive or detect you (Shadow Cast)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 2 },
+    { name: "Compel Spirit", summary: "Force a spirit to obey (Where the Veil Thins)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 2 },
+    { name: "Maw of Ahriman", summary: "Fill an orifice with Oblivion", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 2 },
+    // Level 3
+    { name: "Beckon The Broken Soul", summary: "Summons tormented souls from Oblivion (Rapacious Communion or Daimonion)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 3 },
+    { name: "Craft Flesh Golem", summary: "Create a Frankenstein-esque flesh golem from three corpses (Aura of Decay or Necrotic Plague)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 3 },
+    { name: "Create Corpse Suit", summary: "Create sentient flesh clothes (Shadow Perspective or Touch of Oblivion)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 3 },
+    { name: "Hell-Bound Heart", summary: "Sacrifices 9 mortals for permanent demonic transformations (Daimonion)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 3 },
+    { name: "Fortezza Sindonica", summary: "Make a barrier wraiths cannot pass (Where the Veil Thins, Hecata)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 3 },
+    { name: "Harrowhaunt", summary: "Haunt a building to repel mortals (Aura of Decay)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 3 },
+    { name: "Host Spirit", summary: "Invite a spirit into your body for power (Aura of Decay)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 3 },
+    { name: "Knit the Veil", summary: "Make the Shroud impenetrable (Where the Veil Thins)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 3 },
+    { name: "Name of the Father", summary: "Paralyze someone with despair (Shadow Perspective, Shalimite)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 3 },
+    { name: "The Shallow Slumber", summary: "Reduce torpor duration (Passion Feast or Touch of Oblivion)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 3 },
+    { name: "Shambling Hordes", summary: "Create obedient, long-lasting zombies (Aura of Decay)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 3 },
+    { name: "Wisdom of the Dead", summary: "Borrow skills from a corpse (Oblivion Sight or Where the Veil Thins)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 3 },
+    // Level 4
+    { name: "Befoul Vessel", summary: "Corrupt a mortal's blood so it increases Hunger when tasted (Necrotic Touch)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 4 },
+    { name: "Profane Edge of Depravity", summary: "Profane weapons amplify damage but reflect on creator (Pareidolian or Arms of Ahriman)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 4 },
+    { name: "Confine to Malkav's Bastile", summary: "Imprisons demons within a Malkavian's shattered psyche (Soul Swap or Where the Shroud Thins)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 4 },
+    { name: "Bind the Spirit", summary: "Anchor a ghost to haunt a person or location (Necrotic Plague)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 4 },
+    { name: "Death Rattle", summary: "Cause someone to relive a particular wraith's death (Fatal Precognition)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 4 },
+    { name: "Bind to Mortal Form", summary: "Extend a human's lifespan (Necrotic Plague or Skuld Fulfilled)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 4 },
+    { name: "Split the Veil", summary: "Tear open the Shroud (Necrotic Plague)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 4 },
+    // Level 5
+    { name: "Ex Nihilo", summary: "Cross into the Shadowlands (Withering Spirit, Split the Veil?)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 5 },
+    { name: "The Bell of Gomorrah", summary: "Summon nightmares corrupting vampires and mortals (Nightmare Theatre)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 5 },
+    { name: "Repulsion of The Fallen", summary: "Glyphs repel demons punishing infernalists with holy backlash (Where the Veil Thins or Hell's Yawning Maw)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 5 },
+    { name: "Gravespawn Sovereign", summary: "Animates stone guardians through corpse-fed oblivion (Crown of The Lost Clan (Auspex 1))", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 5 },
+    { name: "Lazarene Blessing", summary: "Put a wraith into a physical body (Skuld Fulfilled)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 5 },
+    { name: "Gift of True Life", summary: "Transfer lifespan from one mortal to another (Necrotic Plague or Passion Feast)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 5 },
+    { name: "Pit of Contemplation", summary: "Create a doorway into Oblivion itself (Tenebrous Avatar, Shalimite)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Oblivion", ingredients: "", level: 5 }
 ]
 
 export const Rituals: Ritual[] = [
