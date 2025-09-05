@@ -1,5 +1,5 @@
 import { z } from "zod"
-import { Power, powerSchema, ritualSchema } from "./Disciplines"
+import { Power, powerSchema, ritualSchema, ceremonySchema } from "./Disciplines"
 import { specialtySchema } from "./Specialties"
 import { skillsSchema } from "./Skills"
 import { attributesSchema } from "./Attributes"
@@ -43,6 +43,7 @@ export const characterSchema = z.object({
     availableDisciplineNames: disciplineNameSchema.array(),
     disciplines: powerSchema.array(),
     rituals: ritualSchema.array(),
+    ceremonies: ceremonySchema.array(),
 
     bloodPotency: z.number().min(0).int(),
     generation: z.number().min(0).int(),
@@ -112,7 +113,8 @@ export const getEmptyCharacter = (): Character => {
         skillSpecialties: [],
         availableDisciplineNames: [],
         disciplines: [],
-        rituals: [],
+    rituals: [],
+    ceremonies: [],
 
         bloodPotency: 0,
         generation: 0,
