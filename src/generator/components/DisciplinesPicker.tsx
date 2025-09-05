@@ -91,6 +91,8 @@ const DisciplinesPicker = ({ character, setCharacter, nextStep }: DisciplinesPic
     }
 
     const getPowerCards = (powers: Power[], isForPredatorType = false) => {
+        const fixedWidth = 260;
+        const fixedHeight = 260;
         return powers.map((power) => {
             const isButtonDisabled =
                 isPicked(power) ||
@@ -108,11 +110,24 @@ const DisciplinesPicker = ({ character, setCharacter, nextStep }: DisciplinesPic
             const onClick = () => (isForPredatorType ? setPickedPredatorTypePower(power) : setPickedPowers([...pickedPowers, power]))
 
             const amalgamHeight = 25
-            let cardHeight = phoneScreen ? 180 : 215
-            if (power.amalgamPrerequisites.length > 0) cardHeight += amalgamHeight
-            if (power.name.length > 15) cardHeight += 25
             return (
-                <Card key={power.name} mb={20} h={cardHeight} style={{ backgroundColor: "rgba(26, 27, 30, 0.90)" }}>
+                <Card
+                    key={power.name}
+                    mb={20}
+                    style={{
+                        backgroundColor: "rgba(26, 27, 30, 0.90)",
+                        width: fixedWidth,
+                        minWidth: fixedWidth,
+                        maxWidth: fixedWidth,
+                        height: fixedHeight,
+                        minHeight: fixedHeight,
+                        maxHeight: fixedHeight,
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "space-between",
+                        position: "relative"
+                    }}
+                >
                     <Group position="apart" mt="0" mb="xs">
                         <Text fz={smallScreen && !phoneScreen ? "xs" : "sm"} weight={500}>
                             {power.name}
