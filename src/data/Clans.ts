@@ -175,7 +175,7 @@ export const clans: Record<ClanName, Clan> = {
         },
         Nagaraja: {
             name: "Nagaraja",
-            description: "Necromantic bloodline compelled to be among the dead.",
+            description: "Canabalistic bloodline compelled to be among the dead.",
             logo: nagarajaLogo,
             bane: "Organvore: They must consume flesh, as well as drinking blood in order to slack their Hunger and hold back decay. For every night the Nagaraja doesn’t consume flesh they rot. The type of flesh varies with the severity of the Bane. Each night that they do not consume Flesh they lose a die in all social rolls and for every 5 days they rot persists they loose two dice to all physical attributes. The negative effects are reversed for ever health level of flesh consumed, die rolls never can be drop below 1.",
             compulsion: "Dead Temple: The vampire is compelled be among the dead, they feel an overwhelming urge to surround themselves with the dead, even a pile of bones will comfort them. If they cannot find a corpse they will be compelled to make one.",
@@ -207,7 +207,7 @@ export const clans: Record<ClanName, Clan> = {
         },
         Lhiannan: {
             name: "Lhiannan",
-            description: "Territorial, matriarchal and druidic Cainite bloodline with a unique connection to nature and spirits.",
+            description: "Territorial, matriarchal and druidic bloodline with a unique connection to nature and spirits.",
             logo: lhiannanLogo,
             bane: "The Lhiannan were part nature spirit, and so had a unique connection to the world of spirits, most notably in the form of their Ogham; this connection gave them an inhuman aura obvious even to humans (and it was exceedingly easy for others to gauge their natures through the use of Auspex).",
             compulsion: "ZOOCHOSIS: Modern life is closing in around you. Streets packed with loud vehicles, narrow alleyways reeking of rot and garbage, the cries and constructions of unnatural society layered onto itself. When this compulsion manifests you tend to revert to a more primitive mental state; Repeating monotonous tasks, scratching the surface of your desk into a groove, or grinding your teeth. These effects confer a -2 Dice penalty to Social Pools until you can manage to find an open and more natural locale or speak with someone who understands your mental state.",
