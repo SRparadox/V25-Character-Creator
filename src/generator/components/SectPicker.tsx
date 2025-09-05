@@ -12,8 +12,9 @@ import { Button, Group, Stack, Text, Title, Center } from "@mantine/core";
 
 // Placeholder import to avoid error (update as needed):
 import type { Character } from "../../data/Character";
+import { sectSchema } from "../../data/Character";
 
-export type Sect = "Followers of Set" | "The Bahari" | "Church of Cain" | "Non Believer";
+export type Sect = typeof sectSchema._type;
 
 import FollowersOfSetIcon from "../../resources/sectIcons/FollowersOfSet.png";
 import TheBahariIcon from "../../resources/sectIcons/TheBahari.png";
@@ -34,7 +35,9 @@ export type SectPickerProps = {
 };
 
 const SectPicker = ({ character, setCharacter, nextStep }: SectPickerProps) => {
-  const [selectedSect, setSelectedSect] = useState<Sect | null>(character.sect || null);
+  const [selectedSect, setSelectedSect] = useState<Sect | null>(
+    sectSchema.safeParse(character.sect).success ? character.sect as Sect : null
+  );
 
   const handleSelect = (sect: Sect) => {
     setSelectedSect(sect);

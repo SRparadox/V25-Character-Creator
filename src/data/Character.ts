@@ -90,14 +90,19 @@ export const touchstoneSchema = z.object({
 })
 export type Touchstone = z.infer<typeof touchstoneSchema>
 
+export const sectSchema = z.union([
+    z.literal("Followers of Set"),
+    z.literal("The Bahari"),
+    z.literal("Church of Cain"),
+    z.literal("Non Believer"),
+]);
+
 export const characterSchema = z.object({
     name: z.string(),
     description: z.string(),
     sire: z.string(),
-
-export type Character = z.infer<typeof characterSchema>;
     clan: clanNameSchema,
-    sect: z.string(), // SectPicker value
+    sect: sectSchema, // SectPicker value
     // clanDisciplines:
     predatorType: z.object({
         name: predatorTypeNameSchema,
@@ -127,7 +132,10 @@ export type Character = z.infer<typeof characterSchema>;
 
     merits: meritFlawSchema.array(),
     flaws: meritFlawSchema.array(),
+
 })
+
+export type Character = z.infer<typeof characterSchema>;
 
 export type Character = z.infer<typeof characterSchema>;
 
