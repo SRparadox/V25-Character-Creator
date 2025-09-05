@@ -193,13 +193,26 @@ const DisciplinesPicker = ({ character, setCharacter, nextStep }: DisciplinesPic
                 <Accordion.Control icon={<Image src={discipline.logo} />}>{upcase(disciplineName)}</Accordion.Control>
                 <Accordion.Panel>
                     <Stack>
-                        <Grid>
-                            <Grid.Col span={colSpan}>{getPowerCards(lvl1Powers, isPredatorType)}</Grid.Col>
-                            <Grid.Col span={colSpan}>{getPowerCards(lvl2Powers, isPredatorType)}</Grid.Col>
-                            <Grid.Col span={colSpan}>{getPowerCards(lvl3Powers, isPredatorType)}</Grid.Col>
-                            <Grid.Col span={colSpan}>{getPowerCards(lvl4Powers, isPredatorType)}</Grid.Col>
-                            <Grid.Col span={colSpan}>{getPowerCards(lvl5Powers, isPredatorType)}</Grid.Col>
-                        </Grid>
+                        <Text fw={700} fz="md" mt="sm">Level 1</Text>
+                        <ScrollArea type="scroll" scrollbarSize={8} offsetScrollbars>
+                            <Group noWrap>{getPowerCards(lvl1Powers, isPredatorType)}</Group>
+                        </ScrollArea>
+                        <Text fw={700} fz="md" mt="sm">Level 2</Text>
+                        <ScrollArea type="scroll" scrollbarSize={8} offsetScrollbars>
+                            <Group noWrap>{getPowerCards(lvl2Powers, isPredatorType)}</Group>
+                        </ScrollArea>
+                        <Text fw={700} fz="md" mt="sm">Level 3</Text>
+                        <ScrollArea type="scroll" scrollbarSize={8} offsetScrollbars>
+                            <Group noWrap>{getPowerCards(lvl3Powers, isPredatorType)}</Group>
+                        </ScrollArea>
+                        <Text fw={700} fz="md" mt="sm">Level 4</Text>
+                        <ScrollArea type="scroll" scrollbarSize={8} offsetScrollbars>
+                            <Group noWrap>{getPowerCards(lvl4Powers, isPredatorType)}</Group>
+                        </ScrollArea>
+                        <Text fw={700} fz="md" mt="sm">Level 5</Text>
+                        <ScrollArea type="scroll" scrollbarSize={8} offsetScrollbars>
+                            <Group noWrap>{getPowerCards(lvl5Powers, isPredatorType)}</Group>
+                        </ScrollArea>
                     </Stack>
                 </Accordion.Panel>
             </Accordion.Item>
