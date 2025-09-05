@@ -76,7 +76,7 @@ const ReligionPicker = ({ character, setCharacter, nextStep }: ReligionPickerPro
                 borderWidth: selectedReligion === name ? 3 : 1,
                 borderStyle: 'solid',
                 cursor: 'pointer',
-                background: selectedReligion === name ? `${color}22` : undefined,
+                background: `${color}22`, // Always colorful, translucent
                 transition: 'box-shadow 0.2s, border-color 0.2s',
                 minHeight: 220,
                 display: 'flex',
