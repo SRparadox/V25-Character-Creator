@@ -1,26 +1,23 @@
-import { Grid, List, Stack, Title } from "@mantine/core"
-import { Power, Ritual, Ceremony } from "../../data/Disciplines"
-import { upcase } from "../../generator/utils"
-import { DisciplineName } from "~/data/NameSchemas"
+import { Grid, List, Stack, Title } from "@mantine/core";
+import { Power, Ritual, Ceremony } from "../../data/Disciplines";
+import { upcase } from "../../generator/utils";
+import { DisciplineName } from "../../data/NameSchemas";
 
-    powers: Power[]
-    rituals: Ritual[]
-    ceremonies: Ceremony[]
-    export type DisciplinesProps = {
-        powers: Power[];
-        rituals: Ritual[];
-        ceremonies: Ceremony[];
+export type DisciplinesProps = {
+    powers: Power[];
+    rituals: Ritual[];
+    ceremonies: Ceremony[];
 }
 
 const DisciplineDisplay = ({ powers, rituals, ceremonies }: DisciplinesProps) => {
-    const powersByDisciplines = new Map<DisciplineName, Power[]>()
+    const powersByDisciplines = new Map<DisciplineName, Power[]>();
     powers.forEach((power) => {
         if (!powersByDisciplines.has(power.discipline)) {
-            powersByDisciplines.set(power.discipline, [power])
+            powersByDisciplines.set(power.discipline, [power]);
         } else {
-            powersByDisciplines.set(power.discipline, [...powersByDisciplines.get(power.discipline)!, power])
+            powersByDisciplines.set(power.discipline, [...powersByDisciplines.get(power.discipline)!, power]);
         }
-    })
+    });
 
     return (
         <Stack>
