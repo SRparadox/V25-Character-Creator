@@ -316,6 +316,13 @@ const createPdf_nerdbert = async (character: Character): Promise<Uint8Array> => 
                 form.getTextField(`Disc${di}_Ability${ri}`).disableRichFormatting()
             }
         }
+        if (powers[0].discipline === "oblivion") {
+            for (const [ceremonyIndex, ceremony] of character.ceremonies.entries()) {
+                const ci = powers.length + ceremonyIndex + 1
+                form.getTextField(`Disc${di}_Ability${ci}`).setText(getDisciplineText(ceremony))
+                form.getTextField(`Disc${di}_Ability${ci}`).disableRichFormatting()
+            }
+        }
     }
 
     // Merits & flaws

@@ -16,6 +16,28 @@ import ErrorBoundary from "../components/ErrorBoundary"
 import RitualsPicker from "./components/RitualsPicker"
 import CeremoniesPicker from "./components/CeremoniesPicker"
 
+// Export a function to get the step labels dynamically
+export function getStepLabels(character: Character) {
+    const hasBloodSorcery = containsBloodSorcery(character.disciplines);
+    const hasOblivion = character.disciplines.some((power: Power) => power.discipline === "oblivion");
+    const labels = [
+        "Intro",
+        "Clan",
+        "Attributes",
+        "Skills",
+        "Generation",
+        "Predator Type",
+        "Basics",
+        "Disciplines",
+    ];
+    if (hasBloodSorcery) labels.push("Rituals");
+    if (hasOblivion) labels.push("Ceremonies");
+    labels.push("Touchstones");
+    labels.push("Merits & Flaws");
+    labels.push("Final");
+    return labels;
+}
+
 export type GeneratorProps = {
     character: Character
     setCharacter: (character: Character) => void
@@ -30,7 +52,6 @@ const Generator = ({ character, setCharacter, selectedStep, setSelectedStep }: G
     const hasBloodSorcery = containsBloodSorcery(character.disciplines);
     const hasOblivion = containsOblivion(character.disciplines);
 
-
     // Define the props type for all step components
     type StepProps = {
         character: Character;
@@ -38,6 +59,7 @@ const Generator = ({ character, setCharacter, selectedStep, setSelectedStep }: G
         nextStep: () => void;
     };
 
+    // Build steps array dynamically, matching getStepLabels
     const steps: ((props: StepProps) => JSX.Element)[] = [
         (props) => <Intro {...props} />, // 0
         (props) => <ClanPicker {...props} />, // 1
