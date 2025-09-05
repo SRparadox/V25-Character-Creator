@@ -39,7 +39,7 @@ const Sidebar = ({ character }: SidebarProps) => {
                     </Text>
                 ) : null}
                 {notDefault(character, "disciplines") ? (
-                    <DisciplineDisplay powers={character.disciplines} rituals={character.rituals} />
+                    <DisciplineDisplay powers={character.disciplines} rituals={character.rituals} ceremonies={character.ceremonies} />
                 ) : null}
                 {notDefault(character, "touchstones") ? <TouchstoneDisplay touchstones={character.touchstones} /> : null}
                 {notDefault(character, "merits") || notDefault(character, "flaws") ? (

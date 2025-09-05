@@ -30,176 +30,41 @@ const Generator = ({ character, setCharacter, selectedStep, setSelectedStep }: G
     const hasBloodSorcery = containsBloodSorcery(character.disciplines);
     const hasOblivion = containsOblivion(character.disciplines);
 
+
+    // Define the props type for all step components
+    type StepProps = {
+        character: Character;
+        setCharacter: (character: Character) => void;
+        nextStep: () => void;
+    };
+
+    const steps: ((props: StepProps) => JSX.Element)[] = [
+        (props) => <Intro {...props} />, // 0
+        (props) => <ClanPicker {...props} />, // 1
+        (props) => <AttributePicker {...props} />, // 2
+        (props) => <SkillsPicker {...props} />, // 3
+        (props) => <GenerationPicker {...props} />, // 4
+        (props) => <PredatorTypePicker {...props} />, // 5
+        (props) => <BasicsPicker {...props} />, // 6
+        (props) => <DisciplinesPicker {...props} />, // 7
+    ];
+    if (hasBloodSorcery) steps.push((props) => <RitualsPicker {...props} />);
+    if (hasOblivion) steps.push((props) => <CeremoniesPicker {...props} />);
+    steps.push((props) => <TouchstonePicker {...props} />);
+    steps.push((props) => <MeritsAndFlawsPicker {...props} />);
+    steps.push((props) => <Final {...props} setSelectedStep={setSelectedStep} />);
+
     const getStepComponent = () => {
-        // Unclean solution: Stepper in AsideBar only gives us an index to use here and if we don't have a blood-sorcery step (at 8) it breaks alignment of the steps. Ideally we'd get a string from the stepper rather than a number and then we wouldn't have to map things here
-    const patchedSelectedStep = !hasBloodSorcery && selectedStep >= 8 ? selectedStep + 1 : selectedStep
-        // Insert Rituals and Ceremonies logic
-        if (hasBloodSorcery && hasOblivion) {
-            if (selectedStep === 8) {
-                return (
-                    <RitualsPicker
-                        character={character}
-                        setCharacter={setCharacter}
-                        nextStep={() => setSelectedStep(selectedStep + 1)}
-                    />
-                );
-            }
-            if (selectedStep === 9) {
-                return (
-                    <CeremoniesPicker
-                        character={character}
-                        setCharacter={setCharacter}
-                        nextStep={() => setSelectedStep(selectedStep + 1)}
-                    />
-                );
-            }
-        } else if (hasBloodSorcery) {
-            if (selectedStep === 8) {
-                return (
-                    <RitualsPicker
-                        character={character}
-                        setCharacter={setCharacter}
-                        nextStep={() => setSelectedStep(selectedStep + 1)}
-                    />
-                );
-            }
-        } else if (hasOblivion) {
-            if (selectedStep === 8) {
-                return (
-                    <CeremoniesPicker
-                        character={character}
-                        setCharacter={setCharacter}
-                        nextStep={() => setSelectedStep(selectedStep + 1)}
-                    />
-                );
-            }
+        if (selectedStep < steps.length) {
+            const StepComponent = steps[selectedStep];
+            return StepComponent({
+                character,
+                setCharacter,
+                nextStep: () => setSelectedStep(selectedStep + 1),
+            });
         }
-        switch (selectedStep) {
-            case 0:
-                return (
-                    <Intro
-                        setCharacter={setCharacter}
-                        nextStep={() => {
-                            setSelectedStep(selectedStep + 1)
-                        }}
-                    />
-                )
-            case 1:
-                return (
-                    <ClanPicker
-                        character={character}
-                        setCharacter={setCharacter}
-                        nextStep={() => {
-                            setSelectedStep(selectedStep + 1)
-                        }}
-                    />
-                )
-            case 2:
-                return (
-                    <AttributePicker
-                        character={character}
-                        setCharacter={setCharacter}
-                        nextStep={() => {
-                            setSelectedStep(selectedStep + 1)
-                        }}
-                    />
-                )
-            case 3:
-                return (
-                    <SkillsPicker
-                        character={character}
-                        setCharacter={setCharacter}
-                        nextStep={() => {
-                            setSelectedStep(selectedStep + 1)
-                        }}
-                    />
-                )
-            case 4:
-                return (
-                    <GenerationPicker
-                        character={character}
-                        setCharacter={setCharacter}
-                        nextStep={() => {
-                            setSelectedStep(selectedStep + 1)
-                        }}
-                    />
-                )
-            case 5:
-                return (
-                    <PredatorTypePicker
-                        character={character}
-                        setCharacter={setCharacter}
-                        nextStep={() => {
-                            setSelectedStep(selectedStep + 1)
-                        }}
-                    />
-                )
-            case 6:
-                return (
-                    <BasicsPicker
-                        character={character}
-                        setCharacter={setCharacter}
-                        nextStep={() => {
-                            setSelectedStep(selectedStep + 1)
-                        }}
-                    />
-                )
-            case 7:
-                return (
-                    <DisciplinesPicker
-                        character={character}
-                        setCharacter={setCharacter}
-                        nextStep={() => {
-                            setSelectedStep(selectedStep + 1)
-                        }}
-                    />
-                )
-            case 8:
-                return (
-                    <RitualsPicker
-                        character={character}
-                        setCharacter={setCharacter}
-                        nextStep={() => {
-                            setSelectedStep(selectedStep + 1)
-                        }}
-                    />
-                )
-            case 9:
-                return (
-                    <CeremoniesPicker
-                        character={character}
-                        setCharacter={setCharacter}
-                        nextStep={() => {
-                            setSelectedStep(selectedStep + 1)
-                        }}
-                    />
-                )
-            case 10:
-                return (
-                    <TouchstonePicker
-                        character={character}
-                        setCharacter={setCharacter}
-                        nextStep={() => {
-                            setSelectedStep(selectedStep + 1)
-                        }}
-                    />
-                )
-            case 11:
-                return (
-                    <MeritsAndFlawsPicker
-                        character={character}
-                        setCharacter={setCharacter}
-                        nextStep={() => {
-                            setSelectedStep(selectedStep + 1)
-                        }}
-                    />
-                )
-            case 12:
-                return <Final character={character} setCharacter={setCharacter} setSelectedStep={setSelectedStep} />
-            default:
-                return <Text size={"xl"}>{`Error: Step ${selectedStep} is not implemented`}</Text>
-        }
-    }
+        return <Text size={"xl"}>{`Error: Step ${selectedStep} is not implemented`}</Text>;
+    };
 
     return (
         <Center h={"100%"}>
