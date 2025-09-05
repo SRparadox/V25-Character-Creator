@@ -4,6 +4,7 @@ import AttributePicker from "./components/AttributePicker"
 import BasicsPicker from "./components/BasicsPicker"
 import ClanPicker from "./components/ClanPicker"
 import SectPicker from "./components/SectPicker"
+import ReligionPicker from "./components/ReligionPicker"
 import DisciplinesPicker from "./components/DisciplinesPicker"
 import { Power } from "../data/Disciplines";
 import Final from "./components/Final"
@@ -18,13 +19,13 @@ import RitualsPicker from "./components/RitualsPicker"
 import CeremoniesPicker from "./components/CeremoniesPicker"
 
 // Export a function to get the step labels dynamically
-export function getStepLabels(character: Character) {
     const hasBloodSorcery = containsBloodSorcery(character.disciplines);
     const hasOblivion = character.disciplines.some((power: Power) => power.discipline === "oblivion");
     const labels = [
         "Intro",
         "Clan",
         "Sect",
+        "Religion",
         "Attributes",
         "Skills",
         "Generation",
@@ -66,12 +67,13 @@ const Generator = ({ character, setCharacter, selectedStep, setSelectedStep }: G
         (props) => <Intro {...props} />, // 0
         (props) => <ClanPicker {...props} />, // 1
         (props) => <SectPicker {...props} />, // 2
-        (props) => <AttributePicker {...props} />, // 3
-        (props) => <SkillsPicker {...props} />, // 4
-        (props) => <GenerationPicker {...props} />, // 5
-        (props) => <PredatorTypePicker {...props} />, // 6
-        (props) => <BasicsPicker {...props} />, // 7
-        (props) => <DisciplinesPicker {...props} />, // 8
+        (props) => <ReligionPicker {...props} />, // 3
+        (props) => <AttributePicker {...props} />, // 4
+        (props) => <SkillsPicker {...props} />, // 5
+        (props) => <GenerationPicker {...props} />, // 6
+        (props) => <PredatorTypePicker {...props} />, // 7
+        (props) => <BasicsPicker {...props} />, // 8
+        (props) => <DisciplinesPicker {...props} />, // 9
     ];
     if (hasBloodSorcery) steps.push((props) => <RitualsPicker {...props} />);
     if (hasOblivion) steps.push((props) => <CeremoniesPicker {...props} />);
