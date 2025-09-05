@@ -209,28 +209,30 @@ const DisciplinesPicker = ({ character, setCharacter, nextStep }: DisciplinesPic
             <Accordion.Item key={disciplineName + isPredatorType} value={disciplineName + isPredatorType}>
                 <Accordion.Control icon={<Image src={discipline.logo} />}>{upcase(disciplineName)}</Accordion.Control>
                 <Accordion.Panel>
-                    <Stack>
-                        <Text fw={700} fz="md" mt="sm">Level 1</Text>
-                        <ScrollArea type="scroll" scrollbarSize={8} offsetScrollbars>
-                            <Group noWrap>{getPowerCards(lvl1Powers, isPredatorType)}</Group>
-                        </ScrollArea>
-                        <Text fw={700} fz="md" mt="sm">Level 2</Text>
-                        <ScrollArea type="scroll" scrollbarSize={8} offsetScrollbars>
-                            <Group noWrap>{getPowerCards(lvl2Powers, isPredatorType)}</Group>
-                        </ScrollArea>
-                        <Text fw={700} fz="md" mt="sm">Level 3</Text>
-                        <ScrollArea type="scroll" scrollbarSize={8} offsetScrollbars>
-                            <Group noWrap>{getPowerCards(lvl3Powers, isPredatorType)}</Group>
-                        </ScrollArea>
-                        <Text fw={700} fz="md" mt="sm">Level 4</Text>
-                        <ScrollArea type="scroll" scrollbarSize={8} offsetScrollbars>
-                            <Group noWrap>{getPowerCards(lvl4Powers, isPredatorType)}</Group>
-                        </ScrollArea>
-                        <Text fw={700} fz="md" mt="sm">Level 5</Text>
-                        <ScrollArea type="scroll" scrollbarSize={8} offsetScrollbars>
-                            <Group noWrap>{getPowerCards(lvl5Powers, isPredatorType)}</Group>
-                        </ScrollArea>
-                    </Stack>
+                    <ScrollArea type="scroll" scrollbarSize={8} offsetScrollbars>
+                        <Group noWrap align="flex-start">
+                            <Stack align="center" spacing="xs">
+                                <Text fw={700} fz="md" mt="sm">Level 1</Text>
+                                {getPowerCards(lvl1Powers, isPredatorType)}
+                            </Stack>
+                            <Stack align="center" spacing="xs">
+                                <Text fw={700} fz="md" mt="sm">Level 2</Text>
+                                {getPowerCards(lvl2Powers, isPredatorType)}
+                            </Stack>
+                            <Stack align="center" spacing="xs">
+                                <Text fw={700} fz="md" mt="sm">Level 3</Text>
+                                {getPowerCards(lvl3Powers, isPredatorType)}
+                            </Stack>
+                            <Stack align="center" spacing="xs">
+                                <Text fw={700} fz="md" mt="sm">Level 4</Text>
+                                {getPowerCards(lvl4Powers, isPredatorType)}
+                            </Stack>
+                            <Stack align="center" spacing="xs">
+                                <Text fw={700} fz="md" mt="sm">Level 5</Text>
+                                {getPowerCards(lvl5Powers, isPredatorType)}
+                            </Stack>
+                        </Group>
+                    </ScrollArea>
                 </Accordion.Panel>
             </Accordion.Item>
         )
