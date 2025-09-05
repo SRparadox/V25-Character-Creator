@@ -5,6 +5,9 @@ import { skillsSchema } from "./Skills"
 import { attributesSchema } from "./Attributes"
 import { clanNameSchema, disciplineNameSchema, predatorTypeNameSchema } from "./NameSchemas"
 
+// Sect type for SectPicker
+export type Sect = "Followers of Set" | "The Bahari" | "Church of Cain" | "Non Believer";
+
 export const meritFlawSchema = z.object({
     name: z.string(),
     level: z.number().min(1).int(),
@@ -26,6 +29,7 @@ export const characterSchema = z.object({
     sire: z.string(),
 
     clan: clanNameSchema,
+    sect: z.string(), // SectPicker value
     // clanDisciplines:
     predatorType: z.object({
         name: predatorTypeNameSchema,
@@ -58,13 +62,13 @@ export const characterSchema = z.object({
 })
 export type Character = z.infer<typeof characterSchema>
 
-export const getEmptyCharacter = (): Character => {
     return {
         name: "",
         description: "",
         sire: "",
 
         clan: "",
+        sect: "Non Believer", // default sect
         predatorType: { name: "", pickedDiscipline: "", pickedSpecialties: [], pickedMeritsAndFlaws: [] },
         touchstones: [],
         ambition: "",
@@ -113,8 +117,8 @@ export const getEmptyCharacter = (): Character => {
         skillSpecialties: [],
         availableDisciplineNames: [],
         disciplines: [],
-    rituals: [],
-    ceremonies: [],
+        rituals: [],
+        ceremonies: [],
 
         bloodPotency: 0,
         generation: 0,

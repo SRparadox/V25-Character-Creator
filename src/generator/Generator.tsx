@@ -3,6 +3,7 @@ import { Character, containsBloodSorcery } from "../data/Character"
 import AttributePicker from "./components/AttributePicker"
 import BasicsPicker from "./components/BasicsPicker"
 import ClanPicker from "./components/ClanPicker"
+import SectPicker from "./components/SectPicker"
 import DisciplinesPicker from "./components/DisciplinesPicker"
 import { Power } from "../data/Disciplines";
 import Final from "./components/Final"
@@ -23,6 +24,7 @@ export function getStepLabels(character: Character) {
     const labels = [
         "Intro",
         "Clan",
+        "Sect",
         "Attributes",
         "Skills",
         "Generation",
@@ -63,12 +65,13 @@ const Generator = ({ character, setCharacter, selectedStep, setSelectedStep }: G
     const steps: ((props: StepProps) => JSX.Element)[] = [
         (props) => <Intro {...props} />, // 0
         (props) => <ClanPicker {...props} />, // 1
-        (props) => <AttributePicker {...props} />, // 2
-        (props) => <SkillsPicker {...props} />, // 3
-        (props) => <GenerationPicker {...props} />, // 4
-        (props) => <PredatorTypePicker {...props} />, // 5
-        (props) => <BasicsPicker {...props} />, // 6
-        (props) => <DisciplinesPicker {...props} />, // 7
+        (props) => <SectPicker {...props} />, // 2
+        (props) => <AttributePicker {...props} />, // 3
+        (props) => <SkillsPicker {...props} />, // 4
+        (props) => <GenerationPicker {...props} />, // 5
+        (props) => <PredatorTypePicker {...props} />, // 6
+        (props) => <BasicsPicker {...props} />, // 7
+        (props) => <DisciplinesPicker {...props} />, // 8
     ];
     if (hasBloodSorcery) steps.push((props) => <RitualsPicker {...props} />);
     if (hasOblivion) steps.push((props) => <CeremoniesPicker {...props} />);
