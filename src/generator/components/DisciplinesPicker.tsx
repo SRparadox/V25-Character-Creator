@@ -184,11 +184,10 @@ const DisciplinesPicker = ({ character, setCharacter, nextStep }: DisciplinesPic
         const lvl1Powers = eligiblePowers.filter((power) => power.level === 1)
         const lvl2Powers = eligiblePowers.filter((power) => power.level === 2)
         const lvl3Powers = eligiblePowers.filter((power) => power.level === 3)
+        const lvl4Powers = eligiblePowers.filter((power) => power.level === 4)
+        const lvl5Powers = eligiblePowers.filter((power) => power.level === 5)
 
-        const canReachLvl3 =
-            disciplineName === character.predatorType.pickedDiscipline && !(isPredatorType && !clanHasDiscipline(disciplineName))
-
-        const colSpan = smallScreen ? 12 : canReachLvl3 ? 4 : 6
+        const colSpan = smallScreen ? 12 : 4
         return (
             <Accordion.Item key={disciplineName + isPredatorType} value={disciplineName + isPredatorType}>
                 <Accordion.Control icon={<Image src={discipline.logo} />}>{upcase(disciplineName)}</Accordion.Control>
@@ -197,7 +196,9 @@ const DisciplinesPicker = ({ character, setCharacter, nextStep }: DisciplinesPic
                         <Grid>
                             <Grid.Col span={colSpan}>{getPowerCards(lvl1Powers, isPredatorType)}</Grid.Col>
                             <Grid.Col span={colSpan}>{getPowerCards(lvl2Powers, isPredatorType)}</Grid.Col>
-                            {canReachLvl3 ? <Grid.Col span={colSpan}>{getPowerCards(lvl3Powers, isPredatorType)}</Grid.Col> : null}
+                            <Grid.Col span={colSpan}>{getPowerCards(lvl3Powers, isPredatorType)}</Grid.Col>
+                            <Grid.Col span={colSpan}>{getPowerCards(lvl4Powers, isPredatorType)}</Grid.Col>
+                            <Grid.Col span={colSpan}>{getPowerCards(lvl5Powers, isPredatorType)}</Grid.Col>
                         </Grid>
                     </Stack>
                 </Accordion.Panel>
