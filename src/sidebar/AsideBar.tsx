@@ -15,6 +15,7 @@ const AsideBar = ({ selectedStep, setSelectedStep, character }: AsideBarProps) =
     const stepperKeys = [
         "clan",
         "sect",
+        "religion",
         "attributes",
         "skills",
         "generation",

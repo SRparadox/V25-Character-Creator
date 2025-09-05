@@ -7,6 +7,7 @@ export const getEmptyCharacter = (): Character => ({
     sire: "",
     clan: "",
     sect: "Non Believer",
+    religion: "Non Believer",
     predatorType: { name: "", pickedDiscipline: "", pickedSpecialties: [], pickedMeritsAndFlaws: [] },
     touchstones: [],
     ambition: "",
@@ -72,6 +73,13 @@ import { skillsSchema } from "./Skills"
 import { attributesSchema } from "./Attributes"
 import { clanNameSchema, disciplineNameSchema, predatorTypeNameSchema } from "./NameSchemas"
 
+export const religionSchema = z.union([
+    z.literal("Bahari"),
+    z.literal("Church of Caine"),
+    z.literal("Followers of Set"),
+    z.literal("Non Believer"),
+]);
+
 // Sect type for SectPicker
 export type Sect = "Followers of Set" | "The Bahari" | "Church of Cain" | "Non Believer";
 
@@ -103,6 +111,7 @@ export const characterSchema = z.object({
     sire: z.string(),
     clan: clanNameSchema,
     sect: sectSchema, // SectPicker value
+    religion: religionSchema,
     // clanDisciplines:
     predatorType: z.object({
         name: predatorTypeNameSchema,
@@ -135,7 +144,6 @@ export const characterSchema = z.object({
 
 })
 
-export type Character = z.infer<typeof characterSchema>;
 
 export type Character = z.infer<typeof characterSchema>;
 
