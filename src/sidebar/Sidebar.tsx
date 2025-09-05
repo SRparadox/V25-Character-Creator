@@ -25,6 +25,11 @@ const Sidebar = ({ character }: SidebarProps) => {
                         <Center>{character.clan}</Center>
                     </Text>
                 ) : null}
+                {notDefault(character, "sect") ? (
+                    <Text fz="lg" c="dimmed">
+                        <Center>{character.sect}</Center>
+                    </Text>
+                ) : null}
                 {notDefault(character, "name") ? <BasicsDisplay character={character} /> : null}
                 {notDefault(character, "attributes") ? <AttributesDisplay attributes={character.attributes} /> : null}
                 {notDefault(character, "skills") ? <SkillDisplay skills={character.skills} /> : null}

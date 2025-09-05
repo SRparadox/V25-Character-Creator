@@ -14,6 +14,7 @@ const AsideBar = ({ selectedStep, setSelectedStep, character }: AsideBarProps) =
     const maybeRituals = containsBloodSorcery(character.disciplines) ? ["rituals"] : []
     const stepperKeys = [
         "clan",
+        "sect",
         "attributes",
         "skills",
         "generation",

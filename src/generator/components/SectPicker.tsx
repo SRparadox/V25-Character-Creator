@@ -12,6 +12,7 @@ import { Button, Group, Stack, Text, Title, Center } from "@mantine/core";
 
 // Placeholder import to avoid error (update as needed):
 import type { Character } from "../../data/Character";
+import { sectsData } from "../../data/Sects";
 import CamarillaIcon from "../../resources/sectIcons/Camarilla.webp";
 import AnarchIcon from "../../resources/sectIcons/Anarch.webp";
 import IndependentIcon from "../../resources/sectIcons/Independent.webp";
@@ -66,10 +67,13 @@ const SectPicker = ({ character, setCharacter, nextStep }: SectPickerProps) => {
               variant={selectedSect === name ? "filled" : "outline"}
               color={color}
               onClick={() => handleSelect(name)}
-              style={{ display: "flex", flexDirection: "column", alignItems: "center", width: 120, height: 120 }}
+              style={{ display: "flex", flexDirection: "column", alignItems: "center", width: 160, height: 180, padding: 0 }}
             >
-              <img src={icon} alt={name} style={{ width: 48, height: 48, marginBottom: 8 }} />
-              <Text>{name}</Text>
+              <img src={icon} alt={name} style={{ width: 48, height: 48, marginTop: 12, marginBottom: 8 }} />
+              <Text fw={700} size="lg">{name}</Text>
+              <Text size="sm" color="dimmed" ta="center" style={{ minHeight: 40, marginTop: 4, marginBottom: 0, padding: 2 }}>
+                {sectsData[name].summary}
+              </Text>
             </Button>
           ))}
         </Group>
