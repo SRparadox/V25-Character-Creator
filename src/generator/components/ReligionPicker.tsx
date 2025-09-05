@@ -1,18 +1,18 @@
 import { useState } from "react";
 import { Button, Group, Stack, Text, Title, Center } from "@mantine/core";
 import type { Character } from "../../data/Character";
-import BaharaIcon from "../../resources/religionIcons/Bahara.webp";
+import BaharaIcon from "../../resources/religionIcons/Bahari.webp";
 import ChurchofCaineIcon from "../../resources/religionIcons/ChurchofCaine.webp";
 import FollowersofSetIcon from "../../resources/religionIcons/followersofSet.webp";
 import NonBelieverIcon from "../../resources/religionIcons/nonbeliever.webp";
 
-export type Religion =
+export type Religions =
   | "Bahari"
   | "Church of Caine"
   | "Followers of Set"
   | "Non Believer";
 
-const religions: { name: Religion; color: string; icon: string; summary: string }[] = [
+const religions: { name: Religions; color: string; icon: string; summary: string }[] = [
   {
     name: "Bahari",
     color: "#a259f4",
@@ -49,11 +49,11 @@ export type ReligionPickerProps = {
 };
 
 const ReligionPicker = ({ character, setCharacter, nextStep }: ReligionPickerProps) => {
-  const [selectedReligion, setSelectedReligion] = useState<Religion | null>(
-    religions.some((r) => r.name === character.religion) ? (character.religion as Religion) : null
+  const [selectedReligion, setSelectedReligion] = useState<Religions | null>(
+    religions.some((r) => r.name === character.religion) ? (character.religion as Religions) : null
   );
 
-  const handleSelect = (religion: Religion) => {
+  const handleSelect = (religion: Religions) => {
     setSelectedReligion(religion);
     setCharacter({ ...character, religion });
   };

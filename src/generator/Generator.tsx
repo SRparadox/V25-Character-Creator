@@ -18,7 +18,9 @@ import ErrorBoundary from "../components/ErrorBoundary"
 import RitualsPicker from "./components/RitualsPicker"
 import CeremoniesPicker from "./components/CeremoniesPicker"
 
+
 // Export a function to get the step labels dynamically
+export function getStepLabels(character: Character) {
     const hasBloodSorcery = containsBloodSorcery(character.disciplines);
     const hasOblivion = character.disciplines.some((power: Power) => power.discipline === "oblivion");
     const labels = [
