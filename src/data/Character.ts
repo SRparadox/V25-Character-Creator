@@ -95,6 +95,7 @@ export const characterSchema = z.object({
     description: z.string(),
     sire: z.string(),
 
+export type Character = z.infer<typeof characterSchema>;
     clan: clanNameSchema,
     sect: z.string(), // SectPicker value
     // clanDisciplines:
@@ -127,5 +128,7 @@ export const characterSchema = z.object({
     merits: meritFlawSchema.array(),
     flaws: meritFlawSchema.array(),
 })
+
+export type Character = z.infer<typeof characterSchema>;
 
 export const containsBloodSorcery = (powers: Power[]) => powers.filter((power) => power.discipline === "blood sorcery").length > 0

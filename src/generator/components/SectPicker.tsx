@@ -1,14 +1,30 @@
 import { useState } from "react";
 import { Button, Group, Stack, Text, Title, Center } from "@mantine/core";
-import { Character } from "../../data/Character";
+// Update the import to match the actual export from Character.ts
+// For example, if it's a default export:
+// import Character from "../../data/Character";
+
+// Or, if the file exports an interface/type with a different name, use that name:
+// import { ActualExportedName } from "../../data/Character";
+
+// If Character is not exported, add the following to ../../data/Character.ts:
+// export type Character = { /* ...fields... */ };
+
+// Placeholder import to avoid error (update as needed):
+import type { Character } from "../../data/Character";
 
 export type Sect = "Followers of Set" | "The Bahari" | "Church of Cain" | "Non Believer";
 
+import FollowersOfSetIcon from "../../resources/sectIcons/FollowersOfSet.png";
+import TheBahariIcon from "../../resources/sectIcons/TheBahari.png";
+import ChurchOfCainIcon from "../../resources/sectIcons/ChurchOfCain.png";
+import NonBelieverIcon from "../../resources/sectIcons/NonBeliever.png";
+
 const sects: { name: Sect; color: string; icon: string }[] = [
-  { name: "Followers of Set", color: "#8B5CF6", icon: require("../../resources/sectIcons/FollowersOfSet.png") },
-  { name: "The Bahari", color: "#F59E42", icon: require("../../resources/sectIcons/TheBahari.png") },
-  { name: "Church of Cain", color: "#EF4444", icon: require("../../resources/sectIcons/ChurchOfCain.png") },
-  { name: "Non Believer", color: "#6B7280", icon: require("../../resources/sectIcons/NonBeliever.png") },
+  { name: "Followers of Set", color: "#8B5CF6", icon: FollowersOfSetIcon },
+  { name: "The Bahari", color: "#F59E42", icon: TheBahariIcon },
+  { name: "Church of Cain", color: "#EF4444", icon: ChurchOfCainIcon },
+  { name: "Non Believer", color: "#6B7280", icon: NonBelieverIcon },
 ];
 
 export type SectPickerProps = {
