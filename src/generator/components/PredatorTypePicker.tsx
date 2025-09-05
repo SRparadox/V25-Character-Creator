@@ -64,7 +64,10 @@ const PredatorTypePicker = ({ character, setCharacter, nextStep }: PredatorTypeP
                 </Grid.Col>
                 <Grid.Col offset={phoneScreen ? 1 : 0} span={phoneScreen ? 6 : 4}>
                     <Stack>
-                        {(["Alleycat", "Extortionist", "Roadside Killer", "Montero"] as PredatorTypeName[]).map((predatorTypeName) =>
+                        {([
+                            "Alleycat", "Extortionist", "Roadside Killer", "Montero",
+                            "Tithe Collector", "Incarcerator", "Abductor", "Cazador", "Rival Predators", "Cannibal", "Civilization Destroyer"
+                        ] as PredatorTypeName[]).map((predatorTypeName) =>
                             createButton(predatorTypeName, "red")
                         )}
                     </Stack>
@@ -79,7 +82,10 @@ const PredatorTypePicker = ({ character, setCharacter, nextStep }: PredatorTypeP
                 </Grid.Col>
                 <Grid.Col offset={phoneScreen ? 1 : 0} span={phoneScreen ? 6 : 4}>
                     <Stack>
-                        {(["Cleaver", "Consensualist", "Osiris", "Scene Queen", "Siren"] as PredatorTypeName[]).map((predatorTypeName) =>
+                        {([
+                            "Cleaver", "Consensualist", "Osiris", "Scene Queen", "Siren",
+                            "Blood Baby", "Codependent", "Patron Of The Arts", "Cardillac", "Sacred Harlot", "Two Face", "Fear Monger", "Reputation"
+                        ] as PredatorTypeName[]).map((predatorTypeName) =>
                             createButton(predatorTypeName, "grape")
                         )}
                     </Stack>
@@ -94,7 +100,10 @@ const PredatorTypePicker = ({ character, setCharacter, nextStep }: PredatorTypeP
                 </Grid.Col>
                 <Grid.Col offset={phoneScreen ? 1 : 0} span={phoneScreen ? 6 : 4}>
                     <Stack>
-                        {(["Sandman", "Graverobber", "Grim Reaper", "Pursuer", "Trapdoor"] as PredatorTypeName[]).map((predatorTypeName) =>
+                        {([
+                            "Sandman", "Graverobber", "Grim Reaper", "Pursuer", "Trapdoor",
+                            "Ambulance Chaser", "Opportunist", "Cucuy", "Harvester", "Maskless", "Pet Collaborator", "Tormentor", "Nomadic Feeder", "Xenophile"
+                        ] as PredatorTypeName[]).map((predatorTypeName) =>
                             createButton(predatorTypeName, "gray")
                         )}
                     </Stack>
@@ -109,7 +118,10 @@ const PredatorTypePicker = ({ character, setCharacter, nextStep }: PredatorTypeP
                 </Grid.Col>
                 <Grid.Col offset={phoneScreen ? 1 : 0} span={phoneScreen ? 6 : 4}>
                     <Stack>
-                        {(["Bagger", "Blood Leech", "Farmer"] as PredatorTypeName[]).map((predatorTypeName) =>
+                        {([
+                            "Bagger", "Blood Leech", "Farmer",
+                            "Condiment King", "Delivery Diner", "Sin Eater", "Intermittent Faster"
+                        ] as PredatorTypeName[]).map((predatorTypeName) =>
                             createButton(predatorTypeName, "violet")
                         )}
                     </Stack>
