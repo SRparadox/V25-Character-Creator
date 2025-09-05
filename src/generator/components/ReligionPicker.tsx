@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Group, Stack, Text, Title, Center } from "@mantine/core";
+import { Button, Stack, Text, Title, Center, Card, SimpleGrid } from "@mantine/core";
 import type { Character } from "../../data/Character";
 import BaharaIcon from "../../resources/religionIcons/Bahari.webp";
 import ChurchofCaineIcon from "../../resources/religionIcons/ChurchofCaine.webp";
@@ -50,7 +50,7 @@ export type ReligionPickerProps = {
 
 const ReligionPicker = ({ character, setCharacter, nextStep }: ReligionPickerProps) => {
   const [selectedReligion, setSelectedReligion] = useState<Religions | null>(
-    religions.some((r) => r.name === character.religion) ? (character.religion as Religions) : null
+  religions.some((r) => r.name === character.religion) ? (character.religion as Religions) : null
   );
 
   const handleSelect = (religion: Religions) => {
@@ -60,26 +60,39 @@ const ReligionPicker = ({ character, setCharacter, nextStep }: ReligionPickerPro
 
   return (
     <Center h="100%">
-      <Stack spacing="xl" align="center">
+      <Stack spacing="xl" align="center" w="100%">
         <Title order={2}>Choose a Religion</Title>
-        <Group spacing="lg">
+        <SimpleGrid cols={4} spacing="lg" breakpoints={[{ maxWidth: 'md', cols: 2 }, { maxWidth: 'sm', cols: 1 }]}
+          style={{ width: '100%', maxWidth: 900 }}>
           {religions.map(({ name, color, icon, summary }) => (
-            <Button
+            <Card
               key={name}
-              variant={selectedReligion === name ? "filled" : "outline"}
-              color={color}
+              shadow={selectedReligion === name ? "xl" : "sm"}
+              padding="lg"
+              radius="md"
+              withBorder
+              style={{
+                borderColor: selectedReligion === name ? color : undefined,
+                borderWidth: selectedReligion === name ? 3 : 1,
+                borderStyle: 'solid',
+                cursor: 'pointer',
+                background: selectedReligion === name ? `${color}22` : undefined,
+                transition: 'box-shadow 0.2s, border-color 0.2s',
+                minHeight: 220,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'flex-start',
+              }}
               onClick={() => handleSelect(name)}
-              style={{ display: "flex", flexDirection: "column", alignItems: "center", width: 160, height: 180, padding: 0 }}
             >
-              <img src={icon} alt={name} style={{ width: 48, height: 48, marginTop: 12, marginBottom: 8 }} />
-              <Text fw={700} size="lg">{name}</Text>
-              <Text size="sm" color="dimmed" ta="center" style={{ minHeight: 40, marginTop: 4, marginBottom: 0, padding: 2 }}>
-                {summary}
-              </Text>
-            </Button>
+              <img src={icon} alt={name} style={{ width: 56, height: 56, marginBottom: 12, marginTop: 4 }} />
+              <Text fw={700} size="lg" mb={4} align="center">{name}</Text>
+              <Text size="sm" color="dimmed" align="center" style={{ minHeight: 48 }}>{summary}</Text>
+            </Card>
           ))}
-        </Group>
-        <Button disabled={!selectedReligion} onClick={nextStep} color="grape" size="lg">
+        </SimpleGrid>
+        <Button disabled={!selectedReligion} onClick={nextStep} color="grape" size="lg" mt="md">
           Next
         </Button>
       </Stack>
