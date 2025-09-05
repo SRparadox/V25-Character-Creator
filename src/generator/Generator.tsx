@@ -4,6 +4,7 @@ import AttributePicker from "./components/AttributePicker"
 import BasicsPicker from "./components/BasicsPicker"
 import ClanPicker from "./components/ClanPicker"
 import DisciplinesPicker from "./components/DisciplinesPicker"
+import { Power } from "../data/Disciplines";
 import Final from "./components/Final"
 import GenerationPicker from "./components/GenerationPicker"
 import Intro from "./components/Intro"
@@ -13,6 +14,7 @@ import SkillsPicker from "./components/SkillsPicker"
 import TouchstonePicker from "./components/TouchstonePicker"
 import ErrorBoundary from "../components/ErrorBoundary"
 import RitualsPicker from "./components/RitualsPicker"
+import CeremoniesPicker from "./components/CeremoniesPicker"
 
 export type GeneratorProps = {
     character: Character
@@ -22,11 +24,57 @@ export type GeneratorProps = {
     setSelectedStep: (step: number) => void
 }
 
+const containsOblivion = (powers: Power[]) => powers.some((power) => power.discipline === "oblivion");
+
 const Generator = ({ character, setCharacter, selectedStep, setSelectedStep }: GeneratorProps) => {
+    const hasBloodSorcery = containsBloodSorcery(character.disciplines);
+    const hasOblivion = containsOblivion(character.disciplines);
+
     const getStepComponent = () => {
         // Unclean solution: Stepper in AsideBar only gives us an index to use here and if we don't have a blood-sorcery step (at 8) it breaks alignment of the steps. Ideally we'd get a string from the stepper rather than a number and then we wouldn't have to map things here
-        const patchedSelectedStep = !containsBloodSorcery(character.disciplines) && selectedStep >= 8 ? selectedStep + 1 : selectedStep
-        switch (patchedSelectedStep) {
+    const patchedSelectedStep = !hasBloodSorcery && selectedStep >= 8 ? selectedStep + 1 : selectedStep
+        // Insert Rituals and Ceremonies logic
+        if (hasBloodSorcery && hasOblivion) {
+            if (selectedStep === 8) {
+                return (
+                    <RitualsPicker
+                        character={character}
+                        setCharacter={setCharacter}
+                        nextStep={() => setSelectedStep(selectedStep + 1)}
+                    />
+                );
+            }
+            if (selectedStep === 9) {
+                return (
+                    <CeremoniesPicker
+                        character={character}
+                        setCharacter={setCharacter}
+                        nextStep={() => setSelectedStep(selectedStep + 1)}
+                    />
+                );
+            }
+        } else if (hasBloodSorcery) {
+            if (selectedStep === 8) {
+                return (
+                    <RitualsPicker
+                        character={character}
+                        setCharacter={setCharacter}
+                        nextStep={() => setSelectedStep(selectedStep + 1)}
+                    />
+                );
+            }
+        } else if (hasOblivion) {
+            if (selectedStep === 8) {
+                return (
+                    <CeremoniesPicker
+                        character={character}
+                        setCharacter={setCharacter}
+                        nextStep={() => setSelectedStep(selectedStep + 1)}
+                    />
+                );
+            }
+        }
+        switch (selectedStep) {
             case 0:
                 return (
                     <Intro
@@ -118,7 +166,7 @@ const Generator = ({ character, setCharacter, selectedStep, setSelectedStep }: G
                 )
             case 9:
                 return (
-                    <TouchstonePicker
+                    <CeremoniesPicker
                         character={character}
                         setCharacter={setCharacter}
                         nextStep={() => {
@@ -128,7 +176,7 @@ const Generator = ({ character, setCharacter, selectedStep, setSelectedStep }: G
                 )
             case 10:
                 return (
-                    <MeritsAndFlawsPicker
+                    <TouchstonePicker
                         character={character}
                         setCharacter={setCharacter}
                         nextStep={() => {
@@ -137,6 +185,16 @@ const Generator = ({ character, setCharacter, selectedStep, setSelectedStep }: G
                     />
                 )
             case 11:
+                return (
+                    <MeritsAndFlawsPicker
+                        character={character}
+                        setCharacter={setCharacter}
+                        nextStep={() => {
+                            setSelectedStep(selectedStep + 1)
+                        }}
+                    />
+                )
+            case 12:
                 return <Final character={character} setCharacter={setCharacter} setSelectedStep={setSelectedStep} />
             default:
                 return <Text size={"xl"}>{`Error: Step ${selectedStep} is not implemented`}</Text>
