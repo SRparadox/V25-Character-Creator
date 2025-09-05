@@ -12,20 +12,31 @@ import { Button, Group, Stack, Text, Title, Center } from "@mantine/core";
 
 // Placeholder import to avoid error (update as needed):
 import type { Character } from "../../data/Character";
-import { sectSchema } from "../../data/Character";
+import CamarillaIcon from "../../resources/sectIcons/Camarilla.webp";
+import AnarchIcon from "../../resources/sectIcons/Anarch.webp";
+import IndependentIcon from "../../resources/sectIcons/Independent.webp";
+import AshirraIcon from "../../resources/sectIcons/Ashirra.webp";
+import BlackHandIcon from "../../resources/sectIcons/BlackHand.webp";
+import SabbatIcon from "../../resources/sectIcons/Sabbat.webp";
+import TalMaheRaIcon from "../../resources/sectIcons/TalMaheRa.webp";
 
-export type Sect = typeof sectSchema._type;
-
-import FollowersOfSetIcon from "../../resources/sectIcons/FollowersOfSet.png";
-import TheBahariIcon from "../../resources/sectIcons/TheBahari.png";
-import ChurchOfCainIcon from "../../resources/sectIcons/ChurchOfCain.png";
-import NonBelieverIcon from "../../resources/sectIcons/NonBeliever.png";
+export type Sect =
+  | "Camarilla"
+  | "Anarch"
+  | "Independent"
+  | "Ashirra"
+  | "Black Hand"
+  | "Sabbat"
+  | "TalMaheRa";
 
 const sects: { name: Sect; color: string; icon: string }[] = [
-  { name: "Followers of Set", color: "#8B5CF6", icon: FollowersOfSetIcon },
-  { name: "The Bahari", color: "#F59E42", icon: TheBahariIcon },
-  { name: "Church of Cain", color: "#EF4444", icon: ChurchOfCainIcon },
-  { name: "Non Believer", color: "#6B7280", icon: NonBelieverIcon },
+  { name: "Camarilla", color: "#bfc9d9", icon: CamarillaIcon },
+  { name: "Anarch", color: "#e63946", icon: AnarchIcon },
+  { name: "Independent", color: "#f4a259", icon: IndependentIcon },
+  { name: "Ashirra", color: "#2a9d8f", icon: AshirraIcon },
+  { name: "Black Hand", color: "#22223b", icon: BlackHandIcon },
+  { name: "Sabbat", color: "#6d597a", icon: SabbatIcon },
+  { name: "TalMaheRa", color: "#f72585", icon: TalMaheRaIcon },
 ];
 
 export type SectPickerProps = {
@@ -36,7 +47,7 @@ export type SectPickerProps = {
 
 const SectPicker = ({ character, setCharacter, nextStep }: SectPickerProps) => {
   const [selectedSect, setSelectedSect] = useState<Sect | null>(
-    sectSchema.safeParse(character.sect).success ? character.sect as Sect : null
+    sects.some(s => s.name === character.sect) ? (character.sect as Sect) : null
   );
 
   const handleSelect = (sect: Sect) => {
