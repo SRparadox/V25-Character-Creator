@@ -124,45 +124,47 @@ const DisciplinesPicker = ({ character, setCharacter, nextStep }: DisciplinesPic
                         maxHeight: fixedHeight,
                         display: "flex",
                         flexDirection: "column",
-                        justifyContent: "space-between",
-                        position: "relative"
+                        alignItems: "center",
+                        justifyContent: "center",
+                        position: "relative",
+                        textAlign: "center"
                     }}
                 >
-                    <Group position="apart" mt="0" mb="xs">
-                        <Text fz={smallScreen && !phoneScreen ? "xs" : "sm"} weight={500}>
-                            {power.name}
-                        </Text>
-                        <Badge pos={"absolute"} top={0} right={0} radius={"xs"} color="pink" variant="light">
-                            lv {power.level}
-                        </Badge>
-                    </Group>
-
-                    <Text fz={"sm"} size="sm" color="dimmed">
-                        {upcase(power.summary)}
-                    </Text>
-                    {power.amalgamPrerequisites.length > 0 ? (
-                        <div style={{ height: amalgamHeight }}>
-                            <Text size="sm" color="red">
-                                Requires:
+                    <div style={{ width: "100%" }}>
+                        <Group position="apart" mt="0" mb="xs" style={{ width: "100%" }}>
+                            <Text fz={smallScreen && !phoneScreen ? "xs" : "sm"} weight={500}>
+                                {power.name}
                             </Text>
-                            <List size="xs">
-                                {power.amalgamPrerequisites.map((prereq) => {
-                                    return (
-                                        <List.Item key={power.name + prereq.discipline}>
-                                            {upcase(prereq.discipline)}: Lv {prereq.level}
-                                        </List.Item>
-                                    )
-                                })}
-                            </List>
-                            {missingAmalgamPrereq(power) ? null : (
-                                <Text size="xs" color="green">
-                                    (requirements met)
+                            <Badge pos={"absolute"} top={0} right={0} radius={"xs"} color="pink" variant="light">
+                                lv {power.level}
+                            </Badge>
+                        </Group>
+                        <Text fz={"sm"} size="sm" color="dimmed" mt={8}>
+                            {upcase(power.summary)}
+                        </Text>
+                        {power.amalgamPrerequisites.length > 0 ? (
+                            <div style={{ height: amalgamHeight, marginTop: 8 }}>
+                                <Text size="sm" color="red">
+                                    Requires:
                                 </Text>
-                            )}
-                        </div>
-                    ) : null}
-
-                    <div style={{ position: "absolute", bottom: "0", width: "100%", padding: "inherit", left: 0 }}>
+                                <List size="xs">
+                                    {power.amalgamPrerequisites.map((prereq) => {
+                                        return (
+                                            <List.Item key={power.name + prereq.discipline}>
+                                                {upcase(prereq.discipline)}: Lv {prereq.level}
+                                            </List.Item>
+                                        )
+                                    })}
+                                </List>
+                                {missingAmalgamPrereq(power) ? null : (
+                                    <Text size="xs" color="green">
+                                        (requirements met)
+                                    </Text>
+                                )}
+                            </div>
+                        ) : null}
+                    </div>
+                    <div style={{ width: "100%", marginTop: "auto" }}>
                         <Button
                             disabled={isButtonDisabled}
                             onClick={() => {
