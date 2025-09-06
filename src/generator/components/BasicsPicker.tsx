@@ -14,11 +14,14 @@ const BasicsPicker = ({ character, setCharacter, nextStep }: BasicsPickerProps) 
         ReactGA.send({ hitType: "pageview", title: "Basics Picker" })
     }, [])
 
+    const [playerName, setPlayerName] = useState((character as any).playerName || "")
+    const [chronicleName, setChronicleName] = useState((character as any).chronicleName || "")
     const [name, setName] = useState(character.name)
     const [sire, setSire] = useState(character.sire)
     const [ambition, setAmbition] = useState(character.ambition)
     const [desire, setDesire] = useState(character.desire)
     const [description, setDescription] = useState(character.description)
+    const [notes, setNotes] = useState((character as any).notes || "")
 
     return (
         <div>
@@ -27,6 +30,20 @@ const BasicsPicker = ({ character, setCharacter, nextStep }: BasicsPickerProps) 
             </Text>
 
             <Stack mt={"xl"} align="center" spacing="xl">
+                <TextInput
+                    style={{ width: "300px" }}
+                    value={playerName}
+                    onChange={(event) => setPlayerName(event.currentTarget.value)}
+                    placeholder="Your name"
+                    label="Player Name"
+                />
+                <TextInput
+                    style={{ width: "300px" }}
+                    value={chronicleName}
+                    onChange={(event) => setChronicleName(event.currentTarget.value)}
+                    placeholder="What game are you playing?"
+                    label="Chronicle Name"
+                />
                 <TextInput
                     style={{ width: "300px" }}
                     value={name}
@@ -60,6 +77,7 @@ const BasicsPicker = ({ character, setCharacter, nextStep }: BasicsPickerProps) 
                     label="Your short term desire"
                 />
 
+
                 <Textarea
                     style={{ width: "300px" }}
                     value={description}
@@ -70,10 +88,30 @@ const BasicsPicker = ({ character, setCharacter, nextStep }: BasicsPickerProps) 
                     minRows={4}
                 />
 
+                <Textarea
+                    style={{ width: "300px" }}
+                    value={notes}
+                    onChange={(event) => setNotes(event.currentTarget.value)}
+                    placeholder="History, character items, notes"
+                    label="Notes"
+                    autosize
+                    minRows={4}
+                />
+
                 <Button
                     color="grape"
                     onClick={() => {
-                        setCharacter({ ...character, name, sire, ambition, desire, description })
+                        setCharacter({
+                            ...character,
+                            playerName,
+                            chronicleName,
+                            name,
+                            sire,
+                            ambition,
+                            desire,
+                            description,
+                            notes,
+                        })
                         nextStep()
                     }}
                 >

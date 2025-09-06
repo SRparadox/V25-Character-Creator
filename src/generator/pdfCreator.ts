@@ -277,7 +277,24 @@ const createPdf_nerdbert = async (character: Character): Promise<Uint8Array> => 
 
     form.getTextField("Sire").setText(character.sire)
     form.getTextField("Desire").setText(character.desire)
+
     form.getTextField("Title").setText(`${character.generation}`) // Yes, "Title" is the generation field
+
+    // Fill Player and Chronicle fields
+    form.getTextField("Player").setText(character.playerName || "")
+    form.getTextField("Chronicle").setText(character.chronicleName || "")
+
+    // Add humanity level and character notes to Notes field
+    const notesField = form.getTextField("Notes")
+    const currentNotes = notesField.getText ? notesField.getText() : ""
+    let notesText = `Humanity: ${humanity}`
+    if (character.notes && character.notes.trim()) {
+        notesText += `\n${character.notes.trim()}`
+    }
+    if (currentNotes) {
+        notesText += `\n${currentNotes}`
+    }
+    notesField.setText(notesText)
 
     // Disciplines
     const getDisciplineText = (power: Power | Ritual) => {

@@ -2,8 +2,11 @@
 // Returns a new empty Character object
 
 export const getEmptyCharacter = (): Character => ({
+    playerName: "",
+    chronicleName: "",
     name: "",
     description: "",
+    notes: "",
     sire: "",
     clan: "",
     sect: "Non Believer",
@@ -110,8 +113,11 @@ export const sectSchema = z.union([
 ]);
 
 export const characterSchema = z.object({
+    playerName: z.string(),
+    chronicleName: z.string(),
     name: z.string(),
     description: z.string(),
+    notes: z.string(),
     sire: z.string(),
     clan: clanNameSchema,
     sect: sectSchema, // SectPicker value
