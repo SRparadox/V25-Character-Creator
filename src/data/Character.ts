@@ -80,8 +80,9 @@ export const religionSchema = z.union([
     z.literal("Non Believer"),
 ]);
 
-// Sect type for SectPicker
-export type Sect = "Followers of Set" | "The Bahari" | "Church of Cain" | "Non Believer";
+
+// Use Sect type from SectPicker
+import type { Sect } from "../generator/components/SectPicker";
 
 export const meritFlawSchema = z.object({
     name: z.string(),
@@ -99,10 +100,13 @@ export const touchstoneSchema = z.object({
 export type Touchstone = z.infer<typeof touchstoneSchema>
 
 export const sectSchema = z.union([
-    z.literal("Followers of Set"),
-    z.literal("The Bahari"),
-    z.literal("Church of Cain"),
-    z.literal("Non Believer"),
+    z.literal("Camarilla"),
+    z.literal("Anarch"),
+    z.literal("Independent"),
+    z.literal("Ashirra"),
+    z.literal("Black Hand"),
+    z.literal("Sabbat"),
+    z.literal("TalMaheRa"),
 ]);
 
 export const characterSchema = z.object({

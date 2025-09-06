@@ -266,10 +266,14 @@ const createPdf_nerdbert = async (character: Character): Promise<Uint8Array> => 
     form.getTextField("Predator type").setText(character.predatorType.name)
     form.getTextField("Ambition").setText(character.ambition)
 
+
     form.getTextField("Clan").setText(character.clan)
     const baneText = clans[character.clan].bane.replace("BANE_SEVERITY", `${effects.bane} (bane severity)`)
     form.getTextField("ClanBane").setText(baneText)
     form.getTextField("ClanCompulsion").setText(clans[character.clan].compulsion)
+
+    // Fill Sect field with 'sect -- religion'
+    form.getTextField("Sect").setText(`${character.sect} -- ${character.religion}`)
 
     form.getTextField("Sire").setText(character.sire)
     form.getTextField("Desire").setText(character.desire)
