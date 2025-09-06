@@ -4,7 +4,7 @@ import { Button, Divider, Grid, ScrollArea, Stack, Tabs, Text, useMantineTheme }
 import { useEffect, useState } from "react"
 import ReactGA from "react-ga4"
 import { Character, MeritFlaw } from "../../data/Character"
-import { isThinbloodFlaw, isThinbloodMerit, MeritOrFlaw, meritsAndFlaws, thinbloodMeritsAndFlaws } from "../../data/MeritsAndFlaws"
+import { isThinbloodFlaw, isThinbloodMerit, MeritOrFlaw, meritsAndFlaws, thinbloodMeritsAndFlaws, bargainFlaws } from "../../data/MeritsAndFlaws"
 import { PredatorTypes } from "../../data/PredatorType"
 import { globals } from "../../globals"
 import { Loresheets } from "./Loresheets"
@@ -43,9 +43,10 @@ const MeritsAndFlawsPicker = ({ character, setCharacter, nextStep }: MeritsAndFl
     const tbFlawCount = character.flaws.filter((f) => isThinbloodFlaw(f.name)).length
     const [remainingThinbloodMeritPoints, setRemainingThinbloodMeritPoints] = useState(tbFlawCount - tbMeritCount)
 
-    const getMeritOrFlawLine = (meritOrFlaw: MeritOrFlaw, type: "flaw" | "merit"): JSX.Element => {
-        const buttonColor = type === "flaw" ? "red" : "green"
-        const icon = type === "flaw" ? flawIcon() : meritIcon()
+    const getMeritOrFlawLine = (meritOrFlaw: MeritOrFlaw, type: "flaw" | "merit" | "bargainflaw" = "merit"): JSX.Element => {
+        const isBargain = (meritOrFlaw as any).type === "bargainflaw"
+        const buttonColor = isBargain ? "grape" : type === "flaw" ? "red" : "green"
+        const icon = isBargain ? <FontAwesomeIcon icon={faPlay} rotation={90} style={{ color: "purple" }} /> : type === "flaw" ? flawIcon() : meritIcon()
 
         const alreadyPickedItem = pickedMeritsAndFlaws.find((l) => l.name === meritOrFlaw.name)
         const wasPickedLevel = alreadyPickedItem?.level ?? 0
@@ -61,7 +62,9 @@ const MeritsAndFlawsPicker = ({ character, setCharacter, nextStep }: MeritsAndFl
                     key={meritOrFlaw.name + level}
                     disabled={(meritInPredatorType && meritInPredatorType.level >= level) || (!!wasPickedLevel && wasPickedLevel >= level)}
                     onClick={() => {
-                        if (isThinbloodFlaw(meritOrFlaw.name)) {
+                        if (isBargain) {
+                            setRemainingMerits(remainingMerits + cost + level) // add merit points
+                        } else if (isThinbloodFlaw(meritOrFlaw.name)) {
                             setRemainingThinbloodMeritPoints(remainingThinbloodMeritPoints + 1)
                         } else if (isThinbloodMerit(meritOrFlaw.name)) {
                             if (remainingThinbloodMeritPoints < cost) return
@@ -75,7 +78,7 @@ const MeritsAndFlawsPicker = ({ character, setCharacter, nextStep }: MeritsAndFl
                         }
                         setPickedMeritsAndFlaws([
                             ...pickedMeritsAndFlaws.filter((m) => m.name !== alreadyPickedItem?.name),
-                            { name: meritOrFlaw.name, level, type, summary: meritOrFlaw.summary },
+                            { name: meritOrFlaw.name, level, type: isBargain ? "bargainflaw" : type, summary: meritOrFlaw.summary },
                         ])
                     }}
                     style={{ marginRight: "5px" }}
@@ -88,7 +91,7 @@ const MeritsAndFlawsPicker = ({ character, setCharacter, nextStep }: MeritsAndFl
             )
         }
 
-        const bg = alreadyPickedItem ? { background: type === "flaw" ? "rgba(255, 25, 25, 0.2)" : "rgba(50, 255, 100, 0.2)" } : {}
+    const bg = alreadyPickedItem ? { background: isBargain ? "rgba(128,0,128,0.15)" : type === "flaw" ? "rgba(255, 25, 25, 0.2)" : "rgba(50, 255, 100, 0.2)" } : {}
         const cost = wasPickedLevel - meritInPredatorTypeLevel
         return (
             <Text style={{ ...bg, padding: "5px" }} key={meritOrFlaw.name}>
@@ -100,7 +103,9 @@ const MeritsAndFlawsPicker = ({ character, setCharacter, nextStep }: MeritsAndFl
                         <Button
                             onClick={() => {
                                 setPickedMeritsAndFlaws([...pickedMeritsAndFlaws.filter((m) => m.name !== alreadyPickedItem?.name)])
-                                if (isThinbloodFlaw(meritOrFlaw.name)) {
+                                if (isBargain) {
+                                    setRemainingMerits(remainingMerits - alreadyPickedItem.level)
+                                } else if (isThinbloodFlaw(meritOrFlaw.name)) {
                                     setRemainingThinbloodMeritPoints(remainingThinbloodMeritPoints - 1)
                                 } else if (isThinbloodMerit(meritOrFlaw.name)) {
                                     setRemainingThinbloodMeritPoints(remainingThinbloodMeritPoints + 1)
@@ -127,6 +132,9 @@ const MeritsAndFlawsPicker = ({ character, setCharacter, nextStep }: MeritsAndFl
         <Stack align="center" mt={100}>
             <Text fz={globals.largeFontSize} ta={"center"}>
                 Remaining Advantage points: {remainingMerits} <br /> Remaining Flaw points: {remainingFlaws}
+            </Text>
+            <Text fz={globals.smallFontSize} ta={"center"} c={theme.colors.grape[6]}>
+                Bargain Flaws (purple) increase your available merit points instead of using flaw points.
             </Text>
 
             <Tabs color="grape" value={activeTab} onTabChange={setActiveTab}>
@@ -167,6 +175,8 @@ const MeritsAndFlawsPicker = ({ character, setCharacter, nextStep }: MeritsAndFl
 
                                             {category.merits.map((merit) => getMeritOrFlawLine(merit, "merit"))}
                                             {category.flaws.map((flaw) => getMeritOrFlawLine(flaw, "flaw"))}
+                                            {/* Show BargainFlaws in a dedicated section */}
+                                            {category.title === meritsAndFlaws[0].title && bargainFlaws.map((flaw) => getMeritOrFlawLine(flaw, "bargainflaw"))}
                                         </Stack>
                                     </Grid.Col>
                                 )
@@ -189,7 +199,7 @@ const MeritsAndFlawsPicker = ({ character, setCharacter, nextStep }: MeritsAndFl
                     setCharacter({
                         ...character,
                         merits: pickedMeritsAndFlaws.filter((l) => l.type === "merit"),
-                        flaws: pickedMeritsAndFlaws.filter((l) => l.type === "flaw"),
+                        flaws: pickedMeritsAndFlaws.filter((l) => l.type === "flaw" || l.type === "bargainflaw"),
                     })
 
                     ReactGA.event({

@@ -9,8 +9,8 @@ export const getEmptyCharacter = (): Character => ({
     notes: "",
     sire: "",
     clan: "",
-    sect: "Non Believer",
-    religion: "Non Believer",
+    sect: "",
+    religion: "",
     predatorType: { name: "", pickedDiscipline: "", pickedSpecialties: [], pickedMeritsAndFlaws: [] },
     touchstones: [],
     ambition: "",
@@ -81,6 +81,7 @@ export const religionSchema = z.union([
     z.literal("Church of Caine"),
     z.literal("Followers of Set"),
     z.literal("Non Believer"),
+    z.literal(""),
 ]);
 
 
@@ -91,7 +92,7 @@ export const meritFlawSchema = z.object({
     name: z.string(),
     level: z.number().min(1).int(),
     summary: z.string(),
-    type: z.union([z.literal("merit"), z.literal("flaw")]),
+    type: z.union([z.literal("merit"), z.literal("flaw"), z.literal("bargainflaw")]),
 })
 export type MeritFlaw = z.infer<typeof meritFlawSchema>
 
@@ -110,6 +111,7 @@ export const sectSchema = z.union([
     z.literal("Black Hand"),
     z.literal("Sabbat"),
     z.literal("TalMaheRa"),
+    z.literal(""),
 ]);
 
 export const characterSchema = z.object({
