@@ -112,7 +112,7 @@ export const meritsAndFlaws: MeritsAndFlaws[] = [
                 { name: "Knowledge Hungry", cost: [1], summary: "At character creation pick a topic that your character desires to study. When they come across the methods to learn these things, they must make a Willpower roll at Difficulty 3 to resist." },
                 { name: "Risk-Taker Errata", cost: [1], summary: "When confronted with a risky temptation that the character hasn't done before, they suffer a two-dice penalty for all actions till they participate or the scene ends." },
                 { name: "Weak-Willed", cost: [2], summary: "Even when they are aware that someone is attempting to sway they may not use the active resistance systems to avoid the attempts." },
-        ],
+        ].filter(flaw => !(bargainFlaws as any[]).some(b => b.name === flaw.name)),
     },
     {
         title: "✨ Supernatural",
