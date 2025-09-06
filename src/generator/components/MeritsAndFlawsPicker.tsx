@@ -174,9 +174,11 @@ const MeritsAndFlawsPicker = ({ character, setCharacter, nextStep }: MeritsAndFl
                                             <Divider mt={0} w={"50%"} />
 
                                             {category.merits.map((merit) => getMeritOrFlawLine(merit, "merit"))}
-                                            {category.flaws.map((flaw) => getMeritOrFlawLine(flaw, "flaw"))}
-                                            {/* Show BargainFlaws in a dedicated section */}
-                                            {category.title === meritsAndFlaws[0].title && bargainFlaws.map((flaw) => getMeritOrFlawLine(flaw, "bargainflaw"))}
+                                                                                        {category.title === "🟣 Dark Bargains"
+                                                                                            ? category.flaws.map((flaw) => getMeritOrFlawLine(flaw, "bargainflaw"))
+                                                                                            : category.flaws
+                                                                                                    .filter((flaw) => !(bargainFlaws as any[]).some((b) => b.name === flaw.name))
+                                                                                                    .map((flaw) => getMeritOrFlawLine(flaw, "flaw"))}
                                         </Stack>
                                     </Grid.Col>
                                 )
