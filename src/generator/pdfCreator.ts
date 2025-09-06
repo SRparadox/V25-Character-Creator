@@ -285,7 +285,7 @@ const createPdf_nerdbert = async (character: Character): Promise<Uint8Array> => 
     form.getTextField("Chronicle").setText(character.chronicleName || "")
 
     // Add humanity level and character notes to Notes field
-    const notesField = form.getTextField("pcNotes")
+    const notesField = form.getTextField("PC_Notes")
     const currentNotes = notesField.getText ? notesField.getText() : ""
     let notesText = `Humanity: ${humanity}`
     if (character.notes && character.notes.trim()) {
@@ -405,7 +405,7 @@ export const downloadCharacterSheet = async (character: Character) => {
         color: "grape",
     })
 
-    downloadPdf(`progeny_${character.name}.pdf`, pdfBytes)
+    downloadPdf(`V5_${character.name}.pdf`, pdfBytes)
 }
 
 function base64ToArrayBuffer(base64: string) {

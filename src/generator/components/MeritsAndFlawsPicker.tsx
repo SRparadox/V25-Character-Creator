@@ -63,7 +63,7 @@ const MeritsAndFlawsPicker = ({ character, setCharacter, nextStep }: MeritsAndFl
                     disabled={(meritInPredatorType && meritInPredatorType.level >= level) || (!!wasPickedLevel && wasPickedLevel >= level)}
                     onClick={() => {
                         if (isBargain) {
-                            setRemainingMerits(remainingMerits + cost + level) // add merit points
+                            setRemainingMerits(remainingMerits + cost) // add merit points
                         } else if (isThinbloodFlaw(meritOrFlaw.name)) {
                             setRemainingThinbloodMeritPoints(remainingThinbloodMeritPoints + 1)
                         } else if (isThinbloodMerit(meritOrFlaw.name)) {

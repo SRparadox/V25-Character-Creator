@@ -71,6 +71,11 @@ export const meritsAndFlaws: MeritsAndFlaws[] = [
         ],
     },
     {
+        title: "🟣 Dark Bargains",
+        merits: [],
+        flaws: bargainFlaws,
+    },
+    {
         title: "🦠 Contagion",
         merits: [],
         flaws: [
