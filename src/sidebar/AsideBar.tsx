@@ -12,6 +12,9 @@ export type AsideBarProps = {
 const AsideBar = ({ selectedStep, setSelectedStep, character }: AsideBarProps) => {
     // const smallScreen = globals.isSmallScreen
     const maybeRituals = containsBloodSorcery(character.disciplines) ? ["rituals"] : []
+    // Add ceremonies if character has Oblivion discipline or any ceremonies picked
+    const hasOblivion = character.disciplines && character.disciplines.some((d: any) => d.name?.toLowerCase?.() === "oblivion")
+    const maybeCeremonies = (hasOblivion || (character.ceremonies && character.ceremonies.length > 0)) ? ["ceremonies"] : []
     const stepperKeys = [
         "clan",
         "sect",
@@ -23,6 +26,7 @@ const AsideBar = ({ selectedStep, setSelectedStep, character }: AsideBarProps) =
         "name",
         "disciplines",
         ...maybeRituals,
+        ...maybeCeremonies,
         "touchstones",
         "merits",
     ] as (keyof Character)[]

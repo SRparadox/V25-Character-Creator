@@ -1,10 +1,11 @@
-import { faFileArrowUp, faPlay } from "@fortawesome/free-solid-svg-icons"
+import { faFileArrowUp, faPlay, faTrash } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { ActionIcon, Alert, Button, FileButton, Stack, Text } from "@mantine/core"
 import { useDisclosure } from "@mantine/hooks"
 import { IconBrandGithub, IconBrandReddit, IconBrandTwitter } from "@tabler/icons-react"
 import { useEffect, useState } from "react"
 import LoadModal from "../../components/LoadModal"
+import ResetModal from "../../components/ResetModal"
 import { Character } from "../../data/Character"
 import ReactGA from "react-ga4"
 import { globals } from "../../globals"
@@ -21,6 +22,10 @@ const Intro = ({ setCharacter, nextStep }: IntroProps) => {
 
     const [loadedFile, setLoadedFile] = useState<File | null>(null)
     const [loadModalOpened, { open: openLoadModal, close: closeLoadModal }] = useDisclosure(false)
+    const [resetModalOpened, { open: openResetModal, close: closeResetModal }] = useDisclosure(false)
+
+    // Dummy setSelectedStep for ResetModal compatibility
+    const setSelectedStep = () => {};
 
     return (
         <Alert mt={globals.isPhoneScreen ? "75px" : "50px"} color="grape" variant="outline" bg={"rgba(0, 0, 0, 0.6)"}>
@@ -84,16 +89,17 @@ const Intro = ({ setCharacter, nextStep }: IntroProps) => {
                     View Source Code
                 </Button>
                 <Button
-                    component="a"
-                    href="https://ko-fi.com/odin_dev"
-                    target="_blank"
-                    rel="noreferrer"
-                    leftIcon={<span>☕</span>}
-                    size="xs"
-                    color="gray"
-                    variant="light"
+                    leftIcon={<FontAwesomeIcon icon={faTrash} />}
+                    size="md"
+                    color="red"
+                    variant="subtle"
+                    onClick={() => {
+                        // Directly reset character data
+                        // @ts-ignore
+                        import('../../data/Character').then(mod => setCharacter(mod.getEmptyCharacter()));
+                    }}
                 >
-                    Support me on Ko-Fi
+                    Reset Character Data
                 </Button>
                 <Button
                     component="a"
@@ -114,6 +120,7 @@ const Intro = ({ setCharacter, nextStep }: IntroProps) => {
                 loadModalOpened={loadModalOpened}
                 closeLoadModal={closeLoadModal}
             />
+            {/* ResetModal removed for direct reset */}
         </Alert>
     )
 }
