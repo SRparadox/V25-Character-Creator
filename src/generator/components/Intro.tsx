@@ -101,17 +101,7 @@ const Intro = ({ setCharacter, nextStep }: IntroProps) => {
                 >
                     Reset Character Data
                 </Button>
-                <Button
-                    component="a"
-                    href="https://odin-matthias.de"
-                    target="_blank"
-                    rel="noreferrer"
-                    size="xs"
-                    color="gray"
-                    variant="subtle"
-                >
-                    <Text color="rgb(190,190,190)">View My Website</Text>
-                </Button>
+
             </Stack>
 
             <LoadModal
