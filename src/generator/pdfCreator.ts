@@ -321,28 +321,38 @@ const createPdf_nerdbert = async (character: Character): Promise<Uint8Array> => 
         },
         {} as Record<DisciplineName, Power[]>
     )
+    // Track if we need to add extra boxes for rituals/ceremonies
+    let extraBoxIndex = Object.values(powersByDiscipline).length + 1;
     for (const [disciplineIndex, powers] of Object.values(powersByDiscipline).entries()) {
-        const di = disciplineIndex + 1
-        form.getTextField(`Disc${di}`).setText(upcase(powers[0].discipline))
+        const di = disciplineIndex + 1;
+        form.getTextField(`Disc${di}`).setText(upcase(powers[0].discipline));
         for (const [powerIndex, power] of powers.entries()) {
-            const pi = powerIndex + 1
-            form.getTextField(`Disc${di}_Ability${pi}`).setText(getDisciplineText(power))
-            form.getTextField(`Disc${di}_Ability${pi}`).disableRichFormatting()
-            form.getCheckBox(`Disc${di}-${pi}`).check()
+            const pi = powerIndex + 1;
+            form.getTextField(`Disc${di}_Ability${pi}`).setText(getDisciplineText(power));
+            form.getTextField(`Disc${di}_Ability${pi}`).disableRichFormatting();
+            form.getCheckBox(`Disc${di}-${pi}`).check();
         }
-        if (powers[0].discipline === "blood sorcery") {
-            for (const [ritualIndex, ritual] of character.rituals.entries()) {
-                const ri = powers.length + ritualIndex + 1
-                form.getTextField(`Disc${di}_Ability${ri}`).setText(getDisciplineText(ritual))
-                form.getTextField(`Disc${di}_Ability${ri}`).disableRichFormatting()
-            }
+    }
+
+    // Add Blood Rituals in a separate box if present
+    if (character.rituals && character.rituals.length > 0) {
+        const di = extraBoxIndex++;
+        form.getTextField(`Disc${di}`).setText("Blood Rituals");
+        for (const [ritualIndex, ritual] of character.rituals.entries()) {
+            const ri = ritualIndex + 1;
+            form.getTextField(`Disc${di}_Ability${ri}`).setText(getDisciplineText(ritual));
+            form.getTextField(`Disc${di}_Ability${ri}`).disableRichFormatting();
         }
-        if (powers[0].discipline === "oblivion") {
-            for (const [ceremonyIndex, ceremony] of character.ceremonies.entries()) {
-                const ci = powers.length + ceremonyIndex + 1
-                form.getTextField(`Disc${di}_Ability${ci}`).setText(getDisciplineText(ceremony))
-                form.getTextField(`Disc${di}_Ability${ci}`).disableRichFormatting()
-            }
+    }
+
+    // Add Oblivion Ceremonies in a separate box if present
+    if (character.ceremonies && character.ceremonies.length > 0) {
+        const di = extraBoxIndex++;
+        form.getTextField(`Disc${di}`).setText("Oblivion Ceremonies");
+        for (const [ceremonyIndex, ceremony] of character.ceremonies.entries()) {
+            const ci = ceremonyIndex + 1;
+            form.getTextField(`Disc${di}_Ability${ci}`).setText(getDisciplineText(ceremony));
+            form.getTextField(`Disc${di}_Ability${ci}`).disableRichFormatting();
         }
     }
 
