@@ -367,22 +367,8 @@ const createPdf_nerdbert = async (character: Character): Promise<Uint8Array> => 
     )
 
     // Experience
-    const experience = (() => {
-        switch (character.generation) {
-            case 16:
-            case 15:
-            case 14:
-                return 0
-            case 13:
-            case 12:
-                return 15
-            case 11:
-            case 10:
-                return 35
-            default:
-                return 0
-        }
-    })()
+    // Always start with 0 XP
+    const experience = 0
     form.getTextField("tEXP").setText(`${experience} XP`)
 
     // Fixes bug where text that is too long for field doesn't show until clicked
