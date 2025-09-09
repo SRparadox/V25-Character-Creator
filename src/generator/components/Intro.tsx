@@ -27,6 +27,13 @@ const Intro = ({ setCharacter, nextStep }: IntroProps) => {
     // Dummy setSelectedStep for ResetModal compatibility
     const setSelectedStep = () => {};
 
+    const [devMode, setDevMode] = useState(globals.devMode);
+
+    const handleDevModeToggle = () => {
+        globals.devMode = !devMode;
+        setDevMode(globals.devMode);
+    };
+
     return (
         <Alert mt={globals.isPhoneScreen ? "75px" : "50px"} color="grape" variant="outline" bg={"rgba(0, 0, 0, 0.6)"}>
             <Text fz={globals.largeFontSize} ta={"center"} mb={"lg"}>
@@ -56,6 +63,14 @@ const Intro = ({ setCharacter, nextStep }: IntroProps) => {
                 </ActionIcon>
             </Text>
             <Stack align="center" spacing="xl">
+                <Button
+                    size="xs"
+                    color={devMode ? "yellow" : "gray"}
+                    variant={devMode ? "filled" : "outline"}
+                    onClick={handleDevModeToggle}
+                >
+                    {devMode ? "Disable Dev" : "Dev Mode"}
+                </Button>
                 <Button leftIcon={<FontAwesomeIcon icon={faPlay} />} size="xl" color="grape" onClick={nextStep}>
                     Get Started!
                 </Button>
