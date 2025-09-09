@@ -24,6 +24,7 @@ const RitualsPicker = ({ character, setCharacter, nextStep }: RitualsPickerProps
     const phoneScreen = globals.isPhoneScreen
 
     const getRitualCardCols = () => {
+        const devMode = globals.devMode;
         return Rituals.map((ritual) => {
             const trackClick = () => {
                 ReactGA.event({
@@ -35,12 +36,12 @@ const RitualsPicker = ({ character, setCharacter, nextStep }: RitualsPickerProps
             const onClick = () => {
                 setCharacter({
                     ...character,
-                    rituals: [ritual], // TODO: turn this into "RitualPicker-ritual" attribute and add function to get all rituals from character
+                    rituals: devMode
+                        ? [...(character.rituals || []), ritual].filter((r, i, arr) => arr.findIndex(rr => rr.name === r.name) === i)
+                        : [ritual],
                 })
-
                 trackClick()
-
-                nextStep()
+                if (!devMode) nextStep()
             }
 
             let cardHeight = phoneScreen ? 180 : 215
@@ -74,9 +75,16 @@ const RitualsPicker = ({ character, setCharacter, nextStep }: RitualsPickerProps
 
     const height = globals.viewportHeightPx
     return (
-        <div style={{ width: smallScreen ? "393px" : "810px", marginTop: phoneScreen ? "60px" : "80px" }}>
+        <div style={{ width: smallScreen ? "393px" : "810px", marginTop: phoneScreen ? "60px" : "80px", position: "relative" }}>
+            {globals.devMode && (
+                <div style={{ position: "absolute", top: 10, right: 20, zIndex: 1000 }}>
+                    <Text fw={900} fz={"lg"} c="lime" bg="#222" p={6} style={{ borderRadius: 8 }}>
+                        DEV MODE ACTIVE
+                    </Text>
+                </div>
+            )}
             <Text fw={700} fz={smallScreen ? "14px" : "28px"} ta="center">
-                ⛤ Pick 1 free Ritual ⛤
+                {globals.devMode ? "Dev Mode: Pick as many rituals as you want!" : "⛤ Pick 1 free Ritual ⛤"}
             </Text>
 
             <Text mt={"xl"} ta="center" fz="xl" fw={700} c="red">

@@ -22,6 +22,7 @@ const CeremoniesPicker = ({ character, setCharacter, nextStep }: CeremoniesPicke
   const height = globals.viewportHeightPx;
 
   const getCeremonyCardCols = () => {
+    const devMode = globals.devMode;
     return Ceremonies.map((ceremony) => {
       const trackClick = () => {
         ReactGA.event({
@@ -33,10 +34,12 @@ const CeremoniesPicker = ({ character, setCharacter, nextStep }: CeremoniesPicke
       const onClick = () => {
         setCharacter({
           ...character,
-          ceremonies: [ceremony], // TODO: allow multiple ceremonies if needed
+          ceremonies: devMode
+            ? [...(character.ceremonies || []), ceremony].filter((r, i, arr) => arr.findIndex(rr => rr.name === r.name) === i)
+            : [ceremony],
         });
         trackClick();
-        nextStep();
+        if (!devMode) nextStep();
       };
       let cardHeight = phoneScreen ? 180 : 215;
       if (ceremony.name.length > 15) cardHeight += 25;
@@ -66,9 +69,16 @@ const CeremoniesPicker = ({ character, setCharacter, nextStep }: CeremoniesPicke
   };
 
   return (
-    <div style={{ width: smallScreen ? "393px" : "810px", marginTop: phoneScreen ? "60px" : "80px" }}>
+    <div style={{ width: smallScreen ? "393px" : "810px", marginTop: phoneScreen ? "60px" : "80px", position: "relative" }}>
+      {globals.devMode && (
+        <div style={{ position: "absolute", top: 10, right: 20, zIndex: 1000 }}>
+          <Text fw={900} fz={"lg"} c="lime" bg="#222" p={6} style={{ borderRadius: 8 }}>
+            DEV MODE ACTIVE
+          </Text>
+        </div>
+      )}
       <Text fw={700} fz={smallScreen ? "14px" : "28px"} ta="center">
-        ⛤ Pick 1 free Ceremony ⛤
+        {globals.devMode ? "Dev Mode: Pick as many ceremonies as you want!" : "⛤ Pick 1 free Ceremony ⛤"}
       </Text>
       <Text mt={"xl"} ta="center" fz="xl" fw={700} c="violet">
         Ceremonies

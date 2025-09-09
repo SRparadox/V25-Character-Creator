@@ -318,11 +318,24 @@ const DisciplinesPicker = ({ character, setCharacter, nextStep }: DisciplinesPic
     }
 
     return (
-        <div style={{ width: smallScreen ? "393px" : "810px", marginTop: globals.isPhoneScreen ? "60px" : "80px" }}>
+        <div style={{ width: smallScreen ? "393px" : "810px", marginTop: globals.isPhoneScreen ? "60px" : "80px", position: "relative" }}>
+            {globals.devMode && (
+                <div style={{ position: "absolute", top: 10, right: 20, zIndex: 1000 }}>
+                    <Text fw={900} fz={"lg"} c="lime" bg="#222" p={6} style={{ borderRadius: 8 }}>
+                        DEV MODE ACTIVE
+                    </Text>
+                </div>
+            )}
             <Text fw={700} fz={smallScreen ? "14px" : "28px"} ta="center">
-                Pick 2 powers in one discipline,
-                <br /> 1 power in another,
-                <br /> And 1 power in {upcase(character.predatorType.pickedDiscipline)} from your Predator Type
+                {globals.devMode ? (
+                    <>Dev Mode: Pick as many powers as you want!</>
+                ) : (
+                    <>
+                        Pick 2 powers in one discipline,
+                        <br /> 1 power in another,
+                        <br /> And 1 power in {upcase(character.predatorType.pickedDiscipline)} from your Predator Type
+                    </>
+                )}
             </Text>
 
             <Text mt={"xl"} ta="center" fz="xl" fw={700} c="red">
