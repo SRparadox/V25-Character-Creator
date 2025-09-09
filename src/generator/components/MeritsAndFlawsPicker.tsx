@@ -55,13 +55,21 @@ const MeritsAndFlawsPicker = ({ character, setCharacter, nextStep }: MeritsAndFl
         const meritInPredatorType = predatorTypeMeritsFlaws.find((m) => m.name === meritOrFlaw.name)
         const meritInPredatorTypeLevel = meritInPredatorType?.level ?? 0
 
+        const devMode = globals.devMode;
         const createButton = (level: number) => {
             const cost = level - meritInPredatorTypeLevel
             return (
                 <Button
                     key={meritOrFlaw.name + level}
-                    disabled={(meritInPredatorType && meritInPredatorType.level >= level) || (!!wasPickedLevel && wasPickedLevel >= level)}
+                    disabled={devMode ? false : (meritInPredatorType && meritInPredatorType.level >= level) || (!!wasPickedLevel && wasPickedLevel >= level)}
                     onClick={() => {
+                        if (devMode) {
+                            setPickedMeritsAndFlaws([
+                                ...pickedMeritsAndFlaws.filter((m) => m.name !== alreadyPickedItem?.name),
+                                { name: meritOrFlaw.name, level, type: isBargain ? "bargainflaw" : type, summary: meritOrFlaw.summary },
+                            ])
+                            return;
+                        }
                         if (isBargain) {
                             setRemainingMerits(remainingMerits + cost) // add merit points
                         } else if (isThinbloodFlaw(meritOrFlaw.name)) {
@@ -127,11 +135,24 @@ const MeritsAndFlawsPicker = ({ character, setCharacter, nextStep }: MeritsAndFl
     }
 
     const height = globals.viewportHeightPx
-    const isConfirmDisabled = isThinBlood && remainingThinbloodMeritPoints < 0
+    const isConfirmDisabled = !globals.devMode && isThinBlood && remainingThinbloodMeritPoints < 0
     return (
         <Stack align="center" mt={100}>
+            {globals.devMode && (
+                <div style={{ position: "absolute", top: 10, right: 20, zIndex: 1000 }}>
+                    <Text fw={900} fz={"lg"} c="lime" bg="#222" p={6} style={{ borderRadius: 8 }}>
+                        DEV MODE ACTIVE
+                    </Text>
+                </div>
+            )}
             <Text fz={globals.largeFontSize} ta={"center"}>
-                Remaining Advantage points: {remainingMerits} <br /> Remaining Flaw points: {remainingFlaws}
+                {globals.devMode ? (
+                    "Dev Mode: No restrictions on picking merits, flaws, or loresheets!"
+                ) : (
+                    <span>
+                        Remaining Advantage points: {remainingMerits} <br /> Remaining Flaw points: {remainingFlaws}
+                    </span>
+                )}
             </Text>
             <Text fz={globals.smallFontSize} ta={"center"} c={theme.colors.grape[6]}>
                 Bargain Flaws (purple) increase your available merit points instead of using flaw points.

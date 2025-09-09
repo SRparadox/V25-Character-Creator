@@ -79,7 +79,14 @@ const OpenedLoresheet = ({
     setOpenLoresheetTitle: (t: string) => void
 }) => {
     return (
-        <div style={{ padding: "20px" }}>
+        <div style={{ padding: "20px", position: "relative" }}>
+            {globals.devMode && (
+                <div style={{ position: "absolute", top: 10, right: 20, zIndex: 1000 }}>
+                    <Text fw={900} fz={"lg"} c="lime" bg="#222" p={6} style={{ borderRadius: 8 }}>
+                        DEV MODE ACTIVE
+                    </Text>
+                </div>
+            )}
             <Text ta={"center"} fz={globals.largeFontSize}>
                 {loresheet.title}
             </Text>
