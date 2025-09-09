@@ -43,9 +43,16 @@ const RitualsPicker = ({ character, setCharacter, nextStep }: RitualsPickerProps
                 trackClick()
                 if (!devMode) nextStep()
             }
+            const onUnselect = () => {
+                setCharacter({
+                    ...character,
+                    rituals: (character.rituals || []).filter((r) => r.name !== ritual.name),
+                })
+            }
 
             let cardHeight = phoneScreen ? 180 : 215
             if (ritual.name.length > 15) cardHeight += 25
+            const isPicked = (character.rituals || []).some((r) => r.name === ritual.name);
             return (
                 <Grid.Col key={ritual.name} span={smallScreen ? 12 : 6}>
                     <Card mb={20} h={cardHeight} style={{ backgroundColor: "rgba(26, 27, 30, 0.90)" }}>
@@ -62,10 +69,15 @@ const RitualsPicker = ({ character, setCharacter, nextStep }: RitualsPickerProps
                             {upcase(ritual.summary)}
                         </Text>
 
-                        <div style={{ position: "absolute", bottom: "0", width: "100%", padding: "inherit", left: 0 }}>
+                        <div style={{ position: "absolute", bottom: "0", width: "100%", padding: "inherit", left: 0, display: 'flex', gap: 8 }}>
                             <Button onClick={onClick} variant="light" color="blue" fullWidth radius="md">
                                 <Text truncate>Take {ritual.name}</Text>
                             </Button>
+                            {devMode && isPicked && (
+                                <Button onClick={onUnselect} variant="outline" color="yellow" radius="md">
+                                    Unselect
+                                </Button>
+                            )}
                         </div>
                     </Card>
                 </Grid.Col>
