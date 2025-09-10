@@ -377,7 +377,7 @@ const DisciplinesPicker = ({ character, setCharacter, nextStep }: DisciplinesPic
                 </Grid>
 
                 <Button
-                    disabled={!(allPowersPicked() && pickedPredatorTypePower)}
+                    disabled={globals.devMode ? false : !(allPowersPicked() && pickedPredatorTypePower)}
                     color="grape"
                     onClick={() => {
                         setCharacter({
