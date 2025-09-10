@@ -14,11 +14,14 @@ type DisciplinesPickerProps = {
 }
 
 const getAvailableDisciplines = (character: Character): Record<DisciplineName, Discipline> => {
+    if (globals.devMode) {
+        // In dev mode, show all disciplines (like Caitiff)
+        return { ...disciplines };
+    }
     const availableDisciplines: Record<string, Discipline> = {}
     for (const n of character.availableDisciplineNames) {
         availableDisciplines[n] = disciplines[n]
     }
-
     return availableDisciplines
 }
 
@@ -66,12 +69,12 @@ const DisciplinesPicker = ({ character, setCharacter, nextStep }: DisciplinesPic
         return intersection(powersOfDiscipline, pickedPowers).length === 2
     }
     const alreadyPickedTwoDisciplines = (power: Power) => {
+        if (globals.devMode) return false;
         const pickedDisciplines = pickedPowers.map((power) => power.discipline)
         const uniquePickedDisciplines = [...new Set(pickedDisciplines)]
-
         return uniquePickedDisciplines.length >= 2 && !uniquePickedDisciplines.includes(power.discipline)
     }
-    const allPowersPicked = () => pickedPowers.length >= 3
+    const allPowersPicked = () => globals.devMode ? false : pickedPowers.length >= 3
 
     const undoPick = () => {
         setPickedPowers(pickedPowers.slice(0, -1))
@@ -97,7 +100,7 @@ const DisciplinesPicker = ({ character, setCharacter, nextStep }: DisciplinesPic
             const isButtonDisabled =
                 isPicked(power) ||
                 missingPrerequisites(power) ||
-                (!isForPredatorType && (alreadyPickedTwoPowers(power) || alreadyPickedTwoDisciplines(power) || allPowersPicked())) ||
+                (!isForPredatorType && (!globals.devMode && (alreadyPickedTwoPowers(power) || alreadyPickedTwoDisciplines(power) || allPowersPicked()))) ||
                 (isForPredatorType && pickedPredatorTypePower !== undefined)
 
             const trackClick = () => {
