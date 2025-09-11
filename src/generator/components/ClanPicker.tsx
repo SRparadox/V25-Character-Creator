@@ -192,9 +192,8 @@ const ClanPicker = ({ character, setCharacter, nextStep }: ClanPickerProps) => {
                 </Grid>
             </ScrollArea>
         </div>
-            </div>
-        </>
-    )
+    </>
+    );
 }
 
 const meritsWithoutThinbloodMerits = (merits: MeritFlaw[]) => merits.filter((m) => !isThinbloodMerit(m.name))

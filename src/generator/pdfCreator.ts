@@ -287,7 +287,7 @@ const createPdf_nerdbert = async (character: Character): Promise<Uint8Array> => 
 
     // Add humanity level and character notes to Notes field
     const notesField = form.getTextField("PC_Notes")
-    const currentNotes = notesField.getText ? notesField.getTex t() : ""
+    const currentNotes = notesField.getText ? notesField.getText() : ""
     let notesText = `Humanity: ${humanity}`
     if (character.notes && character.notes.trim()) {
         notesText += `\n${character.notes.trim()}`

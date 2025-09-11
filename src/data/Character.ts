@@ -87,7 +87,6 @@ export const religionSchema = z.union([
 
 
 // Use Sect type from SectPicker
-import type { Sect } from "../generator/components/SectPicker";
 
 export const meritFlawSchema = z.object({
     name: z.string(),

@@ -10,11 +10,11 @@ interface ClanBaneModalProps {
 }
 
 const ClanBaneModal = ({ opened, clan, onSelect, onClose }: ClanBaneModalProps) => {
-  const banes = clans[clan]?.banes || [];
+  const banes: string[] = clans[clan]?.banes || [];
   return (
     <Modal opened={opened} onClose={onClose} title={<Title order={3}>Select a Bane</Title>} centered>
       <Stack>
-        {banes.filter(Boolean).map((bane, idx) => (
+  {banes.filter(Boolean).map((bane: string, idx: number) => (
           <Button key={idx} variant="light" color="red" onClick={() => onSelect(bane)}>
             <Text>{bane}</Text>
           </Button>
