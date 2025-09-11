@@ -1,4 +1,6 @@
 import { Card, Center, Grid, Image, ScrollArea, Text, Title, useMantineTheme } from "@mantine/core"
+import { useState } from "react"
+import ClanBaneModal from "./ClanBaneModal"
 import { notifications } from "@mantine/notifications"
 import { useEffect } from "react"
 import ReactGA from "react-ga4"
@@ -24,9 +26,58 @@ const ClanPicker = ({ character, setCharacter, nextStep }: ClanPickerProps) => {
 
     const c1 = "rgba(26, 27, 30, 0.90)"
 
+    const [modalClan, setModalClan] = useState<ClanName | null>(null);
+    const [pendingCharacter, setPendingCharacter] = useState<Character | null>(null);
+
+    const handleClanClick = (clan: ClanName) => {
+        const newMerits = clan === character.clan ? character.merits : getNewMerits(clan, character)
+        const newFlaws = clan === "Thin-blood" ? character.flaws : flawsWithoutThinbloodFlaws(character.flaws)
+        let updatedChar: Character;
+        if ((notDefault(character, "disciplines") || notDefault(character, "predatorType")) && clan !== character.clan) {
+            notifications.show({
+                title: "Reset Disciplines",
+                message: "Because you changed your clan",
+                autoClose: 7000,
+                color: "yellow",
+            })
+            updatedChar = {
+                ...character,
+                clan,
+                disciplines: [],
+                availableDisciplineNames: clans[clan].nativeDisciplines,
+                predatorType: clan === "Thin-blood" ? getEmptyCharacter().predatorType : character.predatorType,
+                merits: newMerits,
+                flaws: newFlaws,
+            }
+        } else {
+            updatedChar = {
+                ...character,
+                clan,
+                availableDisciplineNames: clans[clan].nativeDisciplines,
+                merits: newMerits,
+                flaws: newFlaws,
+            }
+        }
+        setPendingCharacter(updatedChar);
+        setModalClan(clan);
+    };
+
+    const handleBaneSelect = (bane: string) => {
+        if (!pendingCharacter || !modalClan) return;
+        setCharacter({ ...pendingCharacter, selectedBane: bane });
+        ReactGA.event({ action: "clan clicked", category: "clans", label: modalClan });
+        setModalClan(null);
+        setPendingCharacter(null);
+        nextStep();
+    };
+
+    const handleModalClose = () => {
+        setModalClan(null);
+        setPendingCharacter(null);
+    };
+
     const createClanPick = (clan: ClanName, c2: string) => {
         const bgColor = theme.fn.linearGradient(0, c1, c2)
-
         return (
             <Grid.Col key={clan} span={4}>
                 <Card
@@ -36,43 +87,7 @@ const ClanPicker = ({ character, setCharacter, nextStep }: ClanPickerProps) => {
                     radius="md"
                     h={275}
                     style={{ background: bgColor, cursor: "pointer" }}
-                    onClick={() => {
-                        const newMerits = clan === character.clan ? character.merits : getNewMerits(clan, character)
-                        const newFlaws = clan === "Thin-blood" ? character.flaws : flawsWithoutThinbloodFlaws(character.flaws)
-                        if ((notDefault(character, "disciplines") || notDefault(character, "predatorType")) && clan !== character.clan) {
-                            notifications.show({
-                                title: "Reset Disciplines",
-                                message: "Because you changed your clan",
-                                autoClose: 7000,
-                                color: "yellow",
-                            })
-
-                            setCharacter({
-                                ...character,
-                                clan,
-                                disciplines: [],
-                                availableDisciplineNames: clans[clan].nativeDisciplines,
-                                predatorType: clan === "Thin-blood" ? getEmptyCharacter().predatorType : character.predatorType,
-                                merits: newMerits,
-                                flaws: newFlaws,
-                            })
-                        } else {
-                            setCharacter({
-                                ...character,
-                                clan,
-                                availableDisciplineNames: clans[clan].nativeDisciplines,
-                                merits: newMerits,
-                                flaws: newFlaws,
-                            })
-                        }
-
-                        ReactGA.event({
-                            action: "clan clicked",
-                            category: "clans",
-                            label: clan,
-                        })
-                        nextStep()
-                    }}
+                    onClick={() => handleClanClick(clan)}
                 >
                     <Card.Section>
                         <Center pt={10}>
@@ -94,7 +109,14 @@ const ClanPicker = ({ character, setCharacter, nextStep }: ClanPickerProps) => {
 
     const height = globals.viewportHeightPx
     return (
-        <div style={{ height: height - 250 }}>
+        <>
+            <ClanBaneModal
+                opened={!!modalClan}
+                clan={modalClan as ClanName}
+                onSelect={handleBaneSelect}
+                onClose={handleModalClose}
+            />
+            <div style={{ height: height - 250 }}>
             <Text fz={"30px"} ta={"center"}>
                 Pick your <b>Clan</b>
             </Text>
@@ -170,6 +192,8 @@ const ClanPicker = ({ character, setCharacter, nextStep }: ClanPickerProps) => {
                 </Grid>
             </ScrollArea>
         </div>
+            </div>
+        </>
     )
 }
 

@@ -268,7 +268,8 @@ const createPdf_nerdbert = async (character: Character): Promise<Uint8Array> => 
 
 
     form.getTextField("Clan").setText(character.clan)
-    const baneText = clans[character.clan].bane.replace("BANE_SEVERITY", `${effects.bane} (bane severity)`)
+    const rawBane = character.selectedBane && character.selectedBane.trim() !== "" ? character.selectedBane : clans[character.clan].banes?.[0] || "";
+    const baneText = rawBane.replace("BANE_SEVERITY", `${effects.bane} (bane severity)`);
     form.getTextField("ClanBane").setText(baneText)
     form.getTextField("ClanCompulsion").setText(clans[character.clan].compulsion)
 
@@ -286,7 +287,7 @@ const createPdf_nerdbert = async (character: Character): Promise<Uint8Array> => 
 
     // Add humanity level and character notes to Notes field
     const notesField = form.getTextField("PC_Notes")
-    const currentNotes = notesField.getText ? notesField.getText() : ""
+    const currentNotes = notesField.getText ? notesField.getTex t() : ""
     let notesText = `Humanity: ${humanity}`
     if (character.notes && character.notes.trim()) {
         notesText += `\n${character.notes.trim()}`
