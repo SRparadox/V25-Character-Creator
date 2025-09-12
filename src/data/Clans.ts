@@ -87,7 +87,10 @@ export const clans: Record<ClanName, Clan> = {
         name: "Ventrue",
         description: "High and mighty rulers, continually grasping for more power",
         logo: ventrueLogo,
-    banes: ["Rarefied Tastes: Pick a group of preferred victims. Feeding from anyone outside that group costs BANE_SEVERITY willpower points."],
+    banes: [
+        "Rarefied Tastes: Pick a group of preferred victims. Feeding from anyone outside that group costs BANE_SEVERITY willpower points.",
+        "Hierarchy - The Ventrue suffer a penalty equal to their Bane Severity to their Discipline dice pools when using them against a vampire of a lower generation. They must also spend Willpower equal to this penalty if they wish to directly attack other vampires of a lower generation."
+    ],
         compulsion:
             "Arrogance: Until somebody obeys an order from you (not forced by Dominate), you take a two-dice penalty on all rolls not related to leadership.",
         nativeDisciplines: ["dominate", "fortitude", "presence"],
@@ -115,7 +118,10 @@ export const clans: Record<ClanName, Clan> = {
         name: "Banu Haqim",
         description: "Assassins and judges with a twisted passion for justice",
         logo: banuHaqimLogo,
-    banes: ["Blood Addiction: Drinking from another vampire provokes a Hunger Frenzy test of difficulty 2 + BANE_SEVERITY."],
+    banes: [
+        "Blood Addiction: Drinking from another vampire provokes a Hunger Frenzy test of difficulty 2 + BANE_SEVERITY.",
+        "Noxious Blood - The Blood of the Banu Haqim is toxic to mortals, but not to other vampires. Due to this mortals receive Aggravated Damage equal to the Bane Severity of the vampire for each Rouse Check’s worth of Blood consumed. Their Blood cannot be used to heal mortal injuries. In amounts below the amount needed to Blood Bond, it does not harm them, even if directly injected into them."
+    ],
         compulsion:
             "Judgment: Drink at least 1 hunger of blood from anyone who acts against on of your personal convictions. If you can't, take three-dice penalty to all rolls until compulsion is satisfied or scene ends.",
         nativeDisciplines: ["celerity", "obfuscate", "blood sorcery"],
@@ -133,7 +139,10 @@ export const clans: Record<ClanName, Clan> = {
         name: "Ravnos",
         description: "Illusionists who are always on the move",
         logo: ravnosLogo,
-    banes: ["Doomed: If you day-sleep in the same place more than once within 7 days, roll dice equal to BANE_SEVERITY and take aggravated damage equal to 10s rolled. Need to be at least 1 mile away from last sleeping place."],
+    banes: [
+        "Doomed: If you day-sleep in the same place more than once within 7 days, roll dice equal to BANE_SEVERITY and take aggravated damage equal to 10s rolled. Need to be at least 1 mile away from last sleeping place.",
+        "Unbirth Name - If a Ravnos’ unbirth name is used against them, the name-wielding opponent receives a bonus equal to the Ravnos’ Bane Severity to resist their Discipline powers. Additionally, the Ravnos affected receives the same penalty to resist supernatural powers used by the opponent."
+    ],
         compulsion:
             "Tempting Fate: Next time you're faced with a problem, you must choose the most dangerous and daring solution, or take a two-dice penalty. Lasts until the problem is solved or further attempts are impossible.",
         nativeDisciplines: ["animalism", "obfuscate", "presence"],
@@ -193,7 +202,9 @@ export const clans: Record<ClanName, Clan> = {
             name: "Daughters of Cacophony",
             description: "Masters of the Voice, their powers allow them to control music and its effects.",
             logo: daughtersofCacophonyLogo,
-            bane: "Tune - The Daughters of Cacophony constantly hear music. The tune is different for each Daughter. Some of them hear violins, some an orchestra, some pounding drums, and a few a chorus of screams. Each Fugue is unique to the Daughter who hears it, and while it has driven some of them mad, it is always beautiful to them in its own way. You can often hear a Daughter humming along to the tune in their head. This might be a form of synaesthesia, or it might be a hallucination. This constant song distracts the Daughters as much as it guides them, some say the songs contains words of insight. Because of this constant tune the difficulties of all their Awareness rolls increase by 1 for every level of their Bane and no Daughter of Cacophony may have Awareness above 3 dots.",
+            banes: [
+                "Tune - The Daughters of Cacophony constantly hear music. The tune is different for each Daughter. Some of them hear violins, some an orchestra, some pounding drums, and a few a chorus of screams. Each Fugue is unique to the Daughter who hears it, and while it has driven some of them mad, it is always beautiful to them in its own way. You can often hear a Daughter humming along to the tune in their head. This might be a form of synaesthesia, or it might be a hallucination. This constant song distracts the Daughters as much as it guides them, some say the songs contains words of insight. Because of this constant tune the difficulties of all their Awareness rolls increase by 1 for every level of their Bane and no Daughter of Cacophony may have Awareness above 3 dots."
+            ],
             compulsion: "DIN OF DELUSION - The song in the Daughters head becomes so intense it can make them mad. For one scene the Siren hears the Fugue so load they must concentrate to hear anything else. They also see colours and flickering images from their peripheral vision. They receive a two-dice penalty to rolls involving Manipulation, Composure, and Wits as well as on rolls to resist terror frenzy.",
             nativeDisciplines: ["fortitude", "auspex", "presence"],
         },
