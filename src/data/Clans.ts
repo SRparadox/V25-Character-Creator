@@ -42,7 +42,10 @@ export const clans: Record<ClanName, Clan> = {
         name: "Brujah",
         description: "Rebels who always fight against the power, easy to anger",
         logo: brujahLogo,
-    banes: ["Violent Temper: All difficulties to resist Frenzy are increased by 2 (max of 10)."],
+    banes: [
+        "Violent Temper: All difficulties to resist Frenzy are increased by 2 (max of 10).",
+        "Violence - When a messy critical occurs as the result of any Skill test outside of combat, a Brujah vampire causes damage to the subject of their interaction equal to their Bane Severity, in addition to any other result of the Hunger dice. The type of damage is dependent on the situation either physical or mental. The damage is Aggravated unless the player spends a point of Willpower to turn it into Superficial."
+    ],
         compulsion:
             "Rebellion: Rebel against orders or expectations of an authority or change somebody's mind (by force if necessary). Until then, receive two-dice penalty on all rolls.",
         nativeDisciplines: ["celerity", "potence", "presence"],
@@ -51,7 +54,10 @@ export const clans: Record<ClanName, Clan> = {
         name: "Gangrel",
         description: "Beastlike and close to nature",
         logo: gangrelLogo,
-    banes: ["Bestial Features: In frenzy, gain one or more animal features (physical trait, smell, behavior..). Lasts for one more night after."],
+    banes: [
+        "Bestial Features: In frenzy, gain one or more animal features (physical trait, smell, behavior..). Lasts for one more night after.",
+        "Survival Instincts - Subtract dice equal to the Bane Severity in any roll to resist fear Frenzy. The pool cannot be below one die."
+    ],
         compulsion:
             "Feral Impulses: For one scene, take three-dice penalty to Manipulation and Intelligence. Can only speak one-word sentences.",
         nativeDisciplines: ["animalism", "fortitude", "protean"],
@@ -60,7 +66,10 @@ export const clans: Record<ClanName, Clan> = {
         name: "Nosferatu",
         description: "Disfigured lurkers in the shadows",
         logo: nosferatuLogo,
-    banes: ["Repulsiveness: You count as having the Repulsive Flaw (-2) and can never improve your Looks Merit. Any attempt to disguise as non-deformed (even supernatural) takes BANE_SEVERITY dice penalty."],
+    banes: [
+        "Repulsiveness: You count as having the Repulsive Flaw (-2) and can never improve your Looks Merit. Any attempt to disguise as non-deformed (even supernatural) takes BANE_SEVERITY dice penalty.",
+        "Infestation - The Haven of a Nosferatu is always infested with vermin, any attempt to do something that requires concentration takes a two plus Bane Severity penalty, as well as the same penalty to social tests at ST discretion. Additionally, when a Nosferatu spends a scene at an enclosed location, the vermin appears and causes the same penalty though reduced to equal only the Bane Severity. Any attempt to control these vermin with Animalism is done at a penalty equal to Bane Severity."
+    ],
         compulsion:
             "Cryptophilia: Become obsessed with obtaining secrets. Refuse to share secrets with others, except in strict trade for greater secrets.",
         nativeDisciplines: ["animalism", "obfuscate", "potence"],
@@ -69,7 +78,11 @@ export const clans: Record<ClanName, Clan> = {
         name: "Malkavian",
         description: "Clairvoyants who are driven mad by their gift",
         logo: malkavianLogo,
-    banes: ["Fractured Perspective: You are cursed with at least one type of mental derangement."],
+    banes: [
+        "Fractured Perspective: You are cursed with at least one type of mental derangement.",
+        // Variant Bane
+        "Unnatural Manifestations - Using Discipline powers within close proximity of mortals scares them and any social interactions other than Intimidation suffer a dice penalty equal to their Bane Severity. This is not Masquerade-breaking, but the dislike remains for the duration of one scene. Other vampires subject to this recognize the Malkavian as a vampire but suffer no penalty."
+    ],
         compulsion:
             "Delusion: Two-dice penalty to Dexterity, Manipulation, Compusre and Wits as well as resists to terror frenzy for one scene.",
         nativeDisciplines: ["auspex", "dominate", "obfuscate"],
@@ -78,7 +91,11 @@ export const clans: Record<ClanName, Clan> = {
         name: "Tremere",
         description: "Blood mages, driven by their hunger for knowledge",
         logo: tremereLogo,
-    banes: ["Deficient Blood: Can't create blood bonds with other kindred, ghouling takes an additional BANE_SEVERITY drinks."],
+    banes: [
+        "Deficient Blood: Can't create blood bonds with other kindred, ghouling takes an additional BANE_SEVERITY drinks.",
+        // Variant Bane
+        "Stolen Blood - When performing a Blood Surge they need to make Rouse Checks equal to their Bane Severity. If these Rouse Checks increase their Hunger to 5 or higher, they can choose whether to back off their Blood Surge or perform it to then hit Hunger 5 afterward."
+    ],
         compulsion:
             "Perfectionism: Until you score a critical win, all actions have a two-dice penalty. Penalty is reduced by one die for every repeat of an action.",
         nativeDisciplines: ["auspex", "dominate", "blood sorcery"],
@@ -99,7 +116,11 @@ export const clans: Record<ClanName, Clan> = {
         name: "Toreador",
         description: "Beauty-obsessed artists, elegant and often snobby",
         logo: toreadorLogo,
-    banes: ["Aesthetic Fixation: While you're in less than beautiful surroundings you take BANE_SEVERITY dice penalty on Discipline rolls."],
+    banes: [
+        "Aesthetic Fixation: While you're in less than beautiful surroundings you take BANE_SEVERITY dice penalty on Discipline rolls.",
+        // Variant Bane
+        "Agonizing Empathy - Whenever their feeding causes Aggravated damage to a mortal, the vampire suffers the same damage in return but cannot receive more than their Bane Severity. This damage is generally Aggravated. The damage itself is reflected as vivid bruising wherever they bit their victim as internal bleeding takes place."
+    ],
         compulsion:
             "Obsession: Become fixated with something in the scene. Take a two-dice penalty on any actions that aren't directly related to that thing. Lasts until you can't perceive the thing or scene ends.",
         nativeDisciplines: ["auspex", "celerity", "presence"],
@@ -109,7 +130,11 @@ export const clans: Record<ClanName, Clan> = {
         name: "Lasombra",
         description: "Shadowy predators and ruthless social climbers",
         logo: lasombraLogo,
-    banes: ["Distorted Image: Reflections and (audio) recordings of you distort and flicker. Touch technology is unresponsive."],
+    banes: [
+        "Distorted Image: Reflections and (audio) recordings of you distort and flicker. Touch technology is unresponsive.",
+        // Variant Bane
+        "Callousness - Whenever making a Remorse test remove a number of dice equal to the Bane Severity. The dice pool cannot be reduced below 1."
+    ],
         compulsion:
             "Ruthlessness: Next failure after compulsion causes all rolls to receive a penalty until future attempt at same action succeeds.",
         nativeDisciplines: ["dominate", "potence", "oblivion"],
@@ -130,7 +155,11 @@ export const clans: Record<ClanName, Clan> = {
         name: "Ministry",
         description: "Cult-like clan that uses temptation as a weapon",
         logo: ministryLogo,
-    banes: ["If under bright light, take a BANE_SEVERITY penalty to all rolls. Take BANE_SEVERITY additional damage from sunlight."],
+    banes: [
+        "If under bright light, take a BANE_SEVERITY penalty to all rolls. Take BANE_SEVERITY additional damage from sunlight.",
+        // Variant Bane
+        "Cold-Blooded - They can only use Blush of Life if they have recently fed from a living vessel in the same scene or up to roughly an hour ago, Storytellers discretion. When they do so, it requires a number of Rouse Checks equal to their Bane Severity rather than just one."
+    ],
         compulsion:
             "Transgression: Take a two-dice penalty on all rolls not related to enticing someone (even themselves) to break a Chronicle Tenet or personal Conviction, causing at least one Stain and ending this Compulsion.",
         nativeDisciplines: ["obfuscate", "presence", "protean"],
@@ -151,7 +180,11 @@ export const clans: Record<ClanName, Clan> = {
         name: "Tzimisce",
         description: "Territorial, greedy flesh shapers",
         logo: tzimisceLogo,
-    banes: ["Grounded: Choose a place or group, if you day-sleep away from that you take BANE_SEVERITY aggravated willpower damage."],
+    banes: [
+        "Grounded: Choose a place or group, if you day-sleep away from that you take BANE_SEVERITY aggravated willpower damage.",
+        // Variant Bane
+        "Cursed Courtesy - If they wish to enter a place of residence uninvited they must spend Willpower equal to their Bane Severity, this penalty also applies to their Discipline pools while they are there. The invitation inside can only be made by someone who lives there and this does not occur in uninhabited homes or public places. Tzimisce with this Bane cannot take the uninvited Folkloric Block."
+    ],
         compulsion:
             "Covetousness: Become obsessed with possessing something in the scene. Any action not taken toward this purpose incurs two-dice penalty. Persists you own it or ownership becomes impossible.",
         nativeDisciplines: ["animalism", "dominate", "protean"],
@@ -160,7 +193,11 @@ export const clans: Record<ClanName, Clan> = {
         name: "Hecata",
         description: "Vampires specialized in necromancy",
         logo: hecataLogo,
-    banes: ["Painful Kiss: Your vampire kiss is excruciatingly painful and brings no pleasure to your prey."],
+    banes: [
+        "Painful Kiss: Your vampire kiss is excruciatingly painful and brings no pleasure to your prey.",
+        // Variant Bane
+        "Decay - Hecata suffer additional dots in Flaws equal to their Bane Severity spread as they see fit across Retainer, Haven, and Resources Flaws. These Flaws can either be taken at Character Creation or removed by paying twice the amount of Background dots. Additionally, any purchase of dots in these Advantages costs an additional amount of experience points equal to their Bane Severity."
+    ],
         compulsion:
             "Morbidity: Until you have either predicted a death or solved the cause of a local one, you suffer a three-dice penalty to other rolls. Conclusions don't need to be correct, but should make sense.",
         nativeDisciplines: ["auspex", "fortitude", "oblivion"],
@@ -169,7 +206,11 @@ export const clans: Record<ClanName, Clan> = {
         name: "Salubri",
         description: "Almost extinct bloodline of mystical vampires",
         logo: salubriLogo,
-    banes: ["Hunted: Your blood is tasty. When others drink from you, they must pass a Hunger Frenzy test to stop. You have a third eye on your forehead that cannot be obscured (even supernaturally), but can be covered with clothing. When you use disciplines it weeps blood and vampires with Hunger >= 4 must pass a Hunger Frenzy test."],
+    banes: [
+        "Hunted: Your blood is tasty. When others drink from you, they must pass a Hunger Frenzy test to stop. You have a third eye on your forehead that cannot be obscured (even supernaturally), but can be covered with clothing. When you use disciplines it weeps blood and vampires with Hunger >= 4 must pass a Hunger Frenzy test.",
+        // Variant Bane
+        "Asceticism - Whenever their Hunger is below three, the Salubri suffer a penalty equal to their Bane Severity to any Discipline dice pools. The bleeding third eye still remains."
+    ],
         compulsion:
             "Affective Empathy: Become overwhelmed with somebody's personal problem. Suffer a two-dice penalty to all actions that don't got towards solving the problem. Lasts until the problem is eased, an immediate crisis supersedes it or the scene ends.",
         nativeDisciplines: ["auspex", "dominate", "fortitude"],
@@ -273,7 +314,11 @@ export const clans: Record<ClanName, Clan> = {
         name: "Baali",
         description: "Baali Bloodline - Vampires cursed with demonic influence and holy repulsion.",
         logo: baaliLogo, // purple icon
-    banes: ["HOLY REPULSION - Must spend Willpower equal to Bane Severity to avoid repulsion by holy iconography, scripture, or prayer. Direct contact causes Superficial Damage equal to Bane Severity. In presence of True Faith, lose dice equal to Bane Severity in Willpower Tests, and damage from True Faith is doubled."],
+    banes: [
+        "HOLY REPULSION - Must spend Willpower equal to Bane Severity to avoid repulsion by holy iconography, scripture, or prayer. Direct contact causes Superficial Damage equal to Bane Severity. In presence of True Faith, lose dice equal to Bane Severity in Willpower Tests, and damage from True Faith is doubled.",
+        // Variant Bane
+        "ANATHEMA - Your physical and spiritual existence was permeated by the powers of the Outer Dark from the moment of the Embrace, as if you had failed to uphold your end of some kind of cosmic balance. At character creation, you must choose an additional number of dots in Dark Bargains equal to your Bane Severity. You gain no positive merits or backgrounds from these."
+    ],
         compulsion: "Devil's Bargain - Take a two dice penalty to all dice pools until you fail a test and agree to Succeed at a Cost, which brings success via demonic interference but always causes another problem.",
         nativeDisciplines: ["blood sorcery", "oblivion", "presence"],
     },
