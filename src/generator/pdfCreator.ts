@@ -4,6 +4,7 @@ import { PDFBool, PDFDocument, PDFFont, PDFForm, PDFName } from "pdf-lib"
 import { Character } from "../data/Character"
 import { clans } from "../data/Clans"
 import { PredatorTypes } from "../data/PredatorType"
+import { Roles } from "../data/Role"
 import { SkillsKey, skillsKeySchema } from "../data/Skills"
 import checkPng from "../resources/CheckSolid.png"
 // import base64Pdf_renegade from '../resources/v5_charactersheet_fillable_v3.base64';
@@ -237,7 +238,13 @@ const createPdf_nerdbert = async (character: Character): Promise<Uint8Array> => 
                 return 1
         }
     })()
-    bloodPotency += PredatorTypes[character.predatorType.name].bloodPotencyChange
+    
+    // For Ghouls, use role blood potency change; for vampires, use predator type
+    if (character.clan === "Ghoul" && character.role) {
+        bloodPotency += character.role.bloodPotencyChange || 0
+    } else {
+        bloodPotency += PredatorTypes[character.predatorType.name].bloodPotencyChange
+    }
     for (let i = 1; i <= bloodPotency; i++) {
         form.getCheckBox(`BloodPotency-${i}`).check()
     }
@@ -251,7 +258,11 @@ const createPdf_nerdbert = async (character: Character): Promise<Uint8Array> => 
     form.getTextField("BaneSev").setText(`${effects.bane}`)
 
     //Humanity
-    const humanity = 7 + PredatorTypes[character.predatorType.name].humanityChange
+    // For Ghouls, use role humanity change; for vampires, use predator type
+    const humanityChange = character.clan === "Ghoul" && character.role
+        ? character.role.humanityChange || 0
+        : PredatorTypes[character.predatorType.name].humanityChange
+    const humanity = 7 + humanityChange
     const checkImageBytes = await fetch(checkPng).then((res) => res.arrayBuffer())
     const checkImage = await pdfDoc.embedPng(checkImageBytes)
     for (let i = 1; i <= humanity; i++) {
@@ -263,7 +274,13 @@ const createPdf_nerdbert = async (character: Character): Promise<Uint8Array> => 
     form.getTextField("Name").setText(character.name)
     // form.getTextField("Name").updateAppearances(customFont)
     form.getTextField("pcDescription").setText(character.description)
-    form.getTextField("Predator type").setText(character.predatorType.name)
+    
+    // For Ghouls, show role name instead of predator type
+    const predatorTypeOrRole = character.clan === "Ghoul" && character.role 
+        ? character.role.name 
+        : character.predatorType.name
+    form.getTextField("Predator type").setText(predatorTypeOrRole)
+    
     form.getTextField("Ambition").setText(character.ambition)
 
 
@@ -359,11 +376,25 @@ const createPdf_nerdbert = async (character: Character): Promise<Uint8Array> => 
 
     // Merits & flaws
     const characterMeritsFlaws = [...character.merits, ...character.flaws]
-    const predatorTypeMeritsFlaws = PredatorTypes[character.predatorType.name].meritsAndFlaws.filter(
-        (m) => !characterMeritsFlaws.map((cm) => cm.name).includes(m.name)
-    )
-    const pickedPredatorTypeMeritsFlaws = character.predatorType.pickedMeritsAndFlaws
-    const meritsAndFlaws = [...predatorTypeMeritsFlaws, ...pickedPredatorTypeMeritsFlaws, ...characterMeritsFlaws]
+    
+    // Handle role-based merits and flaws for Ghouls
+    let roleOrPredatorMeritsFlaws: any[] = []
+    let pickedRoleOrPredatorMeritsFlaws: any[] = []
+    
+    if (character.clan === "Ghoul" && character.role) {
+        // For Ghouls, we don't have predefined merits/flaws in roles like we do in predator types
+        // Roles only give skill bonuses, so we skip role-based merits/flaws
+        roleOrPredatorMeritsFlaws = []
+        pickedRoleOrPredatorMeritsFlaws = character.role.pickedMeritsAndFlaws || []
+    } else {
+        // For vampires, use predator type merits and flaws
+        roleOrPredatorMeritsFlaws = PredatorTypes[character.predatorType.name].meritsAndFlaws.filter(
+            (m) => !characterMeritsFlaws.map((cm) => cm.name).includes(m.name)
+        )
+        pickedRoleOrPredatorMeritsFlaws = character.predatorType.pickedMeritsAndFlaws
+    }
+    
+    const meritsAndFlaws = [...roleOrPredatorMeritsFlaws, ...pickedRoleOrPredatorMeritsFlaws, ...characterMeritsFlaws]
     meritsAndFlaws.forEach(({ name, level, summary }, i) => {
         const fieldNum = i + 1
         form.getTextField(`Merit${fieldNum}`).setText(name + ": " + summary)
