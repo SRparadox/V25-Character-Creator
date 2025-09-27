@@ -26,6 +26,135 @@ export type MeritsAndFlaws = {
     flaws: MeritOrFlaw[]
 }
 
+export const ghoulMeritsAndFlaws: MeritsAndFlaws[] = [
+    {
+        title: "📚 Linguistics",
+        merits: [
+            { name: "Linguistics", cost: [1,2,3,4,5], summary: "Each dot allows the character to read, write and speak fluently in another language outside of the default two they already know, which is their native language and the language of the Domain." },
+        ],
+        flaws: [
+            { name: "Illiterate", cost: [2], summary: "The Character cannot read nor write and their Science and Academics Skills may not go beyond 1 dot." },
+        ],
+    },
+    {
+        title: "👤 Looks",
+        merits: [
+            { name: "Beautiful", cost: [2], summary: "Add one die to related Social pools" },
+            { name: "Stunning", cost: [4], summary: "Add two dice to related Social pools" },
+            { name: "Semblance of the Methuselah", cost: [1,2], summary: "With an appearance strikingly similar to a methuselah, gain one die on rolls to impress, intimidate or attract the attention who recognize your face. As well as gain other bonuses such as status or additional die when meeting the methuselah they resemble." },
+            { name: "Famous Face", cost: [1], summary: "Appear as someone famous and gain two dice in social tests where this works to their benefit. Take a two-dice penalty whenever they attempt to hide in a crowd or avoid recognition." },
+            { name: "Ingénue", cost: [1], summary: "They appear innocent and blameless, add two dice to any rolls related to avoiding suspicion or deflecting blame at the Storytellers' discretion." },
+            { name: "Remarkable Feature", cost: [1], summary: "Possessing a rare, memorable feature such as eye color or unusual complexion. Add two-dice to social interactions with strangers and take a one-die penalty to disguise yourself." },
+        ],
+        flaws: [
+            { name: "Ugly", cost: [1], summary: "Lose one die from related Social pools" },
+            { name: "Repulsive", cost: [2], summary: "Lose two dice from related Social pools" },
+            { name: "Stench", cost: [1], summary: "Their breath and body odor are supernaturally foul. Lose one die from seduction and similar Social pools, and lose two from Stealth pools unless they are upwind." },
+            { name: "Transparent", cost: [1], summary: "Unable to lie due to a terrible poker face or a strong urge to be truthful. Lose one die in any pools requiring Subterfuge, they cannot take any dots in Subterfuge either." },
+            { name: "Unblinking Visage", cost: [2], summary: "Treat Humanity as two lower (Min 0) when using Blush of Life, eating, drinking, or sexual intercourse." },
+        ],
+    },
+    {
+        title: "💊 Substance Use",
+        merits: [
+            { name: "High Functioning Addict", cost: [1], summary: "Add one die to either Physical, Social, or Mental pool when the last feeding had the drug of their desire." },
+        ],
+        flaws: [
+            { name: "Addiction", cost: [1], summary: "Unless the action is to immediately gain their drug, lose one die to all pools if the last feeding was not on the drug of their choice." },
+            { name: "Hopeless Addiction", cost: [2], summary: "Unless the action is to immediately gain their drug, lose two dice to all pools if the last feeding was not on the drug of their choice." },
+        ],
+    },
+    {
+        title: "🔮 Supernatural",
+        merits: [],
+        flaws: [
+            { name: "Two Masters", cost: [1], summary: "Be Blood Bound to two individuals at the same time." },
+        ],
+    },
+    {
+        title: "🤝 Allies",
+        merits: [
+            { name: "Allies", cost: [2,3,4,5,6], summary: "A group of mortals who will support or aid the vampire. Family, friends, or an organization that has loyalty to the vampire. Build them between (• - ••••) Effectiveness and (•-•••) Reliability, the maximum amount of total points is 6. Effectiveness defines how proficient they are at a task. Reliability determines how dependable they are." },
+        ],
+        flaws: [
+            { name: "Enemy", cost: [1,2,3,4,5], summary: "The opposite to Allies, and are rated two dots less than their effectiveness." },
+        ],
+    },
+    {
+        title: "📞 Contacts",
+        merits: [
+            { name: "Contacts", cost: [1,2,3], summary: "These are mortals who can get the character information, items or other things of value." },
+        ],
+        flaws: [],
+    },
+    {
+        title: "⭐ Fame",
+        merits: [
+            { name: "Fame", cost: [1,2,3,4,5], summary: "Mortal fame is a dangerous game, the character might have once been a pop singer, actress, or other celebrity. The level of fame can subtract from tests against fans or hunting. There is a downside as people may remember the character as their face is plastered on a nearby billboard. Fame can be bought to apply in Vampire society as well." },
+        ],
+        flaws: [
+            { name: "Dark Secret", cost: [1,2,3,4,5], summary: "What they've done is still a secret, except to one or two very motivated enemies." },
+            { name: "Infamy", cost: [1,2,3,4,5], summary: "They've done something atrocious and others know." },
+            { name: "Banned From", cost: [1,2,3], summary: "Small cities are one dot, medium cities are two dots, large cities are three dots." },
+        ],
+    },
+    {
+        title: "💼 Influence",
+        merits: [
+            { name: "Influence", cost: [1,2,3,4,5], summary: "They have sway in mortal communities, be they political, through financial status and prestige, or manipulation. By default, this merit only applies to a specific group or region of the city." },
+        ],
+        flaws: [
+            { name: "Disliked", cost: [1], summary: "Subtract one die from Social tests involving groups outside of the character's loyal followers." },
+            { name: "Despised", cost: [2], summary: "One group/region of the city goes out of its way to destroy the character's plans." },
+        ],
+    },
+    {
+        title: "🏠 Haven",
+        merits: [
+            { name: "Haven", cost: [1,2,3], summary: "A vampire without Haven dots is able to find a safe place for the night. However, Haven dots make it that much more secure and private per dot." },
+            { name: "Hidden Armory", cost: [1,2,3,4,5], summary: "Each dot adds one pistol and one firearm inside the haven, safely concealed." },
+            { name: "Cell", cost: [1,2,3,4,5], summary: "Allows two prisoners to be stored inside. Each additional dot either allows the character to store twice as many prisoners or adds +1 to the attempts to escape. Not available in one dot havens." },
+            { name: "Watchmen", cost: [1,2,3,4,5], summary: "Each dot supplies 4 Average Mortals and one Gifted Mortal to watch over the haven." },
+            { name: "Laboratory", cost: [1,2,3,4,5], summary: "Each dot of this merit contributes to dice rolls related to one Science or Technology specialty or for Alchemy pools when using Fixatio. Not available in one dot havens." },
+            { name: "Library", cost: [1,2,3,4,5], summary: "Each dot of this merit contributes to dice rolls for one Academics, Investigation or Occult specialty. Small havens are limited to one dot." },
+            { name: "Location", cost: [1], summary: "The place in which this haven resides gives a +2 dice bonus (or +2 enemies Difficulty) on relevant rolls from either Chasse or base Haven rating. If this does not work, with the Storyteller the player can craft a custom bonus. Example, living in the heart of downtown allows the character to have a +2 bonus to etiquette rolls to pick up local rumors." },
+            { name: "Luxury", cost: [1], summary: "Rich and full of value, the haven is well decorated with high-end décor and items. +2 dice bonus to Social tests when mortals are inside the haven. Without at least 3 dots in Resources, these items are stolen or illegally obtained." },
+            { name: "Postern", cost: [1,2,3,4,5], summary: "The haven has some kind of secret exit that allows them a safe passage out. For each dot of this merit add one die to pools of evasion or escaping surveillance near the haven." },
+            { name: "Security System", cost: [1,2,3,4,5], summary: "For each dot of this merit, add one die to pools to resist unwelcome guests into the haven." },
+            { name: "Surgery", cost: [1], summary: "Add two die to relevant pools for relevant tests performed in havens." },
+            { name: "Warding", cost: [1,2,3,4,5], summary: "This haven possesses some type of magic warding that repels supernatural entities. Each dot of this merit adds one die to pools to resist supernatural scrying and whatever else the Storyteller allows." },
+            { name: "Holy Ground", cost: [1], summary: "The haven has significance to the character's cult, granting them the ability to call upon a large group of cultists to protect their haven once per story." },
+            { name: "Shrine", cost: [1,2,3], summary: "A shrine is present in the haven, adding a bonus equivalent to the dots in searching, preparing or otherwise obtaining Ritual or Ceremony ingredients." },
+            { name: "Business Establishment", cost: [2,3], summary: "The haven is rented out to a business or is run as a business by the Kindred themselves. This gives both benefits and drawbacks, such as a ready stream of income but also being very much on the grid and local enforcement being aware of the location. This reduces the Haven's base dots by one for pools involving the Haven's privacy and defenses against either (pick one) financial or criminal intrusions. Dots in this merit roughly equal Resources but do not stack onto existing Resources for the character." },
+            { name: "Furcus", cost: [1,2,3], summary: "The haven is located on veins of the earth or a frayed spot in the Veil. Each dot in this merit adds one die to Rituals or Ceremony dice pools used at the furcus." },
+            { name: "Machine Shop", cost: [1,2,3,4,5], summary: "Each dot of this merit adds one dice to the pool for Craft rolls. It also adds this to other tests related to building, repairing, or disassembling machinery or equipment." },
+        ],
+        flaws: [
+            { name: "No Haven", cost: [1], summary: "The character must make a basic test to find a secure resting place." },
+            { name: "Creepy", cost: [1], summary: "Take a two-dice penalty on Social pools in the haven with mortals." },
+            { name: "Haunted", cost: [1,2,3,4,5], summary: "There is a supernatural manifestation taking hold over the haven." },
+            { name: "Compromised", cost: [2], summary: "This haven is on a watchlist and may have been raided at some point." },
+            { name: "Shared", cost: [1,2], summary: "The haven is not entirely owned by the character, instead being shared with other Kindred or having a Kindred landlord. This does not need to be taken by Coteries, as that only has as many problems as they make mutually in play." },
+        ],
+    },
+    {
+        title: "🎯 Other",
+        merits: [
+            { name: "Check the Trunk", cost: [1], summary: "Easy access to an armory or cache of tools, none of these items can exceed the value of something a Resources 2 character could access. Add two dice to Preperation Rolls." },
+            { name: "Side Hustler", cost: [2], summary: "Once per session they can get their hands on an item, information, or access to an event as if they had two dots in the related Resources, Contacts, or Influence." },
+            { name: "Tempered Will", cost: [3], summary: "They are always aware when someone is attempting to use Dominate or Presence against them. They may add two additional dice to resistance pools once per session, which can only be taken by those with no dots in Dominate or Presence." },
+            { name: "Untouchable", cost: [5], summary: "Once per story they are able to escape all official punishment for a crime that would otherwise see them destroyed." },
+            { name: "Mystic of the Void", cost: [1,2], summary: "Choose a single Oblivion Power they do not know. They count as knowing that power for the purpose of prerequisites to learning Oblivion Ceremonies. Hecata and Lasombra can choose three Oblivion Powers they do not know instead of just one." },
+        ],
+        flaws: [
+            { name: "Knowledge Hungry", cost: [1], summary: "At character creation pick a topic that your character desires to study. When they come across the methods to learn these things, they must make a Willpower roll at Difficulty 3 to resist." },
+            { name: "Prestation Debts", cost: [1], summary: "They owe other Kindred boons, even if these boons are paid off the Kindred lords over them. The Boon-owning Kindred keeps a one-die bonus in Social combat against the one who owes it." },
+            { name: "Risk-Taker Errata", cost: [1], summary: "When confronted with a risky temptation that the character hasn't done before, they suffer a two-dice penalty for all actions till they participate or the scene ends." },
+            { name: "Weak-Willed", cost: [2], summary: "Even when they are aware that someone is attempting to sway they may not use the active resistance systems to avoid the attempts." },
+        ],
+    },
+]
+
 export const thinbloodMeritsAndFlaws: MeritsAndFlaws = {
     title: "◐ Thin-blood specific",
     merits: [
@@ -60,6 +189,10 @@ export const thinbloodMeritsAndFlaws: MeritsAndFlaws = {
 export const isThinbloodMerit = (m: string) => !!thinbloodMeritsAndFlaws.merits.find((tbm) => tbm.name === m)
 export const isThinbloodFlaw = (f: string) => !!thinbloodMeritsAndFlaws.flaws.find((tbf) => tbf.name === f)
 export const isThinbloodMeritOrFlaw = (mf: string) => isThinbloodMerit(mf) || isThinbloodFlaw(mf)
+
+export const isGhoulMerit = (m: string) => !!ghoulMeritsAndFlaws.some(category => category.merits.find((gm) => gm.name === m))
+export const isGhoulFlaw = (f: string) => !!ghoulMeritsAndFlaws.some(category => category.flaws.find((gf) => gf.name === f))
+export const isGhoulMeritOrFlaw = (mf: string) => isGhoulMerit(mf) || isGhoulFlaw(mf)
 
 export const meritsAndFlaws: MeritsAndFlaws[] = [
     {

@@ -4,7 +4,7 @@ import { Button, Divider, Grid, ScrollArea, Stack, Tabs, Text, useMantineTheme }
 import { useEffect, useState } from "react"
 import ReactGA from "react-ga4"
 import { Character, MeritFlaw } from "../../data/Character"
-import { isThinbloodFlaw, isThinbloodMerit, MeritOrFlaw, meritsAndFlaws, thinbloodMeritsAndFlaws, bargainFlaws } from "../../data/MeritsAndFlaws"
+import { isThinbloodFlaw, isThinbloodMerit, isGhoulFlaw, isGhoulMerit, MeritOrFlaw, meritsAndFlaws, thinbloodMeritsAndFlaws, ghoulMeritsAndFlaws, bargainFlaws } from "../../data/MeritsAndFlaws"
 import { PredatorTypes } from "../../data/PredatorType"
 import { globals } from "../../globals"
 import { Loresheets } from "./Loresheets"
@@ -32,8 +32,9 @@ const MeritsAndFlawsPicker = ({ character, setCharacter, nextStep }: MeritsAndFl
 
     const [pickedMeritsAndFlaws, setPickedMeritsAndFlaws] = useState<MeritFlaw[]>([...character.merits, ...character.flaws])
 
-    const usedMeritsLevel = character.merits.filter((m) => !isThinbloodMerit(m.name)).reduce((acc, { level }) => acc + level, 0)
-    const usedFLawsLevel = character.flaws.filter((f) => !isThinbloodFlaw(f.name)).reduce((acc, { level }) => acc + level, 0)
+    const isGhoul = character.clan === "Ghoul"
+    const usedMeritsLevel = character.merits.filter((m) => !isThinbloodMerit(m.name) && !isGhoulMerit(m.name)).reduce((acc, { level }) => acc + level, 0)
+    const usedFLawsLevel = character.flaws.filter((f) => !isThinbloodFlaw(f.name) && !isGhoulFlaw(f.name)).reduce((acc, { level }) => acc + level, 0)
 
     const [remainingMerits, setRemainingMerits] = useState(7 - usedMeritsLevel)
     const [remainingFlaws, setRemainingFlaws] = useState(2 - usedFLawsLevel)
@@ -77,6 +78,12 @@ const MeritsAndFlawsPicker = ({ character, setCharacter, nextStep }: MeritsAndFl
                         } else if (isThinbloodMerit(meritOrFlaw.name)) {
                             if (remainingThinbloodMeritPoints < cost) return
                             setRemainingThinbloodMeritPoints(remainingThinbloodMeritPoints - 1)
+                        } else if (isGhoulFlaw(meritOrFlaw.name)) {
+                            if (remainingFlaws + wasPickedLevel < cost) return
+                            setRemainingFlaws(remainingFlaws + wasPickedLevel - cost)
+                        } else if (isGhoulMerit(meritOrFlaw.name)) {
+                            if (remainingMerits + wasPickedLevel < cost) return
+                            setRemainingMerits(remainingMerits + wasPickedLevel - cost)
                         } else if (type === "flaw") {
                             if (remainingFlaws + wasPickedLevel < cost) return
                             setRemainingFlaws(remainingFlaws + wasPickedLevel - cost)
@@ -117,6 +124,10 @@ const MeritsAndFlawsPicker = ({ character, setCharacter, nextStep }: MeritsAndFl
                                     setRemainingThinbloodMeritPoints(remainingThinbloodMeritPoints - 1)
                                 } else if (isThinbloodMerit(meritOrFlaw.name)) {
                                     setRemainingThinbloodMeritPoints(remainingThinbloodMeritPoints + 1)
+                                } else if (isGhoulFlaw(meritOrFlaw.name)) {
+                                    setRemainingFlaws(remainingFlaws + cost)
+                                } else if (isGhoulMerit(meritOrFlaw.name)) {
+                                    setRemainingMerits(remainingMerits + cost)
                                 } else {
                                     type === "flaw" ? setRemainingFlaws(remainingFlaws + cost) : setRemainingMerits(remainingMerits + cost)
                                 }
@@ -185,7 +196,11 @@ const MeritsAndFlawsPicker = ({ character, setCharacter, nextStep }: MeritsAndFl
                             {/* Thinbloods */}
                             {isThinBlood ? thinBloodMeritsAndFlawsComponent(getMeritOrFlawLine) : null}
 
-                            {meritsAndFlaws.map((category) => {
+                            {/* Ghouls */}
+                            {isGhoul ? ghoulMeritsAndFlawsComponent(getMeritOrFlawLine) : null}
+
+                            {/* Regular merits and flaws (hidden for Thinbloods and Ghouls) */}
+                            {!isThinBlood && !isGhoul && meritsAndFlaws.map((category) => {
                                 return (
                                     <Grid.Col span={6} key={category.title}>
                                         <Stack spacing={"xs"}>
@@ -264,6 +279,29 @@ function thinBloodMeritsAndFlawsComponent(getMeritOrFlawLine: (meritOrFlaw: Meri
                 </Stack>
             </Grid.Col>
 
+            <Divider mt={0} w={"100%"} my={"lg"} />
+        </>
+    )
+}
+
+function ghoulMeritsAndFlawsComponent(getMeritOrFlawLine: (meritOrFlaw: MeritOrFlaw, type: "flaw" | "merit") => JSX.Element) {
+    return (
+        <>
+            {ghoulMeritsAndFlaws.map((category) => {
+                return (
+                    <Grid.Col span={6} key={category.title}>
+                        <Stack spacing={"xs"}>
+                            <Text fw={700} size={"xl"}>
+                                {category.title}
+                            </Text>
+                            <Divider mt={0} w={"50%"} />
+
+                            {category.merits.map((merit) => getMeritOrFlawLine(merit, "merit"))}
+                            {category.flaws.map((flaw) => getMeritOrFlawLine(flaw, "flaw"))}
+                        </Stack>
+                    </Grid.Col>
+                )
+            })}
             <Divider mt={0} w={"100%"} my={"lg"} />
         </>
     )
