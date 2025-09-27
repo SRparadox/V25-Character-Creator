@@ -10,6 +10,7 @@ import checkPng from "../resources/CheckSolid.png"
 // import base64Pdf_renegade from '../resources/v5_charactersheet_fillable_v3.base64';
 import { attributesKeySchema } from "../data/Attributes"
 import { Power, Ritual, powerIsRitual } from "../data/Disciplines"
+import { AlchemyFormula } from "../data/Alchemy"
 import base64Pdf_nerdbert from "../resources/VtM5e_ENG_CharacterSheet_2pMINI_noTxtRichFields.base64?raw"
 import { upcase } from "./utils"
 import { DisciplineName } from "~/data/NameSchemas"
@@ -315,7 +316,7 @@ const createPdf_nerdbert = async (character: Character): Promise<Uint8Array> => 
     notesField.setText(notesText)
 
     // Disciplines
-    const getDisciplineText = (power: Power | Ritual) => {
+    const getDisciplineText = (power: Power | Ritual | AlchemyFormula) => {
         let text = power.name + ": " + power.summary
         if (power.dicePool !== "") {
             text += ` // ${power.dicePool}`
@@ -371,6 +372,17 @@ const createPdf_nerdbert = async (character: Character): Promise<Uint8Array> => 
             const ci = ceremonyIndex + 1;
             form.getTextField(`Disc${di}_Ability${ci}`).setText(getDisciplineText(ceremony));
             form.getTextField(`Disc${di}_Ability${ci}`).disableRichFormatting();
+        }
+    }
+
+    // Add Thin Blood Alchemy in a separate box if present
+    if (character.alchemy && character.alchemy.length > 0) {
+        const di = extraBoxIndex++;
+        form.getTextField(`Disc${di}`).setText("Thin Blood Alchemy");
+        for (const [alchemyIndex, formula] of character.alchemy.entries()) {
+            const ai = alchemyIndex + 1;
+            form.getTextField(`Disc${di}_Ability${ai}`).setText(getDisciplineText(formula));
+            form.getTextField(`Disc${di}_Ability${ai}`).disableRichFormatting();
         }
     }
 
