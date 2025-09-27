@@ -13,6 +13,7 @@ export const getEmptyCharacter = (): Character => ({
     sect: "",
     religion: "",
     predatorType: { name: "", pickedDiscipline: "", pickedSpecialties: [], pickedMeritsAndFlaws: [] },
+    role: undefined,
     touchstones: [],
     ambition: "",
     desire: "",
@@ -75,7 +76,7 @@ import { Power, powerSchema, ritualSchema, ceremonySchema } from "./Disciplines"
 import { specialtySchema } from "./Specialties"
 import { skillsSchema } from "./Skills"
 import { attributesSchema } from "./Attributes"
-import { clanNameSchema, disciplineNameSchema, predatorTypeNameSchema } from "./NameSchemas"
+import { clanNameSchema, disciplineNameSchema, predatorTypeNameSchema, roleNameSchema } from "./NameSchemas"
 
 export const religionSchema = z.union([
     z.literal("Bahari"),
@@ -132,6 +133,12 @@ export const characterSchema = z.object({
         pickedSpecialties: specialtySchema.array(),
         pickedMeritsAndFlaws: meritFlawSchema.array(),
     }),
+    role: z.object({
+        name: roleNameSchema,
+        pickedDiscipline: disciplineNameSchema,
+        pickedSpecialties: specialtySchema.array(),
+        pickedMeritsAndFlaws: meritFlawSchema.array(),
+    }).optional(),
     touchstones: touchstoneSchema.array(),
     ambition: z.string(),
     desire: z.string(),

@@ -12,6 +12,7 @@ import GenerationPicker from "./components/GenerationPicker"
 import Intro from "./components/Intro"
 import MeritsAndFlawsPicker from "./components/MeritsAndFlawsPicker"
 import PredatorTypePicker from "./components/PredatorTypePicker"
+import RolePicker from "./components/RolePicker"
 import SkillsPicker from "./components/SkillsPicker"
 import TouchstonePicker from "./components/TouchstonePicker"
 import ErrorBoundary from "../components/ErrorBoundary"
@@ -31,7 +32,7 @@ export function getStepLabels(character: Character) {
         "Attributes",
         "Skills",
         "Generation",
-        "Predator Type",
+        character.clan === "Ghoul" ? "Role" : "Predator Type",
         "Basics",
         "Disciplines",
     ];
@@ -73,7 +74,7 @@ const Generator = ({ character, setCharacter, selectedStep, setSelectedStep }: G
         (props) => <AttributePicker {...props} />, // 4
         (props) => <SkillsPicker {...props} />, // 5
         (props) => <GenerationPicker {...props} />, // 6
-        (props) => <PredatorTypePicker {...props} />, // 7
+        (props) => character.clan === "Ghoul" ? <RolePicker {...props} /> : <PredatorTypePicker {...props} />, // 7
         (props) => <BasicsPicker {...props} />, // 8
         (props) => <DisciplinesPicker {...props} />, // 9
     ];
