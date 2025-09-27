@@ -15,6 +15,11 @@ export const roleSchema = z.object({
     disciplineOptions: z.object({ name: disciplineNameSchema }).array(),
     meritsAndFlaws: z.object({ name: z.string(), level: z.number().int(), summary: z.string() }).array(),
     selectableMeritsAndFlaws: selectableMeritsAndFlawsSchema.array(),
+    skillBonuses: z.record(z.string(), z.number().int()).optional(),
+    selectableSkillBonuses: z.object({
+        options: z.string().array(),
+        points: z.number().int(),
+    }).optional(),
     humanityChange: z.number().int(),
     bloodPotencyChange: z.number().int(),
 })
@@ -29,18 +34,13 @@ export const Roles: Record<RoleName, Role> = {
             { skill: "performance", name: "Acting" }
         ],
         disciplineOptions: [{ name: "animalism" }, { name: "fortitude" }, { name: "presence" }],
-        meritsAndFlaws: [
-            { name: "Medicine", level: 1, summary: "Gained one dot of Medicine" }
-        ],
-        selectableMeritsAndFlaws: [
-            {
-                options: [
-                    { name: "Athletics", summary: "Physical conditioning", maxLevel: 1 },
-                    { name: "Survival", summary: "Endurance and resilience", maxLevel: 1 }
-                ],
-                totalPoints: 1,
-            }
-        ],
+        meritsAndFlaws: [],
+        selectableMeritsAndFlaws: [],
+        skillBonuses: { "medicine": 1 },
+        selectableSkillBonuses: {
+            options: ["athletics", "survival"],
+            points: 1,
+        },
         humanityChange: 0,
         bloodPotencyChange: 0,
     },
@@ -52,18 +52,13 @@ export const Roles: Record<RoleName, Role> = {
             { skill: "larceny", name: "Forgery" }
         ],
         disciplineOptions: [{ name: "obfuscate" }, { name: "presence" }, { name: "dominate" }],
-        meritsAndFlaws: [
-            { name: "Performance", level: 1, summary: "Gained one dot of Performance" }
-        ],
-        selectableMeritsAndFlaws: [
-            {
-                options: [
-                    { name: "Streetwise", summary: "Street knowledge and contacts", maxLevel: 1 },
-                    { name: "Politics", summary: "Political connections and knowledge", maxLevel: 1 }
-                ],
-                totalPoints: 1,
-            }
-        ],
+        meritsAndFlaws: [],
+        selectableMeritsAndFlaws: [],
+        skillBonuses: { "performance": 1 },
+        selectableSkillBonuses: {
+            options: ["streetwise", "politics"],
+            points: 1,
+        },
         humanityChange: 0,
         bloodPotencyChange: 0,
     },
@@ -75,11 +70,9 @@ export const Roles: Record<RoleName, Role> = {
             { skill: "firearms", name: "Covering Fire" }
         ],
         disciplineOptions: [{ name: "celerity" }, { name: "fortitude" }, { name: "potence" }],
-        meritsAndFlaws: [
-            { name: "Insight", level: 1, summary: "Gained one dot of Insight" },
-            { name: "Intimidation", level: 1, summary: "Gained one dot of Intimidation" }
-        ],
+        meritsAndFlaws: [],
         selectableMeritsAndFlaws: [],
+        skillBonuses: { "insight": 1, "intimidation": 1 },
         humanityChange: 0,
         bloodPotencyChange: 0,
     },
@@ -91,11 +84,9 @@ export const Roles: Record<RoleName, Role> = {
             { skill: "leadership", name: "Office Management" }
         ],
         disciplineOptions: [{ name: "auspex" }, { name: "dominate" }, { name: "presence" }],
-        meritsAndFlaws: [
-            { name: "Finance", level: 1, summary: "Gained one dot of Finance" },
-            { name: "Investigation", level: 1, summary: "Gained one dot of Investigation" }
-        ],
+        meritsAndFlaws: [],
         selectableMeritsAndFlaws: [],
+        skillBonuses: { "finance": 1, "investigation": 1 },
         humanityChange: 0,
         bloodPotencyChange: 0,
     },
@@ -107,11 +98,9 @@ export const Roles: Record<RoleName, Role> = {
             { skill: "insight", name: "Desires" }
         ],
         disciplineOptions: [{ name: "auspex" }, { name: "animalism" }, { name: "presence" }],
-        meritsAndFlaws: [
-            { name: "Etiquette", level: 1, summary: "Gained one dot of Etiquette" },
-            { name: "Leadership", level: 1, summary: "Gained one dot of Leadership" }
-        ],
+        meritsAndFlaws: [],
         selectableMeritsAndFlaws: [],
+        skillBonuses: { "etiquette": 1, "leadership": 1 },
         humanityChange: 0,
         bloodPotencyChange: 0,
     },
@@ -123,11 +112,9 @@ export const Roles: Record<RoleName, Role> = {
             { skill: "larceny", name: "Forgery" }
         ],
         disciplineOptions: [{ name: "obfuscate" }, { name: "fortitude" }, { name: "auspex" }],
-        meritsAndFlaws: [
-            { name: "Awareness", level: 1, summary: "Gained one dot of Awareness" },
-            { name: "Investigation", level: 1, summary: "Gained one dot of Investigation" }
-        ],
+        meritsAndFlaws: [],
         selectableMeritsAndFlaws: [],
+        skillBonuses: { "awareness": 1, "investigation": 1 },
         humanityChange: -1,
         bloodPotencyChange: 0,
     },
@@ -139,11 +126,9 @@ export const Roles: Record<RoleName, Role> = {
             { skill: "etiquette", name: "Office" }
         ],
         disciplineOptions: [{ name: "auspex" }, { name: "presence" }, { name: "dominate" }],
-        meritsAndFlaws: [
-            { name: "Investigation", level: 1, summary: "Gained one dot of Investigation" },
-            { name: "Technology", level: 1, summary: "Gained one dot of Technology" }
-        ],
+        meritsAndFlaws: [],
         selectableMeritsAndFlaws: [],
+        skillBonuses: { "investigation": 1, "technology": 1 },
         humanityChange: 0,
         bloodPotencyChange: 0,
     },
@@ -155,11 +140,9 @@ export const Roles: Record<RoleName, Role> = {
             { skill: "insight", name: "Motives" }
         ],
         disciplineOptions: [{ name: "auspex" }, { name: "fortitude" }, { name: "animalism" }],
-        meritsAndFlaws: [
-            { name: "Awareness", level: 1, summary: "Gained one dot of Awareness" },
-            { name: "Firearms", level: 1, summary: "Gained one dot of Firearms" }
-        ],
+        meritsAndFlaws: [],
         selectableMeritsAndFlaws: [],
+        skillBonuses: { "awareness": 1, "firearms": 1 },
         humanityChange: 0,
         bloodPotencyChange: 0,
     },
@@ -171,18 +154,13 @@ export const Roles: Record<RoleName, Role> = {
             { skill: "performance", name: "Acting" }
         ],
         disciplineOptions: [{ name: "presence" }, { name: "dominate" }, { name: "animalism" }],
-        meritsAndFlaws: [
-            { name: "Medicine", level: 1, summary: "Gained one dot of Medicine" }
-        ],
-        selectableMeritsAndFlaws: [
-            {
-                options: [
-                    { name: "Athletics", summary: "Physical conditioning for abduction", maxLevel: 1 },
-                    { name: "Survival", summary: "Endurance and body disposal", maxLevel: 1 }
-                ],
-                totalPoints: 1,
-            }
-        ],
+        meritsAndFlaws: [],
+        selectableMeritsAndFlaws: [],
+        skillBonuses: { "medicine": 1 },
+        selectableSkillBonuses: {
+            options: ["athletics", "survival"],
+            points: 1,
+        },
         humanityChange: -1,
         bloodPotencyChange: 0,
     },
@@ -194,11 +172,9 @@ export const Roles: Record<RoleName, Role> = {
             { skill: "firearms", name: "Point Blank Shots" }
         ],
         disciplineOptions: [{ name: "potence" }, { name: "celerity" }, { name: "fortitude" }],
-        meritsAndFlaws: [
-            { name: "Streetwise", level: 1, summary: "Gained one dot of Streetwise" },
-            { name: "Survival", level: 1, summary: "Gained one dot of Survival" }
-        ],
+        meritsAndFlaws: [],
         selectableMeritsAndFlaws: [],
+        skillBonuses: { "streetwise": 1, "survival": 1 },
         humanityChange: -2,
         bloodPotencyChange: 0,
     },
@@ -211,11 +187,10 @@ export const Roles: Record<RoleName, Role> = {
         ],
         disciplineOptions: [{ name: "auspex" }, { name: "animalism" }, { name: "fortitude" }],
         meritsAndFlaws: [
-            { name: "Craft", level: 1, summary: "Gained one dot of Craft" },
-            { name: "Finance", level: 1, summary: "Gained one dot of Finance" },
             { name: "Haven", level: 2, summary: "Haven Merit with Location addon" }
         ],
         selectableMeritsAndFlaws: [],
+        skillBonuses: { "craft": 1, "finance": 1 },
         humanityChange: 0,
         bloodPotencyChange: 0,
     },
@@ -227,17 +202,8 @@ export const Roles: Record<RoleName, Role> = {
             { skill: "persuasion", name: "Lobbying" }
         ],
         disciplineOptions: [{ name: "dominate" }, { name: "presence" }, { name: "auspex" }],
-        meritsAndFlaws: [
-            { name: "Politics", level: 1, summary: "Gained one dot of Politics" }
-        ],
+        meritsAndFlaws: [],
         selectableMeritsAndFlaws: [
-            {
-                options: [
-                    { name: "Intimidation", summary: "Political pressure tactics", maxLevel: 1 },
-                    { name: "Persuasion", summary: "Political charm and negotiation", maxLevel: 1 }
-                ],
-                totalPoints: 1,
-            },
             {
                 options: [
                     { name: "Allies", summary: "Political allies and connections", maxLevel: 1 },
@@ -246,6 +212,11 @@ export const Roles: Record<RoleName, Role> = {
                 totalPoints: 1,
             }
         ],
+        skillBonuses: { "politics": 1 },
+        selectableSkillBonuses: {
+            options: ["intimidation", "persuasion"],
+            points: 1,
+        },
         humanityChange: 0,
         bloodPotencyChange: 0,
     },
@@ -257,11 +228,9 @@ export const Roles: Record<RoleName, Role> = {
             { skill: "subterfuge", name: "Hide Motives" }
         ],
         disciplineOptions: [{ name: "auspex" }, { name: "obfuscate" }, { name: "dominate" }],
-        meritsAndFlaws: [
-            { name: "Awareness", level: 1, summary: "Gained one dot of Awareness" },
-            { name: "Larceny", level: 1, summary: "Gained one dot of Larceny" }
-        ],
+        meritsAndFlaws: [],
         selectableMeritsAndFlaws: [],
+        skillBonuses: { "awareness": 1, "larceny": 1 },
         humanityChange: 0,
         bloodPotencyChange: 0,
     },
@@ -273,11 +242,9 @@ export const Roles: Record<RoleName, Role> = {
             { skill: "technology", name: "Network Security" }
         ],
         disciplineOptions: [{ name: "auspex" }, { name: "dominate" }, { name: "obfuscate" }],
-        meritsAndFlaws: [
-            { name: "Science", level: 1, summary: "Gained one dot of Science" },
-            { name: "Technology", level: 1, summary: "Gained one dot of Technology" }
-        ],
+        meritsAndFlaws: [],
         selectableMeritsAndFlaws: [],
+        skillBonuses: { "science": 1, "technology": 1 },
         humanityChange: 0,
         bloodPotencyChange: 0,
     },

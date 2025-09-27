@@ -1,16 +1,13 @@
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { Button, Divider, Grid, Group, Modal, SegmentedControl, Stack, Text, Title, Tooltip, useMantineTheme } from "@mantine/core"
+import { Button, Divider, Grid, Group, Modal, SegmentedControl, Stack, Text, Tooltip } from "@mantine/core"
+import { useState } from "react"
 import ReactGA from "react-ga4"
-import { Character, meritFlawSchema } from "../data/Character"
+import { Character } from "../data/Character"
 import { disciplines } from "../data/Disciplines"
 import { Roles } from "../data/Role"
 import { upcase } from "../generator/utils"
 import { globals } from "../globals"
-import usePointStates from "../hooks/usePointStates"
-import PointPicker from "./PointPicker"
-import Tally from "./Tally"
-import { useEffect } from "react"
 import { DisciplineName, disciplineNameSchema, RoleName } from "~/data/NameSchemas"
 
 type RoleModalProps = {
@@ -38,24 +35,18 @@ const RoleModal = ({
     discipline,
     setDiscipline,
 }: RoleModalProps) => {
-    const theme = useMantineTheme()
-
     const smallScreen = globals.isSmallScreen
     const phoneScreen = globals.isPhoneScreen
 
     const role = Roles[pickedRole]
     const pickedDiscipline = disciplines[discipline as DisciplineName]
-
-    const { pointStates, updatePointStates, setFromSelectableMeritsAndFlaws } = usePointStates(role.selectableMeritsAndFlaws)
-    useEffect(() => {
-        setFromSelectableMeritsAndFlaws(role.selectableMeritsAndFlaws)
-    }, [pickedRole])
+    
+    // State for selectable skill bonuses
+    const [selectedSkillForBonus, setSelectedSkillForBonus] = useState(
+        role.selectableSkillBonuses ? role.selectableSkillBonuses.options[0] : ""
+    )
 
     const titleWidth = smallScreen ? "300px" : "750px"
-
-    if (role.selectableMeritsAndFlaws.length > 0 && !pointStates?.at(role.selectableMeritsAndFlaws.length - 1)) {
-        return <></>
-    }
 
     return (
         <Modal
@@ -116,81 +107,39 @@ const RoleModal = ({
                     </div>
                 ) : null}
                 
-                {role.meritsAndFlaws.length !== 0 || role.selectableMeritsAndFlaws.length !== 0 ? (
+                {role.skillBonuses && Object.keys(role.skillBonuses).length > 0 ? (
                     <div>
-                        <Group position="apart">
-                            <Text fw={700} fz={"xl"}>
-                                Merits and Flaws:
-                            </Text>
-                            <Stack w={"100%"}>
-                                {role.meritsAndFlaws.map((mf) => {
-                                    return (
-                                        <Grid key={mf.name}>
-                                            <Grid.Col span={smallScreen ? 8 : 4}>
-                                                <Text miw={"220px"} maw={"80%"} fz={"xl"}>
-                                                    {`${mf.name}: `}
-                                                    <Text fz={"xs"}>{mf.summary}</Text>
-                                                </Text>
-                                            </Grid.Col>
-                                            <Grid.Col span={4}>
-                                                <Text fz={"xl"} ta={"center"}>
-                                                    Lvl
-                                                    <Tally
-                                                        n={mf.level}
-                                                        style={{ color: theme.colors.red[7], marginTop: "-5px" }}
-                                                        size={"28px"}
-                                                    />
-                                                </Text>
-                                            </Grid.Col>
-                                        </Grid>
-                                    )
-                                })}
+                        <Text fw={700} fz={"xl"}>
+                            Skill Bonuses:
+                        </Text>
+                        <Grid>
+                            {Object.entries(role.skillBonuses).map(([skill, bonus]) => (
+                                <Grid.Col span={smallScreen ? 12 : 6} key={skill}>
+                                    <Text fz={"lg"}>
+                                        {upcase(skill)}: +{bonus}
+                                    </Text>
+                                </Grid.Col>
+                            ))}
+                        </Grid>
+                        <Divider my="sm" />
+                    </div>
+                ) : null}
 
-                                {role.selectableMeritsAndFlaws.map(({ options, totalPoints }, i) => {
-                                    const subPointStates = pointStates[i].subPointStates
-                                    const spentPoints = subPointStates.reduce((acc, cur) => {
-                                        return acc + cur.selectedPoints
-                                    }, 0)
-                                    return (
-                                        <>
-                                            <Divider my="sm" />
-                                            <Group key={i} position="apart">
-                                                <Text maw={"80%"} fz={"xl"}>
-                                                    {`Pick ${totalPoints} point(s) from: `}
-                                                </Text>
-                                                <Text>
-                                                    Remaining: <Title ta={"center"} c={"red"}>{`${totalPoints - spentPoints}`}</Title>
-                                                </Text>
-                                                <Stack>
-                                                    {options.map((option, j) => {
-                                                        const { selectedPoints, maxLevel } = subPointStates[j]
-                                                        return (
-                                                            <Group key={role.name + "/" + option.name + j}>
-                                                                <Tooltip
-                                                                    disabled={option.summary === ""}
-                                                                    label={`${upcase(option.summary)}`}
-                                                                    transitionProps={{ transition: "slide-up", duration: 200 }}
-                                                                    events={globals.tooltipTriggerEvents}
-                                                                >
-                                                                    <Text w={"140px"}>{option.name}</Text>
-                                                                </Tooltip>
-                                                                <PointPicker
-                                                                    points={selectedPoints}
-                                                                    setPoints={(n) => {
-                                                                        updatePointStates(n, i, j)
-                                                                    }}
-                                                                    maxLevel={maxLevel}
-                                                                />
-                                                            </Group>
-                                                        )
-                                                    })}
-                                                </Stack>
-                                            </Group>
-                                        </>
-                                    )
-                                })}
-                            </Stack>
-                        </Group>
+                {role.selectableSkillBonuses ? (
+                    <div>
+                        <Text fw={700} fz={"xl"} ta="center">
+                            Choose skill to receive +{role.selectableSkillBonuses.points} bonus
+                        </Text>
+                        <SegmentedControl
+                            size={phoneScreen ? "sm" : "md"}
+                            color="yellow"
+                            value={selectedSkillForBonus}
+                            onChange={setSelectedSkillForBonus}
+                            data={role.selectableSkillBonuses.options.map((skill) => ({
+                                label: upcase(skill),
+                                value: skill,
+                            }))}
+                        />
                         <Divider my="sm" />
                     </div>
                 ) : null}
@@ -241,36 +190,42 @@ const RoleModal = ({
                         color="yellow"
                         onClick={async () => {
                             const pickedSpecialty = role.specialtyOptions.find(({ name }) => name === specialty.split("_")[1])
-                            const pickedDiscipline = role.disciplineOptions.find(({ name }) => name === discipline)
+                            const pickedDisciplineOption = role.disciplineOptions.find(({ name }) => name === discipline)
                             if (!pickedSpecialty) {
                                 console.error(`Couldn't find specialty with name ${specialty}`)
-                            } else if (!pickedDiscipline) {
+                            } else if (!pickedDisciplineOption) {
                                 console.error(`Couldn't find discipline with name ${discipline}`)
                             } else {
-                                const pickedMeritsAndFlaws = role.selectableMeritsAndFlaws.flatMap((selectable, i) => {
-                                    const subPointStates = pointStates[i].subPointStates
-                                    const pickedMerits = selectable.options.flatMap((option, j) => {
-                                        const { selectedPoints } = subPointStates[j]
-                                        if (selectedPoints === 0) return []
-                                        return meritFlawSchema.parse({
-                                            name: option.name,
-                                            summary: option.summary,
-                                            level: selectedPoints,
-                                            type: "merit",
-                                        })
-                                    })
-                                    return pickedMerits
-                                })
-
                                 const pickedDiscipline = disciplineNameSchema.parse(discipline)
                                 const changedPickedDiscipline = pickedDiscipline !== character.role?.pickedDiscipline
+                                
+                                // Apply skill bonuses directly to character skills
+                                const updatedSkills = { ...character.skills }
+                                
+                                // Apply fixed skill bonuses
+                                if (role.skillBonuses) {
+                                    Object.entries(role.skillBonuses).forEach(([skill, bonus]) => {
+                                        if (skill in updatedSkills) {
+                                            updatedSkills[skill as keyof typeof updatedSkills] = Math.max(0, updatedSkills[skill as keyof typeof updatedSkills] + bonus)
+                                        }
+                                    })
+                                }
+                                
+                                // Apply selectable skill bonuses
+                                if (role.selectableSkillBonuses && selectedSkillForBonus) {
+                                    if (selectedSkillForBonus in updatedSkills) {
+                                        updatedSkills[selectedSkillForBonus as keyof typeof updatedSkills] = Math.max(0, updatedSkills[selectedSkillForBonus as keyof typeof updatedSkills] + role.selectableSkillBonuses.points)
+                                    }
+                                }
+                                
                                 setCharacter({
                                     ...character,
+                                    skills: updatedSkills,
                                     role: {
                                         name: pickedRole,
                                         pickedDiscipline,
                                         pickedSpecialties: [pickedSpecialty],
-                                        pickedMeritsAndFlaws,
+                                        pickedMeritsAndFlaws: [], // Empty array since we're not using merits/flaws anymore
                                     },
                                     disciplines: changedPickedDiscipline ? [] : character.disciplines,
                                     rituals: changedPickedDiscipline ? [] : character.rituals,
