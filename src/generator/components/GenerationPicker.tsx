@@ -15,16 +15,24 @@ const GenerationPicker = ({ character, setCharacter, nextStep }: GenerationPicke
     }, [])
 
     const isThinBlood = character.clan === "Thin-blood"
+    const isGhoul = character.clan === "Ghoul"
 
-    const [generation, setGeneration] = useState<string | null>(isThinBlood ? "14" : "13")
+    const [generation, setGeneration] = useState<string | null>(
+        isGhoul ? null : isThinBlood ? "14" : "13"
+    )
 
     return (
         <div style={{ width: "100%" }}>
             <Text fz={"30px"} ta={"center"}>
-                Pick your <b>Generation</b>
+                {isGhoul ? <><b>Generation</b></> : <>Pick your <b>Generation</b></>}
             </Text>
             <Text style={{ fontSize: "25px", color: "grey" }} ta={"center"}>
-                {isThinBlood ? "Thin-bloods are of high generation, so you have to pick 14" : "Most common choice is '13 - Neonate'"}
+                {isGhoul 
+                    ? "Ghouls are mortals enhanced by vampire blood - no generation applies" 
+                    : isThinBlood 
+                        ? "Thin-bloods are of high generation (14-16)" 
+                        : "Most common choice is '13 - Neonate'"
+                }
             </Text>
 
             <Text mt={"xl"} ta="center" fz="xl" fw={700} c="red">
@@ -34,49 +42,79 @@ const GenerationPicker = ({ character, setCharacter, nextStep }: GenerationPicke
             <Space h={"sm"} />
 
             <Stack align="center" spacing="xl">
-                <Select
-                    styles={(theme) => ({
-                        item: {
-                            // applies styles to selected item
-                            "&[data-selected]": {
-                                "&, &:hover": {
-                                    backgroundColor: theme.colors.grape,
-                                    color: theme.colors.white,
+                {isGhoul ? (
+                    // For Ghouls, show a message instead of generation selector
+                    <div style={{ textAlign: "center", padding: "20px" }}>
+                        <Text fz={"xl"} fw={600} c="grape">
+                            NONE - No generation for ghouls
+                        </Text>
+                        <Text fz={"md"} c="dimmed" mt="sm">
+                            Ghouls are mortal servants sustained by vampire blood
+                        </Text>
+                    </div>
+                ) : (
+                    <Select
+                        styles={(theme) => ({
+                            item: {
+                                // applies styles to selected item
+                                "&[data-selected]": {
+                                    "&, &:hover": {
+                                        backgroundColor: theme.colors.grape,
+                                        color: theme.colors.white,
+                                    },
                                 },
-                            },
 
-                            // applies styles to hovered item (with mouse or keyboard)
-                            "&[data-hovered]": {},
-                        },
-                    })}
-                    style={{ width: "100%" }}
-                    value={generation}
-                    onChange={setGeneration}
-                    label="When were you turned?"
-                    placeholder="Pick one"
-                    data={
-                        isThinBlood
-                            ? [{ value: "14", label: "14: Childer - Recently" }]
-                            : [
-                                  { value: "14", label: "14: Childer - Recently" },
-                                  { value: "13", label: "13: Neonate - Been a while" },
-                                  { value: "12", label: "12: Neonate - Been a while" },
-                                  { value: "11", label: "11: Ancillae - I barely remember" },
-                                  { value: "10", label: "10: Ancillae - I barely remember" },
-                              ]
-                    }
-                />
+                                // applies styles to hovered item (with mouse or keyboard)
+                                "&[data-hovered]": {},
+                            },
+                        })}
+                        style={{ width: "100%" }}
+                        value={generation}
+                        onChange={setGeneration}
+                        label="When were you turned?"
+                        placeholder="Pick one"
+                        data={
+                            isThinBlood
+                                ? [
+                                      { value: "16", label: "16: Thin-blood - Weakest generation" },
+                                      { value: "15", label: "15: Thin-blood - Very weak" },
+                                      { value: "14", label: "14: Thin-blood - Recently turned" }
+                                  ]
+                                : [
+                                      { value: "14", label: "14: Childer - Recently" },
+                                      { value: "13", label: "13: Neonate - Been a while" },
+                                      { value: "12", label: "12: Neonate - Been a while" },
+                                      { value: "11", label: "11: Ancillae - I barely remember" },
+                                      { value: "10", label: "10: Ancillae - I barely remember" },
+                                      { value: "9", label: "9: ELDER Only - NPC" },
+                                      { value: "8", label: "8: ELDER Only - NPC" },
+                                      { value: "7", label: "7: ELDER Only - NPC" },
+                                      { value: "6", label: "6: ELDER Only - NPC" },
+                                  ]
+                        }
+                    />
+                )}
 
                 <Button
-                    disabled={generation === null}
+                    disabled={!isGhoul && generation === null}
                     color="grape"
                     onClick={() => {
-                        setCharacter({ ...character, generation: parseInt(generation ?? "0") })
-                        ReactGA.event({
-                            action: "generation submit clicked",
-                            category: "generation",
-                            label: generation ?? "0",
-                        })
+                        if (isGhoul) {
+                            // For Ghouls, set generation to 0 or a special value to indicate no generation
+                            setCharacter({ ...character, generation: 0 })
+                            ReactGA.event({
+                                action: "generation submit clicked",
+                                category: "generation",
+                                label: "ghoul-no-generation",
+                            })
+                        } else {
+                            setCharacter({ ...character, generation: parseInt(generation ?? "0") })
+                            ReactGA.event({
+                                action: "generation submit clicked",
+                                category: "generation",
+                                label: generation ?? "0",
+                            })
+                        }
                         nextStep()
                     }}
                 >
