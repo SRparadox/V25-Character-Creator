@@ -38,7 +38,7 @@ const DisciplinesPicker = ({ character, setCharacter, nextStep }: DisciplinesPic
     let allPickedPowers = pickedPredatorTypePower ? [...pickedPowers, pickedPredatorTypePower] : pickedPowers
 
     const disciplinesForClan = getAvailableDisciplines(character)
-    const predatorTypeDiscipline = disciplines[character.predatorType.pickedDiscipline]
+    const predatorTypeDiscipline = character.predatorType.pickedDiscipline ? disciplines[character.predatorType.pickedDiscipline] : undefined
 
     const isPicked = (power: Power) => {
         return allPickedPowers.map((power) => power.name).includes(power.name)
@@ -74,7 +74,12 @@ const DisciplinesPicker = ({ character, setCharacter, nextStep }: DisciplinesPic
         const uniquePickedDisciplines = [...new Set(pickedDisciplines)]
         return uniquePickedDisciplines.length >= 2 && !uniquePickedDisciplines.includes(power.discipline)
     }
-    const allPowersPicked = () => globals.devMode ? false : pickedPowers.length >= 3
+    const allPowersPicked = () => {
+        if (globals.devMode) return false;
+        // Ghouls can only pick 1 discipline power total
+        if (character.clan === "Ghoul") return pickedPowers.length >= 1;
+        return pickedPowers.length >= 3;
+    }
 
     const undoPick = () => {
         setPickedPowers(pickedPowers.slice(0, -1))
@@ -100,7 +105,10 @@ const DisciplinesPicker = ({ character, setCharacter, nextStep }: DisciplinesPic
             const isButtonDisabled =
                 isPicked(power) ||
                 missingPrerequisites(power) ||
-                (!isForPredatorType && (!globals.devMode && (alreadyPickedTwoPowers(power) || alreadyPickedTwoDisciplines(power) || allPowersPicked()))) ||
+                (!isForPredatorType && (!globals.devMode && (
+                    // For Ghouls: only allow 1 power total, no restrictions on disciplines
+                    (character.clan === "Ghoul" ? allPowersPicked() : (alreadyPickedTwoPowers(power) || alreadyPickedTwoDisciplines(power) || allPowersPicked()))
+                ))) ||
                 (isForPredatorType && pickedPredatorTypePower !== undefined)
 
             const trackClick = () => {
@@ -332,11 +340,15 @@ const DisciplinesPicker = ({ character, setCharacter, nextStep }: DisciplinesPic
             <Text fw={700} fz={smallScreen ? "14px" : "28px"} ta="center">
                 {globals.devMode ? (
                     <>Dev Mode: Pick as many powers as you want!</>
+                ) : character.clan === "Ghoul" ? (
+                    <>
+                        Pick 1 discipline power
+                    </>
                 ) : (
                     <>
                         Pick 2 powers in one discipline,
                         <br /> 1 power in another,
-                        <br /> And 1 power in {upcase(character.predatorType.pickedDiscipline)} from your Predator Type
+                        <br /> And 1 power in {character.predatorType.pickedDiscipline ? upcase(character.predatorType.pickedDiscipline) : "your Predator Type discipline"} from your Predator Type
                     </>
                 )}
             </Text>
@@ -362,11 +374,16 @@ const DisciplinesPicker = ({ character, setCharacter, nextStep }: DisciplinesPic
                                         getDisciplineAccordionItem(name, discipline)
                                     )}
 
-                                    <Text fw={700} mt={"lg"} c={"red"} ta={"center"}>
-                                        Predator Type Discipline
-                                    </Text>
-                                    <hr color="#e03131" />
-                                    {getDisciplineAccordionItem(character.predatorType.pickedDiscipline, predatorTypeDiscipline, true)}
+                                    {/* Hide predator type discipline section for Ghouls */}
+                                    {character.clan !== "Ghoul" && character.predatorType.pickedDiscipline && predatorTypeDiscipline && (
+                                        <>
+                                            <Text fw={700} mt={"lg"} c={"red"} ta={"center"}>
+                                                Predator Type Discipline
+                                            </Text>
+                                            <hr color="#e03131" />
+                                            {getDisciplineAccordionItem(character.predatorType.pickedDiscipline, predatorTypeDiscipline, true)}
+                                        </>
+                                    )}
                                 </Accordion>
                             </Center>
 
@@ -377,7 +394,11 @@ const DisciplinesPicker = ({ character, setCharacter, nextStep }: DisciplinesPic
                 </Grid>
 
                 <Button
-                    disabled={globals.devMode ? false : !(allPowersPicked() && pickedPredatorTypePower)}
+                    disabled={globals.devMode ? false : 
+                        character.clan === "Ghoul" ? 
+                            !allPowersPicked() : 
+                            !(allPowersPicked() && pickedPredatorTypePower)
+                    }
                     color="grape"
                     onClick={() => {
                         setCharacter({
