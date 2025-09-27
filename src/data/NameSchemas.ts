@@ -105,13 +105,20 @@ export const predatorTypeNameSchema = z.union([
 export type PredatorTypeName = z.infer<typeof predatorTypeNameSchema>
 
 export const roleNameSchema = z.union([
+    z.literal("Blood Puppet"),
+    z.literal("Body Double"),
     z.literal("Bodyguard"),
+    z.literal("Business Manager"),
+    z.literal("Butler"),
+    z.literal("Cleaner"),
+    z.literal("Concierge"),
+    z.literal("Day Guard"),
+    z.literal("Farmer"),
+    z.literal("Hatchet Man"),
+    z.literal("Landlord"),
+    z.literal("Political Tool"),
     z.literal("Spy"),
-    z.literal("Assassin"),
-    z.literal("Socialite"),
-    z.literal("Scholar"),
-    z.literal("Servant"),
-    z.literal("Enforcer"),
+    z.literal("Tech Support"),
     z.literal("")
 ])
 export type RoleName = z.infer<typeof roleNameSchema>

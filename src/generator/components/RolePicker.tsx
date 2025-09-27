@@ -56,12 +56,12 @@ const RolePicker = ({ character, setCharacter, nextStep }: RolePickerProps) => {
         <Stack spacing="xl">
             <Grid m={0}>
                 <Grid.Col span={4}>
-                    <h1>Combat</h1>
+                    <h1>Protection & Combat</h1>
                 </Grid.Col>
                 <Grid.Col offset={phoneScreen ? 1 : 0} span={phoneScreen ? 6 : 4}>
                     <Stack>
                         {([
-                            "Bodyguard", "Assassin", "Enforcer"
+                            "Bodyguard", "Day Guard", "Hatchet Man"
                         ] as RoleName[]).map((roleName) =>
                             createButton(roleName, "red")
                         )}
@@ -73,12 +73,12 @@ const RolePicker = ({ character, setCharacter, nextStep }: RolePickerProps) => {
 
             <Grid m={0}>
                 <Grid.Col span={4}>
-                    <h1>Social</h1>
+                    <h1>Service & Support</h1>
                 </Grid.Col>
                 <Grid.Col offset={phoneScreen ? 1 : 0} span={phoneScreen ? 6 : 4}>
                     <Stack>
                         {([
-                            "Socialite", "Servant"
+                            "Butler", "Concierge", "Blood Puppet", "Body Double"
                         ] as RoleName[]).map((roleName) =>
                             createButton(roleName, "grape")
                         )}
@@ -90,14 +90,31 @@ const RolePicker = ({ character, setCharacter, nextStep }: RolePickerProps) => {
 
             <Grid m={0}>
                 <Grid.Col span={4}>
-                    <h1>Intelligence</h1>
+                    <h1>Business & Politics</h1>
                 </Grid.Col>
                 <Grid.Col offset={phoneScreen ? 1 : 0} span={phoneScreen ? 6 : 4}>
                     <Stack>
                         {([
-                            "Spy", "Scholar"
+                            "Business Manager", "Political Tool", "Landlord", "Tech Support"
                         ] as RoleName[]).map((roleName) =>
                             createButton(roleName, "blue")
+                        )}
+                    </Stack>
+                </Grid.Col>
+            </Grid>
+
+            <Divider color="dark" />
+
+            <Grid m={0}>
+                <Grid.Col span={4}>
+                    <h1>Covert Operations</h1>
+                </Grid.Col>
+                <Grid.Col offset={phoneScreen ? 1 : 0} span={phoneScreen ? 6 : 4}>
+                    <Stack>
+                        {([
+                            "Spy", "Cleaner", "Farmer"
+                        ] as RoleName[]).map((roleName) =>
+                            createButton(roleName, "dark")
                         )}
                     </Stack>
                 </Grid.Col>

@@ -21,130 +21,264 @@ export const roleSchema = z.object({
 export type Role = z.infer<typeof roleSchema>
 
 export const Roles: Record<RoleName, Role> = {
+    "Blood Puppet": {
+        name: "Blood Puppet",
+        summary: "You are less a servant and more an emergency source of food, almost being more of a pet kept around because you make your master feel good.",
+        specialtyOptions: [
+            { skill: "insight", name: "Empathy" },
+            { skill: "performance", name: "Acting" }
+        ],
+        disciplineOptions: [{ name: "animalism" }, { name: "fortitude" }, { name: "presence" }],
+        meritsAndFlaws: [
+            { name: "Medicine", level: 1, summary: "Gained one dot of Medicine" }
+        ],
+        selectableMeritsAndFlaws: [
+            {
+                options: [
+                    { name: "Athletics", summary: "Physical conditioning", maxLevel: 1 },
+                    { name: "Survival", summary: "Endurance and resilience", maxLevel: 1 }
+                ],
+                totalPoints: 1,
+            }
+        ],
+        humanityChange: 0,
+        bloodPotencyChange: 0,
+    },
+    "Body Double": {
+        name: "Body Double",
+        summary: "You were not ghouled for your skills but because you are an uncanny doppelganger for your domitor, used to maintain the Masquerade during daylight hours.",
+        specialtyOptions: [
+            { skill: "subterfuge", name: "Alternate Identity" },
+            { skill: "larceny", name: "Forgery" }
+        ],
+        disciplineOptions: [{ name: "obfuscate" }, { name: "presence" }, { name: "dominate" }],
+        meritsAndFlaws: [
+            { name: "Performance", level: 1, summary: "Gained one dot of Performance" }
+        ],
+        selectableMeritsAndFlaws: [
+            {
+                options: [
+                    { name: "Streetwise", summary: "Street knowledge and contacts", maxLevel: 1 },
+                    { name: "Politics", summary: "Political connections and knowledge", maxLevel: 1 }
+                ],
+                totalPoints: 1,
+            }
+        ],
+        humanityChange: 0,
+        bloodPotencyChange: 0,
+    },
     "Bodyguard": {
         name: "Bodyguard",
-        summary: "Protect your domitor and their interests with your life.",
+        summary: "While most Kindred can defend themselves, those who specialize in mental abilities still rely on bodyguards. You act as a barrier between your employer and both violence and annoyances.",
         specialtyOptions: [
-            { skill: "athletics", name: "Endurance" },
-            { skill: "awareness", name: "Threats" },
-            { skill: "brawl", name: "Protective Combat" },
-            { skill: "firearms", name: "Protective Shooting" }
+            { skill: "drive", name: "Chauffeur" },
+            { skill: "firearms", name: "Covering Fire" }
         ],
         disciplineOptions: [{ name: "celerity" }, { name: "fortitude" }, { name: "potence" }],
         meritsAndFlaws: [
-            { name: "Retainer", level: 1, summary: "Connection to your domitor's organization" },
-            { name: "Dependent", level: 2, summary: "Your domitor relies on your protection" }
+            { name: "Insight", level: 1, summary: "Gained one dot of Insight" },
+            { name: "Intimidation", level: 1, summary: "Gained one dot of Intimidation" }
         ],
         selectableMeritsAndFlaws: [],
+        humanityChange: 0,
+        bloodPotencyChange: 0,
+    },
+    "Business Manager": {
+        name: "Business Manager",
+        summary: "You oversee the financial holdings and maintain the ledgers for your master. You might manage a small business or supervise larger operations that have grown beyond your domitor's abilities.",
+        specialtyOptions: [
+            { skill: "academics", name: "Bookkeeping" },
+            { skill: "leadership", name: "Office Management" }
+        ],
+        disciplineOptions: [{ name: "auspex" }, { name: "dominate" }, { name: "presence" }],
+        meritsAndFlaws: [
+            { name: "Finance", level: 1, summary: "Gained one dot of Finance" },
+            { name: "Investigation", level: 1, summary: "Gained one dot of Investigation" }
+        ],
+        selectableMeritsAndFlaws: [],
+        humanityChange: 0,
+        bloodPotencyChange: 0,
+    },
+    "Butler": {
+        name: "Butler",
+        summary: "You have the task of cleaning up after your master and seeing to various household needs. You are expected to anticipate your master's needs, often before they are spoken aloud.",
+        specialtyOptions: [
+            { skill: "craft", name: "Cooking" },
+            { skill: "insight", name: "Desires" }
+        ],
+        disciplineOptions: [{ name: "auspex" }, { name: "animalism" }, { name: "presence" }],
+        meritsAndFlaws: [
+            { name: "Etiquette", level: 1, summary: "Gained one dot of Etiquette" },
+            { name: "Leadership", level: 1, summary: "Gained one dot of Leadership" }
+        ],
+        selectableMeritsAndFlaws: [],
+        humanityChange: 0,
+        bloodPotencyChange: 0,
+    },
+    "Cleaner": {
+        name: "Cleaner",
+        summary: "A ghoul employed to fix breaches of the Masquerade and 'clean up' scenes of feeding or frenzy. You sanitize sites, dispose of bodies, and remove signs of supernatural activity.",
+        specialtyOptions: [
+            { skill: "craft", name: "Repairs" },
+            { skill: "larceny", name: "Forgery" }
+        ],
+        disciplineOptions: [{ name: "obfuscate" }, { name: "fortitude" }, { name: "auspex" }],
+        meritsAndFlaws: [
+            { name: "Awareness", level: 1, summary: "Gained one dot of Awareness" },
+            { name: "Investigation", level: 1, summary: "Gained one dot of Investigation" }
+        ],
+        selectableMeritsAndFlaws: [],
+        humanityChange: -1,
+        bloodPotencyChange: 0,
+    },
+    "Concierge": {
+        name: "Concierge",
+        summary: "You work as a personal assistant to your domitor, managing their appointments and scheduling. Kindred are required to go through you to speak to your master, imparting authority while forcing you to confront dangerous beings.",
+        specialtyOptions: [
+            { skill: "academics", name: "Notekeeping" },
+            { skill: "etiquette", name: "Office" }
+        ],
+        disciplineOptions: [{ name: "auspex" }, { name: "presence" }, { name: "dominate" }],
+        meritsAndFlaws: [
+            { name: "Investigation", level: 1, summary: "Gained one dot of Investigation" },
+            { name: "Technology", level: 1, summary: "Gained one dot of Technology" }
+        ],
+        selectableMeritsAndFlaws: [],
+        humanityChange: 0,
+        bloodPotencyChange: 0,
+    },
+    "Day Guard": {
+        name: "Day Guard",
+        summary: "You are a guardian, watching over your domitor's haven during daylight hours and protecting their assets and property while ensuring the safety of their sleeping form.",
+        specialtyOptions: [
+            { skill: "larceny", name: "Home Security" },
+            { skill: "insight", name: "Motives" }
+        ],
+        disciplineOptions: [{ name: "auspex" }, { name: "fortitude" }, { name: "animalism" }],
+        meritsAndFlaws: [
+            { name: "Awareness", level: 1, summary: "Gained one dot of Awareness" },
+            { name: "Firearms", level: 1, summary: "Gained one dot of Firearms" }
+        ],
+        selectableMeritsAndFlaws: [],
+        humanityChange: 0,
+        bloodPotencyChange: 0,
+    },
+    "Farmer": {
+        name: "Farmer",
+        summary: "Your purpose is to gather blood for your master. You find victims that your domitor will find appealing and bring them to a safe location, then remove them when finished.",
+        specialtyOptions: [
+            { skill: "insight", name: "Empathy" },
+            { skill: "performance", name: "Acting" }
+        ],
+        disciplineOptions: [{ name: "presence" }, { name: "dominate" }, { name: "animalism" }],
+        meritsAndFlaws: [
+            { name: "Medicine", level: 1, summary: "Gained one dot of Medicine" }
+        ],
+        selectableMeritsAndFlaws: [
+            {
+                options: [
+                    { name: "Athletics", summary: "Physical conditioning for abduction", maxLevel: 1 },
+                    { name: "Survival", summary: "Endurance and body disposal", maxLevel: 1 }
+                ],
+                totalPoints: 1,
+            }
+        ],
+        humanityChange: -1,
+        bloodPotencyChange: 0,
+    },
+    "Hatchet Man": {
+        name: "Hatchet Man",
+        summary: "The enemies of the Kindred feel safe from reprisal during daylight hours. Your job is to make sure they see the error of their ways by striking at your domitor's enemies during the day.",
+        specialtyOptions: [
+            { skill: "melee", name: "Axes" },
+            { skill: "firearms", name: "Point Blank Shots" }
+        ],
+        disciplineOptions: [{ name: "potence" }, { name: "celerity" }, { name: "fortitude" }],
+        meritsAndFlaws: [
+            { name: "Streetwise", level: 1, summary: "Gained one dot of Streetwise" },
+            { name: "Survival", level: 1, summary: "Gained one dot of Survival" }
+        ],
+        selectableMeritsAndFlaws: [],
+        humanityChange: -2,
+        bloodPotencyChange: 0,
+    },
+    "Landlord": {
+        name: "Landlord",
+        summary: "You provide a safe haven for your domitor. You not only look after their resting place during the day, but own it and likely consider it your home.",
+        specialtyOptions: [
+            { skill: "craft", name: "Property Maintenance" },
+            { skill: "finance", name: "Real Estate" }
+        ],
+        disciplineOptions: [{ name: "auspex" }, { name: "animalism" }, { name: "fortitude" }],
+        meritsAndFlaws: [
+            { name: "Craft", level: 1, summary: "Gained one dot of Craft" },
+            { name: "Finance", level: 1, summary: "Gained one dot of Finance" },
+            { name: "Haven", level: 2, summary: "Haven Merit with Location addon" }
+        ],
+        selectableMeritsAndFlaws: [],
+        humanityChange: 0,
+        bloodPotencyChange: 0,
+    },
+    "Political Tool": {
+        name: "Political Tool",
+        summary: "You are used to further your domitor's political aims, potentially being a government official, lobbyist, or someone with the ear of someone of importance.",
+        specialtyOptions: [
+            { skill: "politics", name: "Government Relations" },
+            { skill: "persuasion", name: "Lobbying" }
+        ],
+        disciplineOptions: [{ name: "dominate" }, { name: "presence" }, { name: "auspex" }],
+        meritsAndFlaws: [
+            { name: "Politics", level: 1, summary: "Gained one dot of Politics" }
+        ],
+        selectableMeritsAndFlaws: [
+            {
+                options: [
+                    { name: "Intimidation", summary: "Political pressure tactics", maxLevel: 1 },
+                    { name: "Persuasion", summary: "Political charm and negotiation", maxLevel: 1 }
+                ],
+                totalPoints: 1,
+            },
+            {
+                options: [
+                    { name: "Allies", summary: "Political allies and connections", maxLevel: 1 },
+                    { name: "Influence", summary: "Political influence and power", maxLevel: 1 }
+                ],
+                totalPoints: 1,
+            }
+        ],
         humanityChange: 0,
         bloodPotencyChange: 0,
     },
     "Spy": {
         name: "Spy",
-        summary: "Gather information and secrets for your vampiric master.",
+        summary: "One of the most dangerous tasks a ghoul can be assigned is espionage. You are affiliated with rival Kindred, acquiring information and secrets while risking discovery and brutal death.",
         specialtyOptions: [
-            { skill: "investigation", name: "Information Gathering" },
-            { skill: "stealth", name: "Surveillance" },
-            { skill: "subterfuge", name: "Deception" },
-            { skill: "technology", name: "Electronic Surveillance" }
+            { skill: "stealth", name: "Forgettable" },
+            { skill: "subterfuge", name: "Hide Motives" }
         ],
         disciplineOptions: [{ name: "auspex" }, { name: "obfuscate" }, { name: "dominate" }],
         meritsAndFlaws: [
-            { name: "Contacts", level: 2, summary: "Information network" },
-            { name: "Enemy", level: 1, summary: "Someone you've spied on" }
+            { name: "Awareness", level: 1, summary: "Gained one dot of Awareness" },
+            { name: "Larceny", level: 1, summary: "Gained one dot of Larceny" }
         ],
         selectableMeritsAndFlaws: [],
         humanityChange: 0,
         bloodPotencyChange: 0,
     },
-    "Assassin": {
-        name: "Assassin",
-        summary: "Eliminate your domitor's enemies with precision and stealth.",
-        specialtyOptions: [
-            { skill: "firearms", name: "Assassination" },
-            { skill: "melee", name: "Silent Kills" },
-            { skill: "stealth", name: "Infiltration" },
-            { skill: "subterfuge", name: "Cover Identity" }
-        ],
-        disciplineOptions: [{ name: "celerity" }, { name: "obfuscate" }, { name: "potence" }],
-        meritsAndFlaws: [
-            { name: "Contacts", level: 1, summary: "Criminal underworld" },
-            { name: "Enemy", level: 2, summary: "Law enforcement or surviving targets" }
-        ],
-        selectableMeritsAndFlaws: [],
-        humanityChange: -1,
-        bloodPotencyChange: 0,
-    },
-    "Socialite": {
-        name: "Socialite",
-        summary: "Navigate high society and social circles for your master.",
-        specialtyOptions: [
-            { skill: "etiquette", name: "High Society" },
-            { skill: "persuasion", name: "Social Manipulation" },
-            { skill: "performance", name: "Public Speaking" },
-            { skill: "insight", name: "Social Dynamics" }
-        ],
-        disciplineOptions: [{ name: "presence" }, { name: "dominate" }, { name: "auspex" }],
-        meritsAndFlaws: [
-            { name: "Fame", level: 1, summary: "Social recognition" },
-            { name: "Resources", level: 1, summary: "Access to wealth and luxury" }
-        ],
-        selectableMeritsAndFlaws: [],
-        humanityChange: 0,
-        bloodPotencyChange: 0,
-    },
-    "Scholar": {
-        name: "Scholar",
-        summary: "Research and study for your domitor's intellectual pursuits.",
+    "Tech Support": {
+        name: "Tech Support",
+        summary: "Older Kindred have difficulties adapting to the rapidly changing modern world. You were selected to manage their technological needs and answer questions about modern life.",
         specialtyOptions: [
             { skill: "academics", name: "Research" },
-            { skill: "investigation", name: "Information Analysis" },
-            { skill: "occult", name: "Supernatural Knowledge" },
-            { skill: "technology", name: "Digital Research" }
+            { skill: "technology", name: "Network Security" }
         ],
-        disciplineOptions: [{ name: "auspex" }, { name: "blood sorcery" }, { name: "dominate" }],
+        disciplineOptions: [{ name: "auspex" }, { name: "dominate" }, { name: "obfuscate" }],
         meritsAndFlaws: [
-            { name: "Library", level: 2, summary: "Extensive research materials" },
-            { name: "Academic Ally", level: 1, summary: "Connection to educational institutions" }
+            { name: "Science", level: 1, summary: "Gained one dot of Science" },
+            { name: "Technology", level: 1, summary: "Gained one dot of Technology" }
         ],
         selectableMeritsAndFlaws: [],
         humanityChange: 0,
-        bloodPotencyChange: 0,
-    },
-    "Servant": {
-        name: "Servant",
-        summary: "Handle daily tasks and mundane affairs for your vampiric master.",
-        specialtyOptions: [
-            { skill: "craft", name: "Maintenance" },
-            { skill: "drive", name: "Chauffeuring" },
-            { skill: "etiquette", name: "Proper Service" },
-            { skill: "streetwise", name: "Errands" }
-        ],
-        disciplineOptions: [{ name: "animalism" }, { name: "fortitude" }, { name: "obfuscate" }],
-        meritsAndFlaws: [
-            { name: "Haven", level: 1, summary: "Access to your domitor's property" },
-            { name: "Resources", level: 1, summary: "Allowance for expenses" }
-        ],
-        selectableMeritsAndFlaws: [],
-        humanityChange: 0,
-        bloodPotencyChange: 0,
-    },
-    "Enforcer": {
-        name: "Enforcer",
-        summary: "Intimidate and coerce others to follow your master's will.",
-        specialtyOptions: [
-            { skill: "intimidation", name: "Physical Coercion" },
-            { skill: "brawl", name: "Unarmed Combat" },
-            { skill: "streetwise", name: "Criminal Methods" },
-            { skill: "athletics", name: "Physical Prowess" }
-        ],
-        disciplineOptions: [{ name: "potence" }, { name: "presence" }, { name: "fortitude" }],
-        meritsAndFlaws: [
-            { name: "Contacts", level: 1, summary: "Criminal connections" },
-            { name: "Notoriety", level: 1, summary: "Known for violent methods" }
-        ],
-        selectableMeritsAndFlaws: [],
-        humanityChange: -1,
         bloodPotencyChange: 0,
     },
     "": {
