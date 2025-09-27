@@ -22,7 +22,7 @@ const AsideBar = ({ selectedStep, setSelectedStep, character }: AsideBarProps) =
         "attributes",
         "skills",
         "generation",
-        "predatorType",
+        "predatorType", // This will be displayed as "Roles" for Ghouls
         "name",
         "disciplines",
         ...maybeRituals,
@@ -55,10 +55,12 @@ const AsideBar = ({ selectedStep, setSelectedStep, character }: AsideBarProps) =
                     {" "}
                 </Stepper.Step>
                 {stepperKeys.map((title) => {
+                    // Show "Roles" instead of "Predator Type" for Ghouls
+                    const displayTitle = (title === "predatorType" && character.clan === "Ghoul") ? "Roles" : upcase(String(title))
                     return (
                         <Stepper.Step
                             key={title}
-                            label={upcase(title)}
+                            label={displayTitle}
                             description=""
                             disabled={!isHigherLevelAccessible(character, title)}
                         >

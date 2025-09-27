@@ -28,6 +28,87 @@ export type MeritsAndFlaws = {
 
 export const ghoulMeritsAndFlaws: MeritsAndFlaws[] = [
     {
+        title: "🩸 Ghoul Backgrounds",
+        merits: [
+            { name: "Blood Empathy", cost: [2], summary: "The ghoul can feel if their regnant is in danger or otherwise, needs them immediately, this does not allow for telepathic communication." },
+            { name: "Unseemly Aura", cost: [2], summary: "Their aura has become indistinguishable from a Kindred." },
+            { name: "Adrenal Surge", cost: [1], summary: "Like a vampire, you can augment your abilities for a brief time by calling on the power of the Blood. You gain the ability to Blood Surge as if you had a Blood Potency of 0, equal to that of a thin-blood vampire. When you do so, you suffer 1 point Aggravated damage opposed to making a Rouse Check." },
+            { name: "Altered Metabolism", cost: [1], summary: "Your vitae slows your metabolism and makes your body more efficient, so you need to eat and sleep less. You requiring half as much food and water each day and only need to sleep every other day." },
+            { name: "Blood Healing", cost: [1], summary: "Consuming vampiric blood instantly revitalizes you. The first time in a night you ingest vitae, you either heal 1 Superficial damage or 1 Aggravated damage is converted into Superficial damage." },
+            { name: "Efficient Biology", cost: [1], summary: "Your body burns through vitae at a slower rate than other ghouls, making you a highly desirable servant. You only need to be fed vitae once every three months rather than once a month to remain as a ghoul." },
+            { name: "Guilty Conscience", cost: [1], summary: "Your pronounced moral compass fills you with regret for misdeeds and transgressions. You add one extra die to all Remorse tests." },
+            { name: "Inhuman Strength", cost: [1], summary: "Vampire blood increases your physical strength, maximizing the impact of your blows. When you succeed at a feat of strength or on a Brawl or Melee attack, you can reroll one die without spending Willpower, potentially increasing the margin." },
+            { name: "Nose for Blood", cost: [1], summary: "Your craving for blood makes you sensitive to its odour. You add one extra dice to appropriate Mental dice pools to detect and identify blood or locate injured creatures." },
+            { name: "Subservient", cost: [1], summary: "The goals of your master become your own. When following the orders of your domitor or regnant, you treat this task as an Ambition for purposes of recovering Aggravated Willpower damage." },
+            { name: "Twisted Urges", cost: [1], summary: "You are drawn to all manner of temptations. When you engage in a vice or guilty pleasure for at least an entire scene, you can recover one point of Superficial Willpower damage as if you had accomplished your Desire." },
+            { name: "Intoxicating Blood", cost: [2], summary: "Your blood retains all your recent emotions and lingering Resonance, causing vampires that feed on you become euphoric and dizzy. A vampire that feeds on you subtracts one dice from all dice pools for a number of scenes equal to the Hunger sated on you." },
+            { name: "Unwavering Loyalty", cost: [2], summary: "The bond between you and your master is almost unbreakable. When you attempt to resist a Discipline or similar supernatural ability using a Mental Attribute, you can add one extra die to your pool. This Merit does not function against powers used by your domitor." },
+            { name: "Relentless Dedication", cost: [2], summary: "Your loyalty to your master pushes you beyond normal limits. Once per session, when you are Impaired from damage, you can ignore this penalty for one scene provided you are directly following your domitor's orders." },
+            { name: "Subtle Aura", cost: [2], summary: "The Blood lies partially dormant within you until you call upon its power. Your aura shows you as a mundane human and not a ghoul, unless you are actively using a Discipline power." },
+            { name: "Potent Blood", cost: [3], summary: "Once per session, when you would take Aggravated damage in place of making a Rouse Check (such as when using a Discipline power or using a Blood Surge with the Adrenal Surge Merit) you can choose to instead take two Superficial damage." },
+        ],
+        flaws: [
+            { name: "Baneful Blood", cost: [1,2], summary: "The character experiences the bane of their first domitor, this does not change if they get a new domitor. The domitor must be of Clan Lasombra, Malkavian, Ministry, Nosferatu, Ravnos, Salubri, or Toreador." },
+            { name: "Crone's Curse", cost: [2], summary: "The character appears at least a decade older than they actually are which reduces their health tracker by one." },
+            { name: "Distressing Fangs", cost: [1], summary: "Having developed fangs like kindred, the character suffers one die on Social pools with mortals." },
+            { name: "Bestial Temper", cost: [1], summary: "As the Thin-Blood flaw (see Vampire: the Masquerade, p. 182)." },
+            { name: "Blood Addict", cost: [1], summary: "You have a physical or psychological addiction to vitae, which gives you the intense urge to consume blood—particularly vampiric blood. When you see or smell vitae, you lose two dice from all pools for the rest of the scene or until you satisfy your craving. If you also have the Bestial Temper flaw you might need to test against hunger frenzy." },
+            { name: "Degenerate", cost: [1], summary: "Despite the restorative properties of the Blood, your body shows signs of decay, addiction, and the lingering scabs from old wounds. Individuals trying to identify you as inhuman add one die to relevant dice pools. This increases to 2 dice if your Health tracker is more than half full." },
+            { name: "Delicious Blood", cost: [1], summary: "Your blood is intoxicatingly delicious, making it challenging for vampires to stop drinking from you. When a Kindred feeds on you, they must make Hungry Frenzy Test at Difficulty 2 to stop before they are completely satiated." },
+            { name: "Touch of the Beast", cost: [1], summary: "The vitae empowers your base desires, granting you a true Beast. You have 1 Hunger that can never be satiated, which can trigger Messy Criticals and Bestial Failures, as well as inducing Compulsions." },
+            { name: "Vitae Sink", cost: [1], summary: "You rapidly burn through vitae. You need to be fed Blood every two weeks to remain a ghoul." },
+            { name: "Sunlight Sensitivity", cost: [2], summary: "The vitae in your body quiets during the day, making you sluggish and less responsive. You cannot use Discipline powers during the day and you suffer a two die penalty on all tasks while in direct sunlight." },
+        ],
+    },
+    {
+        title: "🎭 Mask",
+        merits: [
+            { name: "Mask", cost: [1,2], summary: "A fake identity that allows the vampire to keep their true selves away from mortal's prying eyes, including getting bank accounts, a birth certificate and everything else a vampire might need to masquerade as a human." },
+            { name: "Zeroed", cost: [1], summary: "All of the character's past self has been purged from all systems as if they never existed. The character must have a 2-dot mask in order to take this." },
+            { name: "Cobbler", cost: [1], summary: "The ability to create or source out masks. Making a mask takes 3 days per dot. The character must have a 2-dot mask in order to take this." },
+        ],
+        flaws: [],
+    },
+    {
+        title: "👥 Mawla",
+        merits: [
+            { name: "Mawla", cost: [1,2,3,4,5], summary: "Another kindred who has taken them under their wing to mentor them." },
+        ],
+        flaws: [
+            { name: "Adversary", cost: [1,2,3,4,5], summary: "Another kindred who perhaps liked the character, but now goes out of their way to ruin their lives in any way they can. Rated two levels higher than the Mawla value." },
+            { name: "Secret Master", cost: [1], summary: "Your Mawla gives you tasks that must be completed quietly. The character must have a Mawla to take this." },
+        ],
+    },
+    {
+        title: "💰 Resources",
+        merits: [
+            { name: "Resources", cost: [1,2,3,4,5], summary: "Cash flow, be it from stock trading or inheritance to working as a barista at night." },
+        ],
+        flaws: [
+            { name: "Destitute", cost: [1], summary: "No money, no home, and no monetary value beyond themselves." },
+        ],
+    },
+    {
+        title: "👤 Retainers",
+        merits: [
+            { name: "Retainers", cost: [1,2,3], summary: "Loyal followers who will do the character's bidding, sometimes Ghouls and/or Blood Bonded." },
+        ],
+        flaws: [
+            { name: "Stalkers", cost: [1], summary: "Something about the character tends to attract others who get a little bit too attached and just won't let go. Be it a former retainer or a past lover, should they get rid of them, another soon appears." },
+        ],
+    },
+    {
+        title: "🏛️ Status",
+        merits: [
+            { name: "Status", cost: [1,2,3,4,5], summary: "The character has built a name for themselves in their Faction." },
+            { name: "City Secrets", cost: [1,2,3], summary: "This grants knowledge about the city's Kindred power structure. If this secret is about mortal business it's only a way to explain Influence. This information can be sold at a high price, but its value lies in protection as the people involved may not want this information sold off and will do their best to keep you happy, for a time anyway. This can only be taken at a maximum of three times with each being a different secret." },
+        ],
+        flaws: [
+            { name: "Suspect", cost: [1], summary: "Breaking the rules or weaseling out of something owed has netted this character the ire of this Sect. Stay out of sight and mind and nothing will happen until they prove their worth again but until then take a 2 dice penalty to Social tests with the offended Factions." },
+            { name: "Shunned", cost: [2], summary: "Despised by a Sect, a line was crossed that never should have been, and now members of this group actively work against them at any opportunity." },
+        ],
+    },
+    {
         title: "📚 Linguistics",
         merits: [
             { name: "Linguistics", cost: [1,2,3,4,5], summary: "Each dot allows the character to read, write and speak fluently in another language outside of the default two they already know, which is their native language and the language of the Domain." },
