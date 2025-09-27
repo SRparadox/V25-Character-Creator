@@ -24,6 +24,7 @@ import { ClanName, clanNameSchema, disciplineNameSchema } from "./NameSchemas"
 import gargoyleLogo from "../resources/clanIcons/Gargoyles.webp"
 import kiasydLogo from "../resources/clanIcons/Kiasyd.webp"
 import baaliLogo from "../resources/clanIcons/Baali.webp"
+import ghoulLogo from "../resources/clanIcons/ghoul.webp"
 
 export const clanSchema = z.object({
     name: clanNameSchema,
@@ -321,6 +322,26 @@ export const clans: Record<ClanName, Clan> = {
     ],
         compulsion: "Devil's Bargain - Take a two dice penalty to all dice pools until you fail a test and agree to Succeed at a Cost, which brings success via demonic interference but always causes another problem.",
         nativeDisciplines: ["blood sorcery", "oblivion", "presence"],
+    },
+    Ghoul: {
+        name: "Ghoul",
+        description: "Mortal servants bound by vampire blood, possessing supernatural abilities but remaining human.",
+        logo: ghoulLogo,
+        banes: ["Blood Bond: Ghouls are bound to their vampiric masters through the blood bond. They must obey their domitor and suffer withdrawal if separated for too long."],
+        compulsion: "Servitude: Ghouls feel compelled to serve and please their vampiric master. When acting against their domitor's wishes, suffer a two-dice penalty to all rolls.",
+        nativeDisciplines: [
+            "animalism",
+            "auspex",
+            "celerity",
+            "dominate",
+            "fortitude",
+            "obfuscate",
+            "potence",
+            "presence",
+            "protean",
+            "blood sorcery",
+            "oblivion",
+        ],
     },
     "": {
         name: "",

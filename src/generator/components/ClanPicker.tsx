@@ -190,6 +190,15 @@ const ClanPicker = ({ character, setCharacter, nextStep }: ClanPickerProps) => {
                         .map((c) => clanNameSchema.parse(c))
                         .map((clan) => createClanPick(clan, theme.fn.rgba(theme.colors.orange[7], 0.9)))}
                 </Grid>
+
+                <Text ta="center" fz="xl" fw={700} mb={"sm"} mt={"md"} c={theme.colors.yellow[7]}>
+                    Servants
+                </Text>
+                <Grid grow m={0}>
+                    {["Ghoul"]
+                        .map((c) => clanNameSchema.parse(c))
+                        .map((clan) => createClanPick(clan, theme.fn.rgba(theme.colors.yellow[7], 0.9)))}
+                </Grid>
             </ScrollArea>
         </div>
     </>
