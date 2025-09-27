@@ -113,6 +113,42 @@ export const AlchemyFormulas: AlchemyFormula[] = [
         ingredients: "Blood, encoding materials",
         level: 1
     },
+    {
+        name: "Hot Sauce",
+        summary: "Raise body temperature to ignore extreme cold and trigger Fear Frenzy in vampires through heated touch",
+        rouseChecks: 1,
+        requiredTime: "1 turn",
+        dicePool: "Intelligence + Thin-Blood Alchemy (Resolve + Alchemy to focus heat)",
+        ingredients: "Alchemist's vitae, choleric human blood, hot peppers or hot sauce, antidepressants or Adderall",
+        level: 1
+    },
+    {
+        name: "Loadstone",
+        summary: "Triple physical density without altering body mass, gaining grapple resistance but losing dexterity",
+        rouseChecks: 1,
+        requiredTime: "1 turn",
+        dicePool: "Intelligence + Thin-Blood Alchemy",
+        ingredients: "Alchemist's vitae, melancholic human blood, magnet or magnetic filings, whey protein powder, food grease",
+        level: 1
+    },
+    {
+        name: "Bezoar Brew",
+        summary: "Transform stomach acids into supernatural solvent that dissolves anything swallowed",
+        rouseChecks: 1,
+        requiredTime: "1 turn",
+        dicePool: "Intelligence + Thin-Blood Alchemy (Stamina + Alchemy to vomit)",
+        ingredients: "Alchemist's vitae, sanguine or choleric human blood, digestive aid, bezoar stone",
+        level: 1
+    },
+    {
+        name: "Goetia Petrichor",
+        summary: "Transform vitae into fast-drying adhesive stronger than granite",
+        rouseChecks: 1,
+        requiredTime: "1 turn",
+        dicePool: "Intelligence + Thin-Blood Alchemy",
+        ingredients: "Alchemist's vitae, melancholic human blood, instant cement, iron supplements or mineral-rich food",
+        level: 1
+    },
 
     // Level 2 Alchemy Formulas
     {
@@ -203,6 +239,33 @@ export const AlchemyFormulas: AlchemyFormula[] = [
         requiredTime: "1 turn",
         dicePool: "Intelligence + Thin-Blood Alchemy",
         ingredients: "Blood, mimetic substances",
+        level: 2
+    },
+    {
+        name: "'Zerk",
+        summary: "Enter Fury Frenzy with Physical dice bonus for damage-dealing actions",
+        rouseChecks: 1,
+        requiredTime: "1 turn",
+        dicePool: "Intelligence + Thin-Blood Alchemy",
+        ingredients: "Alchemist's vitae, wolf or large canine blood, black henbane or deadly nightshade, high-proof alcohol",
+        level: 2
+    },
+    {
+        name: "Hypersomnia",
+        summary: "Stay awake during daylight hours without dice pool caps, but cannot Rouse Blood",
+        rouseChecks: 1,
+        requiredTime: "1 turn",
+        dicePool: "Intelligence + Thin-Blood Alchemy (Humanity + Alchemy to determine duration)",
+        ingredients: "Alchemist's vitae, sanguine human blood, anticoagulants, sunflower seeds, nocturnal animal brain fluid",
+        level: 2
+    },
+    {
+        name: "Blood Forgery",
+        summary: "Create fraudulent vitae that looks like Kindred blood but doesn't slake Hunger",
+        rouseChecks: 1,
+        requiredTime: "1 hour",
+        dicePool: "Intelligence + Thin-Blood Alchemy (Alchemy + Subterfuge vs Wits + Awareness to detect)",
+        ingredients: "Alchemist's vitae, sanguine human blood, moonshine, molten lead, vinegar, red food dye",
         level: 2
     },
 
@@ -396,6 +459,33 @@ export const AlchemyFormulas: AlchemyFormula[] = [
         ingredients: "Blood, advanced mimetic substances",
         level: 3
     },
+    {
+        name: "Cremation Gem",
+        summary: "Create crystalline gems that heal damage and grant temporary Disciplines based on Resonance",
+        rouseChecks: 1,
+        requiredTime: "1 night (sealed in crucible)",
+        dicePool: "Intelligence + Thin-Blood Alchemy",
+        ingredients: "Alchemist's vitae, resonant human blood, cremated human ash, reishi mushrooms, epsom salts, powdered jade or serpentine",
+        level: 3
+    },
+    {
+        name: "Dr. Hallen's Phagocyte",
+        summary: "Create parasitic amoeba that devours blood cells, increasing Hunger requirements and causing Frenzies",
+        rouseChecks: 1,
+        requiredTime: "Several hours (cultivation)",
+        dicePool: "Intelligence + Thin-Blood Alchemy",
+        ingredients: "Alchemist's vitae, melancholic blood from parasitically infected mortal, kefir or kombucha, slime mold scrapings",
+        level: 3
+    },
+    {
+        name: "Renfield Syndrome",
+        summary: "Inflict classic vampire symptoms on mortals to create distractions or scapegoats",
+        rouseChecks: 1,
+        requiredTime: "1 turn (via Calcinatio) or 1 evening (other methods)",
+        dicePool: "Intelligence + Thin-Blood Alchemy",
+        ingredients: "Alchemist's vitae, choleric human blood, spider legs, synthetic blood plasma, powdered moonstone",
+        level: 3
+    },
 
     // Level 4 Alchemy Formulas
     {
@@ -497,6 +587,24 @@ export const AlchemyFormulas: AlchemyFormula[] = [
         ingredients: "Blood, expert mimetic substances",
         level: 4
     },
+    {
+        name: "Pretorius' Gambit",
+        summary: "Suspend another Formula within your system until activated with a Rouse Check",
+        rouseChecks: 1,
+        requiredTime: "1 hour",
+        dicePool: "Intelligence + Thin-Blood Alchemy (Resolve + Alchemy vs Stamina to avoid vomiting)",
+        ingredients: "Alchemist's vitae, melancholic and phlegmatic human blood, reptile or crustacean molt, liquid resin or tree sap, sample from another completed Formula",
+        level: 4
+    },
+    {
+        name: "Fullmetal Jacket",
+        summary: "Create alchemically-enhanced ammunition that deals unhalved damage and special effects to vampires",
+        rouseChecks: 1,
+        requiredTime: "Several hours (smelting and assembly)",
+        dicePool: "Intelligence + Thin-Blood Alchemy (Intelligence + Crafts for bullet casting)",
+        ingredients: "Alchemist's vitae, resonant mortal blood, canola oil, saltpeter, rattlesnake venom, crushed cactus stipules, specific metals",
+        level: 4
+    },
 
     // Level 5 Alchemy Formulas
     {
@@ -560,6 +668,33 @@ export const AlchemyFormulas: AlchemyFormula[] = [
         requiredTime: "1 turn",
         dicePool: "Intelligence + Thin-Blood Alchemy",
         ingredients: "Blood, master mimetic substances",
+        level: 5
+    },
+    {
+        name: "Quantum Decoherence",
+        summary: "Teleport instantly to visible locations, with strange side effects on failure",
+        rouseChecks: 1,
+        requiredTime: "1 turn (injection)",
+        dicePool: "Intelligence + Thin-Blood Alchemy (Resolve + Alchemy to teleport)",
+        ingredients: "Alchemist's vitae, null-resonant human blood, powdered fulgurite or silica glass, lysergic acid, aluminum foil shavings",
+        level: 5
+    },
+    {
+        name: "Gehennical Fire",
+        summary: "Create supernatural fire that actively seeks vampires and burns them with Aggravated damage",
+        rouseChecks: 1,
+        requiredTime: "Several hours (delicate process)",
+        dicePool: "Intelligence + Thin-Blood Alchemy",
+        ingredients: "Alchemist's vitae, choleric and sanguine human blood, cornstarch or sawdust, rotten eggs, remnants of botched formula",
+        level: 5
+    },
+    {
+        name: "The Old Man's Elixir",
+        summary: "Temporarily lower Generation and gain full vampire abilities, sating Hunger completely",
+        rouseChecks: 1,
+        requiredTime: "14 hours (Fixatio) or 6 hours (other methods)",
+        dicePool: "Intelligence + Thin-Blood Alchemy (Stamina + Resolve to determine Generation reduction)",
+        ingredients: "Alchemist's vitae, mortal blood with dyscrasia, molten platinum, asafoetida, bull thyroid glands",
         level: 5
     }
 ];

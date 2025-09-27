@@ -1,5 +1,6 @@
 import { Grid, List, Stack, Title } from "@mantine/core";
 import { Power, Ritual, Ceremony } from "../../data/Disciplines";
+import { AlchemyFormula } from "../../data/Alchemy";
 import { upcase } from "../../generator/utils";
 import { DisciplineName } from "../../data/NameSchemas";
 
@@ -7,9 +8,10 @@ export type DisciplinesProps = {
     powers: Power[];
     rituals: Ritual[];
     ceremonies: Ceremony[];
+    alchemy: AlchemyFormula[];
 }
 
-const DisciplineDisplay = ({ powers, rituals, ceremonies }: DisciplinesProps) => {
+const DisciplineDisplay = ({ powers, rituals, ceremonies, alchemy }: DisciplinesProps) => {
     const powersByDisciplines = new Map<DisciplineName, Power[]>();
     powers.forEach((power) => {
         if (!powersByDisciplines.has(power.discipline)) {
@@ -48,6 +50,18 @@ const DisciplineDisplay = ({ powers, rituals, ceremonies }: DisciplinesProps) =>
                         </Grid.Col>
                     )
                 })}
+                {alchemy && alchemy.length > 0 ? (
+                    <Grid.Col span={6}>
+                        <Title order={4}>Thin-Blood Alchemy</Title>
+                        <List>
+                            {alchemy.map((formula) => (
+                                <List.Item ml={"-3px"} icon={"🧪"} key={formula.name}>
+                                    {formula.name}
+                                </List.Item>
+                            ))}
+                        </List>
+                    </Grid.Col>
+                ) : null}
             </Grid>
         </Stack>
     )
