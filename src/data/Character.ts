@@ -62,6 +62,7 @@ export const getEmptyCharacter = (): Character => ({
     disciplines: [],
     rituals: [],
     ceremonies: [],
+    alchemy: [],
     bloodPotency: 0,
     generation: 0,
     maxHealth: 0,
@@ -73,6 +74,7 @@ export const getEmptyCharacter = (): Character => ({
 });
 import { z } from "zod"
 import { Power, powerSchema, ritualSchema, ceremonySchema } from "./Disciplines"
+import { alchemyFormulaSchema } from "./Alchemy"
 import { specialtySchema } from "./Specialties"
 import { skillsSchema } from "./Skills"
 import { attributesSchema } from "./Attributes"
@@ -150,6 +152,7 @@ export const characterSchema = z.object({
     disciplines: powerSchema.array(),
     rituals: ritualSchema.array(),
     ceremonies: ceremonySchema.array(),
+    alchemy: alchemyFormulaSchema.array(),
 
     bloodPotency: z.number().min(0).int(),
     generation: z.number().min(0).int(),
@@ -168,3 +171,5 @@ export const characterSchema = z.object({
 export type Character = z.infer<typeof characterSchema>;
 
 export const containsBloodSorcery = (powers: Power[]) => powers.filter((power) => power.discipline === "blood sorcery").length > 0
+
+export const isThinBlood = (character: Character) => character.clan === "Thin-blood"

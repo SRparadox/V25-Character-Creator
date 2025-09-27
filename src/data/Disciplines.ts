@@ -911,6 +911,8 @@ export const ritualSchema = z.object({
 
 export type Ritual = z.infer<typeof ritualSchema>
 
+
+
 // Ceremonies: identical to Rituals, but for Oblivion
 export const ceremonySchema = z.object({
     name: z.string(),
@@ -1099,7 +1101,7 @@ export const Rituals: Ritual[] = [
 { name: "Transferring the Soul", summary: "Let a Diablerized vampire take control (Oblivion 5)", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Blood Sorcery", ingredients: "", level: 5 },
 { name: "Baal's Pithos", summary: "Make a construct that makes deals of power", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Blood Sorcery", ingredients: "", level: 5 },
 { name: "Ward Against Oblivion", summary: "Protect against Oblivion creatures", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Blood Sorcery", ingredients: "", level: 5 },
-{ name: "Warding Circle against Cainites", summary: "Create a warding circle against vampires", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Blood Sorcery", ingredients: "", level: 5 }
+    { name: "Warding Circle against Cainites", summary: "Create a warding circle against vampires", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Blood Sorcery", ingredients: "", level: 5 }
 ];
 
 export const powerIsRitual = (p: Power | Ritual | Ceremony): p is Ritual | Ceremony => {

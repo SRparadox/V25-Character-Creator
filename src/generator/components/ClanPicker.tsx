@@ -173,31 +173,22 @@ const ClanPicker = ({ character, setCharacter, nextStep }: ClanPickerProps) => {
                         .map((clan) => createClanPick(clan, theme.fn.rgba(theme.colors.gray[6], 0.9)))}
                 </Grid>
 
-                <Text ta="center" fz="xl" fw={700} mb={"sm"} mt={"md"} c="teal">
-                    Bloodlines & Special Cases
-                </Text>
-                <Grid grow m={0}>
-                    {["Caitiff", "Thin-blood", "Nagaraja", "Lamia", "Lhiannan", "Ahrimanes", "Daughters of Cacophony"]
-                        .map((c) => clanNameSchema.parse(c))
-                        .map((clan) => createClanPick(clan, theme.fn.rgba(theme.colors.teal[8], 0.9)))}
-                </Grid>
-
-                <Text ta="center" fz="xl" fw={700} mb={"sm"} mt={"md"} c={theme.colors.orange[7]}>
-                    Blood of Outsiders
-                </Text>
-                <Grid grow m={0}>
-                    {["Baali", "Kiasyd", "Gargoyle"]
-                        .map((c) => clanNameSchema.parse(c))
-                        .map((clan) => createClanPick(clan, theme.fn.rgba(theme.colors.orange[7], 0.9)))}
-                </Grid>
-
                 <Text ta="center" fz="xl" fw={700} mb={"sm"} mt={"md"} c={theme.colors.yellow[7]}>
-                    Servants
+                    Special Cases and Servants
                 </Text>
                 <Grid grow m={0}>
-                    {["Ghoul"]
+                    {["Thin-blood", "Caitiff", "Ghoul"]
                         .map((c) => clanNameSchema.parse(c))
                         .map((clan) => createClanPick(clan, theme.fn.rgba(theme.colors.yellow[7], 0.9)))}
+                </Grid>
+
+                <Text ta="center" fz="xl" fw={700} mb={"sm"} mt={"md"} c="teal">
+                    Bloodlines
+                </Text>
+                <Grid grow m={0}>
+                    {["Baali", "Kiasyd", "Gargoyle", "Nagaraja", "Lamia", "Lhiannan", "Ahrimanes", "Daughters of Cacophony"]
+                        .map((c) => clanNameSchema.parse(c))
+                        .map((clan) => createClanPick(clan, theme.fn.rgba(theme.colors.teal[8], 0.9)))}
                 </Grid>
             </ScrollArea>
         </div>

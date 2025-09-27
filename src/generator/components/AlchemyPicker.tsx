@@ -1,0 +1,120 @@
+import { Badge, Button, Card, Center, Grid, Group, ScrollArea, Space, Stack, Text } from "@mantine/core";
+import { useEffect } from "react";
+import ReactGA from "react-ga4";
+import { AlchemyFormulas, AlchemyFormula } from "../../data/Alchemy";
+import { Character, isThinBlood } from "../../data/Character";
+import { globals } from "../../globals";
+import { upcase } from "../utils";
+
+interface AlchemyPickerProps {
+  character: Character;
+  setCharacter: (character: Character) => void;
+  nextStep: () => void;
+}
+
+const AlchemyPicker = ({ character, setCharacter, nextStep }: AlchemyPickerProps) => {
+  useEffect(() => {
+    ReactGA.send({ hitType: "pageview", title: "Alchemy Picker" });
+  }, []);
+
+  if (!isThinBlood(character)) {
+    return <></>;
+  }
+
+  const smallScreen = globals.isSmallScreen;
+  const phoneScreen = globals.isPhoneScreen;
+  const height = globals.viewportHeightPx;
+
+  const getAlchemyCardCols = () => {
+    const devMode = globals.devMode;
+    return AlchemyFormulas.map((formula) => {
+      const trackClick = () => {
+        ReactGA.event({
+          action: "alchemy clicked",
+          category: "alchemy",
+          label: formula.name,
+        });
+      };
+      const onClick = () => {
+        setCharacter({
+          ...character,
+          alchemy: devMode
+            ? [...(character.alchemy || []), formula].filter((a, i, arr) => arr.findIndex(aa => aa.name === a.name) === i)
+            : [formula],
+        });
+        trackClick();
+        if (!devMode) nextStep();
+      };
+      
+      const onUnselect = () => {
+        setCharacter({
+          ...character,
+          alchemy: (character.alchemy || []).filter((a) => a.name !== formula.name),
+        });
+      };
+
+      let cardHeight = phoneScreen ? 180 : 215;
+      if (formula.name.length > 15) cardHeight += 25;
+      const isPicked = (character.alchemy || []).some((a) => a.name === formula.name);
+      
+      return (
+        <Grid.Col key={formula.name} span={smallScreen ? 12 : 6}>
+          <Card mb={20} h={cardHeight} style={{ backgroundColor: "rgba(26, 27, 30, 0.90)" }}>
+            <Group position="apart" mt="0" mb="xs">
+              <Text fz={smallScreen && !phoneScreen ? "xs" : "sm"} weight={500}>
+                {formula.name}
+              </Text>
+              <Badge pos={"absolute"} top={0} right={0} radius={"xs"} color="orange" variant="light">
+                lv {formula.level}
+              </Badge>
+            </Group>
+            <Text fz={"sm"} size="sm" color="dimmed">
+              {upcase(formula.summary)}
+            </Text>
+            <div style={{ position: "absolute", bottom: "0", width: "100%", padding: "inherit", left: 0, display: 'flex', gap: 8 }}>
+              <Button onClick={onClick} variant="light" color="orange" fullWidth radius="md">
+                <Text truncate>Learn {formula.name}</Text>
+              </Button>
+              {devMode && isPicked && (
+                <Button onClick={onUnselect} variant="outline" color="yellow" radius="md">
+                  Unselect
+                </Button>
+              )}
+            </div>
+          </Card>
+        </Grid.Col>
+      );
+    });
+  };
+
+  return (
+    <div style={{ width: smallScreen ? "393px" : "810px", marginTop: phoneScreen ? "60px" : "80px", position: "relative" }}>
+      {globals.devMode && (
+        <div style={{ position: "absolute", top: 10, right: 20, zIndex: 1000 }}>
+          <Text fw={900} fz={"lg"} c="lime" bg="#222" p={6} style={{ borderRadius: 8 }}>
+            DEV MODE ACTIVE
+          </Text>
+        </div>
+      )}
+      <Text fw={700} fz={smallScreen ? "14px" : "28px"} ta="center">
+        {globals.devMode ? "Dev Mode: Pick as many formulas as you want!" : "🧪 Pick 1 free Alchemy Formula 🧪"}
+      </Text>
+      <Text mt={"xl"} ta="center" fz="xl" fw={700} c="orange">
+        Thin-Blood Alchemy
+      </Text>
+      <hr color="#fd7e14" />
+      <Space h={"sm"} />
+      <Stack align="center" spacing="xl" w={"100%"}>
+        <ScrollArea h={smallScreen ? height - 320 : height - 400} pb={20} w={"105%"}>
+          <Center>
+            <Stack>
+              <Grid w={"100%"}>{getAlchemyCardCols()}</Grid>
+            </Stack>
+          </Center>
+        </ScrollArea>
+      </Stack>
+    </div>
+  );
+};
+
+export default AlchemyPicker;

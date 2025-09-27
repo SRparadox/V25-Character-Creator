@@ -1,5 +1,5 @@
 import { Center, Text } from "@mantine/core"
-import { Character, containsBloodSorcery } from "../data/Character"
+import { Character, containsBloodSorcery, isThinBlood } from "../data/Character"
 import AttributePicker from "./components/AttributePicker"
 import BasicsPicker from "./components/BasicsPicker"
 import ClanPicker from "./components/ClanPicker"
@@ -18,12 +18,14 @@ import TouchstonePicker from "./components/TouchstonePicker"
 import ErrorBoundary from "../components/ErrorBoundary"
 import RitualsPicker from "./components/RitualsPicker"
 import CeremoniesPicker from "./components/CeremoniesPicker"
+import AlchemyPicker from "./components/AlchemyPicker"
 
 
 // Export a function to get the step labels dynamically
 export function getStepLabels(character: Character) {
     const hasBloodSorcery = containsBloodSorcery(character.disciplines);
     const hasOblivion = character.disciplines.some((power: Power) => power.discipline === "oblivion");
+    const hasThinBloodAlchemy = isThinBlood(character);
     const labels = [
         "Intro",
         "Clan",
@@ -38,6 +40,7 @@ export function getStepLabels(character: Character) {
     ];
     if (hasBloodSorcery) labels.push("Rituals");
     if (hasOblivion) labels.push("Ceremonies");
+    if (hasThinBloodAlchemy) labels.push("Alchemy");
     labels.push("Touchstones");
     labels.push("Merits & Flaws");
     labels.push("Final");
@@ -57,6 +60,7 @@ const containsOblivion = (powers: Power[]) => powers.some((power) => power.disci
 const Generator = ({ character, setCharacter, selectedStep, setSelectedStep }: GeneratorProps) => {
     const hasBloodSorcery = containsBloodSorcery(character.disciplines);
     const hasOblivion = containsOblivion(character.disciplines);
+    const hasThinBloodAlchemy = isThinBlood(character);
 
     // Define the props type for all step components
     type StepProps = {
@@ -80,6 +84,7 @@ const Generator = ({ character, setCharacter, selectedStep, setSelectedStep }: G
     ];
     if (hasBloodSorcery) steps.push((props) => <RitualsPicker {...props} />);
     if (hasOblivion) steps.push((props) => <CeremoniesPicker {...props} />);
+    if (hasThinBloodAlchemy) steps.push((props) => <AlchemyPicker {...props} />);
     steps.push((props) => <TouchstonePicker {...props} />);
     steps.push((props) => <MeritsAndFlawsPicker {...props} />);
     steps.push((props) => <Final {...props} setSelectedStep={setSelectedStep} />);

@@ -1,5 +1,5 @@
 import { Aside, Center, ScrollArea, Stepper } from "@mantine/core"
-import { Character, containsBloodSorcery } from "../data/Character"
+import { Character, containsBloodSorcery, isThinBlood } from "../data/Character"
 import { isDefault, upcase } from "../generator/utils"
 import { globals } from "../globals"
 
@@ -15,6 +15,8 @@ const AsideBar = ({ selectedStep, setSelectedStep, character }: AsideBarProps) =
     // Add ceremonies if character has Oblivion discipline or any ceremonies picked
     const hasOblivion = character.disciplines && character.disciplines.some((d: any) => d.name?.toLowerCase?.() === "oblivion")
     const maybeCeremonies = (hasOblivion || (character.ceremonies && character.ceremonies.length > 0)) ? ["ceremonies"] : []
+    // Add alchemy if character is thin-blood or has any alchemy formulas picked
+    const maybeAlchemy = (isThinBlood(character) || (character.alchemy && character.alchemy.length > 0)) ? ["alchemy"] : []
     const stepperKeys = [
         "clan",
         "sect",
@@ -27,6 +29,7 @@ const AsideBar = ({ selectedStep, setSelectedStep, character }: AsideBarProps) =
         "disciplines",
         ...maybeRituals,
         ...maybeCeremonies,
+        ...maybeAlchemy,
         "touchstones",
         "merits",
     ] as (keyof Character)[]
@@ -55,8 +58,13 @@ const AsideBar = ({ selectedStep, setSelectedStep, character }: AsideBarProps) =
                     {" "}
                 </Stepper.Step>
                 {stepperKeys.map((title) => {
-                    // Show "Roles" instead of "Predator Type" for Ghouls
-                    const displayTitle = (title === "predatorType" && character.clan === "Ghoul") ? "Roles" : upcase(String(title))
+                    // Show "Roles" instead of "Predator Type" for Ghouls, and "Alchemy" for alchemy
+                    let displayTitle = upcase(String(title));
+                    if (title === "predatorType" && character.clan === "Ghoul") {
+                        displayTitle = "Roles";
+                    } else if (title === "alchemy") {
+                        displayTitle = "Alchemy";
+                    }
                     return (
                         <Stepper.Step
                             key={title}
