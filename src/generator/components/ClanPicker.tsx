@@ -140,7 +140,7 @@ const ClanPicker = ({ character, setCharacter, nextStep }: ClanPickerProps) => {
                     Fighters & Protectors
                 </Text>
                 <Grid grow m={0}>
-                    {["Brujah", "Gangrel", "Banu Haqim"]
+                    {["Brujah", "Tlahuelpuchi", "Banu Haqim"]
                         .map((c) => clanNameSchema.parse(c))
                         .map((clan) => createClanPick(clan, theme.fn.rgba(theme.colors.red[8], 0.9)))}
                 </Grid>
@@ -159,16 +159,34 @@ const ClanPicker = ({ character, setCharacter, nextStep }: ClanPickerProps) => {
                     Investigators & Researchers
                 </Text>
                 <Grid grow m={0}>
-                    {["Malkavian", "Tremere", "Hecata"]
+                    {["Malkavian", "Tremere", "Kiasyd"]
                         .map((c) => clanNameSchema.parse(c))
                         .map((clan) => createClanPick(clan, theme.fn.rgba(theme.colors.green[9], 0.9)))}
+                </Grid>
+
+                <Text ta="center" fz="xl" fw={700} mb={"sm"} mt={"md"} c="teal">
+                    Wild Natures
+                </Text>
+                <Grid grow m={0}>
+                    {["Gangrel", "Ahrimanes", "Lhiannan", "Aquarii"]
+                        .map((c) => clanNameSchema.parse(c))
+                        .map((clan) => createClanPick(clan, theme.fn.rgba(theme.colors.teal[7], 0.9)))}
+                </Grid>
+
+                <Text ta="center" fz="xl" fw={700} mb={"sm"} mt={"md"} c="gray">
+                    Clans of Death
+                </Text>
+                <Grid grow m={0}>
+                    {["Hecata", "Lamia", "Nagaraja", "Samedi", "Cappadocian", "Giovanni"]
+                        .map((c) => clanNameSchema.parse(c))
+                        .map((clan) => createClanPick(clan, theme.fn.rgba(theme.colors.gray[7], 0.9)))}
                 </Grid>
 
                 <Text ta="center" fz="xl" fw={700} mb={"sm"} mt={"md"} c="rgb(175,175,175)">
                     Hidden Lurkers
                 </Text>
                 <Grid grow m={0}>
-                    {["Nosferatu", "Salubri"]
+                    {["Nosferatu", "Salubri", "Gargoyle"]
                         .map((c) => clanNameSchema.parse(c))
                         .map((clan) => createClanPick(clan, theme.fn.rgba(theme.colors.gray[6], 0.9)))}
                 </Grid>
@@ -183,12 +201,21 @@ const ClanPicker = ({ character, setCharacter, nextStep }: ClanPickerProps) => {
                 </Grid>
 
                 <Text ta="center" fz="xl" fw={700} mb={"sm"} mt={"md"} c="teal">
-                    Bloodlines
+                    Bloodlines and Outsiders
                 </Text>
                 <Grid grow m={0}>
-                    {["Baali", "Kiasyd", "Gargoyle", "Nagaraja", "Lamia", "Lhiannan", "Ahrimanes", "Daughters of Cacophony"]
+                    {["Baali", "Daughters of Cacophony"]
                         .map((c) => clanNameSchema.parse(c))
                         .map((clan) => createClanPick(clan, theme.fn.rgba(theme.colors.teal[8], 0.9)))}
+                </Grid>
+
+                <Text ta="center" fz="xl" fw={700} mb={"sm"} mt={"md"} c={theme.colors.pink[7]}>
+                    NPC and Unplayable Clans
+                </Text>
+                <Grid grow m={0}>
+                    {["True Brujah", "BloodBrothers"]
+                        .map((c) => clanNameSchema.parse(c))
+                        .map((clan) => createClanPick(clan, theme.fn.rgba(theme.colors.pink[7], 0.9)))}
                 </Grid>
             </ScrollArea>
         </div>

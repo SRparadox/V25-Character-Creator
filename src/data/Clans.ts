@@ -25,6 +25,13 @@ import gargoyleLogo from "../resources/clanIcons/Gargoyles.webp"
 import kiasydLogo from "../resources/clanIcons/Kiasyd.webp"
 import baaliLogo from "../resources/clanIcons/Baali.webp"
 import ghoulLogo from "../resources/clanIcons/ghoul.webp"
+import giovanniLogo from "../resources/clanIcons/Giovanni.webp"
+import cappadocianLogo from "../resources/clanIcons/Cappadocian.webp"
+import samediLogo from "../resources/clanIcons/Samedi.webp"
+import trueBrujahLogo from "../resources/clanIcons/TrueBrujah.webp"
+import aquariiLogo from "../resources/clanIcons/Aquarii.webp"
+import bloodBrothersLogo from "../resources/clanIcons/BloodBrothers.webp"
+import tlahuelpuchiLogo from "../resources/clanIcons/Tlahuelpuchi.png"
 
 export const clanSchema = z.object({
     name: clanNameSchema,
@@ -342,6 +349,76 @@ export const clans: Record<ClanName, Clan> = {
             "blood sorcery",
             "oblivion",
         ],
+    },
+    Giovanni: {
+        name: "Giovanni",
+        description: "Necromantic clan haunted by the dead for disturbing the realm of death.",
+        logo: giovanniLogo,
+        banes: [
+            "Haunted: Haunted by ghosts, spirits, or wraiths for disturbing the realm of death. Presence attracts the dead."
+        ],
+        compulsion: "Morbidity: The vampire must move something from life to death or vice versa, any action not taken to end or resurrect something suffers a two-dice penalty. The subject does not have to be a living thing and can instead be an object or more abstract such as ideas or conversation points. This Compulsion lasts until they manage to kill or return something to life.",
+        nativeDisciplines: ["dominate", "fortitude", "oblivion"],
+    },
+    Cappadocian: {
+        name: "Cappadocian",
+        description: "Corpse-like pale and boney necromancers with a chilling visage.",
+        logo: cappadocianLogo,
+        banes: [
+            "Corpse-Like Visage: Have difficulties with all social rolls due to corpse-like appearance."
+        ],
+        compulsion: "Morbidity: The vampire must move something from life to death or vice versa, any action not taken to end or resurrect something suffers a two-dice penalty. The subject does not have to be a living thing and can instead be an object or more abstract such as ideas or conversation points. This Compulsion lasts until they manage to kill or return something to life.",
+        nativeDisciplines: ["auspex", "protean", "oblivion"],
+    },
+    Samedi: {
+        name: "Samedi",
+        description: "Rotting, decaying vampires with a morbid compulsion.",
+        logo: samediLogo,
+        banes: [
+            "Rotting Body: The Samedi's flesh is constantly decomposing, giving off a foul odor and a ghastly appearance. This makes blending in with mortals nearly impossible, imposing a severe penalty to all social rolls involving appearance or first impressions. Their touch is cold and clammy, and wounds heal with visible necrosis. Any attempt to mask their condition with mundane means is doomed to fail, and even supernatural disguises are less effective (Storyteller's discretion). In addition, their bodies are more fragile—physical trauma often results in grotesque injuries, and healing takes on a disturbing, patchwork quality."
+        ],
+        compulsion: "Morbidity: The vampire must move something from life to death or vice versa, any action not taken to end or resurrect something suffers a two-dice penalty. The subject does not have to be a living thing and can instead be an object or more abstract such as ideas or conversation points. This Compulsion lasts until they manage to kill or return something to life.",
+        nativeDisciplines: ["obfuscate", "fortitude", "oblivion"],
+    },
+    "True Brujah": {
+        name: "True Brujah",
+        description: "Detached, logical vampires obsessed with time and philosophy.",
+        logo: trueBrujahLogo,
+        banes: [
+            "Logical Coldness: Become overly logical and completely insensitive. Any Stain marked on your Humanity is increased by +1 for as long as your Compulsion is active."
+        ],
+        compulsion: "Chronic Mind: Obsession with time, philosophy, and proving your viewpoint correct. Becomes inert to emotions and passion.",
+        nativeDisciplines: ["celerity", "fortitude", "auspex"],
+    },
+    Aquarii: {
+        name: "Aquarii",
+        description: "Aquatic vampires with a call to the sea and water.",
+        logo: aquariiLogo,
+        banes: [
+            "Aquatic Features: Some aquatic features are present like gills, fins, or webbed fingers."
+        ],
+        compulsion: "Neptune's Call:There is a call to the sea and water.",
+        nativeDisciplines: ["protean", "animalism", "fortitude"],
+    },
+    BloodBrothers: {
+        name: "BloodBrothers",
+        description: "Blood-bound cainites suffering from imposter syndrome and unity mind.",
+        logo: bloodBrothersLogo,
+        banes: [
+            "Unity Limitation: Each individual Blood Brother cannot move too far from the others."
+        ],
+        compulsion: "Imposter Syndrome: During the Compulsion, these Cainites come to feel complete disbelief in everything they did and will do during that scene. They always make two rolls: one to hit and one to miss, rolling against themselves with a -2 Dice Pool (or -3 if spending Willpower). Each Success rolled against itself cancels a Success of the hit. After the scene, this penalty wears off.",
+        nativeDisciplines: ["fortitude", "potence", "protean"],
+    },
+    Tlahuelpuchi: {
+        name: "Tlahuelpuchi",
+        description: "Radiant, fiery vampires marked by the Heart's Fire and divine right.",
+        logo: tlahuelpuchiLogo,
+        banes: [
+            "The Heart's Fire: Whenever the Tlahuelpuchi suffers a Messy Critical or Beastial Failure, their undead flesh begins to project a strange radiance, out to a visible radius equal to a number of feet times their current total levels of Hunger. This aura cannot be recorded on electronic media."
+        ],
+        compulsion: "Divine Right: You suffer a 2-Die penalty to all pools not meant to elicit praise, reverence, or fear from those around you. This compulsion lasts until the end of the scene, or until someone pays you or your personal goals proper homage in a way that doesn’t conflict with your current Ambition or Desire.",
+        nativeDisciplines: ["protean", "fortitude", "presence"],
     },
     "": {
         name: "",

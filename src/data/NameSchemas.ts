@@ -31,6 +31,13 @@ export const clanNameSchema = z.union([
     z.literal("Lamia"),
     z.literal("Nagaraja"),
     z.literal("Ghoul"),
+    z.literal("Giovanni"),
+    z.literal("Cappadocian"),
+    z.literal("Samedi"),
+    z.literal("True Brujah"),
+    z.literal("Aquarii"),
+    z.literal("BloodBrothers"),
+    z.literal("Tlahuelpuchi"),
     z.literal("")
 ])
 export type ClanName = z.infer<typeof clanNameSchema>
