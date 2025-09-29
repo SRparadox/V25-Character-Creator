@@ -436,6 +436,17 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 level: 2,
                 discipline: "dominate",
             },
+            // Added Level 2
+            {
+                name: "Folderol",
+                description: "Amalgam: Auspex 2. Engage a target in conversation, causing them to blurt out truths they try to hide. For the scene, whenever the target attempts a Subterfuge check against the user, the user can contest with Wits + Dominate. On a success, the target blurts out the truth. The target may later roll Wits + Insight vs. the user's Charisma/Manipulation + Persuasion/Subterfuge to determine the source. If the user succeeds, they can make another Rouse Check to continue Folderol into the next scene. If the user has Rationalize, no contested check is needed to continue.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [{ discipline: "auspex", level: 2 }],
+                summary: "Force a target to blurt out truths in conversation.",
+                dicePool: "Wits + Dominate vs. Composure + Subterfuge",
+                level: 2,
+                discipline: "dominate",
+            },
             {
                 name: "Whispers of the Heart",
                 description: "Target experiences the emotions and voices of their loved ones. (Amalgam: Presence 2)",
@@ -516,6 +527,17 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 level: 4,
                 discipline: "dominate",
             },
+            // Added Level 4
+            {
+                name: "Mytherceria",
+                description: "Amalgam: Oblivion 2. Sanctify a verbal agreement, causing misfortune to any who violate it. Cost: 1 Rouse Check per bound individual. User states the terms, makes a Rouse Check per individual, and rolls Manipulation + Oblivion for duration (each success = 24 hours). Violators take a -2 die penalty to all pools for the day, doubling each day. If a pool is reduced to 0, suffer 2 Aggravated Willpower damage. Kindred must check for Fury Frenzy. The user is equally affected if they break the pact.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [{ discipline: "oblivion", level: 2 }],
+                summary: "Sanctify a pact; violators suffer escalating penalties.",
+                dicePool: "Manipulation + Oblivion",
+                level: 4,
+                discipline: "dominate",
+            },
             {
                 name: "Tabula Rasa",
                 description: "Erase a victim's memory completely.",
@@ -577,6 +599,8 @@ export const disciplines: Record<DisciplineName, Discipline> = {
             // Level 2
             { name: "Earth's Perseverance", description: "Become briefly immovable.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Become briefly immovable.", dicePool: "Stamina + Fortitude", level: 2, discipline: "fortitude" },
             { name: "Enduring Beasts", description: "Give Fortitude to animals. (Amalgam: Animalism 1)", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "animalism", level: 1 }], summary: "Give Fortitude to animals.", dicePool: "Stamina + Fortitude", level: 2, discipline: "fortitude" },
+            // Added Level 2
+            { name: "Xantico's Refuge", description: "Amalgam: Protean 1. Upon exposure to a Fear Frenzy trigger from fire, make a Rouse Check to ignore the fear for the scene. At the end, make a Willpower Check (add Protean rating) to resist Frenzy. On failure, succumb to Fear Frenzy. Can only use once per scene unless burning superficial Willpower for another Rouse Check.", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "protean", level: 1 }], summary: "Delay Fear Frenzy from fire, then resist with bonus.", dicePool: "Willpower Check (+Protean)", level: 2, discipline: "fortitude" },
             { name: "Obdurate", description: "Become briefly immovable. (Amalgam: Potence 2)", rouseChecks: 0, amalgamPrerequisites: [{ discipline: "potence", level: 2 }], summary: "Become briefly immovable.", dicePool: "Stamina + Fortitude", level: 2, discipline: "fortitude" },
             { name: "Invigorating Vitae", description: "Heal living creatures. (Amalgam: Auspex 1)", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "auspex", level: 1 }], summary: "Heal living creatures.", dicePool: "Stamina + Fortitude", level: 2, discipline: "fortitude" },
             { name: "Sympathetic Link", description: "Spread damage across bonded famulus. (Amalgam: Animalism 1, Bond Famulus)", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "animalism", level: 1 }], summary: "Spread damage across bonded famulus.", dicePool: "Stamina + Fortitude", level: 2, discipline: "fortitude" },
@@ -631,6 +655,8 @@ export const disciplines: Record<DisciplineName, Discipline> = {
 
             // Level 3
             { name: "Guise of the Departed", description: "Take a corpse's appearance. (Amalgam: Oblivion 1)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "oblivion", level: 1 }], summary: "Take a corpse's appearance.", dicePool: "Manipulation + Obfuscate", level: 3, discipline: "obfuscate" },
+            // Added Level 3
+            { name: "Unliving Statue", description: "Amalgam: Fortitude 3. Stand still and make a Rouse Check to become indistinguishable from stone or masonry, blending into the environment. Remain aware and can use Disciplines that don't require movement or speech. Sunlight does not harm you, but you enter daysleep at daybreak. Sense the Unseen can detect you with a contested roll. Duration: Indefinite until you revert with another Rouse Check.", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "fortitude", level: 3 }], summary: "Become a living statue, immune to sunlight while still.", dicePool: "N/A (Sense the Unseen: Wits + Auspex vs. Resolve + Obfuscate)", level: 3, discipline: "obfuscate" },
             { name: "Fata Morgana", description: "Create elaborate hallucinations. (Amalgam: Presence 2)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "presence", level: 2 }], summary: "Create elaborate hallucinations.", dicePool: "Manipulation + Obfuscate", level: 3, discipline: "obfuscate" },
             { name: "Ghost in the Machine", description: "Obfuscate affects technology.", rouseChecks: 0, amalgamPrerequisites: [], summary: "Obfuscate affects technology.", dicePool: "Wits + Obfuscate", level: 3, discipline: "obfuscate" },
             { name: "Mask of a Thousand Faces", description: "Appear visible but unremarkable.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Appear visible but unremarkable.", dicePool: "Manipulation + Obfuscate", level: 3, discipline: "obfuscate" },
@@ -748,6 +774,8 @@ export const disciplines: Record<DisciplineName, Discipline> = {
         powers: [
             // Level 1
             { name: "Eyes of the Beast", description: "Transform eyes to see in darkness.", rouseChecks: 0, amalgamPrerequisites: [], summary: "Transform eyes to see in darkness.", dicePool: "Wits + Protean", level: 1, discipline: "protean" },
+            // Added Level 1
+            { name: "Stone Sense", description: "Amalgam: Obfuscate 1. By touching earth or stone, gain supernatural awareness of anything in contact with that material within 5m x Protean rating. Can contest to learn more. Increases Stealth check Difficulty for those sneaking past. On failure, user knows their location.", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "obfuscate", level: 1 }], summary: "Sense through earth/stone, detect hidden creatures.", dicePool: "Wits + Protean (contested)", level: 1, discipline: "protean" },
             { name: "Squirm", description: "Fit through 2-inch spaces.", rouseChecks: 0, amalgamPrerequisites: [], summary: "Fit through 2-inch spaces.", dicePool: "Dexterity + Protean", level: 1, discipline: "protean" },
             { name: "Vault Welt", description: "Store objects in skin via infusion. (Amalgam: Oblivion 1)", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "oblivion", level: 1 }], summary: "Store objects in skin via infusion.", dicePool: "Stamina + Protean", level: 1, discipline: "protean" },
             { name: "Skin Taker", description: "Temporarily transform into an animal when eating the bones.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Temporarily transform into an animal when eating the bones.", dicePool: "Stamina + Protean", level: 1, discipline: "protean" },
@@ -770,6 +798,8 @@ export const disciplines: Record<DisciplineName, Discipline> = {
             { name: "Fleshcrafting", description: "Apply Vicissitude to others. (Amalgam: Dominate 2, Vicissitude)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "dominate", level: 2 }, { discipline: "protean", level: 2 }], summary: "Apply Vicissitude to others.", dicePool: "Resolve + Protean", level: 3, discipline: "protean" },
             { name: "Predator's Maw", description: "Transform jaw into a deadly weapon. (Amalgam: Altered Assault or Feral Weapons)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "protean", level: 2 }], summary: "Transform jaw into a deadly weapon.", dicePool: "Strength + Protean", level: 3, discipline: "protean" },
             { name: "Shapechange", description: "Turn into a human-sized animal.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Turn into a human-sized animal.", dicePool: "Stamina + Protean", level: 3, discipline: "protean" },
+            // Added Level 3
+            { name: "Visceratika", description: "Amalgam: Obfuscate 3. Make a Rouse Check and roll Resolve + Protean to merge into earth, stone, or concrete. Difficulty varies by material. While merged, move through the material, but take superficial damage per turn if stationary. Duration: Until you choose to emerge.", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "obfuscate", level: 3 }], summary: "Merge into and move through earth/stone/concrete.", dicePool: "Resolve + Protean (variable difficulty)", level: 3, discipline: "protean" },
             { name: "Faconnage", description: "Make someone uglier when attacking. (Amalgam: Devil's Mark or Vicissitude)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "protean", level: 2 }], summary: "Make someone uglier when attacking.", dicePool: "Manipulation + Protean", level: 3, discipline: "protean" },
             { name: "Visceral Absorption", description: "Absorb human remains into yourself. (Amalgam: blood sorcery 2)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "blood sorcery", level: 2 }], summary: "Absorb human remains into yourself.", dicePool: "Stamina + Protean", level: 3, discipline: "protean" },
 
@@ -784,6 +814,8 @@ export const disciplines: Record<DisciplineName, Discipline> = {
             { name: "Heart of Darkness", description: "Remove your heart to prevent staking. (Amalgam: Fortitude 2)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "fortitude", level: 2 }], summary: "Remove your heart to prevent staking.", dicePool: "Stamina + Protean", level: 5, discipline: "protean" },
             { name: "Master of Forms", description: "Transform into unlimited animal types. (Amalgam: Shapechange)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "protean", level: 3 }], summary: "Transform into unlimited animal types.", dicePool: "Stamina + Protean", level: 5, discipline: "protean" },
             { name: "Mist Form", description: "Turn into a cloud of mist.", rouseChecks: 2, amalgamPrerequisites: [], summary: "Turn into a cloud of mist.", dicePool: "Stamina + Protean", level: 5, discipline: "protean" },
+            // Added Level 5
+            { name: "Wrath of Xiuhcoatl", description: "Prerequisite: Ezpitzal. Amalgam: Fortitude 3. Project turquoise flames from your body for a scene. Range: 2m x Blood Potency. Each blast requires concentration and a roll of Stamina + Protean vs. Dexterity + Athletics. Margin of success = Aggravated Damage + Blood Potency. Vampires witnessing or taking damage must check for Fear Frenzy (Diff 3). Flammable materials ignite. Immune to self-inflicted fire.", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "fortitude", level: 3 }], summary: "Project supernatural fire blasts, causing Aggravated Damage.", dicePool: "Stamina + Protean vs. Dexterity + Athletics", level: 5, discipline: "protean" },
             { name: "One with the Land", description: "Experience everything in a one-mile radius while melded. (Amalgam: Animalism 2, Earth Meld)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "animalism", level: 2 }, { discipline: "protean", level: 3 }], summary: "Experience everything in a one-mile radius while melded.", dicePool: "Wits + Protean", level: 5, discipline: "protean" },
             { name: "Mitosis", description: "Create a horrifying creature from your flesh. (Amalgam: Dominate 2)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "dominate", level: 2 }], summary: "Create a horrifying creature from your flesh.", dicePool: "Stamina + Protean", level: 5, discipline: "protean" },
             { name: "Self-Made Throngs", description: "Can transform into a pack of animals. (Amalgam: Animalism 1)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "animalism", level: 1 }], summary: "Can transform into a pack of animals.", dicePool: "Stamina + Protean", level: 5, discipline: "protean" },
@@ -1004,14 +1036,20 @@ export const Ceremonies: Ceremony[] = [
     { name: "High Saturday's Dance", summary: "Haunt a target with wraiths, inflicting penalties to Social and Mental pools.", rouseChecks: 1, requiredTime: "1 scene", dicePool: "Oblivion Ceremony Roll", ingredients: "A personal possession of the target, boula drum, colored sand/cornmeal, caster’s vitae", level: 2 },
     { name: "Abyssal Investiture", summary: "Anoint people to make them invisible to electronics and unrecordable.", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Oblivion Ceremony Roll", ingredients: "Purified water, caster’s vitae, a completely dark room", level: 2 },
     { name: "Poor Yorick's Mask", summary: "Create a mask that blocks supernatural detection and repels wraiths.", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Oblivion Ceremony Roll", ingredients: "Ashes from a cremated corpse, grave wax, purified water, full-face mask", level: 2 },
+    // Added Level 2 Ceremony
+    { name: "Vitrine Prison", summary: "Trap a piece of a target's shadow in a glass container, penalizing their Mental Pools and allowing the caster to view their memories.", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Oblivion Ceremony Roll vs. Resolve + Occult (or Fortitude)", ingredients: "Sealable glass container, moth's wing, black wax", level: 2 },
     // New Level 3 Ceremonies
     { name: "Charon's Needle", summary: "Track a wraith and inflict aggravated Willpower damage with a silvered fingerbone.", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Oblivion Ceremony Roll", ingredients: "Fingerbone from a wraith, molten silver", level: 3 },
     { name: "Plunge Into Darkness", summary: "Create an aura that disables electronics and blocks transmissions.", rouseChecks: 1, requiredTime: "1 turn", dicePool: "Oblivion Ceremony Roll", ingredients: "Lodestone with Theban runes, caster’s vitae", level: 3 },
     { name: "Abyzou's Grasp", summary: "Curse a Kindred to be unable to Embrace until a lead tablet is recovered.", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Oblivion Ceremony Roll", ingredients: "Lead tablet, venomous animal, stagnant water", level: 3 },
+    // Added Level 3 Ceremony
+    { name: "Craft Fetch", summary: "Create a doppelganger of a target from their clothing, string, sticks, and vitae. The Fetch is a tactile illusion, not sentient, and has Health equal to the creator's Oblivion rating.", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Oblivion Ceremony Roll", ingredients: "Clothing from target, red string, blackthorn sticks, iron nail, caster's vitae", level: 3 },
     // New Level 4 Ceremonies
     { name: "Shava Sadhana", summary: "Blood Bond wraiths by meditating on a corpse with hallucinogens.", rouseChecks: 1, requiredTime: "1 night", dicePool: "Oblivion Ceremony Roll", ingredients: "Milk of Somalata, psilocybin, fresh corpse", level: 4 },
     { name: "Cloak of Xipe Totec", summary: "Flay a victim and wear their skin to become their double.", rouseChecks: 1, requiredTime: "1 night", dicePool: "Oblivion Ceremony Roll", ingredients: "Victim, obsidian dagger, golden bowl, aromatics", level: 4 },
     { name: "Lost Shadow", summary: "Become a target’s shadow, able to attack them and use Oblivion powers.", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Oblivion Ceremony Roll", ingredients: "Target’s full name, abyssal cephalopod ink, caster’s vitae", level: 4 },
+    // Added Level 4 Ceremony
+    { name: "Witch-Ridden Slumber", summary: "Caster enters a Torpor-like state to invade the dreams of a victim whose blood was used in the potion, inflicting Aggravated Willpower damage and feeding on their fear.", rouseChecks: 1, requiredTime: "1 night (brew); 1 scene (use)", dicePool: "Oblivion Ceremony Roll", ingredients: "Powdered black goat horn, rock salts, red valerian root, dried monkshood, at least 1 pint of target's blood", level: 4 },
     // New Level 5 Ceremonies
     { name: "Unliving Effigy", summary: "Create a doll to inflict damage and injuries on a target from afar.", rouseChecks: 1, requiredTime: "1 night", dicePool: "Oblivion Ceremony Roll", ingredients: "Target’s hair/clothing, clay, salt, grave dirt, caster’s vitae, iron needle", level: 5 },
     { name: "The Cry That Slays the Light", summary: "Blanket an area in supernatural darkness, allowing vampires to act by day.", rouseChecks: 1, requiredTime: "1 hour before sunrise", dicePool: "Oblivion Ceremony Roll", ingredients: "Intense Null resonance vessel, light-proofed chamber, obsidian/meteoric knife, caster’s vitae", level: 5 },
@@ -1199,6 +1237,9 @@ export const Rituals: Ritual[] = [
 { name: "Baal's Pithos", summary: "Make a construct that makes deals of power", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Blood Sorcery", ingredients: "", level: 5 },
 { name: "Ward Against Oblivion", summary: "Protect against Oblivion creatures", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Blood Sorcery", ingredients: "", level: 5 },
     { name: "Warding Circle against Cainites", summary: "Create a warding circle against vampires", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Blood Sorcery", ingredients: "", level: 5 }
+,
+// Level 4 Rituals (Added)
+{ name: "Warding Circle Against Magic", summary: "Prevents all Blood Sorcery, Oblivion, Rituals, and Ceremonies within the circle. Anyone attempting to use such powers against someone inside must contest Willpower vs. the caster's Intelligence + Blood Sorcery. Also defends against non-vampiric magic.", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Blood Sorcery vs. Willpower (see V5 Corebook pg. 275)", ingredients: "Circle inscribed with the same blade used to draw the caster's vitae.", level: 4 }
 ];
 
 export const powerIsRitual = (p: Power | Ritual | Ceremony): p is Ritual | Ceremony => {

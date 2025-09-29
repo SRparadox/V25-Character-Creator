@@ -102,10 +102,12 @@ export const ghoulMeritsAndFlaws: MeritsAndFlaws[] = [
         merits: [
             { name: "Status", cost: [1,2,3,4,5], summary: "The character has built a name for themselves in their Faction." },
             { name: "City Secrets", cost: [1,2,3], summary: "This grants knowledge about the city's Kindred power structure. If this secret is about mortal business it's only a way to explain Influence. This information can be sold at a high price, but its value lies in protection as the people involved may not want this information sold off and will do their best to keep you happy, for a time anyway. This can only be taken at a maximum of three times with each being a different secret." },
+            { name: "Autonomy of the Grave", cost: [4], summary: "You’ve essentially been given a free pass when it comes to certain offenses within a domain. Work with your Storyteller to determine the specifics. So long as your trespasses fall within this remit, you don’t suffer the same consequences as other vampires. Push your luck too often or flaunt your privileges, and you may find yourself with more enemies than friends." },
         ],
         flaws: [
             { name: "Suspect", cost: [1], summary: "Breaking the rules or weaseling out of something owed has netted this character the ire of this Sect. Stay out of sight and mind and nothing will happen until they prove their worth again but until then take a 2 dice penalty to Social tests with the offended Factions." },
             { name: "Shunned", cost: [2], summary: "Despised by a Sect, a line was crossed that never should have been, and now members of this group actively work against them at any opportunity." },
+            { name: "Frozen in Time", cost: [1], summary: "You were Embraced before maturity or long past your prime, making it hard to be taken seriously. Suffer a 1-Die penalty to all Social Pools against Kindred of your creator’s sect." },
         ],
     },
     {
@@ -133,6 +135,7 @@ export const ghoulMeritsAndFlaws: MeritsAndFlaws[] = [
             { name: "Stench", cost: [1], summary: "Their breath and body odor are supernaturally foul. Lose one die from seduction and similar Social pools, and lose two from Stealth pools unless they are upwind." },
             { name: "Transparent", cost: [1], summary: "Unable to lie due to a terrible poker face or a strong urge to be truthful. Lose one die in any pools requiring Subterfuge, they cannot take any dots in Subterfuge either." },
             { name: "Unblinking Visage", cost: [2], summary: "Treat Humanity as two lower (Min 0) when using Blush of Life, eating, drinking, or sexual intercourse." },
+            { name: "Debilitating Scar", cost: [2], summary: "You have a wound that never fully heals, sapping your strength. Reduce one Physical Attribute by 1, to a minimum of 1. You cannot raise it above 4 with experience." },
         ],
     },
     {
@@ -172,6 +175,7 @@ export const ghoulMeritsAndFlaws: MeritsAndFlaws[] = [
         title: "⭐ Fame",
         merits: [
             { name: "Fame", cost: [1,2,3,4,5], summary: "Mortal fame is a dangerous game, the character might have once been a pop singer, actress, or other celebrity. The level of fame can subtract from tests against fans or hunting. There is a downside as people may remember the character as their face is plastered on a nearby billboard. Fame can be bought to apply in Vampire society as well." },
+            { name: "Battle-Hardened", cost: [2], summary: "You were already used to violence in your mortal life. Whenever you make a Willpower Check in response to deliberate violence directly against you or by you, you gain a 2-Die bonus to the roll." },
         ],
         flaws: [
             { name: "Dark Secret", cost: [1,2,3,4,5], summary: "What they've done is still a secret, except to one or two very motivated enemies." },
@@ -434,6 +438,7 @@ export const meritsAndFlaws: MeritsAndFlaws[] = [
             },
             { name: "Iron Gullet", cost: [3], summary: "able to feed on rancid blood" },
             { name: "Vessel Recognition", cost: [1], summary: "With a Resolve + Awareness test at Difficulty 2 they can tell if a mortal has been fed on recently. A critical win lets them sense if the feed is recurring, meaning there is a chance it’s a herd member." },
+            { name: "Private Reserve", cost: [4], summary: "You have access to a very unique source of blood born of a mutual understanding with a very unique individual. Add the individual in question to the Relationship Map, as well as the specifics of your deal with them. Once per session you can feed off of this 'private reserve', reducing your total Hunger to 1 with zero adverse effects. If anyone finds out about your source, they may want a taste for themselves." },
             { name: "Organovore", cost: [2], summary: "Slake only by consuming human flesh and organs." },
             { name: "Vein Tapper", cost: [1], summary: "Finding the act of feeding to be personal, they go out of their way to feed from the unaware, drugged or unconscious victims." },
             { name: "Faith Drinker", cost: [2], summary: "Slake 1 additional Hunger from those who are actively religious. Feeding on those with True Faith slakes twice as much Hunger. Cannot reduce Hunger below zero. If multiple effects would allow you to slake an additional point of Hunger, choose the one and ignore the rest." },
@@ -487,6 +492,8 @@ export const meritsAndFlaws: MeritsAndFlaws[] = [
             { name: "Early Riser", cost: [1], summary: "Always awaken the moment the sun sets, regardless of Humanity rating." },
             { name: "Ishtar's Sweet Sap", cost: [2], summary: "Your blood carries properties associated with the goddess Ishtar. Anyone who drinks at least one Rouse Check worth of your Vitae adds +1 Bonus Die to their pools to create art or sexually satisfy others. You also gain this bonus when you Blood Surge those same pools." },
             { name: "Tempered Will", cost: [3], summary: "Always aware when someone is attempting to use Dominate or Presence against them. May add two additional dice to resistance pools once per session, which can only be taken by those with no dots in Dominate or Presence." },
+            { name: "Predatory Affinity", cost: [3], summary: "You bear an innate mastery of a Discipline born out of your preferred method of predation rather than derived from your bloodline. You can take dots in one Out-of-Clan Discipline you would receive from your Predator Type as though it were an In-Clan Discipline. Caitiff gain an extra dot in a Predator Type Discipline. Thin-Bloods cannot take this unless they already possess the Discipline Affinity Merit." },
+            { name: "King of the Beasts", cost: [2], summary: "Animals, especially carnivores, do not shy away from you. When rolling to interact with predatory beasts, you can use Social Skills other than Animal Ken if appropriate. If you learn Animalism, gain a 2-Die Bonus to powers meant to sway or subdue predators." },
         ],
         flaws: [
             { name: "Folkloric Bane", cost: [1], summary: "Take Aggravated Damage when touching a specific object rooted in vampire mythos of what harms them, example Silver." },
@@ -496,6 +503,9 @@ export const meritsAndFlaws: MeritsAndFlaws[] = [
             { name: "Starving Decay", cost: [2], summary: "When their Hunger is 3 or higher their body shrivels and decays. Take a two-dice penalty to Physical tests, and social interactions with mortals, this Flaw can risk the Masquerade." },
             { name: "Famished", cost: [1], summary: "When you reach Hunger 4 you become thin and desiccated with your skin and flesh pulled tight against your bones, and your muscles and organs atrophying to almost nothing. While this doesn't affect your physical abilities, it is almost impossible to hide, as even the slimmest or slightest built Kindred become so incredibly thin that it appears they have barely any interior muscles or organs at all." },
             { name: "Permanent Fangs", cost: [1], summary: "You cannot retract your fangs, making it impossible to hide them. This may contextually reduce Dice Pools by 1, but may also, more rarely, increase certain Dice Pools by 1." },
+            { name: "Revenant Mind", cost: [2], summary: "The Embrace was traumatic, occluding or erasing sections of memory. Upon taking this Flaw at character creation, subtract 1 from your starting Humanity." },
+            { name: "Deathsight", cost: [2], summary: "You can peer past the Shroud unbidden. When an Insight, Awareness, Investigation, or Occult roll results in a Total or Bestial Failure, suffer a 2-Die penalty to all subsequent Social Pools for the rest of the scene." },
+            { name: "Devil in the Details", cost: [2], summary: "You are locked into an ironclad pact with a supernatural force. Work with your Storyteller to define the pact. Whenever you fail to uphold your end or violate a clause, take a point of Aggravated Willpower Damage." },
         ],
     },
     {
