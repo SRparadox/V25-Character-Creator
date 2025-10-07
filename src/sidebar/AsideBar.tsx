@@ -1,7 +1,7 @@
 import { Aside, Center, ScrollArea, Stepper } from "@mantine/core"
-import { Character, containsBloodSorcery, isThinBlood } from "../data/Character"
-import { isDefault, upcase } from "../generator/utils"
+import { Character } from "../data/Character"
 import { globals } from "../globals"
+import { getStepLabels } from "../generator/Generator"
 
 export type AsideBarProps = {
     selectedStep: number
@@ -10,36 +10,21 @@ export type AsideBarProps = {
 }
 
 const AsideBar = ({ selectedStep, setSelectedStep, character }: AsideBarProps) => {
-    // const smallScreen = globals.isSmallScreen
-    const maybeRituals = containsBloodSorcery(character.disciplines) ? ["rituals"] : []
-    // Add ceremonies if character has Oblivion discipline or any ceremonies picked
-    const hasOblivion = character.disciplines && character.disciplines.some((d: any) => d.name?.toLowerCase?.() === "oblivion")
-    const maybeCeremonies = (hasOblivion || (character.ceremonies && character.ceremonies.length > 0)) ? ["ceremonies"] : []
-    // Add alchemy if character is thin-blood or has any alchemy formulas picked
-    const maybeAlchemy = (isThinBlood(character) || (character.alchemy && character.alchemy.length > 0)) ? ["alchemy"] : []
-    const stepperKeys = [
-        "clan",
-        "sect",
-        "religion",
-        "attributes",
-        "skills",
-        "generation",
-        "predatorType", // This will be displayed as "Roles" for Ghouls
-        "name",
-        "disciplines",
-        ...maybeRituals,
-        ...maybeCeremonies,
-        ...maybeAlchemy,
-        "touchstones",
-        "merits",
-    ] as (keyof Character)[]
-
-    const isHigherLevelAccessible = (character: Character, key: keyof Character) => {
-        const index = Math.max(0, stepperKeys.indexOf(key) - 1) // if n-1 is not default then we can jump to n
-
-        for (let i = index; i < stepperKeys.length; i++) {
-            if (!isDefault(character, stepperKeys[i])) return true
-        }
+    // Use the same step labels as the Generator for consistency
+    const stepLabels = getStepLabels(character)
+    
+    // Simple accessibility logic - allow navigation to completed steps and next step
+    const isStepAccessible = (stepIndex: number) => {
+        // Always allow going back to previous steps
+        if (stepIndex <= selectedStep) return true
+        
+        // Allow going to the next step
+        if (stepIndex === selectedStep + 1) return true
+        
+        // Basic completion check for major steps
+        const hasBasicInfo = character.clan && character.sect && character.generation > 0
+        if (hasBasicInfo && stepIndex > 6) return true // After generation step
+        
         return false
     }
 
@@ -54,31 +39,18 @@ const AsideBar = ({ selectedStep, setSelectedStep, character }: AsideBarProps) =
                 }}
                 breakpoint="sm"
             >
-                <Stepper.Step key={"Intro"} label={"Intro"} description="">
-                    {" "}
-                </Stepper.Step>
-                {stepperKeys.map((title) => {
-                    // Show "Roles" instead of "Predator Type" for Ghouls, and "Alchemy" for alchemy
-                    let displayTitle = upcase(String(title));
-                    if (title === "predatorType" && character.clan === "Ghoul") {
-                        displayTitle = "Roles";
-                    } else if (title === "alchemy") {
-                        displayTitle = "Alchemy";
-                    }
+                {stepLabels.map((label, index) => {
                     return (
                         <Stepper.Step
-                            key={title}
-                            label={displayTitle}
+                            key={label}
+                            label={label}
                             description=""
-                            disabled={!isHigherLevelAccessible(character, title)}
+                            disabled={!isStepAccessible(index)}
                         >
                             {" "}
                         </Stepper.Step>
                     )
                 })}
-                <Stepper.Step key={"Final"} label={"Final"} description="" disabled={isDefault(character, "disciplines")}>
-                    {" "}
-                </Stepper.Step>
             </Stepper>
         )
     }

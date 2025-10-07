@@ -29,6 +29,12 @@ export function getStepLabels(character: Character) {
     const hasBloodSorcery = containsBloodSorcery(character.disciplines);
     const hasOblivion = character.disciplines.some((power: Power) => power.discipline === "oblivion");
     const hasThinBloodAlchemy = isThinBlood(character);
+    
+    // Check if character generation qualifies for Elder/Methuselah powers
+    const isElderGeneration = character.generation <= 9 && character.generation >= 6;
+    const isMethuselahGeneration = character.generation <= 5 && character.generation >= 4;
+    const qualifiesForElderPowers = isElderGeneration || isMethuselahGeneration;
+    
     const labels = [
         "Intro",
         "Clan",
@@ -37,13 +43,19 @@ export function getStepLabels(character: Character) {
         "Attributes",
         "Skills",
         "Generation",
-        "Age",
     ];
     
+    // Only show Age step if generation qualifies for Elder/Methuselah powers
+    if (qualifiesForElderPowers) {
+        labels.push("Age");
+    }
+    
+    // Only show Elder Powers if character is flagged as Elder or Methuselah
     if (character.isElder || character.isMethuselah) {
         labels.push("Elder Powers");
     }
     
+    // Only show Methuselah Powers if character is flagged as Methuselah
     if (character.isMethuselah) {
         labels.push("Methuselah Powers");
     }
@@ -84,6 +96,10 @@ const Generator = ({ character, setCharacter, selectedStep, setSelectedStep }: G
     };
 
     // Build steps array dynamically, matching getStepLabels
+    const isElderGeneration = character.generation <= 9 && character.generation >= 6;
+    const isMethuselahGeneration = character.generation <= 5 && character.generation >= 4;
+    const qualifiesForElderPowers = isElderGeneration || isMethuselahGeneration;
+    
     const steps: ((props: StepProps) => JSX.Element)[] = [
         (props) => <Intro {...props} />, // 0
         (props) => <ClanPicker {...props} />, // 1
@@ -92,13 +108,19 @@ const Generator = ({ character, setCharacter, selectedStep, setSelectedStep }: G
         (props) => <AttributePicker {...props} />, // 4
         (props) => <SkillsPicker {...props} />, // 5
         (props) => <GenerationPicker {...props} />, // 6
-        (props) => <AgePicker {...props} />, // 7
     ];
     
+    // Only add Age step if generation qualifies for Elder/Methuselah powers
+    if (qualifiesForElderPowers) {
+        steps.push((props) => <AgePicker {...props} />);
+    }
+    
+    // Only add Elder Powers step if character is flagged as Elder or Methuselah
     if (character.isElder || character.isMethuselah) {
         steps.push((props) => <ElderPowerPicker {...props} />);
     }
     
+    // Only add Methuselah Powers step if character is flagged as Methuselah
     if (character.isMethuselah) {
         steps.push((props) => <MethuselahPowerPicker {...props} />);
     }
