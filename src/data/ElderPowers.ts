@@ -81,6 +81,317 @@ export const elderPowers: ElderPower[] = [
         description: "After taking damage from a substance (lead from a bullet, a steel blade, a wooden spear, and so forth) the elder can attune themselves to it to. They do not suffer damage from that substance until they attune to another substance.",
         requirements: "Protean",
     },
+    // New Animalism Powers
+    {
+        name: "Blood Echo",
+        description: "The user extends their senses through the minds and bodies of the creatures that bear their blood. This power can allow the user to observe using the senses of their ghouled animals at incredible distances.",
+        requirements: "Animalism",
+    },
+    {
+        name: "Conquer the Beast",
+        description: "Kindred with this power have achieved a remarkable mastery over their Beast, allowing them to enter or leave a Frenzy at will.",
+        requirements: "Animalism",
+    },
+    {
+        name: "Taunt the Caged Beast",
+        description: "This power allows Kindred to stoke the rage and hunger of the Beast in the blood of other Kindred, provoking them to frenzy without ordinary provocation.",
+        requirements: "Animalism",
+    },
+    {
+        name: "Free the Beast Within",
+        description: "Kindred with this power are able to exert a measure of control over themselves while in a Frenzy, capitalizing on their Beast's natural ferocity.",
+        requirements: "Animalism",
+    },
+    {
+        name: "Eyes of the Forest",
+        description: "At this level of Animalism, the user is able to make their mind one with the minds of all animals within several miles, seeing through their eyes and hearing with their ears.",
+        requirements: "Animalism",
+    },
+    // New Auspex Powers
+    {
+        name: "The Dreaming",
+        description: "Kindred with this power transcend some of the normal limitations of torpor and day-sleep. Their bodies become unresponsive like those of other Kindred, but their minds remain vibrant and alert.",
+        requirements: "Auspex",
+    },
+    {
+        name: "Spirit Link",
+        description: "This power allows the user to communicate telepathically at great distances, and with multiple targets simultaneously.",
+        requirements: "Auspex",
+    },
+    {
+        name: "Psychic Assault",
+        description: "The Kindred unleashes a blast of mental energy on a target, searing their mind and will.",
+        requirements: "Auspex",
+    },
+    {
+        name: "The Mind's Eye",
+        description: "This power allows the user to scry on events transpiring at great distances from them.",
+        requirements: "Auspex",
+    },
+    {
+        name: "Pulse of the Canaille",
+        description: "Kindred with this power are able to tap into the collective subconscious of the mortals in an area, learning their attitudes, concerns, trends, perspectives, and sensing the presence of any blood bonds or other supernatural chains that may be binding them.",
+        requirements: "Auspex",
+    },
+    // New Celerity Powers
+    {
+        name: "Quickness of Pulse",
+        description: "Users of advanced Celerity are simply able to do more, more quickly.",
+        requirements: "Celerity",
+    },
+    {
+        name: "Flower of Death",
+        description: "This power allows you to invest your attacks with supernatural speed, bypassing defenses before they can even be brought to bear.",
+        requirements: "Celerity",
+    },
+    {
+        name: "Stutter-Step",
+        description: "Kindred with this power simply seem to flicker in and out of existence for a moment, avoiding attacks faster than the eye can see.",
+        requirements: "Celerity",
+    },
+    {
+        name: "Tireless Tread",
+        description: "Users of this power are able to match the speed of modern vehicles for hours at a time.",
+        requirements: "Celerity",
+    },
+    {
+        name: "Between the Seconds",
+        description: "At this level of Celerity, the user is almost impossible to contend with by anyone who does not possess a comparable rating in the Discipline.",
+        requirements: "Celerity",
+    },
+    // New Dominate Powers
+    {
+        name: "Implant Opinion",
+        description: "This power allows the user to embed core beliefs, opinions, or personality traits into a victim, leaving them profoundly altered and without any awareness that the change is more than natural.",
+        requirements: "Dominate",
+    },
+    {
+        name: "Strings of the Marionette",
+        description: "Vampires with this power display the uncanny ability to puppeteer staked or torpid vampires.",
+        requirements: "Dominate",
+    },
+    {
+        name: "Far Mastery",
+        description: "This power allows a vampire to command victims without even being in the same room, much less having eye contact.",
+        requirements: "Dominate",
+    },
+    {
+        name: "Carry the Master's Voice",
+        description: "This power allows the user to imbue a thrall with the intensity of their commands. Such thralls may issue commands with the power of their master's Dominate behind them.",
+        requirements: "Dominate",
+    },
+    {
+        name: "Tyrant's Glance",
+        description: "This power allows the user to supernaturally rend a victim's confidence in their own abilities.",
+        requirements: "Dominate",
+    },
+    // New Fortitude Powers
+    {
+        name: "Armor of Kings",
+        description: "This power grants supernatural inflexibility to the user's flesh, causing blows to bounce off and weapons to shatter on impact.",
+        requirements: "Fortitude",
+    },
+    {
+        name: "Indomitable Mind",
+        description: "The user's mind automatically rebels against being dominated, throwing off the shackles of supernatural control with relish.",
+        requirements: "Fortitude",
+    },
+    {
+        name: "Repair the Undead Flesh",
+        description: "This power allows the vampire to mend their damaged flesh far more quickly than any other Kindred, provided they have access to sufficient blood.",
+        requirements: "Fortitude",
+    },
+    {
+        name: "Eternal Vigilance",
+        description: "This nearly-mythical ability permits the user to remain awake during daylight hours, suffering only minor penalties for doing so - provided they stay out of sunlight, of course.",
+        requirements: "Fortitude",
+    },
+    {
+        name: "Arm of Prometheus",
+        description: "The Kindred concentrates the power of their vitae into a single limb, protecting it against all damage for a short time.",
+        requirements: "Fortitude",
+    },
+    // New Obfuscate Powers
+    {
+        name: "Blithe Acceptance",
+        description: "This power allows the user to interact with objects while Obfuscated without attracting attention.",
+        requirements: "Obfuscate",
+    },
+    {
+        name: "Gemini's Mirror",
+        description: "This power causes observers to believe that the user is engaged in mundane activities at the place they last observed them before its activation.",
+        requirements: "Obfuscate",
+    },
+    {
+        name: "Fortress of Silence",
+        description: "This power eliminates all sound in the user's vicinity, blanketing the area in pristine silence and smothering the noise of gunshots or teeth ripping into mortal throats.",
+        requirements: "Obfuscate",
+    },
+    {
+        name: "Veil of Wrathful Ignorance",
+        description: "This power traps a victim in their own personal hell of nonexistence, unable to make themselves heard or seen by those around them no matter what they do.",
+        requirements: "Obfuscate",
+    },
+    {
+        name: "Memory's Fading Glimpse",
+        description: "Kindred with a true mastery of Obfuscate need not concern themselves with breaching the Masquerade by their feeding, for when they drain a mortal's last drop, they also consume the memory of the victim from the minds of those who knew them.",
+        requirements: "Obfuscate",
+    },
+    // New Potence Powers
+    {
+        name: "Unstoppable Momentum",
+        description: "This power combines the benefits of both Potence and Celerity, allowing the vampire to move at impossible speeds and force their body through obstacles with their incredible momentum. It is one of the single-most Masquerade-breaching powers available to Kindred.",
+        requirements: "Potence",
+    },
+    {
+        name: "Unbreakable Grasp",
+        description: "This power allows the user to maintain their hold on a creature or object against almost any force.",
+        requirements: "Potence",
+    },
+    {
+        name: "Immovable Object",
+        description: "This power allows the Kindred to stand against any force that tries to move them from where they stand.",
+        requirements: "Potence",
+    },
+    {
+        name: "Juggernaut",
+        description: "Kindred with this power are nearly impossible to kill. When they enter torpor, instead of falling unconscious and lying immobile their Beast takes over for their higher brain functions and defends itself on pure instinct, destroying mindlessly until all threats lie defeated.",
+        requirements: "Potence",
+    },
+    {
+        name: "Puissance",
+        description: "At this level of Potence, the vampire's strength is of mythic proportions - they can lift planes, throw tanks, pull trees out of the ground, and certainly rip Kindred to pieces with ease.",
+        requirements: "Potence",
+    },
+    // New Presence Powers
+    {
+        name: "Spark Love",
+        description: "Vampires with this power are able to enflame the hearts of their victims, inciting the most passionate love or deepest devotion as they see fit. This intensity of emotion is almost indistinguishable from the blood bond.",
+        requirements: "Presence",
+    },
+    {
+        name: "Aphrodite's Amusement",
+        description: "This power allows the user to directly manipulate blood bonds, stealing thralls from other Kindred at-will.",
+        requirements: "Presence",
+    },
+    {
+        name: "Unholy Penance",
+        description: "This power forces the victim to feel guilt and remorse for whatever the user commands them to regret.",
+        requirements: "Presence",
+    },
+    {
+        name: "Suppress the Illicit Thought",
+        description: "This power causes the victim's mind to tie a certain memory or thought of the vampire's choice to the thought of this power's user, thereby preventing the victim from accessing that concept.",
+        requirements: "Presence",
+    },
+    {
+        name: "Undying Loyalty",
+        description: "Vampires at this level of Presence have an inextricable hold over the minds of those they affect. Few forces, magical or mundane, are capable of breaking their grip or withstanding the influence of their presence.",
+        requirements: "Presence",
+    },
+    // New Protean Powers
+    {
+        name: "Loki's Gift",
+        description: "Kindred with this ability have learned to master a multitude of shapes with their Protean. They can transform into any creature whose blood they have tasted.",
+        requirements: "Protean",
+    },
+    {
+        name: "Invert the Flesh",
+        description: "This power allows the user to force a shapechanger back into their true form through their mastery of Protean and the Beast.",
+        requirements: "Protean",
+    },
+    {
+        name: "Blissful Slumber",
+        description: "Vampires with this ability have learned to slumber during the day in the form of mist, immune to all but fire and direct sunlight.",
+        requirements: "Protean",
+    },
+    {
+        name: "Death's Hidden Crawl",
+        description: "This ability expands on Earth Meld by allowing the user to slowly move through the earth while melded.",
+        requirements: "Protean",
+    },
+    {
+        name: "Shape of the Inner Beast",
+        description: "Reminiscent of the hybrid Crinos war-form of Lupines, this power transforms the user into a terrifying beast of a design unique to their own nature. Kindred so-transformed are capable of incredible destruction.",
+        requirements: "Protean",
+    },
+    // New Blood Sorcery Powers
+    {
+        name: "Abated Tooth",
+        description: "This power allows the sorcerer to force a Kindred's fangs back into their gums, preventing them from feeding with bite attacks.",
+        requirements: "Blood Sorcery",
+    },
+    {
+        name: "Blood Puppetry",
+        description: "The blood sorcerer reaches out to directly control the blood of a victim with their mind, turning them into a jerky marionette that acts according to the sorcerer's will.",
+        requirements: "Blood Sorcery",
+    },
+    {
+        name: "Corrupt Body",
+        description: "This power allows the vampire to interfere with another vampire's vitae, causing it to corrupt their flesh instead of preserve it.",
+        requirements: "Blood Sorcery",
+    },
+    {
+        name: "Valediction",
+        description: "This power temporarily saps a victim of the benefits of their age and potency, forcing them to temporarily feel the weakness and vulnerability of the higher generations.",
+        requirements: "Blood Sorcery",
+    },
+    {
+        name: "Curdle Bond",
+        description: "This power corrupts the devotion of the blood bond into hatred, turning loyal servants into deadly enemies.",
+        requirements: "Blood Sorcery",
+    },
+    // New Oblivion Powers
+    {
+        name: "Shadow Haven",
+        description: "This power allows the user to maintain a shadowy echo of their own haven in the Labyrinth. The vampire can spend the day here, safe from the sun.",
+        requirements: "Oblivion",
+    },
+    {
+        name: "Darksight",
+        description: "This power expands on Shadow Perspective to allow you to send your senses from shadow to shadow, traveling through the darkness in your realm.",
+        requirements: "Oblivion",
+    },
+    {
+        name: "The Darkness Within",
+        description: "This power causes multiple shades to extend from the user's shadow, splitting off to serve them as darkness incarnate.",
+        requirements: "Oblivion",
+    },
+    {
+        name: "Oubliette",
+        description: "This ominous ability permits the user to pull a victim into their own personal prison in the Labyrinth, to remain trapped in shadow until the vampire releases them.",
+        requirements: "Oblivion",
+    },
+    {
+        name: "Tchernabog",
+        description: "This power is among the most unholy, eerie, and impressive of all Discipline abilities. It allows the vampire to blot out the very sun for a limited time, letting themselves and other Kindred roam as though under the veil of night.",
+        requirements: "Oblivion",
+    },
+    {
+        name: "Death Knell",
+        description: "The necromancer's senses are so in tune with the Shadowlands that they can sense the passage of souls from life to death around them.",
+        requirements: "Oblivion",
+    },
+    {
+        name: "Consilium Mortuus",
+        description: "This power allows the vampire to devour memories from the mind of creatures they drain. It is a powerful method of interrogation, despite leaving the informant unfortunately deceased.",
+        requirements: "Oblivion",
+    },
+    {
+        name: "True Death",
+        description: "The necromancer causes their blood to go temporarily silent, causing their undead body to simply become dead - without suffering the rapid decay that accompanies Final Death.",
+        requirements: "Oblivion",
+    },
+    {
+        name: "Resume this Undead Coil",
+        description: "Vampires with this power wield mastery over their own undead condition, allowing them to rise from torpor and resurrect others from torpor freely.",
+        requirements: "Oblivion",
+    },
+    {
+        name: "Inurement",
+        description: "The pinnacle of necromancy is the assurance of both one's own death and one's return to unlife. This power allows the necromancer to immediately arise as a specter following their Final Death.",
+        requirements: "Oblivion",
+    },
 ]
 
 export const methuselahPowerSchema = z.object({

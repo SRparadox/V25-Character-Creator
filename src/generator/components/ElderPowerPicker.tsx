@@ -18,8 +18,8 @@ const ElderPowerPicker = ({ character, setCharacter, nextStep }: ElderPowerPicke
 
     const [selectedPowers, setSelectedPowers] = useState<ElderPower[]>(character.selectedElderPowers || [])
     
-    // Determine max selections based on whether Methuselah powers are active
-    const maxSelections = character.isMethuselah ? 4 : 2
+    // Determine max selections: 4 for Elder, 6 for Methuselah
+    const maxSelections = character.isMethuselah ? 6 : 4
 
     const handlePowerToggle = (power: ElderPower) => {
         const isSelected = selectedPowers.some(p => p.name === power.name)
