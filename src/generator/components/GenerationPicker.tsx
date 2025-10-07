@@ -90,6 +90,8 @@ const GenerationPicker = ({ character, setCharacter, nextStep }: GenerationPicke
                                       { value: "8", label: "8: ELDER Only - NPC" },
                                       { value: "7", label: "7: ELDER Only - NPC" },
                                       { value: "6", label: "6: ELDER Only - NPC" },
+                                      { value: "5", label: "5: METHUSELAH Only - NPC" },
+                                      { value: "4", label: "4: METHUSELAH Only - NPC" },
                                   ]
                         }
                     />
@@ -108,7 +110,16 @@ const GenerationPicker = ({ character, setCharacter, nextStep }: GenerationPicke
                                 label: "ghoul-no-generation",
                             })
                         } else {
-                            setCharacter({ ...character, generation: parseInt(generation ?? "0") })
+                            const generationValue = parseInt(generation ?? "0")
+                            const isElderGeneration = generationValue <= 9 && generationValue >= 6
+                            const isMethuselahGeneration = generationValue <= 5 && generationValue >= 4
+                            
+                            setCharacter({ 
+                                ...character, 
+                                generation: generationValue,
+                                isElder: isElderGeneration || isMethuselahGeneration,
+                                isMethuselah: isMethuselahGeneration
+                            })
                             ReactGA.event({
                                 action: "generation submit clicked",
                                 category: "generation",

@@ -71,6 +71,10 @@ export const getEmptyCharacter = (): Character => ({
     humanity: 0,
     merits: [],
     flaws: [],
+    isElder: false,
+    isMethuselah: false,
+    selectedElderPowers: [],
+    selectedMethuselahPowers: [],
 });
 import { z } from "zod"
 import { Power, powerSchema, ritualSchema, ceremonySchema } from "./Disciplines"
@@ -79,6 +83,7 @@ import { specialtySchema } from "./Specialties"
 import { skillsSchema } from "./Skills"
 import { attributesSchema } from "./Attributes"
 import { clanNameSchema, disciplineNameSchema, predatorTypeNameSchema, roleNameSchema } from "./NameSchemas"
+import { elderPowerSchema, methuselahPowerSchema } from "./ElderPowers"
 
 export const religionSchema = z.union([
     z.literal("Bahari"),
@@ -164,6 +169,12 @@ export const characterSchema = z.object({
 
     merits: meritFlawSchema.array(),
     flaws: meritFlawSchema.array(),
+
+    // Elder and Methuselah Powers
+    isElder: z.boolean().default(false),
+    isMethuselah: z.boolean().default(false),
+    selectedElderPowers: elderPowerSchema.array().default([]),
+    selectedMethuselahPowers: methuselahPowerSchema.array().default([]),
 
 })
 

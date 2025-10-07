@@ -9,6 +9,9 @@ import DisciplinesPicker from "./components/DisciplinesPicker"
 import { Power } from "../data/Disciplines";
 import Final from "./components/Final"
 import GenerationPicker from "./components/GenerationPicker"
+import AgePicker from "./components/AgePicker"
+import ElderPowerPicker from "./components/ElderPowerPicker"
+import MethuselahPowerPicker from "./components/MethuselahPowerPicker"
 import Intro from "./components/Intro"
 import MeritsAndFlawsPicker from "./components/MeritsAndFlawsPicker"
 import PredatorTypePicker from "./components/PredatorTypePicker"
@@ -34,10 +37,21 @@ export function getStepLabels(character: Character) {
         "Attributes",
         "Skills",
         "Generation",
-        character.clan === "Ghoul" ? "Role" : "Predator Type",
-        "Basics",
-        "Disciplines",
+        "Age",
     ];
+    
+    if (character.isElder || character.isMethuselah) {
+        labels.push("Elder Powers");
+    }
+    
+    if (character.isMethuselah) {
+        labels.push("Methuselah Powers");
+    }
+    
+    labels.push(character.clan === "Ghoul" ? "Role" : "Predator Type");
+    labels.push("Basics");
+    labels.push("Disciplines");
+    
     if (hasBloodSorcery) labels.push("Rituals");
     if (hasOblivion) labels.push("Ceremonies");
     if (hasThinBloodAlchemy) labels.push("Alchemy");
@@ -78,10 +92,21 @@ const Generator = ({ character, setCharacter, selectedStep, setSelectedStep }: G
         (props) => <AttributePicker {...props} />, // 4
         (props) => <SkillsPicker {...props} />, // 5
         (props) => <GenerationPicker {...props} />, // 6
-        (props) => character.clan === "Ghoul" ? <RolePicker {...props} /> : <PredatorTypePicker {...props} />, // 7
-        (props) => <BasicsPicker {...props} />, // 8
-        (props) => <DisciplinesPicker {...props} />, // 9
+        (props) => <AgePicker {...props} />, // 7
     ];
+    
+    if (character.isElder || character.isMethuselah) {
+        steps.push((props) => <ElderPowerPicker {...props} />);
+    }
+    
+    if (character.isMethuselah) {
+        steps.push((props) => <MethuselahPowerPicker {...props} />);
+    }
+    
+    steps.push((props) => character.clan === "Ghoul" ? <RolePicker {...props} /> : <PredatorTypePicker {...props} />);
+    steps.push((props) => <BasicsPicker {...props} />);
+    steps.push((props) => <DisciplinesPicker {...props} />);
+    
     if (hasBloodSorcery) steps.push((props) => <RitualsPicker {...props} />);
     if (hasOblivion) steps.push((props) => <CeremoniesPicker {...props} />);
     if (hasThinBloodAlchemy) steps.push((props) => <AlchemyPicker {...props} />);

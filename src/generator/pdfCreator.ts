@@ -307,8 +307,31 @@ const createPdf_nerdbert = async (character: Character): Promise<Uint8Array> => 
     const notesField = form.getTextField("PC_Notes")
     const currentNotes = notesField.getText ? notesField.getText() : ""
     let notesText = `Humanity: ${humanity}`
+    
+    // Add Elder Powers
+    if (character.selectedElderPowers && character.selectedElderPowers.length > 0) {
+        notesText += `\n\nELDER POWERS:`
+        character.selectedElderPowers.forEach(power => {
+            notesText += `\n• ${power.name}: ${power.description}`
+            if (power.requirements) {
+                notesText += ` (Requires: ${power.requirements})`
+            }
+        })
+    }
+    
+    // Add Methuselah Powers
+    if (character.selectedMethuselahPowers && character.selectedMethuselahPowers.length > 0) {
+        notesText += `\n\nMETHUSELAH POWERS:`
+        character.selectedMethuselahPowers.forEach(power => {
+            notesText += `\n• ${power.name}: ${power.description}`
+            if (power.requirements) {
+                notesText += ` (Requires: ${power.requirements})`
+            }
+        })
+    }
+    
     if (character.notes && character.notes.trim()) {
-        notesText += `\n${character.notes.trim()}`
+        notesText += `\n\nADDITIONAL NOTES:\n${character.notes.trim()}`
     }
     if (currentNotes) {
         notesText += `\n${currentNotes}`
