@@ -1,4 +1,4 @@
-import { Button, Checkbox, Space, Stack, Text, ScrollArea, Group, Card, Alert } from "@mantine/core"
+import { Button, Checkbox, Space, Stack, Text, Group, Card, Alert, Accordion } from "@mantine/core"
 import { useEffect, useState } from "react"
 import { Character } from "../../data/Character"
 import { elderPowers, ElderPower } from "../../data/ElderPowers"
@@ -20,6 +20,23 @@ const ElderPowerPicker = ({ character, setCharacter, nextStep }: ElderPowerPicke
     
     // Determine max selections: 4 for Elder, 6 for Methuselah
     const maxSelections = character.isMethuselah ? 6 : 4
+
+    // Group powers by discipline
+    const groupedPowers = elderPowers.reduce((groups, power) => {
+        const discipline = power.requirements || "General"
+        if (!groups[discipline]) {
+            groups[discipline] = []
+        }
+        groups[discipline].push(power)
+        return groups
+    }, {} as Record<string, ElderPower[]>)
+
+    // Sort disciplines alphabetically, but put General first
+    const sortedDisciplines = Object.keys(groupedPowers).sort((a, b) => {
+        if (a === "General") return -1
+        if (b === "General") return 1
+        return a.localeCompare(b)
+    })
 
     const handlePowerToggle = (power: ElderPower) => {
         const isSelected = selectedPowers.some(p => p.name === power.name)
@@ -54,52 +71,63 @@ const ElderPowerPicker = ({ character, setCharacter, nextStep }: ElderPowerPicke
                 All selected Elder and Methuselah Powers will be added to the Notes section of your character sheet.
             </Alert>
 
-            <ScrollArea h={400} style={{ width: "100%" }}>
-                <Stack spacing="sm">
-                    {elderPowers.map((power) => {
-                        const isSelected = selectedPowers.some(p => p.name === power.name)
-                        const canSelect = selectedPowers.length < maxSelections || isSelected
-                        
-                        return (
-                            <Card
-                                key={power.name}
-                                p="md"
-                                withBorder
-                                style={{
-                                    cursor: canSelect ? "pointer" : "not-allowed",
-                                    opacity: canSelect ? 1 : 0.6,
-                                    backgroundColor: isSelected ? "#f0f0f0" : "white",
-                                    border: isSelected ? "2px solid #e03131" : "1px solid #ddd"
-                                }}
-                                onClick={() => canSelect && handlePowerToggle(power)}
-                            >
-                                <Group position="apart" align="flex-start">
-                                    <div style={{ flex: 1 }}>
-                                        <Group spacing="sm" align="center">
-                                            <Checkbox
-                                                checked={isSelected}
-                                                readOnly
-                                                style={{ pointerEvents: "none" }}
-                                            />
-                                            <div>
-                                                <Text fw={600} size="md">{power.name}</Text>
-                                                {power.requirements && (
-                                                    <Text size="sm" c="dimmed" italic>
-                                                        Requires: {power.requirements}
+            <Accordion variant="contained" style={{ width: "100%" }}>
+                {sortedDisciplines.map((discipline) => (
+                    <Accordion.Item key={discipline} value={discipline}>
+                        <Accordion.Control>
+                            <Text fw={600} size="md">
+                                {discipline} ({groupedPowers[discipline].length} powers)
+                            </Text>
+                        </Accordion.Control>
+                        <Accordion.Panel>
+                            <Stack spacing="sm">
+                                {groupedPowers[discipline].map((power) => {
+                                    const isSelected = selectedPowers.some(p => p.name === power.name)
+                                    const canSelect = selectedPowers.length < maxSelections || isSelected
+                                    
+                                    return (
+                                        <Card
+                                            key={power.name}
+                                            p="md"
+                                            withBorder
+                                            style={{
+                                                cursor: canSelect ? "pointer" : "not-allowed",
+                                                opacity: canSelect ? 1 : 0.6,
+                                                backgroundColor: isSelected ? "#f0f0f0" : "white",
+                                                border: isSelected ? "2px solid #e03131" : "1px solid #ddd"
+                                            }}
+                                            onClick={() => canSelect && handlePowerToggle(power)}
+                                        >
+                                            <Group position="apart" align="flex-start">
+                                                <div style={{ flex: 1 }}>
+                                                    <Group spacing="sm" align="center">
+                                                        <Checkbox
+                                                            checked={isSelected}
+                                                            readOnly
+                                                            style={{ pointerEvents: "none" }}
+                                                        />
+                                                        <div>
+                                                            <Text fw={600} size="md">{power.name}</Text>
+                                                            {power.requirements && power.requirements !== discipline && (
+                                                                <Text size="sm" c="dimmed" italic>
+                                                                    Requires: {power.requirements}
+                                                                </Text>
+                                                            )}
+                                                        </div>
+                                                    </Group>
+                                                    <Text size="sm" mt="xs" style={{ lineHeight: 1.4 }}>
+                                                        {power.description}
                                                     </Text>
-                                                )}
-                                            </div>
-                                        </Group>
-                                        <Text size="sm" mt="xs" style={{ lineHeight: 1.4 }}>
-                                            {power.description}
-                                        </Text>
-                                    </div>
-                                </Group>
-                            </Card>
-                        )
-                    })}
-                </Stack>
-            </ScrollArea>
+                                                </div>
+                                            </Group>
+                                        </Card>
+                                    )
+                                })}
+                            </Stack>
+                        </Accordion.Panel>
+                    </Accordion.Item>
+                ))}
+            </Accordion>
 
             <Space h="md" />
             
