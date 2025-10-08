@@ -271,9 +271,36 @@ export const thinbloodMeritsAndFlaws: MeritsAndFlaws = {
         { name: "Vitae Dependency", cost: [1], summary: "Need to drink Vampire vitae once a week to use Disciplines" },
     ],
 }
+export const elderMeritsAndFlaws: MeritsAndFlaws = {
+    title: "Elder Merits & Flaws",
+    merits: [
+        { name: "Loyal Childe", cost: [5], summary: "Your childe's loyalty goes beyond any Blood Bond, being born of true affection and admiration. She would do almost anything to aid you, and you trust her as you do no other among the Kindred. This Childe is built as an Ancillae and when you call, they come as soon as possible, usually appearing once per Story." },
+        { name: "Holdings", cost: [5], summary: "During your long existence, you have acquired several properties that you have been modifying for years to provide you with protection, numerous places to rest and emergency escape routes. This counts as a rating 3 Haven with 4 Haven Merits." },
+        { name: "Paramour", cost: [5], summary: "You have a long-term amorous relationship with another Elder. This lover has almost no secrets to you and vice versa, aiding each other during the ages. The Paramour is built as an Elder and when you call, they come as soon as possible, usually appearing once per Story." },
+        { name: "Paranoia", cost: [3], summary: "You know that there are many vampires, hunters, Garou and the like who would love to destroy you. You go out of your way to prepare contingency plans, vary your movement patterns and habits, and otherwise make yourself a difficult target. Once per story, you can choose to automatically succeed in a roll against an Ambush." },
+        { name: "Patience", cost: [3], summary: "Those who wait and watch are in a position to take full advantage of the vagaries of time. Once per story, you can choose to automatically overcome a Frenzy check. For the rest of the Scene, all subsequent provocations are at +1 Difficulty." },
+        { name: "Military Force", cost: [5], summary: "When a vampire reaches Elder status, they finally get the chance to gain control of human institutions that prevail through force. This may include local police, troopers, FBI, street gangs, crime bosses, biker packs or bands of thrill-seeking young people. Build them as a well-armed group of Gifted Mortals and when you call, they come as soon as possible, usually appearing once per Story." },
+        { name: "Beckoning Resistance", cost: [3], summary: "Similar to the merit Bond Resistance, your Blood rebels against control from the Antediluvians. Add two die to your dice pools to resist the Beckoning." },
+    ],
+    flaws: [
+        { name: "Vengeful Childe", cost: [5], summary: "You have sired another Kindred that hates you. Not only does your childe not aid you in your dealings with others, but she actively works towards your detriment. She and her pawns might screw one of your operations in a way that forces you to personally intervene to fix it. This Childe is built as an Ancillae and her merits are spent into a personal 'army' that seeks your destruction." },
+        { name: "Death Wish", cost: [3], summary: "You have an unconscious wish to die the True Death. Twice per Session, the Storyteller might ask you to reroll a successful Skill check. This second roll can be enhanced by spending Willpower as normal. The least successful of the two rolls is the actual result of your action." },
+        { name: "Emotional Isolation", cost: [5], summary: "You have seen too many friends and family, Kindred and kine alike, swept away on the river of time and cast into oblivion. The pain of seeing so many die while you continued to exist was so horrible, that you have now isolated yourself emotionally from all others. When you accrue Stains from those around you getting hurt, you cannot mitigate them with your Convictions." },
+        { name: "Ennui", cost: [3], summary: "You have seen enough to know that nothing is ever truly new: the same events and so-called passions are merely replayed again and again, with only the faces and names shifting as the many, many years go by. You rarely pay attention to those around you, assuming you know all there is to know of them once you have determined what part they play on the world stage. You are unable to perform Insight and Awareness rolls on people you already know unless you spend Willpower." },
+        { name: "Jilted Paramour", cost: [5], summary: "You had a long-term relationship with a fellow Elder. With time you grew weary and ended it. Unfortunately, she did not take the ending of the affair well and has apparently developed a strong antipathy for you. You both know many of each other's secrets and this has caused a stalemate thus far. The Paramour is built as an Elder and might be behind inexplicable failed enterprises or against you directly when the Storyteller decides to." },
+        { name: "Extreme Paranoia", cost: [3], summary: "You are constantly alert for signs that one or more of your acquaintances are actually seeking to commit diablerie upon you, stake you, or worse. Whenever someone you know performs an act that appears selfless, you must make a successful Frenzy check against a Difficulty decided by the Storyteller to resist branding them traitors and attack them in Fury Frenzy." },
+        { name: "Routine", cost: [3], summary: "Through the ages you have settled into somewhat of a routine. You tend to go to the same places at the same time of the year, and to move from haven to haven in a predictable order. If others studied your behaviour closely, they might be able to take advantage of it to do you harm. If the circumstances are appropriate, once per Story, the Storyteller might ask you to automatically fail a roll against an Ambush." },
+        { name: "Beckoning Junkie", cost: [3], summary: "Similar to the flaw Bond Junkie, the Call is too sweet for you to resist. Subtract two die from your dice pools to act against the Beckoning. This flaw should only be taken if the Storyteller opts to use the mechanical system for the Beckoning." },
+    ],
+}
+
 export const isThinbloodMerit = (m: string) => !!thinbloodMeritsAndFlaws.merits.find((tbm) => tbm.name === m)
 export const isThinbloodFlaw = (f: string) => !!thinbloodMeritsAndFlaws.flaws.find((tbf) => tbf.name === f)
 export const isThinbloodMeritOrFlaw = (mf: string) => isThinbloodMerit(mf) || isThinbloodFlaw(mf)
+
+export const isElderMerit = (m: string) => !!elderMeritsAndFlaws.merits.find((em) => em.name === m)
+export const isElderFlaw = (f: string) => !!elderMeritsAndFlaws.flaws.find((ef) => ef.name === f)
+export const isElderMeritOrFlaw = (mf: string) => isElderMerit(mf) || isElderFlaw(mf)
 
 export const isGhoulMerit = (m: string) => !!ghoulMeritsAndFlaws.some(category => category.merits.find((gm) => gm.name === m))
 export const isGhoulFlaw = (f: string) => !!ghoulMeritsAndFlaws.some(category => category.flaws.find((gf) => gf.name === f))

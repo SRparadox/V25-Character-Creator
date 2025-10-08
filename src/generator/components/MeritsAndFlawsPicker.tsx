@@ -4,7 +4,7 @@ import { Button, Divider, Grid, ScrollArea, Stack, Tabs, Text, useMantineTheme }
 import { useEffect, useState } from "react"
 import ReactGA from "react-ga4"
 import { Character, MeritFlaw } from "../../data/Character"
-import { isThinbloodFlaw, isThinbloodMerit, isGhoulFlaw, isGhoulMerit, MeritOrFlaw, meritsAndFlaws, thinbloodMeritsAndFlaws, ghoulMeritsAndFlaws, bargainFlaws } from "../../data/MeritsAndFlaws"
+import { isThinbloodFlaw, isThinbloodMerit, isGhoulFlaw, isGhoulMerit, isElderFlaw, isElderMerit, MeritOrFlaw, meritsAndFlaws, thinbloodMeritsAndFlaws, ghoulMeritsAndFlaws, elderMeritsAndFlaws, bargainFlaws } from "../../data/MeritsAndFlaws"
 import { PredatorTypes } from "../../data/PredatorType"
 import { globals } from "../../globals"
 import { Loresheets } from "./Loresheets"
@@ -33,8 +33,9 @@ const MeritsAndFlawsPicker = ({ character, setCharacter, nextStep }: MeritsAndFl
     const [pickedMeritsAndFlaws, setPickedMeritsAndFlaws] = useState<MeritFlaw[]>([...character.merits, ...character.flaws])
 
     const isGhoul = character.clan === "Ghoul"
-    const usedMeritsLevel = character.merits.filter((m) => !isThinbloodMerit(m.name) && !isGhoulMerit(m.name)).reduce((acc, { level }) => acc + level, 0)
-    const usedFLawsLevel = character.flaws.filter((f) => !isThinbloodFlaw(f.name) && !isGhoulFlaw(f.name)).reduce((acc, { level }) => acc + level, 0)
+    const isElder = character.isElder || character.isMethuselah
+    const usedMeritsLevel = character.merits.filter((m) => !isThinbloodMerit(m.name) && !isGhoulMerit(m.name) && !isElderMerit(m.name)).reduce((acc, { level }) => acc + level, 0)
+    const usedFLawsLevel = character.flaws.filter((f) => !isThinbloodFlaw(f.name) && !isGhoulFlaw(f.name) && !isElderFlaw(f.name)).reduce((acc, { level }) => acc + level, 0)
 
     const [remainingMerits, setRemainingMerits] = useState(7 - usedMeritsLevel)
     const [remainingFlaws, setRemainingFlaws] = useState(2 - usedFLawsLevel)
@@ -43,6 +44,11 @@ const MeritsAndFlawsPicker = ({ character, setCharacter, nextStep }: MeritsAndFl
     const tbMeritCount = character.merits.filter((m) => isThinbloodMerit(m.name)).length
     const tbFlawCount = character.flaws.filter((f) => isThinbloodFlaw(f.name)).length
     const [remainingThinbloodMeritPoints, setRemainingThinbloodMeritPoints] = useState(tbFlawCount - tbMeritCount)
+
+    // Elder merit/flaw balance - similar to thin-blood system
+    const elderMeritCount = character.merits.filter((m) => isElderMerit(m.name)).length
+    const elderFlawCount = character.flaws.filter((f) => isElderFlaw(f.name)).length
+    const [remainingElderMeritPoints, setRemainingElderMeritPoints] = useState(elderFlawCount - elderMeritCount)
 
     const getMeritOrFlawLine = (meritOrFlaw: MeritOrFlaw, type: "flaw" | "merit" | "bargainflaw" = "merit"): JSX.Element => {
         const isBargain = (meritOrFlaw as any).type === "bargainflaw"
@@ -78,6 +84,11 @@ const MeritsAndFlawsPicker = ({ character, setCharacter, nextStep }: MeritsAndFl
                         } else if (isThinbloodMerit(meritOrFlaw.name)) {
                             if (remainingThinbloodMeritPoints < cost) return
                             setRemainingThinbloodMeritPoints(remainingThinbloodMeritPoints - 1)
+                        } else if (isElderFlaw(meritOrFlaw.name)) {
+                            setRemainingElderMeritPoints(remainingElderMeritPoints + 1)
+                        } else if (isElderMerit(meritOrFlaw.name)) {
+                            if (remainingElderMeritPoints < 1) return
+                            setRemainingElderMeritPoints(remainingElderMeritPoints - 1)
                         } else if (isGhoulFlaw(meritOrFlaw.name)) {
                             if (remainingFlaws + wasPickedLevel < cost) return
                             setRemainingFlaws(remainingFlaws + wasPickedLevel - cost)
@@ -124,6 +135,10 @@ const MeritsAndFlawsPicker = ({ character, setCharacter, nextStep }: MeritsAndFl
                                     setRemainingThinbloodMeritPoints(remainingThinbloodMeritPoints - 1)
                                 } else if (isThinbloodMerit(meritOrFlaw.name)) {
                                     setRemainingThinbloodMeritPoints(remainingThinbloodMeritPoints + 1)
+                                } else if (isElderFlaw(meritOrFlaw.name)) {
+                                    setRemainingElderMeritPoints(remainingElderMeritPoints - 1)
+                                } else if (isElderMerit(meritOrFlaw.name)) {
+                                    setRemainingElderMeritPoints(remainingElderMeritPoints + 1)
                                 } else if (isGhoulFlaw(meritOrFlaw.name)) {
                                     setRemainingFlaws(remainingFlaws + cost)
                                 } else if (isGhoulMerit(meritOrFlaw.name)) {
@@ -146,7 +161,7 @@ const MeritsAndFlawsPicker = ({ character, setCharacter, nextStep }: MeritsAndFl
     }
 
     const height = globals.viewportHeightPx
-    const isConfirmDisabled = !globals.devMode && isThinBlood && remainingThinbloodMeritPoints < 0
+    const isConfirmDisabled = !globals.devMode && ((isThinBlood && remainingThinbloodMeritPoints < 0) || (isElder && remainingElderMeritPoints < 0))
     return (
         <Stack align="center" mt={100}>
             {globals.devMode && (
@@ -192,6 +207,16 @@ const MeritsAndFlawsPicker = ({ character, setCharacter, nextStep }: MeritsAndFl
                                 </Text>
                             </>
                         ) : null}
+                        {isElder ? (
+                            <>
+                                <Text fz={globals.largeFontSize} ta={"center"} c={theme.colors.orange[6]}>
+                                    Pick Elder flaws to gain Elder merit points
+                                </Text>
+                                <Text fz={globals.smallFontSize} ta={"center"} c={theme.colors.orange[6]}>
+                                    Points: {remainingElderMeritPoints}
+                                </Text>
+                            </>
+                        ) : null}
                         <Grid m={0}>
                             {/* Thinbloods */}
                             {isThinBlood ? thinBloodMeritsAndFlawsComponent(getMeritOrFlawLine) : null}
@@ -199,7 +224,10 @@ const MeritsAndFlawsPicker = ({ character, setCharacter, nextStep }: MeritsAndFl
                             {/* Ghouls */}
                             {isGhoul ? ghoulMeritsAndFlawsComponent(getMeritOrFlawLine) : null}
 
-                            {/* Regular merits and flaws (hidden for Thinbloods and Ghouls) */}
+                            {/* Elders */}
+                            {isElder ? elderMeritsAndFlawsComponent(getMeritOrFlawLine) : null}
+
+                            {/* Regular merits and flaws (hidden for Thinbloods, Ghouls, and shows all for Elders) */}
                             {!isThinBlood && !isGhoul && meritsAndFlaws.map((category) => {
                                 return (
                                     <Grid.Col span={6} key={category.title}>
@@ -229,7 +257,15 @@ const MeritsAndFlawsPicker = ({ character, setCharacter, nextStep }: MeritsAndFl
                 </Tabs.Panel>
             </Tabs>
 
-            {isConfirmDisabled ? <Text c={theme.colors.red[9]}>Need to balance Thin-blood merit points</Text> : null}
+            {isConfirmDisabled ? (
+                <Text c={theme.colors.red[9]}>
+                    {isThinBlood && remainingThinbloodMeritPoints < 0 
+                        ? "Need to balance Thin-blood merit points"
+                        : isElder && remainingElderMeritPoints < 0
+                        ? "Need to balance Elder merit points" 
+                        : "Need to balance merit points"}
+                </Text>
+            ) : null}
             <Button
                 color="grape"
                 disabled={isConfirmDisabled}
@@ -276,6 +312,35 @@ function thinBloodMeritsAndFlawsComponent(getMeritOrFlawLine: (meritOrFlaw: Meri
                     <Divider mt={0} w={"50%"} />
 
                     {thinbloodMeritsAndFlaws.flaws.map((flaw) => getMeritOrFlawLine(flaw, "flaw"))}
+                </Stack>
+            </Grid.Col>
+
+            <Divider mt={0} w={"100%"} my={"lg"} />
+        </>
+    )
+}
+
+function elderMeritsAndFlawsComponent(getMeritOrFlawLine: (meritOrFlaw: MeritOrFlaw, type: "flaw" | "merit") => JSX.Element) {
+    return (
+        <>
+            <Grid.Col span={6}>
+                <Stack spacing={"xs"}>
+                    <Text fw={700} size={"xl"} c="orange">
+                        Elder merits
+                    </Text>
+                    <Divider mt={0} w={"50%"} />
+
+                    {elderMeritsAndFlaws.merits.map((merit) => getMeritOrFlawLine(merit, "merit"))}
+                </Stack>
+            </Grid.Col>
+            <Grid.Col span={6}>
+                <Stack spacing={"xs"}>
+                    <Text fw={700} size={"xl"} c="orange">
+                        Elder flaws
+                    </Text>
+                    <Divider mt={0} w={"50%"} />
+
+                    {elderMeritsAndFlaws.flaws.map((flaw) => getMeritOrFlawLine(flaw, "flaw"))}
                 </Stack>
             </Grid.Col>
 
