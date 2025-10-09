@@ -27,9 +27,70 @@ const AttributePicker = ({ character, setCharacter, nextStep }: AttributePickerP
 
     const [pickedAttributes, setPickedAttributes] = useState<AttributeSetting>({ strongest: null, weakest: null, medium: [] })
 
+    // Dev mode helper functions
+    const incrementAttribute = (attribute: AttributesKey) => {
+        const currentValue = character.attributes[attribute]
+        if (currentValue < 5) {
+            setCharacter({
+                ...character,
+                attributes: {
+                    ...character.attributes,
+                    [attribute]: currentValue + 1
+                }
+            })
+        }
+    }
+
+    const decrementAttribute = (attribute: AttributesKey) => {
+        const currentValue = character.attributes[attribute]
+        if (currentValue > 1) {
+            setCharacter({
+                ...character,
+                attributes: {
+                    ...character.attributes,
+                    [attribute]: currentValue - 1
+                }
+            })
+        }
+    }
+
     const createButton = (attribute: AttributesKey, i: number) => {
         const alreadyPicked = [pickedAttributes.strongest, pickedAttributes.weakest, ...pickedAttributes.medium].includes(attribute)
 
+        // In dev mode, show manual controls
+        if (globals.devMode) {
+            const currentValue = character.attributes[attribute]
+            
+            return (
+                <Grid.Col key={attribute} span={4}>
+                    <Group spacing="xs" position="center" align="center">
+                        <Button
+                            size="xs"
+                            color="red"
+                            onClick={() => decrementAttribute(attribute)}
+                            disabled={currentValue <= 1}
+                        >
+                            -
+                        </Button>
+                        <div style={{ textAlign: 'center', minWidth: '80px' }}>
+                            <Text size="sm" weight={500}>{upcase(attribute)}</Text>
+                            <Text size="lg" weight={700}>{currentValue}</Text>
+                        </div>
+                        <Button
+                            size="xs"
+                            color="green"
+                            onClick={() => incrementAttribute(attribute)}
+                            disabled={currentValue >= 5}
+                        >
+                            +
+                        </Button>
+                    </Group>
+                    {i % 3 === 0 || i % 3 === 1 ? <Divider size="xl" orientation="vertical" /> : null}
+                </Grid.Col>
+            )
+        }
+
+        // Original selection logic for normal mode
         let onClick: () => void
         if (alreadyPicked) {
             onClick = () => {
@@ -128,19 +189,27 @@ const AttributePicker = ({ character, setCharacter, nextStep }: AttributePickerP
 
     return (
         <div>
-            <Text style={strongestStyle} ta={"center"}>
-                {toPick === "strongest" ? ">" : ""} Pick your <b>strongest</b> attribute! (lvl 4)
-            </Text>
-            <Text style={weakestStyle} ta={"center"}>
-                {toPick === "weakest" ? ">" : ""} Pick your <b> weakest</b> attribute! (lvl 1)
-            </Text>
-            <Text style={mediumStyle} ta={"center"}>
-                {toPick === "medium" ? ">" : ""} Pick <b>{3 - pickedAttributes.medium.length} medium</b> attribute
-                {pickedAttributes.medium.length < 2 ? "s" : ""}! (lvl 3)
-            </Text>
-            <Text style={{ fontSize: "14px", color: "grey" }} ta={"center"}>
-                Remaining attributes will be lvl 2
-            </Text>
+            {globals.devMode ? (
+                <Text ta="center" fz="xl" fw={700} c="blue" mb="md">
+                    DEV MODE: Manual Attribute Control
+                </Text>
+            ) : (
+                <>
+                    <Text style={strongestStyle} ta={"center"}>
+                        {toPick === "strongest" ? ">" : ""} Pick your <b>strongest</b> attribute! (lvl 4)
+                    </Text>
+                    <Text style={weakestStyle} ta={"center"}>
+                        {toPick === "weakest" ? ">" : ""} Pick your <b> weakest</b> attribute! (lvl 1)
+                    </Text>
+                    <Text style={mediumStyle} ta={"center"}>
+                        {toPick === "medium" ? ">" : ""} Pick <b>{3 - pickedAttributes.medium.length} medium</b> attribute
+                        {pickedAttributes.medium.length < 2 ? "s" : ""}! (lvl 3)
+                    </Text>
+                    <Text style={{ fontSize: "14px", color: "grey" }} ta={"center"}>
+                        Remaining attributes will be lvl 2
+                    </Text>
+                </>
+            )}
 
             <Text mt={"xl"} ta="center" fz="xl" fw={700} c="red">
                 Attributes
@@ -170,6 +239,14 @@ const AttributePicker = ({ character, setCharacter, nextStep }: AttributePickerP
                         .map((clan, i) => createButton(clan, i))}
                 </Grid>
             </Group>
+
+            {globals.devMode && (
+                <Group position="center" mt="xl">
+                    <Button onClick={nextStep} color="grape">
+                        Continue to Next Step
+                    </Button>
+                </Group>
+            )}
         </div>
     )
 }

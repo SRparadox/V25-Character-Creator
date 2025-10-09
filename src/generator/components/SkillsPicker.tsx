@@ -69,6 +69,33 @@ const SkillsPicker = ({ character, setCharacter, nextStep }: SkillsPickerProps) 
     const [pickedDistribution, setPickedDistribution] = useState<DistributionKey | null>(null)
     const distr = pickedDistribution ? distributionByType[pickedDistribution] : { special: 0, strongest: 0, decent: 0, acceptable: 0 }
 
+    // Dev mode helper functions
+    const incrementSkill = (skill: SkillsKey) => {
+        const currentValue = character.skills[skill]
+        if (currentValue < 5) {
+            setCharacter({
+                ...character,
+                skills: {
+                    ...character.skills,
+                    [skill]: currentValue + 1
+                }
+            })
+        }
+    }
+
+    const decrementSkill = (skill: SkillsKey) => {
+        const currentValue = character.skills[skill]
+        if (currentValue > 0) {
+            setCharacter({
+                ...character,
+                skills: {
+                    ...character.skills,
+                    [skill]: currentValue - 1
+                }
+            })
+        }
+    }
+
     const createButton = (skill: SkillsKey, i: number) => {
         const alreadyPicked = [
             ...pickedSkills.special,
@@ -77,6 +104,40 @@ const SkillsPicker = ({ character, setCharacter, nextStep }: SkillsPickerProps) 
             ...pickedSkills.acceptable,
         ].includes(skill)
 
+        // In dev mode, show manual controls
+        if (globals.devMode) {
+            const currentValue = character.skills[skill]
+            
+            return (
+                <Grid.Col key={skill} span={4}>
+                    <Group spacing="xs" position="center" align="center">
+                        <Button
+                            size="xs"
+                            color="red"
+                            onClick={() => decrementSkill(skill)}
+                            disabled={currentValue <= 0}
+                        >
+                            -
+                        </Button>
+                        <div style={{ textAlign: 'center', minWidth: '80px' }}>
+                            <Text size="sm" weight={500}>{upcase(skill)}</Text>
+                            <Text size="lg" weight={700}>{currentValue}</Text>
+                        </div>
+                        <Button
+                            size="xs"
+                            color="green"
+                            onClick={() => incrementSkill(skill)}
+                            disabled={currentValue >= 5}
+                        >
+                            +
+                        </Button>
+                    </Group>
+                    {i % 3 === 0 || i % 3 === 1 ? <Divider size="xl" orientation="vertical" /> : null}
+                </Grid.Col>
+            )
+        }
+
+        // Original selection logic for normal mode
         let onClick: () => void
         if (alreadyPicked) {
             onClick = () => {
@@ -269,36 +330,44 @@ const SkillsPicker = ({ character, setCharacter, nextStep }: SkillsPickerProps) 
 
     return (
         <div style={{ marginTop: height < heightBreakPoint ? "40px" : 0 }}>
-            {!pickedDistribution ? (
-                <Text fz={globals.largeFontSize} ta={"center"}>
-                    Pick your <b>Skill Distribution</b>
+            {globals.devMode ? (
+                <Text ta="center" fz="xl" fw={700} c="blue" mb="md">
+                    DEV MODE: Manual Skill Control
                 </Text>
             ) : (
                 <>
-                    <Text style={{ fontSize: globals.smallerFontSize, color: "grey" }} ta={"center"}>
-                        {pickedDistribution}
-                    </Text>
-                    {pickedDistribution === "Specialist" ? (
-                        <Text style={specialStyle} fz={"30px"} ta={"center"}>
-                            {toPick === "special" ? ">" : ""} Pick your <b>{distr.special - pickedSkills.special.length} specialty</b> skill
+                    {!pickedDistribution ? (
+                        <Text fz={globals.largeFontSize} ta={"center"}>
+                            Pick your <b>Skill Distribution</b>
                         </Text>
-                    ) : null}
-                    <Text style={strongestStyle} ta={"center"}>
-                        {toPick === "strongest" ? ">" : ""} Pick your <b>{distr.strongest - pickedSkills.strongest.length} strongest</b>{" "}
-                        skills
-                    </Text>
-                    <Text style={decentStyle} ta={"center"}>
-                        {toPick === "decent" ? ">" : ""} Pick <b>{distr.decent - pickedSkills.decent.length}</b> skills you&apos;re{" "}
-                        <b>decent</b> in
-                    </Text>
-                    <Text style={acceptableStyle} ta={"center"}>
-                        {toPick === "acceptable" ? ">" : ""} Pick <b>{distr.acceptable - pickedSkills.acceptable.length}</b> skills
-                        you&apos;re <b>ok</b> in
-                    </Text>
+                    ) : (
+                        <>
+                            <Text style={{ fontSize: globals.smallerFontSize, color: "grey" }} ta={"center"}>
+                                {pickedDistribution}
+                            </Text>
+                            {pickedDistribution === "Specialist" ? (
+                                <Text style={specialStyle} fz={"30px"} ta={"center"}>
+                                    {toPick === "special" ? ">" : ""} Pick your <b>{distr.special - pickedSkills.special.length} specialty</b> skill
+                                </Text>
+                            ) : null}
+                            <Text style={strongestStyle} ta={"center"}>
+                                {toPick === "strongest" ? ">" : ""} Pick your <b>{distr.strongest - pickedSkills.strongest.length} strongest</b>{" "}
+                                skills
+                            </Text>
+                            <Text style={decentStyle} ta={"center"}>
+                                {toPick === "decent" ? ">" : ""} Pick <b>{distr.decent - pickedSkills.decent.length}</b> skills you&apos;re{" "}
+                                <b>decent</b> in
+                            </Text>
+                            <Text style={acceptableStyle} ta={"center"}>
+                                {toPick === "acceptable" ? ">" : ""} Pick <b>{distr.acceptable - pickedSkills.acceptable.length}</b> skills
+                                you&apos;re <b>ok</b> in
+                            </Text>
+                        </>
+                    )}
                 </>
             )}
 
-            {pickedDistribution !== null ? null : (
+            {globals.devMode ? null : pickedDistribution !== null ? null : (
                 <>
                     <Space h="xl" />
                     <Grid grow>
@@ -340,6 +409,14 @@ const SkillsPicker = ({ character, setCharacter, nextStep }: SkillsPickerProps) 
             <Space h="sm" />
 
             {height < heightBreakPoint ? <ScrollArea h={height - 340}>{createSkillButtons()}</ScrollArea> : createSkillButtons()}
+
+            {globals.devMode && (
+                <Group position="center" mt="xl">
+                    <Button onClick={nextStep} color="grape">
+                        Continue to Next Step
+                    </Button>
+                </Group>
+            )}
 
             <SpecialtyModal
                 modalOpened={modalOpened}
