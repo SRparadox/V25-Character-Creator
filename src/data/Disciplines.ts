@@ -678,7 +678,7 @@ export const disciplines: Record<DisciplineName, Discipline> = {
     },
     potence: {
         clans: [
-            "Nosferatu", "Brujah", "Lasombra", "Gargoyle", "Caitiff"
+            "Nosferatu", "Brujah", "Lasombra", "Caitiff"
         ],
         summary: "Gain supernatural strength",
         logo: potenceLogo,
@@ -689,7 +689,6 @@ export const disciplines: Record<DisciplineName, Discipline> = {
             { name: "Surge of Tenacity", description: "Buffs Blood Surge.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Buffs Blood Surge.", dicePool: "Strength + Potence", level: 1, discipline: "potence" },
             { name: "Reckless Berserker", description: "Beast powered attack at the cost of self-preservation. (Amalgam: Protean 1)", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "protean", level: 1 }], summary: "Beast powered attack at the cost of self-preservation.", dicePool: "Strength + Potence", level: 1, discipline: "potence" },
             { name: "Soaring Leap", description: "Jump enormous distances.", rouseChecks: 0, amalgamPrerequisites: [], summary: "Jump enormous distances.", dicePool: "Strength + Potence", level: 1, discipline: "potence" },
-            { name: "Flight", description: "Prerequisite: Fortitude 1, The Gargoyle spreads her wings and takes flight gliding and even ascending with the power of her strength and speed. Cost: Free. System: The Gargoyle can fly at her normal movement rate, modified by any active levels of Celerity during combat rounds. When flying overland as part of a travel Scene, she can move at about 20 miles per hour per level of Potence she possesses, as the crow flies; potentially allowing her to cross the Bay Area in a matter of minutes. Most Gargoyles wait to try such Masquerade breaching stunts until they've learned a few levels of Obfuscate. (Amalgam: Fortitude 1)", rouseChecks: 0, amalgamPrerequisites: [{ discipline: "fortitude", level: 1 }], summary: "The Gargoyle spreads her wings and takes flight.", dicePool: "Dexterity + Athletics", level: 1, discipline: "potence" },
 
             // Level 2
             { name: "Prowess", description: "Add Potence to damage dealt.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Add Potence to damage dealt.", dicePool: "Strength + Potence", level: 2, discipline: "potence" },
@@ -782,6 +781,7 @@ export const disciplines: Record<DisciplineName, Discipline> = {
             { name: "Skin Taker", description: "Temporarily transform into an animal when eating the bones.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Temporarily transform into an animal when eating the bones.", dicePool: "Stamina + Protean", level: 1, discipline: "protean" },
             { name: "Stiring Mien", description: "Superficially alter your appearance. (Amalgam: Auspex 1)", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "auspex", level: 1 }], summary: "Superficially alter your appearance.", dicePool: "Manipulation + Protean", level: 1, discipline: "protean" },
             { name: "Weight of the Feather", description: "Become weightless.", rouseChecks: 0, amalgamPrerequisites: [], summary: "Become weightless.", dicePool: "Dexterity + Protean", level: 1, discipline: "protean" },
+            { name: "Flight", description: "Prerequisite: Fortitude 1, The Gargoyle spreads her wings and takes flight gliding and even ascending with the power of her strength and speed. Cost: Free. System: The Gargoyle can fly at her normal movement rate, modified by any active levels of Celerity during combat rounds. When flying overland as part of a travel Scene, she can move at about 20 miles per hour per level of Protean she possesses, as the crow flies; potentially allowing her to cross the Bay Area in a matter of minutes. Most Gargoyles wait to try such Masquerade breaching stunts until they've learned a few levels of Obfuscate. (Amalgam: Fortitude 1)", rouseChecks: 0, amalgamPrerequisites: [{ discipline: "fortitude", level: 1 }], summary: "The Gargoyle spreads her wings and takes flight.", dicePool: "Dexterity + Athletics", level: 1, discipline: "protean" },
 
             // Level 2
             { name: "The False Sip", description: "Taste blood without being affected. (Amalgam: Fortitude 1)", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "fortitude", level: 1 }], summary: "Taste blood without being affected.", dicePool: "Wits + Protean", level: 2, discipline: "protean" },
