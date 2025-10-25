@@ -978,6 +978,92 @@ export const disciplines: Record<DisciplineName, Discipline> = {
             { name: "Acheron Vortex", description: "Tear open a rift into the Tempest, banishing Wraiths within 50ft. Cost: 2 Rouse Checks, 1 Stain. Dice Pool: Resolve + Oblivion. Wraiths must make Willpower checks vs. user's roll or be sucked in. Mortals/Kindred must also roll Willpower; mortals take Aggravated Willpower damage, Kindred risk Fear Frenzy. Duration: One scene.", rouseChecks: 2, amalgamPrerequisites: [], summary: "Tear open a rift into the Tempest, banishing Wraiths.", dicePool: "Resolve + Oblivion", level: 5, discipline: "oblivion" },
         ],
     },
+    melpominee: {
+        clans: ["Daughters of Cacophony", "Caitiff"],
+        summary: "Control voices and sound to influence minds",
+        logo: "",
+        powers: [
+            // Level 1
+            {
+                name: "The Missing Voice",
+                description: "The character can \"throw\" her voice anywhere within her line of sight. This enables the Daughter to carry on surreptitious conversations, sing duets with herself, or cause any number of distractions. This power can also be combined with other Melpominee powers to disguise their source (and some Daughters use it to conceal the fact that Melpominee powers do not function through recorded media).",
+                rouseChecks: 0,
+                amalgamPrerequisites: [],
+                summary: "Project voice anywhere within line of sight. Can be combined with other Melpominee powers.",
+                dicePool: "N/A",
+                level: 1,
+                discipline: "melpominee",
+            },
+
+            // Level 2
+            {
+                name: "Phantom Speaker",
+                description: "The Daughter can project her voice to any individual she has personally met. Distance is no object, but it must be night wherever the target presently is. The vampire can sing, talk, or otherwise project her voice in any way she sees fit (including other uses of Melpominee), but she cannot hear what she is saying, and therefore suffers a +1 difficulty to any rolls accompanying her utterance.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+                summary: "Project voice to any personally met individual, regardless of distance.",
+                dicePool: "Wits + Performance",
+                level: 2,
+                discipline: "melpominee",
+            },
+
+            // Level 3
+            {
+                name: "Madrigal",
+                description: "Music has the power to sway the listener, engendering specific emotions through artful lyrics, pounding crescendo, or haunting melody. The Daughters of Cacophony can tap into music's power, forcing listeners to feel whatever they wish. The emotion becomes so powerful that the listener must act, though what a listener does isn't something the Siren can directly control.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+                summary: "Force listeners to feel specific emotions through music, compelling them to act.",
+                dicePool: "Charisma + Performance vs Resolve + Awareness",
+                level: 3,
+                discipline: "melpominee",
+            },
+
+            // Level 4
+            {
+                name: "Siren's Beckoning",
+                description: "The Daughters of Cacophony don't spread madness as surely (or as visibly) as the Malkavians, but their songs are definitely detrimental to one's sanity. With this power, the Daughter can drive any listener to madness. Most of the time, the victim is too fascinated to realize that he should leave the area and block out the music from his mind.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+                summary: "Drive listeners to madness through song.",
+                dicePool: "Manipulation + Performance vs Resolve + Awareness",
+                level: 4,
+                discipline: "melpominee",
+            },
+
+            // Level 5
+            {
+                name: "Virtuosa",
+                description: "Most of the low-level Melpominee powers can only be used on one target at a time. When the Daughter reaches this level of mastery in her Discipline, she can \"entertain\" a wider audience. Each member of the audience hears the same message.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+                summary: "Use Phantom Speaker or Siren's Beckoning on multiple targets simultaneously.",
+                dicePool: "N/A",
+                level: 5,
+                discipline: "melpominee",
+            },
+            {
+                name: "Mosh Pit",
+                description: "This rather dangerous power can be used to inspire frenzy in any supernatural creature prone to such a thing (such as vampires and werewolves). The Daughter sings of her primal anger, and her target finds it hard not to lose themselves to their most violent urges.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+                summary: "Inspire frenzy in supernatural creatures through song.",
+                dicePool: "Manipulation + Performance vs Willpower",
+                level: 5,
+                discipline: "melpominee",
+            },
+            {
+                name: "Primal Scream",
+                description: "With Primal Scream the Daughter's song is one of terror, not rage. It is awe inspiring and makes her appear frightening in the extreme. Her target becomes terrified beyond belief.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+                summary: "Inspire Rötschreck in targets through terrifying song.",
+                dicePool: "Manipulation + Performance vs Willpower",
+                level: 5,
+                discipline: "melpominee",
+            },
+        ],
+    },
     "thin-blood alchemy": {
         clans: ["Thin-blood"],
         summary: "",
