@@ -52,6 +52,7 @@ export const disciplineNameSchema = z.union([
     z.literal("dominate"),
     z.literal("fortitude"),
     z.literal("koldunic sorcery"),
+    z.literal("serpentis"),
     z.literal("melpominee"),
     z.literal("necromancy"),
     z.literal("obfuscate"),
