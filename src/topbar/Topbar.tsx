@@ -36,13 +36,8 @@ const Topbar = ({ character, setCharacter, setSelectedStep, setShowAsideBar }: T
                         <Stack spacing={"0px"} ml={"80px"}>
                             <span style={{ textAlign: "center" }}>
                                 <Title style={{ display: "inline", marginLeft: "50px" }} order={smallScreen ? 3 : 1}>
-                                    Progeny
+                                    V25 Character Creator
                                 </Title>
-                                {phoneScreen ? null : (
-                                    <Text style={{ display: "inline", verticalAlign: "top" }} c="dimmed" fz="xs">
-                                        &nbsp; by Odin
-                                    </Text>
-                                )}
                             </span>
 
                             {phoneScreen ? null : (

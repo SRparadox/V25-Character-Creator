@@ -1,16 +1,15 @@
 <p align="center">
-  <a href="https://www.odin-matthias.de">
-    <img alt="Progeny" src="./readme_assets/messy_crit.svg" width="60" />
+  <a href="#">
+    <img alt="V25 Character Creator" src="./readme_assets/messy_crit.svg" width="60" />
   </a>
 </p>
 <h1 align="center">
-  <div>⚰️ Progeny 🦇</div>
+  <div>⚰️ V25 Character Creator 🦇</div>
   <div style="font-size: 20px;">A 'Vampire: the Masquerade' 5th Edition Character Creator</div>
 </h1>
 
 
 Quickly and easily create your VTM character & export to printable, editable PDF.
-[Link](https://progeny.odin-matthias.de)
 
 ![](readme_assets/vtm_gen_attributes.png)
 
