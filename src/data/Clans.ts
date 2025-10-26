@@ -195,7 +195,7 @@ export const clans: Record<ClanName, Clan> = {
     ],
         compulsion:
             "Covetousness: Become obsessed with possessing something in the scene. Any action not taken toward this purpose incurs two-dice penalty. Persists you own it or ownership becomes impossible.",
-        nativeDisciplines: ["animalism", "auspex", "vicissitude"],
+        nativeDisciplines: ["koldonic sorcery", "auspex", "vicissitude"],
     },
     Hecata: {
         name: "Hecata",
