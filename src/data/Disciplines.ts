@@ -773,54 +773,264 @@ export const disciplines: Record<DisciplineName, Discipline> = {
         logo: proteanLogo,
         powers: [
             // Level 1
-            { name: "Eyes of the Beast", description: "Transform eyes to see in darkness.", rouseChecks: 0, amalgamPrerequisites: [], summary: "Transform eyes to see in darkness.", dicePool: "Wits + Protean", level: 1, discipline: "protean" },
-            // Added Level 1
-            { name: "Stone Sense", description: "Amalgam: Obfuscate 1. By touching earth or stone, gain supernatural awareness of anything in contact with that material within 5m x Protean rating. Can contest to learn more. Increases Stealth check Difficulty for those sneaking past. On failure, user knows their location.", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "obfuscate", level: 1 }], summary: "Sense through earth/stone, detect hidden creatures.", dicePool: "Wits + Protean (contested)", level: 1, discipline: "protean" },
-            { name: "Squirm", description: "Fit through 2-inch spaces.", rouseChecks: 0, amalgamPrerequisites: [], summary: "Fit through 2-inch spaces.", dicePool: "Dexterity + Protean", level: 1, discipline: "protean" },
-            { name: "Vault Welt", description: "Store objects in skin via infusion. (Amalgam: Oblivion 1)", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "oblivion", level: 1 }], summary: "Store objects in skin via infusion.", dicePool: "Stamina + Protean", level: 1, discipline: "protean" },
-            { name: "Skin Taker", description: "Temporarily transform into an animal when eating the bones.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Temporarily transform into an animal when eating the bones.", dicePool: "Stamina + Protean", level: 1, discipline: "protean" },
-            { name: "Stiring Mien", description: "Superficially alter your appearance. (Amalgam: Auspex 1)", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "auspex", level: 1 }], summary: "Superficially alter your appearance.", dicePool: "Manipulation + Protean", level: 1, discipline: "protean" },
-            { name: "Weight of the Feather", description: "Become weightless.", rouseChecks: 0, amalgamPrerequisites: [], summary: "Become weightless.", dicePool: "Dexterity + Protean", level: 1, discipline: "protean" },
-            { name: "Flight", description: "Prerequisite: Fortitude 1, The Gargoyle spreads her wings and takes flight gliding and even ascending with the power of her strength and speed. Cost: Free. System: The Gargoyle can fly at her normal movement rate, modified by any active levels of Celerity during combat rounds. When flying overland as part of a travel Scene, she can move at about 20 miles per hour per level of Protean she possesses, as the crow flies; potentially allowing her to cross the Bay Area in a matter of minutes. Most Gargoyles wait to try such Masquerade breaching stunts until they've learned a few levels of Obfuscate. (Amalgam: Fortitude 1)", rouseChecks: 0, amalgamPrerequisites: [{ discipline: "fortitude", level: 1 }], summary: "The Gargoyle spreads her wings and takes flight.", dicePool: "Dexterity + Athletics", level: 1, discipline: "protean" },
+            {
+                name: "Weight Of A Feather",
+                description: "The Kindred is able to manipulate his own mass allowing him a graceful descent from any height. The Kindred can lower his weight down to that of a feather. Allowing him to drift to the ground without taking any fall damage or even glide through the air for a short time on strong gusts of wind. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: None ❖ Conditions: None ❖ Risk: High. You are falling with unnatural grace and breaking the laws of physics. This ability will be seen as supernatural by any observer. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: 1 Scene (a few minutes), or until the Kindred lands.",
+                rouseChecks: 0,
+                amalgamPrerequisites: [],
+                summary: "Manipulate your own mass to descend gracefully from any height without fall damage.",
+                dicePool: "None",
+                level: 1,
+                discipline: "protean",
+            },
+            {
+                name: "Adaptation",
+                description: "The Kindred's body rapidly adapts to its surroundings allowing the vampire to feel at home regardless of the environment. The Kindred does not take any penalties from natural effects of the environment (such as heat or temperature) and adds 1 dice per dot in Protean to any Survival related rolls. ❖ Type: Upgrade ❖ Tag: Physical ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: None ❖ Conditions: The bonus stops applying if temperatures are lower then -100 degrees Celsius (-150 degrees Fahrenheit) or exceed 100 degrees Celsius (200 degrees Fahrenheit). ❖ Risk: None ❖ Test: None ❖ Resistance Roll: None ❖ Duration: Permanent",
+                rouseChecks: 0,
+                amalgamPrerequisites: [],
+                summary: "Body adapts to environment, no environmental penalties and bonus to Survival rolls.",
+                dicePool: "None",
+                level: 1,
+                discipline: "protean",
+            },
+            {
+                name: "Feral Focus",
+                description: "The Kindred grows more accustomed to the mutations he can force onto their body. The Kindred can manifest 2 powers from the Protean Discipline at the same time at the cost of 1 Rouse Check, as long as they are not ranked higher than 2 dots. ❖ Type: Upgrade ❖ Tag: Physical ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: None ❖ Conditions: The powers can be up to level 2. ❖ Risk: High. Powers from Protean are a very obvious Masquerade breach so proceed with caution. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: Permanent",
+                rouseChecks: 0,
+                amalgamPrerequisites: [],
+                summary: "Manifest 2 Protean powers (up to level 2) simultaneously for 1 Rouse Check.",
+                dicePool: "None",
+                level: 1,
+                discipline: "protean",
+            },
+            {
+                name: "Eyes Of The Beast",
+                description: "The Kindred's eyes grow a bright red, granting him superb night vision and terrifying his enemies. The Kindred can see in near total darkness without any penalties and adds 2 dice to any Intimidation roll against Mortals and Enhanced Mortals. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: None ❖ Conditions: None ❖ Risk: High. The ability is clearly supernatural and unnerves mortals. More so, it is difficult to hide as the eyes glow with a vibrant crimson color. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: 1 Scene (1 Hour), until the Kindred ends the ability or is incapacitated.",
+                rouseChecks: 0,
+                amalgamPrerequisites: [],
+                summary: "Eyes glow red, perfect night vision and +2 dice to Intimidation vs Mortals.",
+                dicePool: "None",
+                level: 1,
+                discipline: "protean",
+            },
+            {
+                name: "Dolphin's Unsight",
+                description: "The Kindred's ears take a strange alien shape or grow into large bat like variants. The Kindred benefits from supernatural hearing and can even function without issue if blinded. Sadly, the benefit does not transfer to any ranged attacks such as shooting and the Kindred still needs Visual Range or Eye Contact for abilities which require it. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: None ❖ Conditions: None. To clarify, unlike Heightened Senses the Kindred cannot be stunned by loud sounds as the ears have a more \"natural\" resilience to such disturbances. ❖ Risk: High. Your ears no longer human. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: 1 Scene (1 Hour), until the Kindred ends the ability or is incapacitated.",
+                rouseChecks: 0,
+                amalgamPrerequisites: [],
+                summary: "Ears change shape, gain supernatural hearing and function normally when blinded.",
+                dicePool: "None",
+                level: 1,
+                discipline: "protean",
+            },
+            {
+                name: "Phocidaean Webbing",
+                description: "Thin webbing grows between the Kindreds toes and fingers allowing him to adapt quickly to an aquatic environment. The Kindred doubles his dice pool for any Athletics related rolls while in water. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: None ❖ Conditions: None ❖ Risk: Moderate. While you are still visibly changing your limbs these changes can be more easily hidden. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: 1 Scene (1 Hour), until the Kindred ends the ability or is incapacitated.",
+                rouseChecks: 0,
+                amalgamPrerequisites: [],
+                summary: "Grow webbing between fingers and toes, double Athletics dice pool in water.",
+                dicePool: "None",
+                level: 1,
+                discipline: "protean",
+            },
+            {
+                name: "Feline Grace",
+                description: "The Kindred's tendons snap and reshape bringing its centre of gravity lower to the ground. While they have a somewhat animalistic posture, they now have a perfect sense of balance and can move without issue even on the narrowest of footings. The Kindred automatically passes all Athletic tests related to balancing on a tight footing such as ropes, narrow ledged and pipes (Effectively we are mimicking Cat's Grace from Celerity). ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: None ❖ Conditions: None ❖ Risk: Minor. Your posture is somewhat poor, but nothing immediately noticeable. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: None",
+                rouseChecks: 0,
+                amalgamPrerequisites: [],
+                summary: "Perfect sense of balance, automatically pass Athletic tests for balancing.",
+                dicePool: "None",
+                level: 1,
+                discipline: "protean",
+            },
 
             // Level 2
-            { name: "The False Sip", description: "Taste blood without being affected. (Amalgam: Fortitude 1)", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "fortitude", level: 1 }], summary: "Taste blood without being affected.", dicePool: "Wits + Protean", level: 2, discipline: "protean" },
-            { name: "Feral Weapons", description: "Grow claws or enhance natural fangs.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Grow claws or enhance natural fangs.", dicePool: "Strength + Protean", level: 2, discipline: "protean" },
-            { name: "Serpent's Kiss", description: "Inject blood with your fangs.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Inject blood with your fangs.", dicePool: "Dexterity + Protean", level: 2, discipline: "protean" },
-            { name: "Three Drops Found", description: "Fake your blood being from another Clan. (Amalgam: blood sorcery 1)", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "blood sorcery", level: 1 }], summary: "Fake your blood being from another Clan.", dicePool: "Manipulation + Protean", level: 2, discipline: "protean" },
-            { name: "Altered Assault", description: "Transform a single attack into an animal part. (Amalgam: Fortitude 2)", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "fortitude", level: 2 }], summary: "Transform a single attack into an animal part.", dicePool: "Strength + Protean", level: 2, discipline: "protean" },
-            { name: "Devil's Mark", description: "Imprint your Presence discipline onto a tattoo. (Amalgam: Presence 2)", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "presence", level: 2 }], summary: "Imprint your Presence discipline onto a tattoo.", dicePool: "Manipulation + Protean", level: 2, discipline: "protean" },
-            { name: "Body Arsenal", description: "Break your body into an arsenal of weapons. (Amalgam: Dominate 2)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "dominate", level: 2 }], summary: "Break your body into an arsenal of weapons.", dicePool: "Strength + Protean", level: 2, discipline: "protean" },
-            { name: "Vicissitude", description: "Reshape your body in various ways. (Amalgam: Dominate 2)", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "dominate", level: 2 }], summary: "Reshape your body in various ways.", dicePool: "Resolve + Protean", level: 2, discipline: "protean" },
+            {
+                name: "Purify",
+                description: "The Kindred violently expels poisons and foreign objects from their body. If successful the Kindred will expel any poison he might have ingested or foreign objects in his body. These will be expelled either out through the initial wound or through vomiting. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: 1 Round + 1 Rouse Check ❖ Conditions: Foreign object can be poison shrapnel or similar. A stake however, can never be expelled with this ability. ❖ Risk: Moderate. Kindred always vomit blood and expelling things through one's flesh can hardly be considered normal, luckily the effects of the ability can be hidden if not done in public. ❖ Test: Protean + Stamina (2) ❖ Resistance Roll: None ❖ Duration: 1 Round (a few seconds), or until the object is expelled.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+                summary: "Violently expel poisons and foreign objects from your body.",
+                dicePool: "Protean + Stamina",
+                level: 2,
+                discipline: "protean",
+            },
+            {
+                name: "Nebulization",
+                description: "The Kindred's body changes in part to smoke and mist when struck confounding the enemy and limiting their blows. If successful the enemies Strength + Brawl / Melee and Dexterity + Brawl / Melee / Firearms rolls suffer a 2 dice penalty when attacking the Kindred. This penalty should be applied to any other mundane physical attacks targeting the Kindred but the ability does not weaken attacks made with fire or sunlight. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: 1 Round + 1 Rouse Check ❖ Conditions: It takes one round of focus for the effects of the power to provide a bonus. ❖ Risk: High. As you are changing in part to mist. This ability can only be considered supernatural. ❖ Test: Protean + Stamina (2) ❖ Resistance Roll: None ❖ Duration: 1 Scene (10 minutes)",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+                summary: "Body partially turns to mist when struck, enemies suffer -2 dice penalty to physical attacks.",
+                dicePool: "Protean + Stamina",
+                level: 2,
+                discipline: "protean",
+            },
+            {
+                name: "Feral Mastery",
+                description: "The Kindred starts to enjoy and master the many ways he can adapt his body. Claws manifest on command; fangs grow with a thought and the body reforms as easily as flexing a muscle. The Kindred no longer needs to make Rouse Checks to manifest powers from the Protean discipline up to level 2. ❖ Type: Upgrade ❖ Tag: Physical ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: None ❖ Conditions: None ❖ Risk: High. Powers from Protean are a very obvious Masquerade breach so proceed with caution. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: Permanent",
+                rouseChecks: 0,
+                amalgamPrerequisites: [],
+                summary: "No Rouse Checks needed for Protean powers up to level 2.",
+                dicePool: "None",
+                level: 2,
+                discipline: "protean",
+            },
+            {
+                name: "Feral Weapons",
+                description: "Vicious claws or talons sprout from the Kindred's fingers providing him with deadly weapons on the spot. If successful, damage caused by the Kindred's unarmed physical attacks cannot be halved and causes Aggravated Damage to Mortals, while ignoring most armour. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: 1 Rouse Check ❖ Conditions: None ❖ Risk: Moderate. While you are still visibly changing your hands these changes can be hidden. ❖ Test: Protean + Stamina (2) ❖ Resistance Roll: None ❖ Duration: 1 Scene (1 Hour), until the Kindred ends the ability or is incapacitated.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+                summary: "Grow claws, unarmed attacks cause Aggravated Damage to Mortals and ignore armor.",
+                dicePool: "Protean + Stamina",
+                level: 2,
+                discipline: "protean",
+            },
+            {
+                name: "Bear Strength",
+                description: "The Kindred's body visibly increases its muscle mass granting him monstrous strength. If successful the Kindred adds 2 dice to any Strength related roll. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: 1 Rouse Check ❖ Conditions: The dice bonus cannot be used in Tests to activate supernatural abilities but can be used in Resistance Rolls. ❖ Risk: Moderate. You grow several inches and have obviously added several kilos of muscle mass to your body from seemingly nowhere. ❖ Test: Protean + Stamina (2) ❖ Resistance Roll: None ❖ Duration: 1 Scene (1 Hour), until the Kindred ends the ability or is incapacitated.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+                summary: "Increase muscle mass, +2 dice to Strength rolls.",
+                dicePool: "Protean + Stamina",
+                level: 2,
+                discipline: "protean",
+            },
+            {
+                name: "Hunters Stride",
+                description: "Tendons snap and reform providing the Kindred with a higher degree of speed and dexterity while giving him a somewhat inhumane posture. If successful, the Kindred adds 3 dice to any Dexterity, Stamina or Athletics related rolls when running, jumping or otherwise pursuing their prey. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: 1 Rouse Check ❖ Conditions: None ❖ Risk: Moderate. Your body posture is inhuman and you stand out in a crowd. ❖ Test: Protean + Stamina (2) ❖ Resistance Roll: None ❖ Duration: 1 Scene (1 Hour), until the Kindred ends the ability or is incapacitated.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+                summary: "Inhuman posture grants +3 dice to Dexterity, Stamina or Athletics when pursuing prey.",
+                dicePool: "Protean + Stamina",
+                level: 2,
+                discipline: "protean",
+            },
+            {
+                name: "Ursun's Slumber",
+                description: "The Kindred's wounds heal during its daytime slumber as it focuses its will upon restoring its body. To have any effect this power must be activated immediately before the Kindred goes to sleep. If successful the Kindred is able to reduce one point of Aggravated Damage to Superficial per dot he has in Protean. However, he cannot restore any Willpower during their daytime slumber. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: 1 Rouse Check ❖ Conditions: The Kindred cannot recover Willpower as all of his focus is on healing his damaged body. If his sleep is interrupted before he would normally rise then the ability automatically fails and neither Willpower nor Health are recovered. ❖ Risk: Minor. Onlookers will see wounds heal on a theoretically dead body. ❖ Test: Protean + Stamina (2) ❖ Resistance Roll: None ❖ Duration: 1 night's rest (several hours) or until the Kindred is woken up.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+                summary: "Heal Aggravated Damage during sleep but cannot recover Willpower.",
+                dicePool: "Protean + Stamina",
+                level: 2,
+                discipline: "protean",
+            },
 
             // Level 3
-            { name: "Parasite Bore", description: "Transform flesh into parasites to infect others. (Amalgam: Oblivion 3 or blood sorcery 3)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "oblivion", level: 3 }, { discipline: "blood sorcery", level: 3 }], summary: "Transform flesh into parasites to infect others.", dicePool: "Stamina + Protean", level: 3, discipline: "protean" },
-            { name: "Earth Meld", description: "Meld into soil.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Meld into soil.", dicePool: "Stamina + Protean", level: 3, discipline: "protean" },
-            { name: "Fleshcrafting", description: "Apply Vicissitude to others. (Amalgam: Dominate 2, Vicissitude)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "dominate", level: 2 }, { discipline: "protean", level: 2 }], summary: "Apply Vicissitude to others.", dicePool: "Resolve + Protean", level: 3, discipline: "protean" },
-            { name: "Predator's Maw", description: "Transform jaw into a deadly weapon. (Amalgam: Altered Assault or Feral Weapons)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "protean", level: 2 }], summary: "Transform jaw into a deadly weapon.", dicePool: "Strength + Protean", level: 3, discipline: "protean" },
-            { name: "Shapechange", description: "Turn into a human-sized animal.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Turn into a human-sized animal.", dicePool: "Stamina + Protean", level: 3, discipline: "protean" },
-            // Added Level 3
-            { name: "Visceratika", description: "Amalgam: Obfuscate 3. Make a Rouse Check and roll Resolve + Protean to merge into earth, stone, or concrete. Difficulty varies by material. While merged, move through the material, but take superficial damage per turn if stationary. Duration: Until you choose to emerge.", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "obfuscate", level: 3 }], summary: "Merge into and move through earth/stone/concrete.", dicePool: "Resolve + Protean (variable difficulty)", level: 3, discipline: "protean" },
-            { name: "Faconnage", description: "Make someone uglier when attacking. (Amalgam: Devil's Mark or Vicissitude)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "protean", level: 2 }], summary: "Make someone uglier when attacking.", dicePool: "Manipulation + Protean", level: 3, discipline: "protean" },
-            { name: "Visceral Absorption", description: "Absorb human remains into yourself. (Amalgam: blood sorcery 2)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "blood sorcery", level: 2 }], summary: "Absorb human remains into yourself.", dicePool: "Stamina + Protean", level: 3, discipline: "protean" },
+            {
+                name: "Shapechange",
+                description: "The Kindred adopts the form of a predatory animal and hunts like one. If successful the Kindred changes form into a predatory animal of a similar size or smaller. He replaces all his physical attributes and skills for that of the animal. While in this form he cannot use any of his other abilities, but still benefits from all upgrades. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: 1 Round + 1 Rouse Check, if the Kindred recently feed on the animal he is changing into then no Rouse Check is required. ❖ Conditions: The animal must be a predator and cannot be larger than the Kindred himself (bears, tiger, great whites are therefore usually excluded). The power takes 1 Round to manifest. ❖ Risk: High. While in this form the animal is simply seen as a particularly intelligent member of its species. However, changing in full view of the uninitiated will cause a panic. ❖ Test: Protean + Stamina (3) ❖ Resistance Roll: None ❖ Duration: Until the Kindred uses a Round to voluntarily end the power or is Incapacitated.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+                summary: "Transform into a predatory animal of similar or smaller size.",
+                dicePool: "Protean + Stamina",
+                level: 3,
+                discipline: "protean",
+            },
+            {
+                name: "Earth Meld",
+                description: "The Kindred sinks into the ground, bewildering onlookers and frustrating his pursuers. If successful the Kindred sinks into the ground. He can remain there indefinitely, even slumber the day away, but will need to eventually resurface to feed. When resurfacing the Kindred can reappear anywhere within 10 meters (30 feet) of where he initially went to ground. While underground the Kindred is one with the earth and cannot be injured or removed short of employing excavating equipment or destroying the ground through a large explosion. To clarify the Kindred does not actually dig a hole but literally sinks into the ground for several meters becoming one with the earth. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: 1 Round + 1 Rouse Check ❖ Conditions: The ability can only be used when standing on natural soil. Similarly, the Kindred can only resurface in a location with natural soil. The ability takes one Round to execute so the enemy has a small window to try and interrupt the power. ❖ Risk: High. The Kindred is disappearing into the earth; onlookers will find it hard to explain but will know something supernatural had just occurred. ❖ Test: Protean + Stamina (3) ❖ Resistance Roll: None ❖ Duration: Until the Kindred spends a Round to resurface or is forced to do so due to a Frenzy or similar event.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+                summary: "Sink into natural soil and remain underground indefinitely.",
+                dicePool: "Protean + Stamina",
+                level: 3,
+                discipline: "protean",
+            },
+            {
+                name: "Feral Maw",
+                description: "The Kindred's mouth fills with row upon row of sharp teeth allowing him to deliver a horrible bite. If successful, the Kindred's bite attacks cause Aggravated Damage to all targets, ignore all forms of armour and have a + 2 damage modifier. While the power is in effect the Kindred cannot properly talk or issue Vocal commands. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: None ❖ Conditions: None ❖ Risk: High. The Kindred's mouth looks unnatural and animalistic. ❖ Test: Protean + Stamina (3) ❖ Resistance Roll: None ❖ Duration: 1 Scene (1 Hour), until the Kindred ends the ability or is incapacitated.",
+                rouseChecks: 0,
+                amalgamPrerequisites: [],
+                summary: "Mouth fills with sharp teeth, bite attacks cause Aggravated Damage with +2 modifier.",
+                dicePool: "Protean + Stamina",
+                level: 3,
+                discipline: "protean",
+            },
+            {
+                name: "Scaled Armour",
+                description: "The Kindreds skin grows leathery and scales start to form on parts of its body. The Kindred can ignore up to 2 points of Superficial Health Damage after halving the result. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: None ❖ Conditions: None ❖ Risk: High. The Kindreds skin grows tough and visibly scaly. ❖ Test: Protean + Stamina (3) ❖ Resistance Roll: None ❖ Duration: 1 Scene (1 Hour), until the Kindred ends the ability or is incapacitated.",
+                rouseChecks: 0,
+                amalgamPrerequisites: [],
+                summary: "Skin grows scaly, ignore up to 2 points of Superficial Health Damage after halving.",
+                dicePool: "Protean + Stamina",
+                level: 3,
+                discipline: "protean",
+            },
+            {
+                name: "Pitbull's Grip",
+                description: "The Kindred's bite is all but impossible to dislodge. If successful then anytime the user feeds any attempts to stop them from continuing halve their dice pool rounding up. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: 1 Rouse Check ❖ Conditions: Only works if the Kindred had already latched onto their target. ❖ Risk: High. The Kindred's mouth and jaw grow and extend with additional muscle. ❖ Test: Protean + Stamina (3) ❖ Resistance Roll: None ❖ Duration: 1 Scene (1 Hour), until the Kindred ends the ability or is incapacitated.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+                summary: "Bite becomes impossible to dislodge, attempts to stop feeding are halved.",
+                dicePool: "Protean + Stamina",
+                level: 3,
+                discipline: "protean",
+            },
 
             // Level 4
-            { name: "Ennoia's Mastery", description: "Choose dicepools from animals to adapt.", rouseChecks: 2, amalgamPrerequisites: [], summary: "Choose dicepools from animals to adapt.", dicePool: "Wits + Protean", level: 4, discipline: "protean" },
-            { name: "Horrid Form", description: "Turn into a monstrosity. (Amalgam: Dominate 2, Vicissitude)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "dominate", level: 2 }, { discipline: "protean", level: 2 }], summary: "Turn into a monstrosity.", dicePool: "Strength + Protean", level: 4, discipline: "protean" },
-            { name: "Draught of Beast & Beauty", description: "Change the appearance of those who drink the user's blood. (Amalgam: Obfuscate 2 or Presence 2)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "obfuscate", level: 2 }, { discipline: "presence", level: 2 }], summary: "Change the appearance of those who drink the user's blood.", dicePool: "Manipulation + Protean", level: 4, discipline: "protean" },
-            { name: "Metamorphosis", description: "Turn into any animal. (Amalgam: Shapechange)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "protean", level: 3 }], summary: "Turn into any animal.", dicePool: "Stamina + Protean", level: 4, discipline: "protean" },
+            {
+                name: "Shape Mastery",
+                description: "The Kindred can adopt the form of any animal no matter the size or shape. When using Shapechange the Kindred can turn into any predatory animal regardless of size. ❖ Type: Upgrade ❖ Tag: Physical ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: None ❖ Conditions: Must have Shapechange. Only natural predators' count. ❖ Risk: High. This power improves Shapechange, which carries its own risks of a Masquerade breach. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: Permanent",
+                rouseChecks: 0,
+                amalgamPrerequisites: [],
+                summary: "Shapechange can now turn into any predatory animal regardless of size.",
+                dicePool: "None",
+                level: 4,
+                discipline: "protean",
+            },
+            {
+                name: "Flight",
+                description: "Leathery wings sprout from the Kindreds arms allowing it to fly through the night. The Kindred's arms turn to feathery or leathery wings. The wings allow them a rudimentary ability to fly although they are never as graceful as a natural bird or bat. While the wings do take up the majority of the arms, they do not prevent the Kindred from being a deadly combatant. The one exception there is however is that the Kindred cannot wield weapons or items while the power is in effect. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: 1 Round + 1 Rouse Check ❖ Conditions: None ❖ Risk: Very High. People nowadays everywhere have cameras and phones. This power is very noticeable and is best used in remote locations. ❖ Test: Protean + Stamina (4) ❖ Resistance Roll: None ❖ Duration: 1 Scene (1 Hour), until the Kindred ends the ability or is incapacitated.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+                summary: "Arms turn to wings allowing flight, but cannot wield weapons or items.",
+                dicePool: "Protean + Stamina",
+                level: 4,
+                discipline: "protean",
+            },
+            {
+                name: "Cormorant's Flight",
+                description: "The Kindred grows oily feathery wings from his back. While to small to provide flight they assist them with gliding and are resilient to the coastal storms common for the area. If successful, the Kindred sprouts feathery wings from his back. Unlike the normal Flight power this ability does not allow them to take off but it does allow them to glide through the air with exceptional skill if they jump from a high point. The wings are also oily so wind, rain and storms do not hamper the Kindred's glide. Additionally, the wings had sprouted from the Kindreds back meaning their hands are free to operate weaponry. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: 1 Round + 1 Rouse Check ❖ Conditions: None ❖ Risk: Very High. The Kindred had sprouted wings from their back, this will be incredibly noticeable. ❖ Test: Protean + Stamina (4) ❖ Resistance Roll: None ❖ Duration: 1 Scene (1 Hour), until the Kindred ends the ability or is incapacitated.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+                summary: "Wings sprout from back for gliding, hands remain free for weapons.",
+                dicePool: "Protean + Stamina",
+                level: 4,
+                discipline: "protean",
+            },
 
             // Level 5
-            { name: "Bloodform", description: "Transform wholly or partially into blood. (Amalgam: blood sorcery 2)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "blood sorcery", level: 2 }], summary: "Transform wholly or partially into blood.", dicePool: "Stamina + Protean", level: 5, discipline: "protean" },
-            { name: "Heart of Darkness", description: "Remove your heart to prevent staking. (Amalgam: Fortitude 2)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "fortitude", level: 2 }], summary: "Remove your heart to prevent staking.", dicePool: "Stamina + Protean", level: 5, discipline: "protean" },
-            { name: "Master of Forms", description: "Transform into unlimited animal types. (Amalgam: Shapechange)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "protean", level: 3 }], summary: "Transform into unlimited animal types.", dicePool: "Stamina + Protean", level: 5, discipline: "protean" },
-            { name: "Mist Form", description: "Turn into a cloud of mist.", rouseChecks: 2, amalgamPrerequisites: [], summary: "Turn into a cloud of mist.", dicePool: "Stamina + Protean", level: 5, discipline: "protean" },
-            // Added Level 5
-            { name: "Wrath of Xiuhcoatl", description: "Prerequisite: Ezpitzal. Amalgam: Fortitude 3. Project turquoise flames from your body for a scene. Range: 2m x Blood Potency. Each blast requires concentration and a roll of Stamina + Protean vs. Dexterity + Athletics. Margin of success = Aggravated Damage + Blood Potency. Vampires witnessing or taking damage must check for Fear Frenzy (Diff 3). Flammable materials ignite. Immune to self-inflicted fire.", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "fortitude", level: 3 }], summary: "Project supernatural fire blasts, causing Aggravated Damage.", dicePool: "Stamina + Protean vs. Dexterity + Athletics", level: 5, discipline: "protean" },
-            { name: "One with the Land", description: "Experience everything in a one-mile radius while melded. (Amalgam: Animalism 2, Earth Meld)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "animalism", level: 2 }, { discipline: "protean", level: 3 }], summary: "Experience everything in a one-mile radius while melded.", dicePool: "Wits + Protean", level: 5, discipline: "protean" },
-            { name: "Mitosis", description: "Create a horrifying creature from your flesh. (Amalgam: Dominate 2)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "dominate", level: 2 }], summary: "Create a horrifying creature from your flesh.", dicePool: "Stamina + Protean", level: 5, discipline: "protean" },
-            { name: "Self-Made Throngs", description: "Can transform into a pack of animals. (Amalgam: Animalism 1)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "animalism", level: 1 }], summary: "Can transform into a pack of animals.", dicePool: "Stamina + Protean", level: 5, discipline: "protean" },
-            { name: "The Unfettered Heart", description: "Prevent staking or get free from it.", rouseChecks: 2, amalgamPrerequisites: [], summary: "Prevent staking or get free from it.", dicePool: "Stamina + Protean", level: 5, discipline: "protean" },
+            {
+                name: "Mist Form",
+                description: "The Kindred learns to turn his body partially or fully into mist. If successful the Kindred can spend a Round to turn into pure mist and a Round to reform back into a solid form. He can do this several times in a single Scene. While in his mist form only fire and sunlight can harm him. He can move at a speed of 5 meters (30 feet) pet Round. Can pass through small nooks and cracks but cannot do any other actions. While in mist form, he cannot be affected by powers which require Eye Contact and cannot use any of his other abilities. He still benefits from all upgrades. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: 1 Round + 2 Rouse Checks, if the Kindred possesses Nebulization than only a single Rouse Check is required. ❖ Conditions: None ❖ Risk: Minor. Aside from manifesting the ability, this power can be very subtle. ❖ Test: Protean + Stamina (5) ❖ Resistance Roll: None ❖ Duration: 1 Scene (10 minutes)",
+                rouseChecks: 2,
+                amalgamPrerequisites: [],
+                summary: "Turn into mist form, only vulnerable to fire and sunlight.",
+                dicePool: "Protean + Stamina",
+                level: 5,
+                discipline: "protean",
+            },
+            {
+                name: "War Form",
+                description: "The Kindred turns into a horrific man-beast abomination. Its size increases and fur, scales or leathery skin appear. Its face twists into that of a predator as other mutations run rampant. The Kindred turns into a supernatural monstrosity. He now causes terror. All Mortals and Enhanced Mortals will flee from the Scene in terror unless they pass a Willpower test (3). The Kindred gains a 2 dice bonus to all physical rolls and may choose one additional power from Protean to be activated at the same time, without needing to make any additional Rouse Check. While in this form the Kindred removes 2 dice from any tests when trying to resist Frenzy and cannot issue Vocal commands effectively. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: 2 Rounds + 2 Rouse Checks ❖ Conditions: If a 1 is rolled on either of the 2 Rouse Checks ignore the Disciplines normal Bane. Instead, the power still succeeds as normal but the Kindred automatically enters Frenzy. ❖ Risk: Very High. You had turned into a monstrous beast. ❖ Test: Protean + Stamina (5) ❖ Resistance Roll: None ❖ Duration: The Kindred needs 2 Rounds (1 minutes) to manifest the ability. Afterwards the power lasts 1 Scene (1 Hour), until the Kindred sacrifices a Round to end the ability or is incapacitated.",
+                rouseChecks: 2,
+                amalgamPrerequisites: [],
+                summary: "Transform into a terrifying man-beast causing terror, +2 dice to physical rolls.",
+                dicePool: "Protean + Stamina",
+                level: 5,
+                discipline: "protean",
+            },
+            {
+                name: "Poseidon's Blessing",
+                description: "The Kindred's skin and hair become soaked and the vampire seems like they are continuously leaking sea water from their skin in large quantities. If successful, the Kindred halves all damage from fire and downgrades it to Superficial while the power lasts. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: 1 Round + 2 Rouse Checks ❖ Conditions: None ❖ Risk: High. The Kindred seems like someone is continuously pouring water over their head. ❖ Test: Protean + Stamina (5) ❖ Resistance Roll: None ❖ Duration: 1 Scene (1 hour), until the Kindred ends the ability or is incapacitated.",
+                rouseChecks: 2,
+                amalgamPrerequisites: [],
+                summary: "Continuously leak seawater, halve fire damage and downgrade to Superficial.",
+                dicePool: "Protean + Stamina",
+                level: 5,
+                discipline: "protean",
+            },
         ],
     },
     "blood sorcery": {
@@ -1078,7 +1288,7 @@ export const disciplines: Record<DisciplineName, Discipline> = {
         powers: [
             // Level 1
             {
-                name: "Sense Vitality",
+                name: "Sense Vitality - Path of the Healer",
                 description: "With but a touch the Kindred can tell the general health and state of their patient. When used on humans or animals the Kindred can tell the persons age, vitality, and general health, this includes Ghouls (and other Enhanced Mortals). When used on another Kindred the user can tell the vampires blood potency, willpower and general health. When used on other supernatural creatures the information becomes somewhat muddied but at the very least the Kindred should be able to tell the general health of the creature. Do note that general health does mean the Storyteller should provide the Kindred with an accurate idea of how many marked and unmarked health boxes the target currently has. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: A single individual within Touch Range. ❖ Cost: None ❖ Conditions: Must make physical touch with the targets skin. ❖ Risk: None. The ability is extremely subtle and hard to pick up on. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: 1 Action (1 second)",
                 summary: "Touch to assess target's health, vitality, blood potency, and willpower",
                 dicePool: "None",
@@ -1088,7 +1298,7 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 amalgamPrerequisites: [],
             },
             {
-                name: "Anaesthetic Touch",
+                name: "Anaesthetic Touch - Path of the Healer",
                 description: "The user's touch takes the pain away from their patient allowing them to provide them with a few moments of respite. The target loses all sensation of pain. If the hold is not broken for an entire minute the target falls asleep as well. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: A single individual within Touch Range. ❖ Cost: None ❖ Conditions: Must make physical touch with the targets skin. ❖ Risk: Minor. Your touch will visibly soothe the victim, but it is highly likely that in the heat of the moment any witnesses will have other problems to deal with. ❖ Test: None ❖ Resistance Roll: Stamina + Resolve (3, if the target wishes to deny sleep. Mortals have no protection against this ability.) ❖ Duration: 1 Action (1 second) for the effects if the pain suppression to take effect and 1 Round (1 minute) for the target to be put to sleep.",
                 summary: "Touch to remove pain and potentially induce sleep",
                 dicePool: "None",
@@ -1098,7 +1308,7 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 amalgamPrerequisites: [],
             },
             {
-                name: "Auguring Gift",
+                name: "Auguring Gift - Path of the Healer",
                 description: "The Kindred can quickly determine the targets ailments and their source. The user can determine what type of disease, poison or venom is impacting the target and its general source (natural, manufactured, supernatural). The user or his allies can then use this knowledge to potentially save the victim. The ability provides no information on curses. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: A single individual within Touch Range. ❖ Cost: None ❖ Conditions: Must make physical touch with the targets skin. ❖ Risk: Minor. The power is very hard to notice. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: 1 Round (1 minute)",
                 summary: "Touch to diagnose diseases, poisons, and venoms affecting the target",
                 dicePool: "None",
@@ -1108,7 +1318,7 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 amalgamPrerequisites: [],
             },
             {
-                name: "Sense Lethality",
+                name: "Sense Lethality - Path of the Warrior",
                 description: "This ability allows the Kindred to understand the potential danger a target poses. The Kindred can understand, quite accurately, just how dangerous an individual is to them and their allies were they to potentially use their gifts against them. The power does not outright provide the character with an idea of the targets exact capabilities (mental, physical, or spiritual) but should give them a rough rating (from 1 to 5, as per the dot system) on how dangerous the target is to them and/or their allies. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: A single individual within Touch Range. ❖ Cost: None ❖ Conditions: Must make physical touch with the targets skin. ❖ Risk: None. The ability is extremely subtle and hard to pick up on. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: 1 Action (1 second)",
                 summary: "Touch to assess how dangerous a target is (1-5 scale)",
                 dicePool: "None",
@@ -1118,7 +1328,7 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 amalgamPrerequisites: [],
             },
             {
-                name: "Peaceful Touch",
+                name: "Peaceful Touch - Path of the Warrior",
                 description: "The Kindred can calm down a raging drunkard or a rampaging vampire. With a touch the Kindred can either calm down an individual who is in the grips of anger or break a Kindred's Frenzy. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: A single individual within Touch Range. ❖ Cost: None ❖ Conditions: Must make physical touch with the targets skin. They can only break a Frenzy if the target is not purposefully remaining in Frenzy or affected by a continuous effect (such as during a Hunger Frenzy). ❖ Risk: Moderate. The ability is subtle but the effects can be noticeable. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: 1 Action (1 second) for the effects to take place after which they last for 1 Scene (10 minutes).",
                 summary: "Touch to calm anger or break Frenzy in target",
                 dicePool: "None",
@@ -1128,7 +1338,7 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 amalgamPrerequisites: [],
             },
             {
-                name: "Renewed Vigour",
+                name: "Renewed Vigour - Path of the Warrior",
                 description: "The Kindred's body is strengthened to endure the harsh lifestyle of its master. The Kindred adds 1 dice to their current roll. ❖ Type: Reflexive ❖ Tag: Physical ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: 1 point of Superficial Willpower damage. ❖ Conditions: The use of this power must be announced before any tests or resistance rolls are made by its user. Only 1 dice can be added at a time. Can never be used on Willpower or Humanity tests. ❖ Risk: None. The ability is subtle and hard to notice. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: 1 Action (a few seconds)",
                 summary: "Add 1 dice to any roll (except Willpower/Humanity) at cost of 1 Superficial Willpower damage",
                 dicePool: "None",
@@ -1139,7 +1349,7 @@ export const disciplines: Record<DisciplineName, Discipline> = {
             },
             // Level 2
             {
-                name: "Healer's Blood",
+                name: "Healer's Blood - Path of the Healer",
                 description: "The Kindred can enhance their blood to have miraculous healing properties. If successful then those who partake of the Kindred's blood can benefit from its healing properties. They will be healed of the effects of any venoms, diseases or poisons (natural or artificial only, supernatural versions of these cannot be reversed using this ability) and heal 1 point of Aggravated or 3 points of Superficial Health damage (targets choice). ❖ Type: Reflexive ❖ Tag: Physical ❖ Range & Targets: A single individual currently drinking blood from the Kindred. ❖ Cost: 1 Rouse Check (this includes the blood lost) ❖ Conditions: The target must drink the Kindred's blood. That ability can only affect a single target at a time. ❖ Risk: Minor. The effects are miraculous, but the target is drinking your blood. ❖ Test: Valeren + Intelligence (3) ❖ Resistance Roll: None ❖ Duration: 1 Scene (10 minutes)",
                 summary: "Enhance blood to heal diseases, poisons, and restore health to those who drink it",
                 dicePool: "Valeren + Intelligence",
@@ -1149,7 +1359,7 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 amalgamPrerequisites: [],
             },
             {
-                name: "Song Of The Blooded",
+                name: "Song Of The Blooded - Path of the Warrior",
                 description: "Reciting ancient words of wisdom, the Kindred temporarily enhances his and his allies' supernatural abilities. If successful, the Kindred and all allies within Vocal Range add 1 dice to all their tests when it comes to activating their supernatural powers (abilities, reflexive and rituals). ❖ Type: Ability ❖ Tag: Spiritual ❖ Range & Targets: The Kindred and all allies within Vocal Range. ❖ Cost: 1 Rouse Check ❖ Conditions: The Kindred's words must be heard but do not need to be understood. ❖ Risk: None. At most your words are seen as a curiosity. ❖ Test: Valeren + Wits (3) ❖ Resistance Roll: None ❖ Duration: 1 Scene (10 minutes)",
                 summary: "Enhance supernatural abilities of self and allies within vocal range",
                 dicePool: "Valeren + Wits",
@@ -1159,7 +1369,7 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 amalgamPrerequisites: [],
             },
             {
-                name: "Peace Maker",
+                name: "Peace Maker - Path of the Healer",
                 description: "The Kindred creates an aura of calm around them causing arguments to cease and tensions to die down. If successful, all individuals within 10 meters (30 feet) of the Kindred will find it hard to grow frustrated or angry. Any abilities or actions which influence their victims towards violence will have their dice pool halved (rounding up) if a test needs to be made to activate said abilities or actions or fail automatically if no test is required. ❖ Type: Ability ❖ Tag: Mental ❖ Range & Targets: Everyone within 10 meters (30 feet) of the Kindred, including the Kindred himself. ❖ Cost: 1 Rouse Check ❖ Conditions: This ability cannot stop an already ongoing brawl, although it can help straighten things out afterwards. ❖ Risk: Minor. With your entrance arguments seem to die down and some might start to question your importance. ❖ Test: Valeren + Intelligence (3) ❖ Resistance Roll: None ❖ Duration: 1 Action (1 second) for the effects to take place after which the effects last for 1 Scene (10 minutes).",
                 summary: "Create aura of calm that reduces violence and anger in 30-foot radius",
                 dicePool: "Valeren + Intelligence",
@@ -1169,7 +1379,7 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 amalgamPrerequisites: [],
             },
             {
-                name: "Safe Passage",
+                name: "Safe Passage - Path of the Healer",
                 description: "The user is seen as a sacrosanct and others find it hard to raise a hand against them. If successful, then any individual acting with ill intention against the user loses two dice from any roll which is targeting the Kindred. ❖ Type: Ability ❖ Tag: Mental ❖ Range & Targets: Affects all individuals within 10 meters (30 feet) of the Kindred. ❖ Cost: 1 Rouse Check ❖ Conditions: The ability only lasts if the Kindred is not taking any overt aggressive action (mental, spiritual or physical) against the target(s) or their allies. Self-defense which resolves in the target being injured does not break the hold which the ability has. ❖ Risk: Minor. The effects of this power are subtle and hard to pick up on. ❖ Test: Valeren + Intelligence (3) ❖ Resistance Roll: Stamina + Resolve (mortals have no protection against this ability) ❖ Duration: 1 Scene (10 minutes)",
                 summary: "Others suffer -2 dice to attack you while you remain non-aggressive",
                 dicePool: "Valeren + Intelligence",
@@ -1179,7 +1389,7 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 amalgamPrerequisites: [],
             },
             {
-                name: "Soul's Breath",
+                name: "Soul's Breath - Path of the Healer",
                 description: "The Kindred had learned to subsist from the breath of mortals, instead of their blood. The Kindred can inhale the breath of mortals (usually disguised as a kiss) to regain some of their hunger. This is a very limited substitute however and can never make their Hunger lower than 3. Each mortal's breath can only satisfy 1 point of Hunger per Scene. ❖ Type: Upgrade ❖ Tag: Physical ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: None ❖ Conditions: Must inhale the mortal's breath, which is generally done through a kiss. Can only be used if the Kindred's Humanity is 7 or higher. ❖ Risk: Minor. The power is subtle and extremely hard to pick up on. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: Permanent.",
                 summary: "Feed on mortal breath instead of blood (requires Humanity 7+, minimum Hunger 3)",
                 dicePool: "None",
@@ -1189,7 +1399,7 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 amalgamPrerequisites: [],
             },
             {
-                name: "Burning Touch",
+                name: "Burning Touch - Path of the Warrior",
                 description: "Sometimes the threat of pain is enough to end a fight before it begins. With this ability the Kindred can inflict horrible pain on any potential trouble makers without any actual damage. If successful, the target is wracked by incredible pain as if they are being burned from the inside out. This can potentially cause a fear frenzy if used excessively against Kindred. Otherwise, any target impacted by the power's effects will automatically be intimidated by the Kindred for the rest of the Scene (it cannot make any opposing rolls against the user's intimidation). Although painful the ability never causes any physical damage. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: A single individual within Touch Range. ❖ Cost: 1 Rouse Check ❖ Conditions: Must make physical touch with the targets skin. ❖ Risk: High. The target will likely scream in pain when touched. ❖ Test: Valeren + Wits (3) ❖ Resistance Roll: Stamina + Resolve (mortals have no protection against this ability) ❖ Duration: The pain lasts for 1 Action (a few seconds), while the intimidation effects last for 1 Scene (10 minutes).",
                 summary: "Touch to cause excruciating pain without damage, intimidating target",
                 dicePool: "Valeren + Wits",
@@ -1200,7 +1410,7 @@ export const disciplines: Record<DisciplineName, Discipline> = {
             },
             // Level 3
             {
-                name: "Mens Sana",
+                name: "Mens Sana - Path of the Healer",
                 description: "With a calm touch the Kindred banishes a victim's mental disorders. If successful, the target loses a single mental disorder. Sadly, when it comes to highly deranged individuals (or Malkavians) the ability can only mitigate the disorders for 1 Sessions. If you have the Dementation Remastered book on hand, then this ability can completely nullify a single Mild Derangement or temporarily remove a Severe Derangement until the end of the Session. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: A single individual within Touch Range. ❖ Cost: 1 Rouse Check ❖ Conditions: Must make physical touch with the targets skin. ❖ Risk: Moderate. The target's character visibly changes for the better in an instant. ❖ Test: Valeren + Intelligence (4) ❖ Resistance Roll: None ❖ Duration: 1 Action (1 second) for the effects to take hold, after which the effects are permanent unless your dealing with heavily deranged individuals. In such cases the effects only last until the end of the Session (24 hours).",
                 summary: "Touch to cure mental disorders (permanent except for severely deranged)",
                 dicePool: "Valeren + Intelligence",
@@ -1210,7 +1420,7 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 amalgamPrerequisites: [],
             },
             {
-                name: "Father's Judgment",
+                name: "Father's Judgment - Path of the Warrior",
                 description: "With a word or with a touch the Kindred shuts off a targets access to their powers. This ability can be manifested by either a touch or Vocally by ushering the name of the targets sire in their presence. If successful, the target loses access to all powers (including upgrades) whose level is higher than 1. Disciplines which were not inherited directly from the target's sire (or are not part of the Clans general 3 Disciplines) are not affected. ❖ Type: Ability ❖ Tag: Spiritual ❖ Range & Targets: A single individual within Touch or Vocal Range. ❖ Cost: 1 Rouse Check ❖ Conditions: Must make physical touch with the targets skin or usher the name of the targets sire in their presence. Only works on Kindred. ❖ Risk: Minor. The target can suddenly become worried or agitated to an outside observer. ❖ Test: Valeren + Wits (4) ❖ Resistance Roll: Stamina + Resolve (no resistance roll can be made if the user ushers the name of their sire correctly) ❖ Duration: 1 Scene (10 minutes)",
                 summary: "Suppress Kindred powers above level 1 by touch or speaking their sire's name",
                 dicePool: "Valeren + Wits",
@@ -1220,7 +1430,7 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 amalgamPrerequisites: [],
             },
             {
-                name: "Samiel's Vengeance",
+                name: "Samiel's Vengeance - Path of the Warrior",
                 description: "With a cry of resolve the Kindred strikes against his enemies, using the pain he had suffered to heighten his combat abilities. This power can only be used immediately after the Kindred had received 1 or more points of Aggravated Damage. If successful, the Kindred adds 1 dice to all his combat rolls (excluding those meant for the activation of supernatural abilities or Resistance Rolls) for each power he currently possesses from the Path of the Warrior. ❖ Type: Reflexive ❖ Tag: Physical ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: 1 Rouse Check ❖ Conditions: Can only be used immediately after the Kindred had received 1 or more points of Aggravated Damage. ❖ Risk: Minor. Generally, this ability is only used in combat, where all parties have more pressing concerns. ❖ Test: Valeren + Wits (4) ❖ Resistance Roll: None ❖ Duration: 1 Scene (10 minutes)",
                 summary: "After taking Aggravated damage, gain combat dice equal to Warrior path powers",
                 dicePool: "Valeren + Wits",
@@ -1230,7 +1440,7 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 amalgamPrerequisites: [],
             },
             {
-                name: "Ending The Watch",
+                name: "Ending The Watch - Path of the Warrior",
                 description: "With a touch the Kindred ends the life of a human without pain. If successful, the target dies without pain immediately as if it fell into a deep slumber. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: A single individual within Touch Range. ❖ Cost: 1 Rouse Check ❖ Conditions: Must make physical touch with the targets skin. Can only be user on Mortals (Enhanced mortals are not affected). ❖ Risk: Moderate. The target seemingly falls asleep and dies peacefully. ❖ Test: Valeren + Wits (3) ❖ Resistance Roll: None ❖ Duration: 1 Action (a few seconds) for the effects to take place.",
                 summary: "Touch to instantly kill mortals painlessly (they appear to fall asleep)",
                 dicePool: "Valeren + Wits",
@@ -1241,7 +1451,7 @@ export const disciplines: Record<DisciplineName, Discipline> = {
             },
             // Level 4
             {
-                name: "King David's Blessing",
+                name: "King David's Blessing - Path of the Healer",
                 description: "The Kindred becomes adapt at healing the ailments and wounds of others with but a touch. If successful this ability works exactly the same way as Healer's Blood, with the exception that the Kindred can create the same effects by simply touching the target rather than feeding them their blood. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: A single individual within Touch Range. ❖ Cost: 1 Rouse Check ❖ Conditions: Must make physical touch with the targets skin. ❖ Risk: High. The targets wounds visibly heal, and their condition rapidly improves. ❖ Test: Valeren + Intelligence (5 - if the character possesses Healer's Blood as well then, the test difficulty is reduced to 3) ❖ Resistance Roll: None ❖ Duration: 1 Round (5 minutes) for the effects to make a lasting impact.",
                 summary: "Touch-based healing like Healer's Blood (difficulty 3 if you have Healer's Blood)",
                 dicePool: "Valeren + Intelligence",
@@ -1251,7 +1461,7 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 amalgamPrerequisites: [],
             },
             {
-                name: "Fiery Agony",
+                name: "Fiery Agony - Path of the Warrior",
                 description: "With a look the Kindred can cause unbearable pain to his enemies. If successful this ability works exactly the same way as Burning Touch, with the exception that the Kindred can create the same effects by simply making Eye Contact with the target rather than touching them. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: A single individual within Visual Range. ❖ Cost: 1 Rouse Check ❖ Conditions: Must make Eye Contact. ❖ Risk: High. The target begins to scream in great pain. ❖ Test: Valeren + Wits (5- if the character possesses Burning Touch as well then, the test difficulty is reduced to 3) ❖ Resistance Roll: Stamina + Resolve ❖ Duration: Same as Burning Touch.",
                 summary: "Eye contact version of Burning Touch (difficulty 3 if you have Burning Touch)",
                 dicePool: "Valeren + Wits",
@@ -1262,7 +1472,7 @@ export const disciplines: Record<DisciplineName, Discipline> = {
             },
             // Level 5
             {
-                name: "Purification",
+                name: "Purification - Path of the Healer",
                 description: "At its most powerful the Obeah path can be used to purify an individual of all forms of supernatural, natural, or man-made corruptions and poisons. If successful, then the target suffers the following: • It loses all forms of mental disorders. • All forms of intrusive mental influences (such as those from the powers of Dominate) are removed. • Any terminal conditions they might have suffered during the chronicle (such as cancer) are removed. • The effects of any poisons are nullified. • All diseases they currently have are cured. • All forms of supernatural curses (excluding Kindred or Clan Banes) are removed. • All Blood Bonds are broken. • Finally, if the target is possessed by a supernatural entity than that entity is driven out as well. ❖ Type: Ritual ❖ Tag: Physical, Mental & Spiritual ❖ Range & Targets: A single individual who is fed the Kindreds blood and spends an evening under their active care. ❖ Cost: 1 Scene + 2 Rouse Checks ❖ Conditions: The target must either comply with the instructions of the user or be restrained. Also note while miraculous this ability can do little to reverse death or restore what the target had already lost (memories, mind, body parts, their soul etc.) ❖ Risk: Moderate. This ability should never be used in the open and is generally carried out behind closed doors. Additionally, if the ritual is interrupted than the test is automatically considered a failure. ❖ Test: Valeren + Intelligence (7) ❖ Resistance Roll: Stamina + Resolve (in cases where the target is actively resisting the users care). ❖ Duration: 1 Scene (1 full night from sunrise to sunset or 12 hours)",
                 summary: "Ultimate purification ritual - removes all mental disorders, influences, diseases, poisons, curses, and Blood Bonds",
                 dicePool: "Valeren + Intelligence",
@@ -1272,7 +1482,7 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 amalgamPrerequisites: [],
             },
             {
-                name: "Sword Of The Righteous",
+                name: "Sword Of The Righteous - Path of the Warrior",
                 description: "The ultimate expression of Valeren, with this ability the Kindred douses a blade in his blood. The blade catches fire when it strikes the corrupt and the flames devour the target, fuelled by the weight of the victim's own sins. If successful, a bladed weapon is enhanced with the Kindreds blood (this must be some form of melee weapon with a sharp edge). If the bladed weapon strikes a target, then the target will suffer 10 points of Aggravated damage. This amount is reduced by 1 for each unmarked Humanity box the target possesses. So, a target with Humanity 7 would receive only 3 points of Aggravated damage. There is no defence against this strike, aside from parrying or dodging (Fortitude offers no protection). The flames are magical in nature and feed on the sins inside the target's soul. They can cause a fear frenzy once the blade ignites but will never phase their wielder. Once a blow is successfully delivered the blade crumbles into dust. In instances where the targets humanity is questionable (Garou, Ghosts, Mages) the verdict is left to the Storyteller. ❖ Type: Ritual ❖ Tag: Physical & Spiritual ❖ Range & Targets: A single bladed weapon. ❖ Cost: 1 Scene + 2 Rouse Checks ❖ Conditions: The Kindred must have Humanity 7 or higher to manifest this ritual successfully. The enchanted blade must break the targets skin and make contact with their blood for the power to activate. Only one instance of such a blade can exist at a time. ❖ Risk: High. While leaving no trace of itself, the weapon does cause its victim to burst into flames. Even worse the blade can be lost to an enemy and used against the wielder. ❖ Test: Valeren + Wits (7) ❖ Resistance Roll: None ❖ Duration: 1 Scene (1 full night from sunrise to sunset or 12 hours) to enchant the blade. After which the effects of the blade last for the duration of one successful strike although the flames it causes might keep going.",
                 summary: "Enchant blade to deal 10 Aggravated damage minus target's Humanity (requires Humanity 7+)",
                 dicePool: "Valeren + Wits",
@@ -1559,10 +1769,116 @@ export const disciplines: Record<DisciplineName, Discipline> = {
         powers: [],
     },
     quietus: {
-        clans: [],
-        summary: "",
+        clans: ["Banu Haqim"],
+        summary: "Assassination arts divided into Path of Poisons and Path of Curses, with accompanying Assamite Sorcery",
         logo: obfuscateLogo,
-        powers: [],
+        powers: [
+            // Level 1
+            {
+                name: "Scorpions Curse - Path of Poisons",
+                description: "The Kindred has learned to transmit his poison through the vampiric feeding method. The Kindred can transmit any Poison from the Assamite Sorcery section via bite. ❖ Type: Upgrade ❖ Tag: Physical ❖ Range & Targets: Anyone the user bites. ❖ Cost: None ❖ Conditions: None ❖ Risk: Moderate. The upgrade still requires you to bite the target which can quickly become a Masquerade breach. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: Permanent",
+                summary: "Transmit Assamite Sorcery poisons through bite",
+                dicePool: "None",
+                level: 1,
+                discipline: "quietus",
+                rouseChecks: 0,
+                amalgamPrerequisites: [],
+            },
+            {
+                name: "Blood Essence - Path of Curses",
+                description: "The assassin finds that after feeding he can use his own blood to curse the target. The Kindred can use his own blood to cast a curse on a target using Assamite Sorcery, provided the target was the last vessel the vampire drank from. ❖ Type: Upgrade ❖ Tag: Physical ❖ Range & Targets: Targets whoever the user last fed from. ❖ Cost: None ❖ Conditions: None ❖ Risk: Minor. The target will develop any symptoms remotely, however considering the user still needs to feed from the target, such an act will likely tie them to the effect. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: Permanent",
+                summary: "Use your blood to cast curses on your last feeding victim",
+                dicePool: "None",
+                level: 1,
+                discipline: "quietus",
+                rouseChecks: 0,
+                amalgamPrerequisites: [],
+            },
+            {
+                name: "Crimson Tempering - Path of Curses",
+                description: "Vitae is of key significance to Kindred, but it rarely holds its potency when not taken directly from the vein. The skilled masters of the Banu Haqim have long found a way around such limitations. The Kindred can cast this ritual on any small glass vial or similar container which he submerges in blood. As the spell comes to fruition and the blood bubbles away the container remains unchanged, with the exception of a slight red hue. Any blood deposited into such a container will be preserved for far longer than normal, including Kindred Vitae. ❖ Type: Ritual ❖ Tag: Physical ❖ Range & Targets: A single glass container within Touch Range ❖ Cost: 1 Scene + a sufficient amount of blood to submerge the container (the blood can come from any source) ❖ Conditions: The glass container can at most hold a pint of blood (roughly half a litre). It needs to be submerged in blood for the Ritual to work (during its creation process). ❖ Risk: Minor. As long as it is done away from prying eyes there should be no problems. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: 1 Scene (1 hour) to perform the ritual. The effects on the glass container last for roughly a month, after which the effect of the ritual will start to gradually dissipate.",
+                summary: "Create blood-preserving containers that maintain vitae potency for a month",
+                dicePool: "None",
+                level: 1,
+                discipline: "quietus",
+                rouseChecks: 0,
+                amalgamPrerequisites: [],
+            },
+            // Level 2
+            {
+                name: "Baal's Caress - Path of Poisons",
+                description: "As the Kindred coats a blade in his own vitae, the poisons, he concocted stick to the weapon turning it deadly. Any surface which the Kindred coats in his vitae can transmit a predetermined Poison from the Assamite Sorcery section. The effects last for an entire Scene provided the coated surface makes contact with the target's bloodstream or is ingested. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: Any surface the user coats in his Vitae during a Scene. ❖ Cost: 1 Rouse Check ❖ Conditions: Cannot be used on bullets as their ignition and velocity will dissipate the poison too much for it to be effective. ❖ Risk: Minor, you are noticeably coating a surface in your blood. ❖ Test: Quietus + Intelligence (2) ❖ Resistance Roll: None ❖ Duration: 1 Scene",
+                summary: "Coat surfaces with poisonous vitae to transmit Assamite Sorcery poisons",
+                dicePool: "Quietus + Intelligence",
+                level: 2,
+                discipline: "quietus",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+            },
+            {
+                name: "Taste Of Death - Path of Poisons",
+                description: "The Kindred's vitae becomes poisonous to all who would drink from the vampire. The Kindred can lace his blood with the powers of Assamite Sorcery, allowing him to use its poisons on any who would drink from him. ❖ Type: Reflexive ❖ Tag: Physical ❖ Range & Targets: Anyone who drinks the Kindred's vitae. ❖ Cost: 1 Rouse Check ❖ Conditions: The target must ingest the user's vitae. ❖ Risk: Moderate. You are already being fed from. The power itself merely has a more dramatic effect afterwards. ❖ Test: Quietus + Intelligence (2) ❖ Resistance Roll: None ❖ Duration: 1 Round (until the feeding is done).",
+                summary: "Make your vitae poisonous to those who drink from you",
+                dicePool: "Quietus + Intelligence",
+                level: 2,
+                discipline: "quietus",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+            },
+            {
+                name: "Blood Of Ancients - Path of Curses",
+                description: "A sire's link to their child is unmistakable and so it is that the childer will suffer for their creator's hubris. The Kindred can use the blood of the target's Sire to cast a curse on the target using Assamite Sorcery. ❖ Type: Upgrade ❖ Tag: Physical ❖ Range & Targets: Targets any childer who belongs to the sire, whose blood was used. ❖ Cost: None ❖ Conditions: None ❖ Risk: None ❖ Test: None ❖ Resistance Roll: None ❖ Duration: Permanent",
+                summary: "Use a sire's blood to curse their childer with Assamite Sorcery",
+                dicePool: "None",
+                level: 2,
+                discipline: "quietus",
+                rouseChecks: 0,
+                amalgamPrerequisites: [],
+            },
+            // Level 3
+            {
+                name: "Rapturous Touch - Path of Poisons",
+                description: "Blades and blood are no longer needed for the assassin to infect his target. A simple, but firm grip, will more than suffice. The Kindred can transmit any Poison from the Assamite Sorcery section via Touch. ❖ Type: Power ❖ Tag: Physical ❖ Range & Targets: Any individual within Touch Range. ❖ Cost: 1 Rouse Check ❖ Conditions: The Kindred must perform a firm and noticeable grip in order for the effect to work (a firm handshake does suffice). ❖ Risk: None ❖ Test: Quietus + Intelligence (3) ❖ Resistance Roll: None ❖ Duration: 1 Scene",
+                summary: "Transmit Assamite Sorcery poisons through touch",
+                dicePool: "Quietus + Intelligence",
+                level: 3,
+                discipline: "quietus",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+            },
+            {
+                name: "Baal's Due - Path of Curses",
+                description: "Often the quickest way to a tyrant's heart is through his progeny. The Kindred can use the last drop of another vampire's blood to cast curses, from the Assamite Sorcery section, on the sire of that vampire. The last drop of blood is literally the last portion of blood the Kindred manages to extract from a target before their destruction. This power can be used in combination with Blood Essence if the Kindred diablarizes the vampire, but generally, the blood is extracted by slaying the target during the course of the ritual. ❖ Type: Upgrade ❖ Tag: Physical ❖ Range & Targets: Can target any Kindred. ❖ Cost: None ❖ Conditions: The effects do not work on Thin Blood, Caitiffs or Sires who are unknown to the user of this ability. ❖ Risk: High. Not only are you performing murder, but you're also getting your hands bloody trying to do it in a particular way. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: Permanent",
+                summary: "Use a vampire's last blood drop to curse their sire",
+                dicePool: "None",
+                level: 3,
+                discipline: "quietus",
+                rouseChecks: 0,
+                amalgamPrerequisites: [],
+            },
+            // Level 4
+            {
+                name: "Haqim's Chosen Blades - Path of Poisons",
+                description: "The humble blade is the assassin's chosen tool. The Kindred can empower a single melee weapon with this ritual. The chosen weapon is considered to be permanently coated in the Kindred's blood and can transmit any Poison from the Assamite Sorcery section as long as it injures a target. Additionally, the user gains an extra dice whenever making Melee rolls with the chosen weapon. ❖ Type: Ritual ❖ Tag: Physical ❖ Range & Targets: A single weapon within Touch Range. ❖ Cost: 1 Scene + 1 Rouse Check ❖ Conditions: The weapon must have a piercing end and be bladed (blunt weapons such as hammers will not suffice). Only a single instance of such a weapon can exist at one time and the weapon's supernatural properties only come to life in the hands of its master. ❖ Risk: None ❖ Test: Quietus + Intelligence (4) ❖ Resistance Roll: None ❖ Duration: Until the Kindred is destroyed or chosen to empower a new weapon with this",
+                summary: "Permanently empower a blade to transmit poisons and gain +1 melee dice",
+                dicePool: "Quietus + Intelligence",
+                level: 4,
+                discipline: "quietus",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+            },
+            // Level 5
+            {
+                name: "The Slave's Revenge - Path of Curses",
+                description: "Ghouls have been used and abused by Kindred for centuries. While this ability does little to improve their lot in life, it does give their death a final purpose. The Kindred can use the last drop of blood from a Ghoul belonging to another vampire to cast curses, from the Assamite Sorcery section, on the master of that Ghoul. The last drop of blood is literally the last portion of blood the Kindred manages to extract from a target before their death. This power can be used in combination with Blood Essence if the Kindred drains the Ghoul dry, but generally, the blood is extracted by slaying the target during the course of the ritual. ❖ Type: Upgrade ❖ Tag: Physical ❖ Range & Targets: Can only target Ghouls. ❖ Cost: None ❖ Conditions: The curse chosen only works on Kindred. ❖ Risk: High. You are performing a ritual on an empowered mortal. Unlike other Kindred, ghouls don't tend to age into oblivion when killed so you might have a body you need to dispose of after the ritual is finished. ❖ Test: None ❖ Resistance Roll: None",
+                summary: "Use a ghoul's last blood drop to curse their Kindred master",
+                dicePool: "None",
+                level: 5,
+                discipline: "quietus",
+                rouseChecks: 0,
+                amalgamPrerequisites: [],
+            },
+        ],
     },
     spiritus: {
         clans: ["Ahrimanes", "Lhiannan"],
@@ -1935,6 +2251,60 @@ export const Rituals: Ritual[] = [
 { name: "Warding Circle Against Magic", summary: "Prevents all Blood Sorcery, Oblivion, Rituals, and Ceremonies within the circle. Anyone attempting to use such powers against someone inside must contest Willpower vs. the caster's Intelligence + Blood Sorcery. Also defends against non-vampiric magic.", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Blood Sorcery vs. Willpower (see V5 Corebook pg. 275)", ingredients: "Circle inscribed with the same blade used to draw the caster's vitae.", level: 4 }
 ];
 
+// Assamite Sorcery Rituals
+export const assamiteSorceryRitualSchema = z.object({
+    name: z.string(),
+    summary: z.string(),
+    rouseChecks: z.number().min(0).int(),
+    requiredTime: z.string(),
+    dicePool: z.string(),
+    ingredients: z.string(),
+    level: z.number().min(1).int(),
+})
+export type AssamiteSorceryRitual = z.infer<typeof assamiteSorceryRitualSchema>
+
+export const AssamiteSorceryRituals: AssamiteSorceryRitual[] = [
+    // PATH OF POISONS - Level 1
+    { name: "Ishtar's Touch - Path of Poisons", summary: "Target feels intoxicated - suffers 1 dice penalty to all rolls for 12 hours (Mortals and Enhanced Mortals only)", rouseChecks: 0, requiredTime: "Instant", dicePool: "None", ingredients: "Entire bottle of strong liquor consumed by user", level: 1 },
+    { name: "Alamut's Blessing - Path of Poisons", summary: "Inflicts Poisoned condition causing fever, sweating, and potential death through heatstroke (Mortals and Enhanced Mortals only)", rouseChecks: 0, requiredTime: "Instant", dicePool: "None", ingredients: "Small vial of sand consumed by user", level: 1 },
+    { name: "Scorpion's Sting - Path of Poisons", summary: "Paralyzes target - unable to move or talk (12h Mortals, 6h Enhanced Mortals, 1h Kindred). Cured by vampiric bite/saliva", rouseChecks: 0, requiredTime: "Instant", dicePool: "None", ingredients: "Scorpion or arachnid consumed by user", level: 1 },
+
+    // PATH OF POISONS - Level 2  
+    { name: "Taste Of Bliss - Path of Poisons", summary: "Target feels euphoric - Mortals/Enhanced Mortals nap peacefully, Kindred avoid Frenzy and can't use Willpower to re-roll", rouseChecks: 0, requiredTime: "Instant", dicePool: "Quietus + Intelligence (2)", ingredients: "Milk of Poppy or suitable substitute", level: 2 },
+    { name: "Baal's Kiss - Path of Poisons", summary: "Like Alamut's Blessing but affects Kindred too - cannot cause Aggravated damage to Kindred, prevents wound healing via blood", rouseChecks: 0, requiredTime: "Instant", dicePool: "Quietus + Intelligence (3)", ingredients: "Sand mixed with human blood", level: 2 },
+    { name: "Deny The Flock - Path of Poisons", summary: "Infectious flu-like symptoms spread among mortals - makes them tired, lethargic, and blood tastes sour to Kindred for 1 week", rouseChecks: 0, requiredTime: "Instant", dicePool: "Quietus + Intelligence (2)", ingredients: "Blood from currently ill mortal", level: 2 },
+
+    // PATH OF POISONS - Level 3
+    { name: "Blood Clot - Path of Poisons", summary: "Thickens blood - Mortals/Enhanced Mortals take 1 Aggravated damage, Kindred cannot use Rouse Check powers. Cured by Thin Blood vitae", rouseChecks: 0, requiredTime: "Instant", dicePool: "Quietus + Intelligence (3)", ingredients: "Vial of snake venom", level: 3 },
+    { name: "Grip Of Humility - Path of Poisons", summary: "Target loses all Fortitude benefits and cannot halve damage (Kindred only). Cured by draining a mortal dry", rouseChecks: 0, requiredTime: "Instant", dicePool: "Quietus + Intelligence (3)", ingredients: "Blood from holy man (priest, rabbi, etc.)", level: 3 },
+
+    // PATH OF POISONS - Level 4
+    { name: "Thin The Blood - Path of Poisons", summary: "Target cannot use Rouse Check abilities and all Upgrades cease function for 1 night. Cured by drinking from lower generation or draining Kindred", rouseChecks: 0, requiredTime: "Instant", dicePool: "Quietus + Intelligence (4)", ingredients: "Last vessel must be Thin Blood", level: 4 },
+
+    // PATH OF POISONS - Level 5
+    { name: "Blood Of Destruction - Path of Poisons", summary: "Target takes 1 Aggravated damage per Blood Potency dot, plus 1 more per Rouse Check used. Cured by draining same-clan Kindred", rouseChecks: 0, requiredTime: "Instant", dicePool: "Quietus + Intelligence (5)", ingredients: "Blood from same clan as target", level: 5 },
+
+    // PATH OF CURSES - Level 1
+    { name: "Dagon's Call - Path of Curses", summary: "Target feels compelled to visit specific location within one week or succumbs to urge", rouseChecks: 0, requiredTime: "Instant", dicePool: "None", ingredients: "Picture of location submerged in victim's blood", level: 1 },
+    { name: "Alamut's Warning - Path of Curses", summary: "Send item with Quietus symbol - when opened, target experiences visions of their death and loses Willpower recovery for one night", rouseChecks: 0, requiredTime: "Instant", dicePool: "None", ingredients: "Drop of victim's blood on item, mortal courier", level: 1 },
+    { name: "Song Of Distant Vitae - Path of Curses", summary: "Ritually boil victim's blood - sends telepathic death vision to all Kindred within 100km as public death mark", rouseChecks: 0, requiredTime: "Instant", dicePool: "None", ingredients: "Victim's blood ritually boiled away", level: 1 },
+
+    // PATH OF CURSES - Level 2
+    { name: "Erosion - Path of Curses", summary: "Lead item planted near target (10m/30ft) causes 1 dice penalty to all rolls until removed", rouseChecks: 0, requiredTime: "Instant", dicePool: "Quietus + Intelligence (2)", ingredients: "Lead piece melted and cooled in water and victim's blood", level: 2 },
+    { name: "Forbidden Masquerade - Path of Curses", summary: "Mortal target fears fire, burns in sunlight sensation, craves blood for 1 week (mental effects only). Cured by near-death experience", rouseChecks: 0, requiredTime: "Instant", dicePool: "Quietus + Intelligence (2)", ingredients: "Victim's vitae", level: 2 },
+    { name: "Marks Of Humanity - Path of Curses", summary: "Target's Humanity temporarily doubles (max 10) for 1 night, causing potential remorse, insanity, or suicide", rouseChecks: 0, requiredTime: "Instant", dicePool: "Quietus + Intelligence (2)", ingredients: "Blood from morally upstanding individual mixed with victim's blood", level: 2 },
+
+    // PATH OF CURSES - Level 3
+    { name: "Blood Sweat - Path of Curses", summary: "Target sweats blood for 1 week - creates Masquerade concerns and makes them smell sweet to Kindred. Cured by drinking from Kindred 2+ generations lower", rouseChecks: 0, requiredTime: "Instant", dicePool: "Quietus + Intelligence (3)", ingredients: "Victim's blood boiled in user's hand (causes 1 Aggravated damage to user)", level: 3 },
+    { name: "Weaken The Ancient Bond - Path of Curses", summary: "Breaks target's blood bonds, ghoul loyalty, and Dominate/Presence effects for 3 days", rouseChecks: 0, requiredTime: "Instant", dicePool: "Quietus + Intelligence (3)", ingredients: "Victim's blood mixed with Thin Blood", level: 3 },
+
+    // PATH OF CURSES - Level 4
+    { name: "Dam The Hearts River - Path of Curses", summary: "Every time target uses Disciplines (except upgrades) they gain Humanity stain for 1 week (Kindred only)", rouseChecks: 0, requiredTime: "Instant", dicePool: "Quietus + Intelligence (4)", ingredients: "Victim's blood mixed with blood from serious sinner (death row inmate, serial killer)", level: 4 },
+
+    // PATH OF CURSES - Level 5
+    { name: "Poison The Well Of Life - Path of Curses", summary: "Target can only feed on other Kindred for 1 week (Kindred only)", rouseChecks: 0, requiredTime: "Instant", dicePool: "Quietus + Intelligence (5)", ingredients: "User must be at Hunger 4 when performing ritual", level: 5 },
+];
+
 // Spiritus Rituals: identical to Rituals, but for Spiritus
 export const spiritusRitualSchema = z.object({
     name: z.string(),
@@ -1998,6 +2368,6 @@ export const SerpentisRituals: SerpentisRitual[] = [
     { name: "Mother/Father Of Monsters", summary: "Transform broken individual into Typhonic monster under your command (requires Humanity 5 or lower)", rouseChecks: 2, requiredTime: "1 Scene", dicePool: "Serpentis + Resolve", ingredients: "Broken individual, large portion of user's blood", level: 5 },
 ];
 
-export const powerIsRitual = (p: Power | Ritual | Ceremony | SpirituRitual | SerpentisRitual): p is Ritual | Ceremony | SpirituRitual | SerpentisRitual => {
-    return (p as Power | Ritual | Ceremony | SpirituRitual | SerpentisRitual)["ingredients" as keyof typeof p] !== undefined;
+export const powerIsRitual = (p: Power | Ritual | Ceremony | SpirituRitual | SerpentisRitual | AssamiteSorceryRitual): p is Ritual | Ceremony | SpirituRitual | SerpentisRitual | AssamiteSorceryRitual => {
+    return (p as Power | Ritual | Ceremony | SpirituRitual | SerpentisRitual | AssamiteSorceryRitual)["ingredients" as keyof typeof p] !== undefined;
 }
