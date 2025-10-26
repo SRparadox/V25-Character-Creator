@@ -62,50 +62,10 @@ export const disciplineNameSchema = z.union([
     z.literal("presence"),
     z.literal("protean"),
     z.literal("quietus"),
+    z.literal("thin blood alchemy"),
     z.literal("spiritus"),
-    z.literal("thin-blood alchemy"),
     z.literal("valeren"),
     z.literal("vicissitude"),
-
-    // Blood Sorcery Paths
-    z.literal("path of blood"),
-    z.literal("path of creation"),
-    z.literal("path of destruction"),
-    z.literal("path of life"),
-    z.literal("path of morpheus"),
-    z.literal("path of warding"),
-    z.literal("path of hexes"),
-    z.literal("path of elements"),
-    z.literal("path of flames"),
-    z.literal("path of mars"),
-    z.literal("path of mercury"),
-    z.literal("path of souls"),
-    z.literal("path of technomancy"),
-    z.literal("path of serpents"),
-    z.literal("path of shadows"),
-    z.literal("path of fera magica"),
-
-    // Necromancy Paths
-    z.literal("path of spirits"),
-    z.literal("path of bones"),
-    z.literal("path of ashes"),
-    z.literal("path of death"),
-    z.literal("path of twilight"),
-    z.literal("path of skulls"),
-
-    // Koldunic Sorcery Paths
-    z.literal("path of earth"),
-    z.literal("path of wind"),
-    z.literal("path of water"),
-    z.literal("path of fire"),
-    z.literal("path of calamity"),
-
-    // Thin Blood Alchemy Paths
-    z.literal("path of common formulas"),
-    z.literal("path of specialized formula"),
-    z.literal("path of athanor corporis"),
-    z.literal("path of calcinatio"),
-    z.literal("path of fixatio"),
 
     z.literal(""),
 ])
