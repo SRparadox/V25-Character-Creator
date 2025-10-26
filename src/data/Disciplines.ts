@@ -1384,10 +1384,166 @@ export const disciplines: Record<DisciplineName, Discipline> = {
         powers: [],
     },
     serpentis: {
-        clans: [],
-        summary: "",
+        clans: ["Ministry"],
+        summary: "Serpentine powers focusing on corruption, transformation, and venomous abilities",
         logo: obfuscateLogo,
-        powers: [],
+        powers: [
+            // Level 1
+            {
+                name: "Divine Image",
+                description: "The Vampire's social manipulation goes beyond being just the centre of attention. With this ability, they become the centre of their follower's whole world. If more than one instance of Awe is active in the same location at once then the user who has a higher rating in Presence and used their ability more recently would generally be the centre of attention. With this upgrade, the user is always considered the highest Presence user unless another Kindred possesses Divine Image as well. ❖ Type: Upgrade ❖ Tag: Mental ❖ Range & Targets: Targets the user himself. ❖ Cost: None ❖ Conditions: Must possess Awe from Presence. ❖ Risk: Moderate. This ability makes mortals flock to your side just to be able to see you. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: Permanent",
+                summary: "Always be considered highest Presence user when multiple Awe effects are active (requires Awe)",
+                dicePool: "None",
+                level: 1,
+                discipline: "serpentis",
+                rouseChecks: 0,
+                amalgamPrerequisites: [],
+            },
+            {
+                name: "Touch Of The Asp",
+                description: "With the softest of touch, the Kindred enhances a target's darkest needs. The target begins to feel an unrelenting need to satisfy its addiction. Regardless if the addiction is Mild or Severe the target will attempt to actively seek it out. Any action not done in pursuit of this goal suffers a 2 dice penalty to all its rolls. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: A single individual within Touch Range. ❖ Cost: None ❖ Conditions: Must make physical touch with the target's skin. The target must have a pre-existing addiction. ❖ Risk: Minor. The target can become agitated and uncomfortable to be around. ❖ Test: None ❖ Resistance Roll: Stamina + Resolve (3, Mortals have no protection against this ability.) ❖ Duration: 1 Action (1 second) for the effects to take hold, after which they last for 1 Scene (1 hour).",
+                summary: "Touch to enhance target's addiction, causing -2 dice to non-addiction related actions",
+                dicePool: "None",
+                level: 1,
+                discipline: "serpentis",
+                rouseChecks: 0,
+                amalgamPrerequisites: [],
+            },
+            {
+                name: "Skin Of Adder",
+                description: "The Kindred's skin grows patches of scales and becomes more durable. The Kindred can ignore up to 2 points of Superficial Damage he receives each Round. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: Targets the user himself. ❖ Cost: None ❖ Conditions: Only affects Superficial Damage. ❖ Risk: High. The power physically changes how the Kindred looks and makes them appear supernatural to outsiders. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: 1 Scene (10 minutes) or until the Kindred voluntarily ends the ability or is incapacitated.",
+                summary: "Grow scales, ignore 2 points of Superficial Damage per Round",
+                dicePool: "None",
+                level: 1,
+                discipline: "serpentis",
+                rouseChecks: 0,
+                amalgamPrerequisites: [],
+            },
+            {
+                name: "Serpents Flesh",
+                description: "The Kindred's joints become more flexible, and he loses his normal ability to project false life. The Kindred adds 1 dice to any Dexterity-based roll. While the power is active the Kindred cannot use Blush of Life. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: None ❖ Conditions: None ❖ Risk: Minor. While the power itself doesn't outright make the Vampire supernaturally flexible it does prevent them from imitating life. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: 1 Scene (10 minutes) or until the Kindred voluntarily ends the ability or is incapacitated.",
+                summary: "Gain +1 dice to Dexterity rolls but cannot use Blush of Life",
+                dicePool: "None",
+                level: 1,
+                discipline: "serpentis",
+                rouseChecks: 0,
+                amalgamPrerequisites: [],
+            },
+            {
+                name: "Eyes Of The Serpent",
+                description: "The Kindred's eyes become predatory and focused. Those whose gaze locks with the Vampire find themselves unable to move or break eye contact, their reaction similar to that of a deer caught in headlights. Unless the target passes its Resistance Roll it cannot move. ❖ Type: Ability ❖ Tag: Physical & Mental ❖ Range & Targets: A single individual within Visual Range. ❖ Cost: None ❖ Conditions: Must make Eye Contact. This ability can only be used once per Scene. ❖ Risk: Minor. While the eyes do physically change, they do so in a very subtle manner. ❖ Test: None ❖ Resistance Roll: Stamina + Resolve (3, mortals have no protection against this ability) ❖ Duration: Until eye contact is broken or the Kindred voluntarily ends the ability.",
+                summary: "Eye contact paralyzes target until contact is broken (once per scene)",
+                dicePool: "None",
+                level: 1,
+                discipline: "serpentis",
+                rouseChecks: 0,
+                amalgamPrerequisites: [],
+            },
+            // Level 2
+            {
+                name: "Breath The Sandstorm",
+                description: "The Kindred forces a mouthful of its own vitae into its mouth and exhales it as a fine red dust that fills an area. If successful then everyone, including the user himself, is temporarily blinded as a red mist of dust blocks all line of sight. All actions that require Visual Range, Eye Contact or sight in general have their dice pool halved (rounding up). ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: Everyone within 10 meters (30 feet) of the Kindred. ❖ Cost: 1 Rouse Check ❖ Conditions: Must be able to open his mouth to breathe out the miniature sandstorm. Individuals carrying protective eye equipment are not affected. ❖ Risk: High. This is blatantly a supernatural event and is a Masquerade breach if done in public. ❖ Test: Serpentis + Stamina (2) ❖ Resistance Roll: None ❖ Duration: 1 Round per dot in Serpentis (a few seconds to a minute).",
+                summary: "Exhale blinding red dust affecting 30-foot radius, halving sight-based dice pools",
+                dicePool: "Serpentis + Stamina",
+                level: 2,
+                discipline: "serpentis",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+            },
+            {
+                name: "Seed Of Corruption",
+                description: "Not all venom is meant to harm or incapacitate, sometimes it is just intended to subtly alter the target. The Kindred can give a Mild addiction of any type to a Mortal they feed from. ❖ Type: Upgrade ❖ Tag: Mental & Physical ❖ Range & Targets: Targets anyone the Kindred feeds from. ❖ Cost: None ❖ Conditions: Must feed from the target via bite. Enhanced Mortals and Kindred are not affected. ❖ Risk: Minor. This ability alters the mental and physical needs of an individual and their new craving will be noticed by their friends, but linking it to you will be a stretch. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: Permanent",
+                summary: "Give Mild addiction to mortals you feed from",
+                dicePool: "None",
+                level: 2,
+                discipline: "serpentis",
+                rouseChecks: 0,
+                amalgamPrerequisites: [],
+            },
+            {
+                name: "Cobra Fangs",
+                description: "The Kindred's fangs produce a dangerous serpentine venom. The Kindred can voluntarily Poison any targets he bites. Mortals and Enhanced Mortals can be affected but not Kindred. ❖ Type: Upgrade ❖ Tag: Physical ❖ Range & Targets: Targets anyone the Kindred bites. ❖ Cost: None ❖ Conditions: Enhanced Mortals can be affected; Kindred are still immune. ❖ Risk: Minor. This ability simply makes your bite more deadly. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: Permanent",
+                summary: "Bite attacks can poison mortals and enhanced mortals",
+                dicePool: "None",
+                level: 2,
+                discipline: "serpentis",
+                rouseChecks: 0,
+                amalgamPrerequisites: [],
+            },
+            // Level 3
+            {
+                name: "Basilisk Breath",
+                description: "The Kindred exhales a poisonous corrosive mist at its adversaries. If successful the Kindred breaths out a corrosive mist. This breath attack is projected in the shape of a cone with a length of 3 meters (or 10 feet) and a maximum width of 1 meter (or 3 feet). The measurements are meant as a rough idea only. Anyone caught in the cone takes 3 Points of Superficial Damage and is Poisoned if they fail their resistance rolls. Kindred can be damaged but never suffer the Poisoned effect. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: Anyone caught in the 3-meter (10 feet) x 1 meter (3 feet) cone. ❖ Cost: 1 Rouse Check ❖ Conditions: Must be able to open his mouth to breathe out the toxic mist. ❖ Risk: High. This power can only be explained as a supernatural event and breaches the Masquerade. ❖ Test: Serpentis + Stamina (3) ❖ Resistance Roll: Stamina + Resolve (Mortals have no protection against this ability) ❖ Duration: 1 Action (a few seconds), the Poison lasts until cured or until it has run its course.",
+                summary: "Breathe corrosive cone doing 3 Superficial Damage and poisoning targets",
+                dicePool: "Serpentis + Stamina",
+                level: 3,
+                discipline: "serpentis",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+            },
+            {
+                name: "Forbidden Blood",
+                description: "The Kindred's blood responds to those who drink it, unlocking hidden yearnings and addictions they never knew they had. Anyone who feeds from the Kindred runs the risk of developing a Mild or Severe addiction. The type and nature of the addiction which the victim develops are left for the player to decide when targeting Mortals and for the Storyteller to decide when targeting Enhanced Mortals and Kindred. ❖ Type: Reflexive ❖ Tag: Physical ❖ Range & Targets: Anyone who drinks the Kindred's vitae. ❖ Cost: 1 Rouse Check ❖ Conditions: The target must ingest the Kindred's vitae. ❖ Risk: Moderate. This has the potential to permanently alter the target's wants and needs but is otherwise subtle. ❖ Test: None ❖ Resistance Roll: Stamina + Resolve (4, Mortals have no protection against this power) ❖ Duration: Permanent or until the target manages to overcome the addiction through a lack of access or therapy.",
+                summary: "Those who drink your blood risk developing Mild or Severe addictions",
+                dicePool: "None",
+                level: 3,
+                discipline: "serpentis",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+            },
+            {
+                name: "The Untethered Heart",
+                description: "The Kindred's heart has the ability to move through its chest cavity and instinctively avoids damage. Any action specifically targeting the Kindred's heart, be it a gunshot, staking or a physical attack suffers a 3 dice penalty to its rolls or fails automatically if no roll is required. ❖ Type: Upgrade ❖ Tag: Physical ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: None ❖ Conditions: None ❖ Risk: None. Unless examined via an X-ray this power cannot be picked up on. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: Permanent",
+                summary: "Heart moves to avoid damage, -3 dice to heart-targeting attacks",
+                dicePool: "None",
+                level: 3,
+                discipline: "serpentis",
+                rouseChecks: 0,
+                amalgamPrerequisites: [],
+            },
+            // Level 4
+            {
+                name: "Typhon's Maw",
+                description: "The Vampires fangs grow in rows and drip a virulent toxin that thickens blood and dissolves flesh. If successful the Kindred's bite attacks Poison any target he bites. However, unlike normal this venom inflicts 1 point of Aggravated Damage to Mortals and Enhanced Mortals every Round. The Poison effect can still be treated if the right knowledge and equipment are on hand. It also affects other Kindred but with less severe effects, causing them 1 point of Superficial Damage every Round instead. While the power is in effect the user cannot issue Vocal commands. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: Anyone the user bites. ❖ Cost: 1 Rouse Check ❖ Conditions: None ❖ Risk: High. This power changes the structure of the Kindred's maw and fills it with needle-like fangs that drip venom. ❖ Test: Serpentis + Stamina (4, if the Kindred possesses Cobra Fangs as well then, the test difficulty is reduced to 3) ❖ Resistance Roll: Stamina + Resolve (4, to resist the Poison, Mortals have no protection against this attack, Enhanced Mortals do) ❖ Duration: The mutation lasts for 1 Scene (1 hour), the Kindred voluntarily ends the power or is incapacitated. The effects of Poison last until they run their course or are cured.",
+                summary: "Multiple fanged maw with deadly venom causing ongoing damage (difficulty 3 with Cobra Fangs)",
+                dicePool: "Serpentis + Stamina",
+                level: 4,
+                discipline: "serpentis",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+            },
+            {
+                name: "Form Of The Desert Storm",
+                description: "The Kindred turns into a cloud of red sand and dust. If successful the Kindred turns into a miniature sandstorm. While in this form only fire and sunlight can harm him. He can move up to 10 meters (30 feet) away from his current position while in this form and can pass through small nooks and cracks but cannot do any other actions. While in this form, he cannot be affected by powers which require Eye Contact and cannot use any of his other abilities. He still benefits from all his upgrades, however. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: Targets the user himself. ❖ Cost: 1 Rouse Checks ❖ Conditions: None ❖ Risk: High. The ability is manifested instantaneously and if performed in public it will cause a panic. ❖ Test: Serpentis + Stamina (4) ❖ Resistance Roll: None ❖ Duration: 1 Round (a few seconds to a minute), until the Kindred ends the ability or is incapacitated.",
+                summary: "Transform into sandstorm, only vulnerable to fire/sunlight, can move 30 feet",
+                dicePool: "Serpentis + Stamina",
+                level: 4,
+                discipline: "serpentis",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+            },
+            // Level 5
+            {
+                name: "Avatar Of Set",
+                description: "The Vampire transforms into a Typhonic avatar of destruction. If successful the Kindred transforms into a jackal-like monstrosity reminiscent of a Typhonic beast. All Mortals and Enhanced Mortals will flee from the Scene in terror unless they pass a Willpower test (3). The Kindred gains a 2 dice bonus to all physical rolls and damage from its attacks cannot be halved. Type: Ability ❖ Tag: Physical ❖ Range & Targets: Targets the user himself. ❖ Cost: 2 Rounds + 2 Rouse Checks ❖ Conditions: Males only. ❖ Risk: Very High. You have turned into a monstrous beast. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: The Kindred needs 2 Rounds (1 minute) to manifest the ability. Afterwards, the power lasts for 1 Scene (1 Hour), until the Kindred sacrifices a Round (a few seconds) to end the ability or is incapacitated.",
+                summary: "Transform into jackal-like Typhonic beast, +2 physical dice, unhalved damage (males only)",
+                dicePool: "None",
+                level: 5,
+                discipline: "serpentis",
+                rouseChecks: 2,
+                amalgamPrerequisites: [],
+            },
+            {
+                name: "Avatar Of Apep",
+                description: "The Vampire transforms into a serpent of terror and destruction. If successful the Kindred transforms into a large snake-like monster drenched in shadows. All Mortals and Enhanced Mortals will flee from the Scene in terror unless they pass a Willpower test (3). The Kindred gains a 2 dice bonus to all physical rolls, cannot use items and its bite attacks count as benefiting from Typhon's Maw. Type: Ability ❖ Tag: Physical ❖ Range & Targets: Targets the user himself. ❖ Cost: 2 Rounds + 2 Rouse Checks ❖ Conditions: Females only. ❖ Risk: Very High. You have turned into a monstrous beast. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: The Kindred needs 2 Rounds (1 minute) to manifest the ability. Afterwards, the power lasts for 1 Scene (1 Hour), until the Kindred sacrifices a Round (a few seconds) to end the ability or is incapacitated.",
+                summary: "Transform into serpentine shadow monster, +2 physical dice, bite has Typhon's Maw (females only)",
+                dicePool: "None",
+                level: 5,
+                discipline: "serpentis",
+                rouseChecks: 2,
+                amalgamPrerequisites: [],
+            },
+        ],
     },
     necromancy: {
         clans: [],
@@ -1408,106 +1564,212 @@ export const disciplines: Record<DisciplineName, Discipline> = {
         powers: [],
     },
     spiritus: {
-        clans: [],
-        summary: "",
+        clans: ["Ahrimanes", "Lhiannan"],
+        summary: "Nature-based spiritual abilities and communion with spirits",
         logo: obfuscateLogo,
-        powers: [],
+        powers: [
+            // Level 1
+            {
+                name: "Land Whisper",
+                description: "The Kindred whispers a silent word and waits for the spirits of the land to answer. The Kindred can whisper or speak out loud in any form or fashion she chooses and direct her questions to the spirits of nature around her. Sometimes a spirit might reply with a voice only the user can hear or there might be no answer forthcoming. This is left to the discretion of the Storyteller. Regardless of the outcome the user will be able to pick up on sounds others cannot, from the spirits around her granting a 2 dice bonus to all Survival rolls. ❖ Type: Upgrade ❖ Tag: Physical & Spiritual ❖ Range & Targets: Targets the Kindred herself and all other spirits nearby. ❖ Cost: None ❖ Conditions: The bonus only applies in areas where nature is abundant (forests, mountains, meadows). ❖ Risk: Low. The user can be seen talking to themselves which does raise suspicion. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: Permanent",
+                summary: "Communicate with nature spirits and gain +2 dice to Survival rolls in natural areas",
+                dicePool: "None",
+                level: 1,
+                discipline: "spiritus",
+                rouseChecks: 0,
+                amalgamPrerequisites: [],
+            },
+            {
+                name: "Prayer To Gaia",
+                description: "The user ushers a prayer to the Earth Mother, asking her for assistance in this trying time. The user ushers a prayer, asking the spirits for assistance. Once completed the user gains a 1 dice bonus to all Physical and Mental rolls. ❖ Type: Ritual ❖ Tag: Spiritual ❖ Range & Targets: Targets the Kindred herself. ❖ Cost: 1 Scene ❖ Conditions: The ritual must be performed in an area of significant natural vitality. The bonus only applies in areas where nature is abundant (forests, mountains, meadows). ❖ Risk: Low. You are performing what is in essence a prayer to nature. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: 1 Scene to manifest (10 minutes) after which it lasts until the end of the Session (6 hours).",
+                summary: "Prayer ritual granting +1 dice to Physical and Mental rolls in natural areas",
+                dicePool: "None",
+                level: 1,
+                discipline: "spiritus",
+                rouseChecks: 0,
+                amalgamPrerequisites: [],
+            },
+            {
+                name: "Garou Speech",
+                description: "The spirits have seen it fit to bless the user with an understanding of Garou language. The user can understand and read Garou language. They can also communicate with them in their own tongue in a limited fashion. Garou speech is more than just words, rather it is a combination of half uttered human sentences, mixed with bestial growls and body language. If the user is creative, they might be able to use Protean to assist them. ❖ Type: Upgrade ❖ Tag: Physical & Spiritual ❖ Range & Targets: Targets the Kindred herself. ❖ Cost: None ❖ Conditions: None. If the user possesses Protean, then their Garou Speech is clearer to Werewolves than it would normally be. ❖ Risk: Moderate. You are talking and behaving strangely. Chances are you are also talking to a werewolf so the Masquerade might be of secondary concern. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: Permanent",
+                summary: "Understand and speak Garou language (enhanced with Protean)",
+                dicePool: "None",
+                level: 1,
+                discipline: "spiritus",
+                rouseChecks: 0,
+                amalgamPrerequisites: [],
+            },
+            // Level 2
+            {
+                name: "Aspect Of The Wild Hunt",
+                description: "The Kindred's connection to the spirits grows, allowing her to call upon animal characteristics at will. If successful, the user can choose ONE of the following bonuses: Wolf: The user enhances her sense of smell adding 2 dice to any scent related test they make. Eagle: The user enhances their eyesight and can see across great distances without the aid of technology. Bear: The user adds 1 dice to all Brawl related rolls. ❖ Type: Ability ❖ Tag: Physical & Spiritual ❖ Range & Targets: Targets the Kindred herself. ❖ Cost: 1 Rouse Check ❖ Conditions: Can only be used once per Scene. ❖ Risk: None. Your enhanced abilities are a wonder to behold but they do not physically alter your form, nor does the power have any visible effect. ❖ Test: Spiritus + Humanity (3) ❖ Resistance Roll: None ❖ Duration: 1 Scene (1 hour)",
+                summary: "Gain animal aspects - Wolf (scent), Eagle (sight), or Bear (brawl) for one scene",
+                dicePool: "Spiritus + Humanity",
+                level: 2,
+                discipline: "spiritus",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+            },
+            {
+                name: "Raven Queen",
+                description: "The vampire stretches out her arms and from seemingly nowhere a flock of ravens materializes to peck and confuse her enemies. The Kindred summons a flock of ravens. These count as spirit constructs. The ravens will attack individuals or groups as directed by the user. However, once a target is chosen it cannot be changed. The target, at most, suffers minor scratches and a 1 dice penalty to all its rolls while the effects last. ❖ Type: Ability ❖ Tag: Physical & Spiritual ❖ Range & Targets: Targets an individual or a group within 30 meters (100 feet). ❖ Cost: 1 Rouse Check ❖ Conditions: One use per Scene. ❖ Risk: High. While the ravens themselves look natural, they materialize from nowhere and follow the rules for Spirit Constructs. ❖ Test: Spiritus + Humanity (3) ❖ Resistance Roll: None ❖ Duration: Until the end of the next Round (2-3 minutes).",
+                summary: "Summon spirit ravens that impose -1 dice penalty on targets",
+                dicePool: "Spiritus + Humanity",
+                level: 2,
+                discipline: "spiritus",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+            },
+            {
+                name: "Guardians Of The Den",
+                description: "The user manifests a pair of wolves at her side which act as ferocious guardians. If successful 2 wolves will materialize next to the user. These entities will instinctively guard the user and attack any of her enemies who are openly hostile. They count as spirit constructs but otherwise have all the same attributes as normal wolves. ❖ Type: Ability ❖ Tag: Physical & Spiritual ❖ Range & Targets: The wolves will materialize separately within 1 meter (3 feet) of the user. ❖ Cost: 1 Round + 1 Rouse Check ❖ Conditions: One use per Scene. ❖ Risk: High. The wolves themselves will cause a panic and follow the rules for Spirt Constructs. ❖ Test: Spiritus + Humanity (3) ❖ Resistance Roll: None ❖ Duration: 1 Round to manifest (a few seconds) after which they will remain active for the rest of the Scene (10 minutes)",
+                summary: "Summon two spirit wolves as guardians for one scene",
+                dicePool: "Spiritus + Humanity",
+                level: 2,
+                discipline: "spiritus",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+            },
+            // Level 3
+            {
+                name: "The Tenacious Mother",
+                description: "The Kindred taps into her reserves of resolve, ready to sacrifice it all for her progeny, for a moment overriding the instincts of the Beast itself. If successful then the user can re-roll ALL black dice when using Willpower to re-roll dice, instead of just the normal 3. They still need to spend Willpower as normal. ❖ Type: Ability ❖ Tag: Mental & Spiritual ❖ Range & Targets: Targets the Kindred herself. ❖ Cost: 1 Rouse Check ❖ Conditions: None ❖ Risk: Minor. This ability strengthens the Kindred's resolve. ❖ Test: Spiritus + Humanity (4) ❖ Resistance Roll: None ❖ Duration: 1 Scene (10 minutes)",
+                summary: "Re-roll ALL black dice when using Willpower instead of just 3",
+                dicePool: "Spiritus + Humanity",
+                level: 3,
+                discipline: "spiritus",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+            },
+            {
+                name: "Spirit Beast",
+                description: "The power of Spiritus flows through the users' veins, allowing her to interact with other spirits on a more personal level. All of the user's physical attacks can now harm spirits and are treated as having the Spiritual tag. ❖ Type: Upgrade ❖ Tag: Spiritual ❖ Range & Targets: Targets the Kindred herself. ❖ Cost: None ❖ Conditions: None ❖ Risk: Low. Only those with supernatural sight can see that the user's aura is especially vibrant. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: Permanent",
+                summary: "Physical attacks can harm spirits and gain Spiritual tag",
+                dicePool: "None",
+                level: 3,
+                discipline: "spiritus",
+                rouseChecks: 0,
+                amalgamPrerequisites: [],
+            },
+            // Level 4
+            {
+                name: "Brother Bear",
+                description: "The Kindred strikes the ground with all her might ushering a desperate plea to the earth mother. As enemies close around her, they are stunned to find a massive bear standing guard over their would-be victim. If successful, the Kindred summons a large bear to her aid. This entity will instinctively guard the user and attack any of her enemies who are openly hostile. It counts as a spirit constructs (page 9). ❖ Type: Ability ❖ Tag: Physical & Spiritual ❖ Range & Targets: The bear will materialize within 3 meters (10 feet) of the user. ❖ Cost: 1 Round + 1 Rouse Check ❖ Conditions: The ability will only work in areas where nature is abundant (forests, mountains, meadows). ❖ Risk: High. The bear itself will cause a panic and follow the rules for Spirit Constructs. ❖ Test: Spiritus + Humanity (5) ❖ Resistance Roll: None ❖ Duration: 1 Round to manifest (a few seconds) after which it will remain active for the rest of the Scene (10 minutes).",
+                summary: "Summon a large spirit bear guardian (requires natural areas)",
+                dicePool: "Spiritus + Humanity",
+                level: 4,
+                discipline: "spiritus",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+            },
+            // Level 5
+            {
+                name: "Umbra Hunter",
+                description: "The user's connection to the Umbra is now such that she can step through the veil and travel its enigmatic depths. The user can enter or exit the Umbra by performing this Ability. She must perform this ability separately each time when entering and exiting the Umbra. ❖ Type: Ability ❖ Tag: Physical + Spiritual ❖ Range & Targets: Targets the user herself. ❖ Cost: 2 Rounds + 2 Rouse Checks ❖ Conditions: The ability will only work in areas where nature is abundant (forests, mountains, meadows). The user must have the Spirit Beast ability. ❖ Risk: Low. To the untrained eye the user simply disappears. ❖ Test: The ability will only work in areas where nature is abundant (forests, mountains, meadows). ❖ Resistance Roll: None ❖ Duration: 2 Rounds to manifest (a few minutes) after which the effects remain in place until the user returns to the physical world.",
+                summary: "Enter or exit the Umbra (requires Spirit Beast and natural areas)",
+                dicePool: "Spiritus + Humanity",
+                level: 5,
+                discipline: "spiritus",
+                rouseChecks: 2,
+                amalgamPrerequisites: [],
+            },
+        ],
     },
     // Blood Sorcery Paths
     "path of blood": {
         clans: [],
         summary: "",
-        logo: obfuscateLogo,
+        logo: bloodSorceryLogo,
         powers: [],
     },
     "path of creation": {
         clans: [],
         summary: "",
-        logo: obfuscateLogo,
+        logo: bloodSorceryLogo,
         powers: [],
     },
     "path of destruction": {
         clans: [],
         summary: "",
-        logo: obfuscateLogo,
+        logo: bloodSorceryLogo,
         powers: [],
     },
     "path of life": {
         clans: [],
         summary: "",
-        logo: obfuscateLogo,
+        logo: bloodSorceryLogo,
         powers: [],
     },
     "path of morpheus": {
         clans: [],
         summary: "",
-        logo: obfuscateLogo,
+        logo: bloodSorceryLogo,
         powers: [],
     },
     "path of warding": {
         clans: [],
         summary: "",
-        logo: obfuscateLogo,
+        logo: bloodSorceryLogo,
         powers: [],
     },
     "path of hexes": {
         clans: [],
         summary: "",
-        logo: obfuscateLogo,
+        logo: bloodSorceryLogo,
         powers: [],
     },
     "path of elements": {
         clans: [],
         summary: "",
-        logo: obfuscateLogo,
+        logo: bloodSorceryLogo,
         powers: [],
     },
     "path of flames": {
         clans: [],
         summary: "",
-        logo: obfuscateLogo,
+        logo: bloodSorceryLogo,
         powers: [],
     },
     "path of mars": {
         clans: [],
         summary: "",
-        logo: obfuscateLogo,
+        logo: bloodSorceryLogo,
         powers: [],
     },
     "path of mercury": {
         clans: [],
         summary: "",
-        logo: obfuscateLogo,
+        logo: bloodSorceryLogo,
         powers: [],
     },
     "path of souls": {
         clans: [],
         summary: "",
-        logo: obfuscateLogo,
+        logo: bloodSorceryLogo,
         powers: [],
     },
     "path of technomancy": {
         clans: [],
         summary: "",
-        logo: obfuscateLogo,
+        logo: bloodSorceryLogo,
         powers: [],
     },
     "path of serpents": {
         clans: [],
         summary: "",
-        logo: obfuscateLogo,
+        logo: bloodSorceryLogo,
         powers: [],
     },
     "path of shadows": {
         clans: [],
         summary: "",
-        logo: obfuscateLogo,
+        logo: bloodSorceryLogo,
         powers: [],
     },
     "path of fera magica": {
         clans: [],
         summary: "",
-        logo: obfuscateLogo,
+        logo: bloodSorceryLogo,
         powers: [],
     },
     // Necromancy Paths
@@ -1868,6 +2130,69 @@ export const Rituals: Ritual[] = [
 { name: "Warding Circle Against Magic", summary: "Prevents all Blood Sorcery, Oblivion, Rituals, and Ceremonies within the circle. Anyone attempting to use such powers against someone inside must contest Willpower vs. the caster's Intelligence + Blood Sorcery. Also defends against non-vampiric magic.", rouseChecks: 1, requiredTime: "1 hour", dicePool: "Intelligence + Blood Sorcery vs. Willpower (see V5 Corebook pg. 275)", ingredients: "Circle inscribed with the same blade used to draw the caster's vitae.", level: 4 }
 ];
 
-export const powerIsRitual = (p: Power | Ritual | Ceremony): p is Ritual | Ceremony => {
-    return (p as Power | Ritual | Ceremony)["ingredients" as keyof typeof p] !== undefined;
+// Spiritus Rituals: identical to Rituals, but for Spiritus
+export const spiritusRitualSchema = z.object({
+    name: z.string(),
+    summary: z.string(),
+    rouseChecks: z.number().min(0).int(),
+    requiredTime: z.string(),
+    dicePool: z.string(),
+    ingredients: z.string(),
+    level: z.number().min(1).int(),
+})
+export type SpirituRitual = z.infer<typeof spiritusRitualSchema>
+
+export const SpirituRituals: SpirituRitual[] = [
+    // Level 1
+    { name: "Mother's Blood", summary: "Create potion to aid pregnant mothers and infants - dramatically increases delivery success and infant survival", rouseChecks: 0, requiredTime: "1 Scene", dicePool: "None", ingredients: "User's blood, milk, honey, herbs", level: 1 },
+    
+    // Level 2  
+    { name: "Gaia's Vigil", summary: "Mark another Spiritus user with spiritual rune - anyone feeding from them inherits trackable scent", rouseChecks: 1, requiredTime: "1 Scene", dicePool: "Spiritus + Humanity", ingredients: "Spiritual rune materials", level: 2 },
+    
+    // Level 3
+    { name: "Aegis Of Innocence", summary: "Create talisman making children under 16 invisible to wearer during Frenzy", rouseChecks: 1, requiredTime: "1 Scene", dicePool: "Spiritus + Humanity", ingredients: "Talisman materials", level: 3 },
+    
+    // Level 4
+    { name: "Return The Pup", summary: "Identify Garou/Kinfolk and discover their mother, Tribe, and Sept through feeding", rouseChecks: 1, requiredTime: "1 Scene", dicePool: "Spiritus + Humanity", ingredients: "None (requires feeding)", level: 4 },
+    
+    // Level 5
+    { name: "Guiding Tears", summary: "Create potion causing bloody tears that mark Umbra path for navigation back to origin point", rouseChecks: 1, requiredTime: "1 Scene", dicePool: "Spiritus + Humanity", ingredients: "Potion materials", level: 5 },
+];
+
+// Serpentis Rituals: identical to Rituals, but for Serpentis
+export const serpentisRitualSchema = z.object({
+    name: z.string(),
+    summary: z.string(),
+    rouseChecks: z.number().min(0).int(),
+    requiredTime: z.string(),
+    dicePool: z.string(),
+    ingredients: z.string(),
+    level: z.number().min(1).int(),
+})
+export type SerpentisRitual = z.infer<typeof serpentisRitualSchema>
+
+export const SerpentisRituals: SerpentisRitual[] = [
+    // Level 1
+    { name: "Ophidian Infestation", summary: "Infest building with serpents and lizards for one year by killing local specimen and hanging remains", rouseChecks: 0, requiredTime: "1 Scene", dicePool: "None", ingredients: "Living local serpent/lizard specimen, user's blood", level: 1 },
+    { name: "Godhead", summary: "Strengthen hold over followers - they gain +2 dice against manipulation and mental powers", rouseChecks: 0, requiredTime: "1 Scene", dicePool: "None", ingredients: "Ornate deity headgear", level: 1 },
+    { name: "Cheat The Scales Of Anubis", summary: "Mask signs of diablerie for one night using pure-hearted human blood", rouseChecks: 0, requiredTime: "1 Scene", dicePool: "None", ingredients: "Blood from pure-hearted human, user's vitae", level: 1 },
+    
+    // Level 2
+    { name: "Apep's Fury", summary: "Curse target to be sought and attacked by snakes within 100 meters", rouseChecks: 1, requiredTime: "Instant", dicePool: "Serpentis + Resolve", ingredients: "User's blood smeared on target", level: 2 },
+    { name: "Set's Curse", summary: "Curse area to increase crime and substance abuse, gain +2 Charisma dice vs local mortals", rouseChecks: 1, requiredTime: "1 Scene", dicePool: "Serpentis + Resolve", ingredients: "Blood from local animal, criminal, and priest", level: 2 },
+    { name: "Pact With Set", summary: "Break target's blood bonds and make them vulnerable to mental manipulation", rouseChecks: 1, requiredTime: "1 Scene", dicePool: "Serpentis + Resolve", ingredients: "User's vitae, personal object from target's master", level: 2 },
+    
+    // Level 3
+    { name: "Heart Of Darkness", summary: "Remove heart from body, cannot be staked but heart becomes vulnerable point (lose 1 Humanity)", rouseChecks: 1, requiredTime: "1 Scene", dicePool: "Serpentis + Resolve", ingredients: "Suitable container with death symbolism", level: 3 },
+    { name: "Mark Of Exile", summary: "Curse target with Nosferatu bane - appear disgusting to all for one week", rouseChecks: 1, requiredTime: "1 Scene", dicePool: "Serpentis + Resolve", ingredients: "User's vitae, ancient curse symbols", level: 3 },
+    
+    // Level 4
+    { name: "Mummify", summary: "Mummify target - mortals die, enhanced mortals/Kindred enter special torpor", rouseChecks: 0, requiredTime: "1 Session", dicePool: "Serpentis + Resolve", ingredients: "Bandages, blood to soak bandages", level: 4 },
+    
+    // Level 5
+    { name: "Mother/Father Of Monsters", summary: "Transform broken individual into Typhonic monster under your command (requires Humanity 5 or lower)", rouseChecks: 2, requiredTime: "1 Scene", dicePool: "Serpentis + Resolve", ingredients: "Broken individual, large portion of user's blood", level: 5 },
+];
+
+export const powerIsRitual = (p: Power | Ritual | Ceremony | SpirituRitual | SerpentisRitual): p is Ritual | Ceremony | SpirituRitual | SerpentisRitual => {
+    return (p as Power | Ritual | Ceremony | SpirituRitual | SerpentisRitual)["ingredients" as keyof typeof p] !== undefined;
 }
