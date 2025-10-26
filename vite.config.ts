@@ -11,7 +11,7 @@ export default defineConfig({
         port: 3000,
     },
     plugins: [react()],
-    base: "/v25/",
+    base: "/V25-Character-Creator/",
     resolve: {
         alias: {
             "~": path.resolve(__dirname, "src"),
