@@ -981,7 +981,7 @@ export const disciplines: Record<DisciplineName, Discipline> = {
     melpominee: {
         clans: ["Daughters of Cacophony", "Caitiff"],
         summary: "Control voices and sound to influence minds",
-        logo: "",
+        logo: obfuscateLogo,
         powers: [
             // Level 1
             {
@@ -1067,13 +1067,13 @@ export const disciplines: Record<DisciplineName, Discipline> = {
     "thin-blood alchemy": {
         clans: ["Thin-blood"],
         summary: "",
-        logo: "",
+        logo: obfuscateLogo,
         powers: [],
     },
     valeren: {
         clans: ["Salubri"],
         summary: "Healing and purification abilities, divided into Path of the Healer (Obeah) and Path of the Warrior",
-        logo: "",
+        logo: obfuscateLogo,
         powers: [
             // Level 1
             {
@@ -1285,7 +1285,7 @@ export const disciplines: Record<DisciplineName, Discipline> = {
     vicissitude: {
         clans: ["Tzimisce"],
         summary: "Manipulate and reshape flesh, bone, and blood into new forms",
-        logo: "",
+        logo: obfuscateLogo,
         powers: [
             // Level 1
             {
@@ -1364,10 +1364,255 @@ export const disciplines: Record<DisciplineName, Discipline> = {
             },
         ],
     },
+    // Missing disciplines - placeholder entries with obfuscate logo
+    chimestry: {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
+    dementation: {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
+    "koldunic sorcery": {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
+    serpentis: {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
+    necromancy: {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
+    obtenebration: {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
+    quietus: {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
+    spiritus: {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
+    // Blood Sorcery Paths
+    "path of blood": {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
+    "path of creation": {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
+    "path of destruction": {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
+    "path of life": {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
+    "path of morpheus": {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
+    "path of warding": {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
+    "path of hexes": {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
+    "path of elements": {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
+    "path of flames": {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
+    "path of mars": {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
+    "path of mercury": {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
+    "path of souls": {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
+    "path of technomancy": {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
+    "path of serpents": {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
+    "path of shadows": {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
+    "path of fera magica": {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
+    // Necromancy Paths
+    "path of spirits": {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
+    "path of bones": {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
+    "path of ashes": {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
+    "path of death": {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
+    "path of twilight": {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
+    "path of skulls": {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
+    // Koldunic Sorcery Paths
+    "path of earth": {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
+    "path of wind": {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
+    "path of water": {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
+    "path of fire": {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
+    "path of calamity": {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
+    // Thin Blood Alchemy Paths
+    "path of common formulas": {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
+    "path of specialized formula": {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
+    "path of athanor corporis": {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
+    "path of calcinatio": {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
+    "path of fixatio": {
+        clans: [],
+        summary: "",
+        logo: obfuscateLogo,
+        powers: [],
+    },
     "": {
         clans: [],
         summary: "",
-        logo: "",
+        logo: obfuscateLogo,
         powers: [],
     },
 }
@@ -1624,5 +1869,5 @@ export const Rituals: Ritual[] = [
 ];
 
 export const powerIsRitual = (p: Power | Ritual | Ceremony): p is Ritual | Ceremony => {
-    return (p as any)["ingredients"] !== undefined;
+    return (p as Power | Ritual | Ceremony)["ingredients" as keyof typeof p] !== undefined;
 }
