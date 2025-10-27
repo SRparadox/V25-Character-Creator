@@ -6,6 +6,7 @@ import celerityLogo from "../resources/Rombo_Disciplines/rombo_Celerity.svg"
 import dominateLogo from "../resources/Rombo_Disciplines/rombo_Dominate.svg"
 import fortitudeLogo from "../resources/Rombo_Disciplines/rombo_Fortitude.svg"
 import obfuscateLogo from "../resources/Rombo_Disciplines/rombo_Obfuscate.svg"
+import obtenebrationLogo from "../resources/Rombo_Disciplines/rombo_Oblivion.svg" // Using Oblivion logo as placeholder
 import potenceLogo from "../resources/Rombo_Disciplines/rombo_Potence.svg"
 import presenceLogo from "../resources/Rombo_Disciplines/rombo_Presence.svg"
 import proteanLogo from "../resources/Rombo_Disciplines/rombo_Protean.svg"
@@ -1457,82 +1458,172 @@ export const disciplines: Record<DisciplineName, Discipline> = {
         logo: oblivionLogo,
         powers: [
             // Level 1
-            { name: "Ashes to Ashes", description: "Disintegrate a corpse.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Disintegrate a corpse.", dicePool: "Stamina + Oblivion", level: 1, discipline: "oblivion" },
-            { name: "Binding Fetter", description: "Detect ghostly fetters.", rouseChecks: 0, amalgamPrerequisites: [], summary: "Detect ghostly fetters.", dicePool: "Wits + Oblivion", level: 1, discipline: "oblivion" },
-            { name: "Shadow Cloak", description: "Manipulate shadows (gives bonuses).", rouseChecks: 0, amalgamPrerequisites: [], summary: "Manipulate shadows (gives bonuses).", dicePool: "Dexterity + Oblivion", level: 1, discipline: "oblivion" },
-            { name: "Daimonion", description: "Commune with the Outer Dark. (Amalgam: blood sorcery 1)", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "blood sorcery", level: 1 }], summary: "Commune with the Outer Dark.", dicePool: "Resolve + Oblivion", level: 1, discipline: "oblivion" },
-            { name: "Rapacious Communion", description: "Sacrifice the Blood Resonance of a victim, making them lack one.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Sacrifice the Blood Resonance of a victim.", dicePool: "Stamina + Oblivion", level: 1, discipline: "oblivion" },
-            { name: "Lambet Dark", description: "Supernatural darklight bypasses all mortal perception. (Amalgam: Auspex 1)", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "auspex", level: 1 }], summary: "Supernatural darklight bypasses all mortal perception.", dicePool: "Wits + Oblivion", level: 1, discipline: "oblivion" },
-            { name: "Oblivion's Sight", description: "See in darkness and perceive ghosts.", rouseChecks: 0, amalgamPrerequisites: [], summary: "See in darkness and perceive ghosts.", dicePool: "Wits + Oblivion", level: 1, discipline: "oblivion" },
-
-            // Added Level 1
-            { name: "Incorruptibility", description: "Preserve a Kindred corpse or body part from decomposing into ash for hours. Cost: 1 Rouse Check. Dice Pool: Stamina + Oblivion (Diff 2 + target's Blood Potency). On success, prevents decay for hours equal to margin of success (min 1); critical success lasts until sunrise. Failure reduces flesh to ash. Preserved flesh cannot be diablerized but retains vitae for rituals.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Preserve Kindred corpses for experimentation.", dicePool: "Stamina + Oblivion (Diff 2 + BP)", level: 1, discipline: "oblivion" },
-
-            // Added Level 1
-            { name: "Marrow Feast", description: "Feed from the marrow of fresh bones to slake hunger. Amalgam: Obfuscate 1. Cost: Free. System: Can slake 1 hunger per large bone (femur, rib, humerus) from remains less than 2 weeks old. Cannot reduce hunger to 0 or gain Resonance.", rouseChecks: 0, amalgamPrerequisites: [{ discipline: "obfuscate", level: 1 }], summary: "Feed from the marrow of fresh bones.", dicePool: "N/A", level: 1, discipline: "oblivion" },
+            { 
+                name: "Oblivion's Sight", 
+                description: "The Kindreds eyes turn completely milky white allowing them to see through the Shadowlands and beyond. The Kindred can see spirits and through any form of darkness (supernatural or otherwise). ❖ Type: Ability ❖ Tag: Physical & Spiritual ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: None ❖ Conditions: None ❖ Risk: Minor. The Kindreds eyes look unnatural while the power is active. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: 1 Scene (10 minutes), until the Kindred voluntarily ends the ability or is incapacitated.", 
+                rouseChecks: 0, 
+                amalgamPrerequisites: [], 
+                summary: "See spirits and through any form of darkness with milky white eyes.", 
+                dicePool: "None", 
+                level: 1, 
+                discipline: "oblivion" 
+            },
+            { 
+                name: "Ashes To Ashes", 
+                description: "Letting a single drop of vitae, empowered through Oblivion, drip onto a corpse the user exponentially increases its rate of decay. The user completely destroys a corpse (clothing and all), causing it to supernaturally rot into nothing. ❖ Type: Ability ❖ Tag: Physical & Spiritual ❖ Range & Targets: Targets a single corpse within Touch Range. Kindred cannot be targeted unless they suffered the Final Death. ❖ Cost: None ❖ Conditions: The Kindred or his vitae must make contact with the corpse. ❖ Risk: Moderate. Using this ability in full sight of the uninitiated will cause a panic, otherwise the power is often used to destroy evidence and preserve the Masquerade. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: 1 Scene (10 minutes) for the corpse to be completely dissolved after contact is made.", 
+                rouseChecks: 0, 
+                amalgamPrerequisites: [], 
+                summary: "Completely destroy a corpse by causing it to supernaturally rot away.", 
+                dicePool: "None", 
+                level: 1, 
+                discipline: "oblivion" 
+            },
+            { 
+                name: "Call The Grave", 
+                description: "Focusing on the spiritual emanations around them the user can find the final resting place of their target. The Kindred can locate the exact position of the mortal remains of a target they either personally interacted with, seen a picture of or whose spirit they spoke to. ❖ Type: Ability ❖ Tag: Mental & Spiritual ❖ Range & Targets: Targets the whole area within 1 kilometer (half a mile) of the user. ❖ Cost: 1 Scene ❖ Conditions: The user must have directly interacted with the target before, knows what they look like or had spoken to their spirit. ❖ Risk: None. The user enters a trance when activating the ability and is vulnerable during it. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: 1 Scene (10 minutes) to locate the remains (if there are any) during which time the user is in a trance like state.", 
+                rouseChecks: 0, 
+                amalgamPrerequisites: [], 
+                summary: "Locate the exact position of mortal remains within 1 kilometer.", 
+                dicePool: "None", 
+                level: 1, 
+                discipline: "oblivion" 
+            },
+            { 
+                name: "Amongst The Dead", 
+                description: "Oblivion users feel right at home amongst the dead and their powers are notably magnified as a result. The user halves the test difficulty for any Oblivion powers they attempt to manifest (rounding up) while in places of significant deathly energies (graveyards, basilicas, burial mounds, the Shadowlands themselves etc.) ❖ Type: Upgrade ❖ Tag: Spiritual ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: None ❖ Conditions: The bonus only applies in areas rich in deathly energies (graveyards, basilicas, burial mounds, the Shadowlands themselves etc.) ❖ Risk: None. This ability is subtle and only reveals itself as an icy aura surrounding the user to those who can see auras. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: Permanent.", 
+                rouseChecks: 0, 
+                amalgamPrerequisites: [], 
+                summary: "Halve Oblivion power difficulties in areas rich with deathly energies.", 
+                dicePool: "None", 
+                level: 1, 
+                discipline: "oblivion" 
+            },
+            { 
+                name: "Aegis Of Unmaking", 
+                description: "The Kindred emanates an aura rich in Oblivions destructive potential. The user's aura turns as dark as the void. This ability has two effects. The first affects those with supernatural eyesight, who are able to pick up on auras. When the ability is active the user's normal aura becomes completely obscured by the Aegis Of Unmaking. This will clearly mark them out as a fellow supernatural creature, but only other Oblivion users will be able to understand exactly what they are seeing. The second is that the aura itself is highly unpleasant to spirits, causing them to avoid the user altogether whenever possible. ❖ Type: Ability ❖ Tag Spiritual ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: None ❖ Conditions: None ❖ Risk: None. Only those with supernatural eyesight can pick up on this ability. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: Until the user voluntarily ends the ability or is incapacitated.", 
+                rouseChecks: 0, 
+                amalgamPrerequisites: [], 
+                summary: "Emanate a void-like aura that obscures your normal aura and repels spirits.", 
+                dicePool: "None", 
+                level: 1, 
+                discipline: "oblivion" 
+            },
 
             // Level 2
-            { name: "Arms of Ahriman", description: "Use shadows to attack. (Amalgam: Potence 2)", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "potence", level: 2 }], summary: "Use shadows to attack.", dicePool: "Strength + Oblivion", level: 2, discipline: "oblivion" },
-            { name: "Fatal Prediction", description: "Doom someone to injury or death. (Amalgam: Auspex 2)", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "auspex", level: 2 }], summary: "Doom someone to injury or death.", dicePool: "Manipulation + Oblivion", level: 2, discipline: "oblivion" },
-            { name: "Carrion Banquet", description: "Slake additional hunger from corpses. (Amalgam: Fortitude 1)", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "fortitude", level: 1 }], summary: "Slake additional hunger from corpses.", dicePool: "Stamina + Oblivion", level: 2, discipline: "oblivion" },
-            { name: "Soul Swap", description: "Swap the aura of two people. (Amalgam: blood sorcery 1)", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "blood sorcery", level: 1 }], summary: "Swap the aura of two people.", dicePool: "Manipulation + Oblivion", level: 2, discipline: "oblivion" },
-            { name: "Shadow Cast", description: "Create shadows (gives bonuses).", rouseChecks: 1, amalgamPrerequisites: [], summary: "Create shadows (gives bonuses).", dicePool: "Dexterity + Oblivion", level: 2, discipline: "oblivion" },
-            { name: "Where the Veil Thins", description: "Sense the strength of the Veil, and reduce ceremony difficulties if it's thin.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Sense the strength of the Veil, and reduce ceremony difficulties if it's thin.", dicePool: "Wits + Oblivion", level: 2, discipline: "oblivion" },
-
-            // Added Level 2
-            { name: "Grim Insight", description: "Experience a mortal's final moments before death. Amalgam: Auspex 2. Cost: 1 Rouse Check. Dice Pool: Resolve + Oblivion. System: In presence or line of sight of corpse, roll at ST-determined difficulty. On success, enter trance to witness last moments. Can be used on Kindred remains but is harder.", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "auspex", level: 2 }], summary: "Witness a mortal's final moments before death.", dicePool: "Resolve + Oblivion", level: 2, discipline: "oblivion" },
-            { name: "Thanatosis", description: "Inflict rapid decay on a Kindred, making them appear as a walking corpse. Cost: 1 Rouse Check. Dice Pool: Resolve + Oblivion vs. Stamina + Composure (or Fortitude). On success, target loses Looks Merits, cannot use Blush of Life, and takes -3 to Social Pools. Mortals are horrified. Duration: Hours equal to margin of success. Only usable on Kindred.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Inflict rapid decay on a Kindred.", dicePool: "Resolve + Oblivion vs. Stamina + Composure/Fortitude", level: 2, discipline: "oblivion" },
-
-            // Added Level 2
-            { name: "Rigor Mortis", description: "Paralyze a victim with a deathly stiffness. Cost: 1 Rouse Check. Dice Pool: Intelligence + Oblivion vs. Stamina + Composure (or Fortitude for vampires). On success, victim takes -2 to all physical pools for the scene. Mortals are paralyzed for the scene. Duration: One scene.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Paralyze a victim with a deathly stiffness.", dicePool: "Intelligence + Oblivion vs. Stamina + Composure/Fortitude", level: 2, discipline: "oblivion" },
-
-            // Level 3
-            { name: "Aura of Decay", description: "Decay everything around.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Decay everything around.", dicePool: "Stamina + Oblivion", level: 3, discipline: "oblivion" },
-            { name: "Passion Feast", description: "Feed on wraiths, draining Passion. (Amalgam: Fortitude 2)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "fortitude", level: 2 }], summary: "Feed on wraiths, draining Passion.", dicePool: "Stamina + Oblivion", level: 3, discipline: "oblivion" },
-            { name: "Shadow Perspective", description: "Project senses through shadows.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Project senses through shadows.", dicePool: "Wits + Oblivion", level: 3, discipline: "oblivion" },
-            { name: "Shadow Servant", description: "Send your shadow out to spy. (Amalgam: Auspex 1)", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "auspex", level: 1 }], summary: "Send your shadow out to spy.", dicePool: "Wits + Oblivion", level: 3, discipline: "oblivion" },
-            { name: "Nigtmare Theatre", description: "Haunt someone with nightmares. (Amalgam: Presence 2)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "presence", level: 2 }], summary: "Haunt someone with nightmares.", dicePool: "Manipulation + Oblivion", level: 3, discipline: "oblivion" },
-            { name: "Clinging Affinity", description: "A shadow that fills victim with despair. (Amalgam: Presence 3)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "presence", level: 3 }], summary: "A shadow that fills victim with despair.", dicePool: "Manipulation + Oblivion", level: 3, discipline: "oblivion" },
-            { name: "Touch of Oblivion", description: "Decay a living or unliving body.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Decay a living or unliving body.", dicePool: "Stamina + Oblivion", level: 3, discipline: "oblivion" },
-
-            // Added Level 3
-            { name: "Sardenzo's Sepulcher", description: "Absorb blood spilled on earth while using Earth Meld. Amalgam: Protean 3. Cost: 1 Rouse Check. System: While underground, blood spilled within 3m x Oblivion rating is absorbed, satiating hunger. Blood has no resonance and cannot be used for diablerie. Duration: Passive.", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "protean", level: 3 }], summary: "Absorb blood spilled on earth while using Earth Meld.", dicePool: "N/A", level: 3, discipline: "oblivion" },
-
-            // Added Level 3
-            { name: "Dust to Dust", description: "Discorporate into a pile of ash, immune to damage but unable to act. Amalgam: Obfuscate 3. Cost: 1 Rouse Check. System: No roll required unless disguising as Final Death (Oblivion + Subterfuge vs. Wits + Occult). Remain as ash indefinitely, immune to all damage. Reform in 1 turn. If ash is disturbed, reform at largest pile. Duration: Indefinite until user reforms.", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "obfuscate", level: 3 }], summary: "Discorporate into a pile of ash, immune to damage.", dicePool: "Oblivion + Subterfuge vs. Wits + Occult (if disguising)", level: 3, discipline: "oblivion" },
-
-            // New Level 3 Powers
-            { name: "Eyes of Ahriman", description: `Lock eyes with a target to channel the abyss, dealing superficial Willpower damage and stunning mortals or forcing vampires to resist Fear Frenzy. Cost: 1 Rouse Check. System: Charisma + Oblivion vs. Resolve + Composure.`, rouseChecks: 1, amalgamPrerequisites: [{ discipline: "dominate", level: 2 }], summary: "Channel the abyss through your gaze, stunning or terrifying targets.", dicePool: "Charisma + Oblivion vs. Resolve + Composure", level: 3, discipline: "oblivion" },
-            { name: "Platonian Silhouette", description: `Steal the shadow of an object and conjure it as a nearly indestructible, abyssal copy. Cost: 1+ Rouse Checks. System: Touch an object casting a shadow, make a Rouse Check to incorporate its shadow. Can conjure it later with another Rouse Check. Armor grants rating equal to Oblivion dots; weapons deal unhalved damage to supernaturals. Lasts until sunrise or scene.`, rouseChecks: 1, amalgamPrerequisites: [], summary: "Steal and conjure abyssal copies of objects from their shadows.", dicePool: "N/A", level: 3, discipline: "oblivion" },
-
+            { 
+                name: "Where The Shroud Thins", 
+                description: "The user becomes highly sensitive to the emanations of the Shadowlands and can find a thinning in the barrier as easily as a bloodhound can sniff out their next meal. The Kindred gains a sixth sense and is able to sense locations where the barrier between the physical world and the Shadowlands is weak or non-existent altogether. ❖ Type: Upgrade ❖ Tag: Spiritual ❖ Range & Targets: The user can sense any such anomalies within 1 kilometer (half a mile) of their location at any given time. ❖ Cost: None ❖ Conditions: The ability functions similarly to how scent works for dogs. This means that the user will have limited knowledge about the true nature of such locations until he sees them himself and his senses can be blocked by other spiritual anomalies (an area which is oversaturated with spiritual energy will muffle their senses, even if the source is not the same). ❖ Risk: None. There is no outward manifestation of this ability aside from the user's tendency to show up in interesting locations. ❖ Test: None ❖ Resistance Roll: None", 
+                rouseChecks: 0, 
+                amalgamPrerequisites: [], 
+                summary: "Sense locations where the barrier to the Shadowlands is weak within 1 kilometer.", 
+                dicePool: "None", 
+                level: 2, 
+                discipline: "oblivion" 
+            },
+            { 
+                name: "Passion Feast", 
+                description: "The Kindred finds their hunger restored when basking in the death echoes of a destroyed spirit. When spirits are destroyed or banished, they release spiritual energy. Spirits that originate from the Shadowlands will manifests plasm (page 16) upon their destruction or banishment. Users with this upgrade can devour plasm in the same way they can devour blood in order to restore their Hunger. A single vial of plasm will restore a single point of Hunger. Regardless of the amount of plasm they devour the user can never lower his Hunger to 0 using this ability. ❖ Type: Upgrade ❖ Tag: Spiritual & Physical ❖ Range & Targets: Targets the user himself. ❖ Cost: None ❖ Conditions: None ❖ Risk: Minor. Others might wonder why you are drinking such a peculiar liquid. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: Permanent", 
+                rouseChecks: 0, 
+                amalgamPrerequisites: [], 
+                summary: "Feed on plasm from destroyed spirits to restore Hunger (cannot reach 0).", 
+                dicePool: "None", 
+                level: 2, 
+                discipline: "oblivion" 
+            },
+            { 
+                name: "Stygian Shroud", 
+                description: "The area surrounding the user becomes dark and foreboding. If successful, the area around the Kindred grows dark, gloomy and cold. All luminosity immediately drops by a level (campfires give out as much heat and light as a large candle, public lights have the same luminosity as a child's night light...), the temperature drops by 10 degrees, but never falls below freezing, and colour tones become less vibrant. Non-Oblivion users become demoralized when in such areas and cannot use their Willpower to re-roll their dice. ❖ Type: Ability ❖ Tag: Physical + Spiritual ❖ Range & Targets: Targets everyone within 10 meters (30 feet) of the Kindred. ❖ Cost: 1 Rouse Check ❖ Conditions: None ❖ Risk: Moderate. The effects are noticeable but easily missed by the uninitiated. ❖ Test: Oblivion + Composure (3) ❖ Resistance Roll: None ❖ Duration: 1 Scene (10 minutes), until the user voluntarily ends the ability or is incapacitated.", 
+                rouseChecks: 1, 
+                amalgamPrerequisites: [], 
+                summary: "Create dark, cold area that reduces light and prevents Willpower re-rolls.", 
+                dicePool: "Oblivion + Composure", 
+                level: 2, 
+                discipline: "oblivion" 
+            },
+            { 
+                name: "Breath Of Thanatos", 
+                description: "The Kindred takes a deep breath and exhales a dark grey mist which quickly dissipates, but not before causing untold misery for its victims. If successful, the user exhales a mist which affects all non-Oblivion users within 3 meters (10 feet) of the Kindred. All those who fail to hold their breath (Stamina + Awareness (5) – if they faced the power before, otherwise they will be taken completely by surprise) will suffer a point of Superficial Damage and become stunned for the rest of the Round as they cough uncontrollably. If at least 5 successes are scored then the effects of this power cause permanent damage. Its victims will likely develop serious lung issues within a month. ❖ Type: Ability ❖ Tag: Physical + Spiritual ❖ Range & Targets: Targets everyone within 3 meters (10 feet) of the Kindred. ❖ Cost: 1 Rouse Check ❖ Conditions: Does not affect Kindred. Only affects those creatures who need to breath (Kindred are immune). Has no effects on mechanical entities. ❖ Risk: High. The effects are obviously supernatural in nature. ❖ Test: Oblivion + Composure (3) ❖ Resistance Roll: None ❖ Duration: 1 Round after which the victims are stunned due to the cough for the remainder of the current (if they had not yet acted) or next round (if they had already acted).", 
+                rouseChecks: 1, 
+                amalgamPrerequisites: [], 
+                summary: "Exhale damaging mist that stuns breathing creatures and can cause permanent lung damage.", 
+                dicePool: "Oblivion + Composure", 
+                level: 2, 
+                discipline: "oblivion" 
+            },
+            { 
+                name: "Funeral Gown", 
+                description: "Calling upon their otherworldly abilities the Kindred gathers the energies of the Shadowlands around their body like a second skin, giving them an ethereal appearance. If successful, the Kindred appears as a ghost to all onlookers. This is not some form of illusion or trick of the mind, nor does the user become invisible as most spirits do. Instead, the Kindred is actually physical changing their appearance. The new look does not provide any benefits beyond masking the user's appearance and frightening Mortals. Mortals who witness the Kindred in this new form for the first time must pass a Willpower test of 2 or flee the Scene in terror. ❖ Type: Ability ❖ Tag: Physical & Spiritual ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: 1 Round + 1 Rouse Check ❖ Conditions: The moment any direct sunlight or fire makes contact with the user's form, the ability ends. ❖ Risk: High. The user is appearing as an ethereal creature to all onlookers. ❖ Test: Oblivion + Composure (3) ❖ Resistance Roll: None ❖ Duration: 1 Round (about a minute) to manifest the ability after which the power lasts for 1 Scene (1 hour), until the Kindred voluntarily ends the ability or is incapacitated.", 
+                rouseChecks: 1, 
+                amalgamPrerequisites: [], 
+                summary: "Appear as a ghost to all onlookers, terrifying mortals.", 
+                dicePool: "Oblivion + Composure", 
+                level: 2, 
+                discipline: "oblivion" 
+            },
+            { 
+                name: "Aura Of Decay", 
+                description: "The Kindred begins to emanate the entropic force of Oblivion around him, causing mortals to feel ill and begin to wither away. If successful, all Enhanced Mortals and Kindred will feel ill when within 10 meters (30 feet) of the user and suffer a 1 dice penalty to all their rolls. Mortals are more heavily impacted and will, in addition to the dice penalty, suffer a point of Superficial Damage at the start of each Round, while within 10 meters (30 feet) of the user. ❖ Type: Ability ❖ Tag: Physical + Spiritual ❖ Range & Targets: Impacts all non-Oblivion users within 10 meters (30 feet) of the Kindred. ❖ Cost: 1 Rouse Check ❖ Conditions: None ❖ Risk: High. This ability can have a noticeable effect on large groups of people at once. ❖ Test: Oblivion + Composure (4) ❖ Resistance Roll: None ❖ Duration: 1 Scene (10 minutes), until the Kindred voluntarily ends the ability or is incapacitated.", 
+                rouseChecks: 1, 
+                amalgamPrerequisites: [], 
+                summary: "Emanate entropic force causing dice penalties and damage to mortals.", 
+                dicePool: "Oblivion + Composure", 
+                level: 2, 
+                discipline: "oblivion" 
+            },
+            { 
+                name: "Visions Of Obliteration", 
+                description: "As the user's eyes meet with that of their victim, they impart upon them a sliver of Oblivions true nature. If successful, the target suffers 3 points of Superficial Willpower damage. If this causes the target to have no unmarked Willpower boxes, then the target will spiral. Mortals and Enhanced mortals will break down sobbing and become defenceless, while Kindred will enter a fear Frenzy. ❖ Type: Ability ❖ Tag: Mental + Spiritual ❖ Range & Targets: A single individual within Visual range. ❖ Cost: 1 Rouse Check ❖ Conditions: Eye Contact must be made. Has no effect on Malkavians. ❖ Risk: Low. The target's reaction might draw some unwanted attention. ❖ Test: Oblivion + Composure (4) ❖ Resistance Roll: None ❖ Duration: The ability is instantaneous and its effects last for 1 Scene (1 hour), when targeting Mortals, or until the Frenzy had run its course, when targeting Kindred.", 
+                rouseChecks: 1, 
+                amalgamPrerequisites: [], 
+                summary: "Deal Willpower damage through eye contact, potentially causing breakdown or frenzy.", 
+                dicePool: "Oblivion + Composure", 
+                level: 2, 
+                discipline: "oblivion" 
+            },
+            { 
+                name: "Desecrated Sleep", 
+                description: "The Kindred forces the newly dead to experience the true horror which lies at the heart of the Shadowlands. Corpses jerk and spasm to their feet and mouths scream their despair to the living. If successful than any fresh corpse within 10 meters (30 feet) of the Kindred will spasm and come to life. The reanimated dead are not under the direct control of the user and will flee from him in terror as an agent of Oblivion. The victims will be imparted with a basic understanding of the Shadowlands, Oblivion, and their own existence. They will sense that their time on the mortal plain is limited as the power's effects begin to fade. This combined with an incomplete knowledge of the underworld drives them hopelessly insane with fear. The victim(s) will thus scream their horror to any who would listen and outright attack anyone who attempts to restrain them. Additionally, the victims are completely immune to Mental manipulation, fear and pain. ❖ Type: Ability ❖ Tag: Physical + Mental + Spiritual ❖ Range & Targets: All corpses within 10 meters (30 feet) of the Kindred. ❖ Cost: 2 Rounds + 1 Rouse Check ❖ Conditions: Does not affect Kindred, spirits of the dead (wraiths) or other, already reanimated dead. The corpses in question cannot be more than a day old (24 hours) otherwise they are too decayed to use. ❖ Risk: Very High. This ability is often used to spread terror and confusion. While the power can be used creatively to preserve the Masquerade the reanimated victims are wholly unpredictable and can easily cause widescale panic. ❖ Test: Oblivion + Composure (4) ❖ Resistance Roll: None ❖ Duration: 2 Rounds (a few minutes) to manifest the ability, after which the reanimated dead will remain active for up to 1 hour or until they are destroyed. Do note that the victims will likely need to suffer severe physical damage to be laid back to rest as they are effectively a form of zombie.", 
+                rouseChecks: 1, 
+                amalgamPrerequisites: [], 
+                summary: "Reanimate fresh corpses that flee in terror and attack any who restrain them.", 
+                dicePool: "Oblivion + Composure", 
+                level: 2, 
+                discipline: "oblivion" 
+            },
 
             // Level 4
-            { name: "Profane the Sanctified", description: "Corrode True Faith and holy symbols. (Amalgam: Aura of Decay or Touch of Oblivion)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "oblivion", level: 3 }], summary: "Corrode True Faith and holy symbols.", dicePool: "Stamina + Oblivion", level: 4, discipline: "oblivion" },
-            { name: "Necrotic Plague", description: "Cause damage over time.", rouseChecks: 2, amalgamPrerequisites: [], summary: "Cause damage over time.", dicePool: "Stamina + Oblivion", level: 4, discipline: "oblivion" },
-            { name: "Stygian Shroud", description: "Impose darkness on an area.", rouseChecks: 2, amalgamPrerequisites: [], summary: "Impose darkness on an area.", dicePool: "Wits + Oblivion", level: 4, discipline: "oblivion" },
-            { name: "Pareidolian", description: "Have your shadow possessed by an entity. (Amalgam: blood sorcery 2)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "blood sorcery", level: 2 }], summary: "Have your shadow possessed by an entity.", dicePool: "Wits + Oblivion", level: 4, discipline: "oblivion" },
-            { name: "Umbrous Clutch", description: "Pull someone through their shadow into yours.", rouseChecks: 2, amalgamPrerequisites: [], summary: "Pull someone through their shadow into yours.", dicePool: "Strength + Oblivion", level: 4, discipline: "oblivion" },
-
-            // Added Level 4
-            { name: "Night Drinker's Curse", description: "Infect a mortal vessel with a supernatural disease. Any Kindred (other than domitor) who drinks from them suffers Stigmata-like effects, cannot Blood Surge, and must make extra Rouse Checks. Lasts nights equal to hunger slaked. Mortal killed while infected rots instantly. Cost: 1 Rouse Check. Duration: Permanent.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Infect a vessel with a supernatural disease that harms Kindred.", dicePool: "N/A", level: 4, discipline: "oblivion" },
-
-            // Added Level 4
-            { name: "Breath of Dhumavati", description: "Vomit a line of necrotic bile that rots flesh and harms souls. Cost: 1 Rouse Check, 1 Stain. Dice Pool: Stamina + Oblivion vs. Dexterity + Athletics (or Stamina + Fortitude for Kindred). Range: Oblivion rating in feet (min 4). Living targets take Aggravated Health Damage; Kindred and Wraiths suffer similar effects. Grappled targets do not resist. Duration: Instant.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Vomit necrotic bile that rots flesh and harms souls.", dicePool: "Stamina + Oblivion vs. Dexterity + Athletics/Fortitude", level: 4, discipline: "oblivion" },
-            // New Level 4 Power
-            { name: "Ravenous Abyss", description: `Feed through shadows, inflicting aggravated damage and draining blood at a distance. Cost: 1+ Rouse Checks. System: When using an Oblivion Power to attack, make an extra Rouse Check to feed on a target, dealing 2 Aggravated Damage and feeding up to half Oblivion rating. Blood loses qualities. Duration: That turn (can extend with more Rouse Checks).`, rouseChecks: 1, amalgamPrerequisites: [{ discipline: "potence", level: 3 }], summary: "Feed through shadows, inflicting aggravated damage and draining blood.", dicePool: "N/A", level: 4, discipline: "oblivion" },
-            { name: "Exquisite Corpse", description: "Become immune to sunlight while in daysleep, appearing as a corpse. Amalgam: Fortitude 3 (Defy Bane). Cost: 2 Rouse Checks. System: Make 2 Rouse Checks before daysleep; immune to sunlight until awakening. Only Intelligence + Occult (Diff 5) reveals the body is not a true corpse. If in Hunger Torpor, effect persists. Duration: Until awakening from daysleep or torpor.", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "fortitude", level: 3 }], summary: "Immune to sunlight while in daysleep, appear as a corpse.", dicePool: "N/A", level: 4, discipline: "oblivion" },
+            { 
+                name: "Oblivion's Maw", 
+                description: "The user's mouth and gullet become a temporary gateway to Oblivion itself. If successful, the Kindred's bite attacks will cause Aggravated damage to all targets. They will ignore any form of defence, supernatural or otherwise (although the attack can still be blocked or dodged). Anyone bitten by the Kindred will suffer immense pain during the process and will be unable to act for the rest of the Scene. The attack can also be directed at spirits. The power does not come without its drawbacks, however. The user cannot restore any Hunger while the ability lasts (as any blood will be devoured by Oblivion itself). Additionally if the user fails to perform a bite attack successfully, by the of each Round, Oblivion will instead feed on them and automatically increase their Hunger by 1. ❖ Type: Ability ❖ Tag: Physical + Spiritual ❖ Range & Targets: Anyone bitten by the Kindred. ❖ Cost: 1 Rouse Check ❖ Conditions: Can only be used once per Session. ❖ Risk: High. The Kindred's mouth glows with a soft ethereal light as they open it. ❖ Test: Oblivion + Composure (5) ❖ Resistance Roll: None ❖ Duration: 1 Scene (10 minutes), until the Kindred voluntarily ends it, is incapacitated, or enters Frenzy.", 
+                rouseChecks: 1, 
+                amalgamPrerequisites: [], 
+                summary: "Bite attacks cause Aggravated damage and incapacitate targets for the scene.", 
+                dicePool: "Oblivion + Composure", 
+                level: 4, 
+                discipline: "oblivion" 
+            },
 
             // Level 5
-            { name: "The Darkness Within", description: "Animate someone's shadow to attack.", rouseChecks: 2, amalgamPrerequisites: [], summary: "Animate someone's shadow to attack.", dicePool: "Strength + Oblivion", level: 5, discipline: "oblivion" },
-            { name: "Shadow Step", description: "Teleport between shadows.", rouseChecks: 2, amalgamPrerequisites: [], summary: "Teleport between shadows.", dicePool: "Dexterity + Oblivion", level: 5, discipline: "oblivion" },
-            { name: "Skuld Fulfilled", description: "Re-impose old injury or sickness.", rouseChecks: 2, amalgamPrerequisites: [], summary: "Re-impose old injury or sickness.", dicePool: "Manipulation + Oblivion", level: 5, discipline: "oblivion" },
-            { name: "Tenebrous Avatar", description: "Become a shadow.", rouseChecks: 2, amalgamPrerequisites: [], summary: "Become a shadow.", dicePool: "Wits + Oblivion", level: 5, discipline: "oblivion" },
-            { name: "Pestilence", description: "Summon a wind that rots everything and raises the dead.", rouseChecks: 2, amalgamPrerequisites: [], summary: "Summon a wind that rots everything and raises the dead.", dicePool: "Stamina + Oblivion", level: 5, discipline: "oblivion" },
-            { name: "Hell's Yawning Maw", description: "Summon a demonic Baelfire Hellion. (Amalgam: blood sorcery 2)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "blood sorcery", level: 2 }], summary: "Summon a demonic Baelfire Hellion.", dicePool: "Resolve + Oblivion", level: 5, discipline: "oblivion" },
-            { name: "Withering Spirit", description: "Erode a target's will.", rouseChecks: 2, amalgamPrerequisites: [], summary: "Erode a target's will.", dicePool: "Manipulation + Oblivion", level: 5, discipline: "oblivion" },
-
-            // Added Level 5
-            { name: "Acheron Vortex", description: "Tear open a rift into the Tempest, banishing Wraiths within 50ft. Cost: 2 Rouse Checks, 1 Stain. Dice Pool: Resolve + Oblivion. Wraiths must make Willpower checks vs. user's roll or be sucked in. Mortals/Kindred must also roll Willpower; mortals take Aggravated Willpower damage, Kindred risk Fear Frenzy. Duration: One scene.", rouseChecks: 2, amalgamPrerequisites: [], summary: "Tear open a rift into the Tempest, banishing Wraiths.", dicePool: "Resolve + Oblivion", level: 5, discipline: "oblivion" },
+            { 
+                name: "Oblivion's Embrace", 
+                description: "The Kindred tempts a mortal with the promise of immortality, yet to their horror the victim soon finds they are little more than a ghost that is left to the whim of their new master. This ability can only be used when the user completely drains a Mortal of the last drop of their blood. If successful, the spirit of the victim will be prevented from passing on and will instead become a Wraith which is bound to the service of the user. ❖ Type: Ability ❖ Tag: Physical + Spiritual ❖ Range & Targets: A single Mortal which was just killed by the user draining them of their last drop of blood. ❖ Cost: 2 Rouse Checks ❖ Conditions: Only affects mortals. Only one such bound spirit may exist at any one time. If a new Wraith is created in this manner while a prior one still exists than the old Wraith is released from the user's service. ❖ Risk: High. The ability requires the Kindred to drain a Mortal dry which is a unique form of murder to say the least. ❖ Test: Oblivion + Composure (7) ❖ Resistance Roll: None ❖ Duration: Draining the victim dry is a pre-requisite for this ability, which depending on the Kindred can take anywhere from a few seconds to a few hours. After that the new Wraith will materialize near its new master within the hour.", 
+                rouseChecks: 2, 
+                amalgamPrerequisites: [], 
+                summary: "Bind the spirit of a drained mortal as a Wraith servant.", 
+                dicePool: "Oblivion + Composure", 
+                level: 5, 
+                discipline: "oblivion" 
+            },
+            { 
+                name: "Eye Of The Tempest", 
+                description: "The Kindred becomes the epicentre of a violent storm that threatens to undo creation around them. This ability works exactly the same way as Summon The Shroud with the following exceptions. The affected area expands to 30 meters (100 feet). Its effects now inflict Aggravated Damage to all Mortals, Enhanced Mortals and Spirits at the start of each Round. Kindred receive a point of Superficial Damage at the start of each Round. Vegetation dies off and manmade structure become physically damaged overtime. If a 1 is rolled during either of the 2 Rouse Checks required, then the user unintentionally creates a gateway into the Shadowlands and is sucked into it immediately. At this point the nature of the ability changes. It will remain active for 1 Scene (10 minutes), with its epicentre being the users last location before they disappeared. The vortex will cause no damage or penalties to those within its range, but it will attempt to drag its victims into the Shadowlands as well (spirits included). Those affected must pass a Strength + Athletics test (3) or be banished to the Shadowlands themselves. After the Scene the portal will collapse and cease to exist. ❖ Type: Ability ❖ Tag: Physical + Spiritual ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: 2 Rounds + 2 Rouse Checks ❖ Conditions: The power can only be used once per Session. ❖ Risk: Very High. This ability impacts a vast area and causes debilitating damage to the living and the dead alike. ❖ Test: Oblivion + Composure (7, if the user possesses Aura of Decay and Stygian Shroud the difficulty is lowered to 5 instead) ❖ Resistance Roll: None ❖ Duration: 2 Rounds to manifest (a few minutes) after which the power remains active for 1 Scene. The ability cannot be ended prematurely unless the user is killed.", 
+                rouseChecks: 2, 
+                amalgamPrerequisites: [], 
+                summary: "Create destructive tempest that affects 30 meters, potentially opening gateway to Shadowlands.", 
+                dicePool: "Oblivion + Composure", 
+                level: 5, 
+                discipline: "oblivion" 
+            },
         ],
     },
     melpominee: {
@@ -2110,10 +2201,168 @@ export const disciplines: Record<DisciplineName, Discipline> = {
         powers: [],
     },
     obtenebration: {
-        clans: [],
-        summary: "",
-        logo: obfuscateLogo,
-        powers: [],
+        clans: ["Lasombra", "Caitiff"],
+        summary: "Manipulate shadows and darkness, command the abyss",
+        logo: obtenebrationLogo,
+        powers: [
+            // Level 1
+            { 
+                name: "Aegis Of Shadow", 
+                description: "The shadows stick and coil around the Kindred, helping him blend into the background with surprising ease. The Kindred adds a 1 dice bonus, per dot he possesses in Obtenebration, to any Stealth related roll. ❖ Type: Upgrade ❖ Tag: Physical & Spiritual ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: None ❖ Conditions: The bonus only applies in poorly lit areas. ❖ Risk: None. While the ability is unnatural, it works with the environment to keep its effects hidden. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: Permanent", 
+                rouseChecks: 0, 
+                amalgamPrerequisites: [], 
+                summary: "Add 1 dice per Obtenebration dot to Stealth rolls in poorly lit areas.", 
+                dicePool: "None", 
+                level: 1, 
+                discipline: "obtenebration" 
+            },
+            { 
+                name: "Eyes Of The Abyss", 
+                description: "The user's eyes turn pitch black in their entirety, giving the user supernatural sight and making maintaining eye contact difficult. The user can see in total darkness, even when it is brought about by supernatural means. As an added bonus, while the power is active, anyone attempting to target the user with an ability that relies on Eye Contact being made suffers a 1 dice penalty to their roll. ❖ Type: Ability ❖ Tag: Physical & Spiritual ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: None ❖ Conditions: None ❖ Risk: Moderate. Your eyes become visibly unnatural and anyone that makes eye contact will know something is off. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: 1 Scene (1 hour), until the user voluntarily ends the ability or is incapacitated.", 
+                rouseChecks: 0, 
+                amalgamPrerequisites: [], 
+                summary: "See in total darkness and impose -1 dice penalty on eye contact abilities.", 
+                dicePool: "None", 
+                level: 1, 
+                discipline: "obtenebration" 
+            },
+            { 
+                name: "Shadow Play", 
+                description: "Shadows seem to take on a mind of their own when near the user, they shift and twist and often grow darker or lengthen on the Kindred's body, giving them an unsettling appearance. The user can manipulate the shadows around them to alter their shape and form to a minor degree. This grants them a 2 dice bonus for all intimidation rolls. ❖ Type: Ability ❖ Tag: Physical & Spiritual ❖ Range & Targets: Targets the user and all shadows within 5 meters (20 feet) of them. ❖ Cost: None ❖ Conditions: Normal Obtenebration limitations when it comes to light. ❖ Risk: Moderate. The power can be very noticeable and can cause a panic. Test: None ❖ Resistance Roll: None ❖ Duration: 1 Scene (10 minutes), until the user voluntarily ends the ability or is incapacitated.", 
+                rouseChecks: 0, 
+                amalgamPrerequisites: [], 
+                summary: "Manipulate shadows for unsettling appearance, +2 dice to Intimidation.", 
+                dicePool: "None", 
+                level: 1, 
+                discipline: "obtenebration" 
+            },
+            { 
+                name: "Inner Darkness", 
+                description: "The powers of the Abyss swell within the user and feeds their ego and sense of lethality, while eroding their Humanity. The Kindred can voluntarily suffer a Stain to their Humanity in order to ignore the effects of terror or fear (such as those brought about by presence or nightmarish creatures). This ability has no effect against the fear of fire or sunlight. ❖ Type: Reflexive ❖ Tag: Mental & Spiritual ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: 1 Stain to the users Humanity. ❖ Conditions: Cannot negate the fear of fire or sunglight. ❖ Risk: None. The ability corrupts the user's spirit, but such effects are subtle. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: 1 Test (1 second)", 
+                rouseChecks: 0, 
+                amalgamPrerequisites: [], 
+                summary: "Spend 1 Stain to ignore terror or fear (except fire/sunlight).", 
+                dicePool: "None", 
+                level: 1, 
+                discipline: "obtenebration" 
+            },
+            { 
+                name: "Dark Whip", 
+                description: "The vampire grasps the air and conjures forth a whip of pure darkness. The Kindred conjures up a whip made of shadow. The weapon uses Dexterity + Melee for its rolls and causes Superficial Damage with no bonus damage points. It can only be destroyed by light or fire as it is considered a shadow construct. It is worth mentioning that as a whip it should be considered to have a longer reach than most melee weapons. ❖ Type: Ability ❖ Tag: Physical & Spiritual ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: None ❖ Conditions: Normal Obtenebration limitations when it comes to light. ❖ Risk: High. You are summoning a supernatural weapon out of thin air. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: 1 Scene (10 minutes), until the user voluntarily ends the ability or is incapacitated. If the user is disarmed the weapon immediately dissipates.", 
+                rouseChecks: 0, 
+                amalgamPrerequisites: [], 
+                summary: "Conjure a shadow whip weapon with extended reach.", 
+                dicePool: "Dexterity + Melee", 
+                level: 1, 
+                discipline: "obtenebration" 
+            },
+
+            // Level 2
+            { 
+                name: "Arms Of The Abyss", 
+                description: "Dark tentacles sprout from the deepest darkest corners of the room to envelope the victim. If successful, the Kindred will manifest shadow tentacles. Each shadow tentacle has a reach of 10 meters (30 feet) and has the same unmodified Dexterity, Strength and Brawl rating as the user. The tentacles have two modes of attack: Reactive: the tentacles are reacting to the Kindreds subconscious commands and add 1 dice to any Strength, Dexterity or Brawl related roll, in the same way as if each tentacle was an ally assisting the user in their actions. Directed: the tenacles are being directly controlled by the Kindred. Each tentacle acts based on its own characteristic however the user needs to otherwise skip their Round and they cannot perform any actions other than direct the tentacles during this time as it requires their full focus to command the shadow constructs. The Kindred can summon and maintain as many shadow tentacles as he has dots in Obtenebration at, any one time. ❖ Type: Ability ❖ Tag: Physical & Spiritual ❖ Range & Targets: The tendrils can be manifested anywhere within 10 meters (30 feet) of the Kindred in an appropriately dimly lit area. They do not need to all sprout from the same location. Each tendril has a reach of 10 meters (30 feet). ❖ Cost: 1 Rouse Check ❖ Conditions: Normal Obtenebration limitations when it comes to light. Each tentacle can be destroyed separately by this method and counts as having a single point of Health. ❖ Risk: High, you are creating a very telling supernatural event. ❖ Test: Obtenebration + Resolve (2 + 1 for each shadow tentacle summoned) ❖ Resistance Roll: None ❖ Duration: 1 Scene (10 minutes), until the Kindred voluntarily ends the ability, is incapacitated or the shadow constructs are destroyed.", 
+                rouseChecks: 1, 
+                amalgamPrerequisites: [], 
+                summary: "Manifest shadow tentacles equal to Obtenebration dots, can assist or be directly controlled.", 
+                dicePool: "Obtenebration + Resolve", 
+                level: 2, 
+                discipline: "obtenebration" 
+            },
+            { 
+                name: "Shroud Of Night", 
+                description: "The Kindred lowers the luminosity of nearby light sources, allowing them to summon their shadow constructs with incredible ease. If successful, then all sources of light are reduced in luminosity. Fireplaces give out as much light as a candle, a torch is no brighter than a phone screen and so on. ❖ Type: Ability ❖ Tag: Physical & Spiritual ❖ Range & Targets: Targets all sources of light within 100 meters (300 feet) of the user. ❖ Cost: 1 Rouse Check ❖ Conditions: The ability has no effect on raging bonfires, floodlights, flashbangs or the sun. Such sources are considered too intense for this ability to diminish in any meaningful manner. ❖ Risk: Minor. The effects can be covered up as a simple power failure. ❖ Test: Obtenebration + Resolve (2) ❖ Resistance Roll: None ❖ Duration: 1 Scene (10 minutes)", 
+                rouseChecks: 1, 
+                amalgamPrerequisites: [], 
+                summary: "Reduce luminosity of light sources within 100 meters.", 
+                dicePool: "Obtenebration + Resolve", 
+                level: 2, 
+                discipline: "obtenebration" 
+            },
+            { 
+                name: "Night Shade", 
+                description: "The shadows encase the user making him seem like a shadow phantom and obscuring his true identity. If successful, the Kindred becomes invisible when in shadowy or low-lit areas. When moving through areas where the cover of existing shadows is not provided, but the light is not strong enough to disrupt his abilities, the user will appear as a black apparition with his identity completely hidden. ❖ Type: Ability ❖ Tag: Physical + Spiritual ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: 1 Rouse Check ❖ Conditions: Normal Obtenebration limitations when it comes to light. ❖ Risk: Low. The effect can easily be explained as an overactive imagination. ❖ Test: Obtenebration + Resolve (2) ❖ Resistance Roll: None ❖ Duration: 1 Scene (10 minutes)", 
+                rouseChecks: 1, 
+                amalgamPrerequisites: [], 
+                summary: "Become invisible in shadows or appear as black apparition in dim light.", 
+                dicePool: "Obtenebration + Resolve", 
+                level: 2, 
+                discipline: "obtenebration" 
+            },
+            { 
+                name: "Shadow Shield", 
+                description: "The Abyss reacts to protect its host from harm. Shadowy constructs materialize out of the body to deflect incoming blows and just as quickly dissipate. If successful, the Kindred can reduce the total amount of damage they would receive by 1 point for each dot they have in Obtenebration. ❖ Type: Reflexive ❖ Tag: Physical & Spiritual ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: 1 Rouse Check ❖ Conditions: Has no effect against Aggravated damage, fire damage and sunlight. Additionally, it is important to note that the user is materializing temporary shadow constructs which means the power can still be disrupted by intense light. ❖ Risk: Minor. The shadowy constructs only materialize for a second or so and can easily be missed. ❖ Test: Obtenebration + Resolve (2) ❖ Resistance Roll: None ❖ Duration: 1 Attack (a second)", 
+                rouseChecks: 1, 
+                amalgamPrerequisites: [], 
+                summary: "Reduce damage by 1 per Obtenebration dot (not against Aggravated/fire/sunlight).", 
+                dicePool: "Obtenebration + Resolve", 
+                level: 2, 
+                discipline: "obtenebration" 
+            },
+            { 
+                name: "Shadow Step", 
+                description: "In the blink of an eye the user merges with the darkness and reapers in another shadowy corner. The user can teleport from one shadow to another. ❖ Type: Ability ❖ Tag: Physical + Spiritual ❖ Range & Targets: Targets the user, who disappears and reapers in the new location. The point of re-emergence must be within Visual range and 10 meters (30 feet) of the user's initial location. ❖ Cost: 1 Rouse Check ❖ Conditions: The point of re-emergence must be a shadow as large (or larger) as the user. ❖ Risk: Moderate. The user disappears and reappears. The power is instantaneous and usually doesn't leave observers with a lot of time for investigation. ❖ Test: Obtenebration + Resolve (3) ❖ Resistance Roll: None ❖ Duration: 1 Round (a few seconds)", 
+                rouseChecks: 1, 
+                amalgamPrerequisites: [], 
+                summary: "Teleport between shadows within visual range and 10 meters.", 
+                dicePool: "Obtenebration + Resolve", 
+                level: 2, 
+                discipline: "obtenebration" 
+            },
+            { 
+                name: "Shadow Hunter", 
+                description: "The shadows whisper to the Kindred as he hunts his victims, expanding his senses and warning him of dangers. The Kindred adds 1 dice to all his Awareness and Survival rolls per dot he possesses in Obtenebration. ❖ Type: Upgrade ❖ Tag: Mental + Spiritual ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: None ❖ Conditions: The bonus only applies while the Kindred is in a dark (or low lit) and relatively silent area. ❖ Risk: None. The whispers can only really be heard by Obtenebration users. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: Permanent", 
+                rouseChecks: 0, 
+                amalgamPrerequisites: [], 
+                summary: "Add 1 dice per Obtenebration dot to Awareness and Survival in dark areas.", 
+                dicePool: "None", 
+                level: 2, 
+                discipline: "obtenebration" 
+            },
+            { 
+                name: "Feed The Darkness", 
+                description: "As the shadow constructs tear flesh and shred enemies to pieces they drink in the spilt blood. With this upgrade any spilt blood caused by shadow constructs can voluntarily be instantly absorbed by the shadow construct and transferred to the user. To satisfy a point of Hunger the shadow construct needs to cause Aggravated Damage or kill the target. Resonance bonuses are never gained when using this method nor can one properly perform diablery through a shadow construct. ❖ Type: Upgrade ❖ Tag: Physical + Spiritual ❖ Range & Targets: Impacts all shadow constructs manifested by the user. ❖ Cost: None ❖ Conditions: Must kill the target or cause Aggravated damage to satisfy a point of Hunger. ❖ Risk: High. This power makes the users existing Obtenebration abilities all the more terrifying but otherwise no more noticeable. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: Permanent", 
+                rouseChecks: 0, 
+                amalgamPrerequisites: [], 
+                summary: "Shadow constructs can feed you by causing Aggravated damage or killing targets.", 
+                dicePool: "None", 
+                level: 2, 
+                discipline: "obtenebration" 
+            },
+
+            // Level 4
+            { 
+                name: "Abyssal Surge", 
+                description: "The user gathers the shadows inside himself and releases a surge of Abyssal energy which can short circuits appliances and, perhaps most importantly, knocks out artificial sources of light. If successful, the Kindred temporarily knocks out all electronic devices within 30 meters (100 feet). If he scores double the test requirements than the pulse permanently destroys the affected electronic devices instead of temporarily knocking them out. The power has no effect on natural sources of light. ❖ Type: Ability ❖ Tag: Physical + Spiritual ❖ Range & Targets: All electronic devices within 30 meters (100 feet). ❖ Cost: 2 Rounds + 1 Rouse Check ❖ Conditions: Must spend 2 Rounds focusing and drawing the Abyssal energies into himself before unleashing them. Unlike other Obtenebration abilities, this particular power unleashes a pulse of Abyssal energy which is not disrupted by strong sources of light. ❖ Risk: High. Although the pulse itself resembles a momentary wave of shadow it occurs quickly and is easily missed. The effect on local electronics does however cause a potential panic as the power is indiscriminate on what items it affects. ❖ Test: Obtenebration + Resolve (4) ❖ Resistance Roll: None ❖ Duration: 2 Rounds (1 minute) to manifest the ability, after which the affected electronics are either impacted for the next hour (if the result is a normal pass) or are permanently disabled (if the result is double the test requirement). The affected equipment can still potentially be fixed by a suitable expert.", 
+                rouseChecks: 1, 
+                amalgamPrerequisites: [], 
+                summary: "Knock out or permanently destroy electronics within 30 meters.", 
+                dicePool: "Obtenebration + Resolve", 
+                level: 4, 
+                discipline: "obtenebration" 
+            },
+            { 
+                name: "Black Metamorphosis", 
+                description: "The Kindreds body grows darker and darker until eventually he becomes one with the shadows around him. The user counts as a shadow construct. Mundane attacks cannot harm him and he cannot be targeted by abilities which rely on Eye Contact or Touch. Additionally, the user also counts as benefiting from the effect of Night Shade. He will however take Aggravated damage from any form of fire, sunlight or strong sources of light (flood lights, flash bangs etc). Additionally, the user cannot use any abilities that require Eye Contact while the effects of this power last. ❖ Type: Ability + Spiritual ❖ Tag: Spiritual ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: 1 Round + 1 Rouse Check ❖ Conditions: Must perform the ability in a dark and shadowy area. ❖ Risk: High. Due to the nature of this ability the user can easily remain hidden, however if he is ever seen in the open it will immediately trigger a panic. ❖ Test: Obtenebration + Resolve (4) ❖ Resistance Roll: None ❖ Duration: 1 Round to manifest after which the ability remains active for 1 Scene (1 hour) or until the user decides to end the ability or is incapacitated.", 
+                rouseChecks: 1, 
+                amalgamPrerequisites: [], 
+                summary: "Become a shadow construct immune to mundane attacks but vulnerable to light.", 
+                dicePool: "Obtenebration + Resolve", 
+                level: 4, 
+                discipline: "obtenebration" 
+            },
+
+            // Level 5
+            { 
+                name: "Tenebrous Form", 
+                description: "The user retreats into a darkened corner and is seemingly devoured by the shadows. What re-emerges can only be described as the stuff of nightmares. The user transforms into a creature of darkness. This ability works exactly the same way as Black Metamorphosis with the following exceptions: The user causes terror to all who lay eyes upon him. Mortals and Enhanced mortals will flee the Scene unless they pass a Willpower test (3), while Kindred are unaffected. The users' limbs and head are replaced by shadow tentacles. While these do not give him additional benefits, as normal shadow tentacles do, they do extend his physical reach to 10 meters (30 feet). The user adds 1 dice to all their Physical Rolls. ❖ Type: Ability ❖ Tag: Physical + Spiritual ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: 2 Rouse Checks + 1 Round ❖ Conditions: Must perform the ability in a dark and shadowy area. ❖ Risk: High. You are turning into a creature of nightmares. While you can still use the darkness to mask your presence, once seen in the open you will trigger a mass panic. ❖ Test: Obtenebration + Resolve (5) ❖ Resistance Roll: None ❖ Duration: 1 Round to manifest after which the ability remains active for 1 Scene (1 hour), until the user decides to end the ability or is incapacitated.", 
+                rouseChecks: 2, 
+                amalgamPrerequisites: [], 
+                summary: "Transform into terrifying shadow creature with extended reach and terror aura.", 
+                dicePool: "Obtenebration + Resolve", 
+                level: 5, 
+                discipline: "obtenebration" 
+            },
+        ],
     },
     quietus: {
         clans: ["Banu Haqim"],
