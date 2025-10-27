@@ -684,33 +684,214 @@ export const disciplines: Record<DisciplineName, Discipline> = {
         logo: potenceLogo,
         powers: [
             // Level 1
-            { name: "Fluent Strength", description: "Reroll Blood Surges on Strength.", rouseChecks: 0, amalgamPrerequisites: [], summary: "Reroll Blood Surges on Strength.", dicePool: "Strength + Potence", level: 1, discipline: "potence" },
-            { name: "Lethal Body", description: "Unarmed attacks do aggravated damage to mortals.", rouseChecks: 0, amalgamPrerequisites: [], summary: "Unarmed attacks do agg to mortals.", dicePool: "Strength + Potence", level: 1, discipline: "potence" },
-            { name: "Surge of Tenacity", description: "Buffs Blood Surge.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Buffs Blood Surge.", dicePool: "Strength + Potence", level: 1, discipline: "potence" },
-            { name: "Reckless Berserker", description: "Beast powered attack at the cost of self-preservation. (Amalgam: Protean 1)", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "protean", level: 1 }], summary: "Beast powered attack at the cost of self-preservation.", dicePool: "Strength + Potence", level: 1, discipline: "potence" },
-            { name: "Soaring Leap", description: "Jump enormous distances.", rouseChecks: 0, amalgamPrerequisites: [], summary: "Jump enormous distances.", dicePool: "Strength + Potence", level: 1, discipline: "potence" },
+            { 
+                name: "Lethal Body", 
+                description: "Even at its most basic Potence turns the user into a competent fighter. Add 2 dice to all Brawl-related rolls, additionally, always count your Potence rating as 1 dot higher when it comes to applying the Discipline Bonus (to a maximum of 5). ❖ Type: Upgrade ❖ Tag: Physical ❖ Range & Targets: Targets the user himself. ❖ Cost: None ❖ Conditions: None ❖ Risk: Minor. While not outright supernatural you are hitting well above your normal capability. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: Permanent", 
+                rouseChecks: 0, 
+                amalgamPrerequisites: [], 
+                summary: "Add 2 dice to Brawl rolls and count Potence 1 dot higher for bonuses.", 
+                dicePool: "None", 
+                level: 1, 
+                discipline: "potence" 
+            },
+            { 
+                name: "Soaring Leap", 
+                description: "The Kindred focuses his strength on his legs to achieve a great leap. The Kindred can jump vertically, horizontally, or diagonally up to 10 meters (30 feet). ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: Targets the user himself. ❖ Cost: None ❖ Conditions: None ❖ Risk: High. This power can very easily breach the Masquerade if done in public. Also, note that the power does not give you the athletics to match the jump on its own so the landing might be tricky in some circumstances. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: 1 Action (a few seconds) or however long it takes for the character to execute the jump.", 
+                rouseChecks: 0, 
+                amalgamPrerequisites: [], 
+                summary: "Jump up to 10 meters in any direction.", 
+                dicePool: "None", 
+                level: 1, 
+                discipline: "potence" 
+            },
+            { 
+                name: "Prowess", 
+                description: "As the power of Potence permeates the body, so too does it enhance the user's natural strength. Add 1 dice to all non-supernatural Strength-related rolls for each dot of Potence you possess. ❖ Type: Upgrade ❖ Tag: Physical ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: None ❖ Conditions: The bonus does not apply to any tests to activate Potence abilities, nor does it apply to any Resistance Rolls. ❖ Risk: Moderate. It depends on how you use this power. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: Permanent", 
+                rouseChecks: 0, 
+                amalgamPrerequisites: [], 
+                summary: "Add 1 dice per Potence dot to non-supernatural Strength rolls.", 
+                dicePool: "None", 
+                level: 1, 
+                discipline: "potence" 
+            },
+            { 
+                name: "Master Of The Forge", 
+                description: "Developed by those who had seen the extent of misery brought about by their powers, this ability focuses on using Potence for creation rather than destruction. Add 1 dice to all Craft-related rolls for each dot of Potence you possess. ❖ Type: Upgrade ❖ Tag: Physical ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: None ❖ Conditions: None ❖ Risk: None. You just appear to have a high degree of strength when working on your projects, which aids you a great deal. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: Permanent", 
+                rouseChecks: 0, 
+                amalgamPrerequisites: [], 
+                summary: "Add 1 dice per Potence dot to Craft-related rolls.", 
+                dicePool: "None", 
+                level: 1, 
+                discipline: "potence" 
+            },
+            { 
+                name: "Puissance", 
+                description: "There is no equal standing when facing a Potence user. You are either stronger or you are likely dead. Whenever a tie is made on any Strength-related roll, the Kindred adds 1 automatic Success to the roll for each dot he has in Potence. Additionally, targeted enemies cannot use Willpower to re-roll their dice to break a tie once it occurs on such rolls. ❖ Type: Upgrade ❖ Tag: Physical ❖ Range & Targets: Targets the user himself. ❖ Cost: None ❖ Conditions: None ❖ Risk: Minor. You appear to have misled the enemy or have somehow found fresh reserves of strength. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: Permanent", 
+                rouseChecks: 0, 
+                amalgamPrerequisites: [], 
+                summary: "Add automatic successes on tied Strength rolls and prevent enemy Willpower re-rolls.", 
+                dicePool: "None", 
+                level: 1, 
+                discipline: "potence" 
+            },
 
             // Level 2
-            { name: "Prowess", description: "Add Potence to damage dealt.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Add Potence to damage dealt.", dicePool: "Strength + Potence", level: 2, discipline: "potence" },
-            { name: "Teeth Knight's Vehemence", description: "Coats weapon with Oblivion. (Amalgam: Oblivion 2)", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "oblivion", level: 2 }], summary: "Coats weapon with Oblivion.", dicePool: "Strength + Potence", level: 2, discipline: "potence" },
-            { name: "Wild Strike", description: "Enter a trance that allows to attack multiple targets. (Amalgam: Reckless Berserker)", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "potence", level: 1 }], summary: "Enter a trance that allows to attack multiple targets.", dicePool: "Strength + Potence", level: 2, discipline: "potence" },
-            { name: "Relentless Grasp", description: "Add Potence to holding onto things.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Add Potence to holding onto things.", dicePool: "Strength + Potence", level: 2, discipline: "potence" },
+            { 
+                name: "Relentless Pursuit", 
+                description: "The Kindred's heightened ability to jump reaches such heights that he appears to be flying through the air. If successful the Kindred can jump vertically, horizontally or diagonally up to 10 meters (30 feet), per dot he has in Potence. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: Targets the user himself. ❖ Cost: 1 Rouse Check, if the Kindred possesses Soaring Leap, then no Rouse Check is needed. ❖ Conditions: None ❖ Risk: High. You are exceeding human limitations in a very visible manner. This ability is considered a Masquerade breach if done in public. ❖ Test: Potence + Strength (2) ❖ Resistance Roll: None ❖ Duration: 1 Action (a few seconds) or however long it takes for the character to execute the jump.", 
+                rouseChecks: 1, 
+                amalgamPrerequisites: [], 
+                summary: "Jump 10 meters per Potence dot in any direction.", 
+                dicePool: "Potence + Strength", 
+                level: 2, 
+                discipline: "potence" 
+            },
+            { 
+                name: "Flick", 
+                description: "The Kindred learns to mask his blows, much to the surprise of the target. If successful the Kindred can deliver a punch with a slap, throw heavy objects with a flick of their wrist and break bones with the softest of touch. This ability allows a Kindred to mask his usually aggressive blows as simple gestures involving physical touch. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: 1 Rouse Check ❖ Conditions: None. The Kindred can voluntarily declare when a target is being affected by a hidden blow so not every physical touch is dangerous. ❖ Risk: Moderate. The grotesque use of this power will quickly be seen as unnatural. However, killing blows can be masked much more effectively. ❖ Test: Potence + Strength (2) ❖ Resistance Roll: None ❖ Duration: 1 Action (a few seconds) or however long it takes for the character to execute the attack.", 
+                rouseChecks: 1, 
+                amalgamPrerequisites: [], 
+                summary: "Mask powerful blows as simple gestures or touches.", 
+                dicePool: "Potence + Strength", 
+                level: 2, 
+                discipline: "potence" 
+            },
+            { 
+                name: "Gentle Rebuke", 
+                description: "Unlike most powers, whose corrupting influence is subtle, Potence is direct in its destructive curse. This has allowed Kindred to develop methods of reigning in its worst excesses. The Discipline Bane for Potence no longer affects the Kindred. If you are not using the Discipline Bane then this power simply lowers any amount of damage the Kindred did by mistake with his Potence abilities by 1 point. ❖ Type: Upgrade ❖ Tag: Physical ❖ Range & Targets: Targets the user himself. ❖ Cost: None ❖ Conditions: None ❖ Risk: None ❖ Test: None ❖ Resistance Roll: None ❖ Duration: Permanent", 
+                rouseChecks: 0, 
+                amalgamPrerequisites: [], 
+                summary: "Eliminate Potence Discipline Bane or reduce accidental damage by 1.", 
+                dicePool: "None", 
+                level: 2, 
+                discipline: "potence" 
+            },
+            { 
+                name: "Uncanny Grip", 
+                description: "The Kindred's grip is like a mechanical clamp and just as unbreakable. If you successfully grab hold of an item, a piece of terrain or a person then nothing can break that hold unless the target has Potence themselves or an exceedingly high Strength rating. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: 1 Rouse Check ❖ Conditions: An initial grip must be established. ❖ Risk: Moderate. The ability can be used secretly or overtly to various degrees. ❖ Test: Potence + Strength (2) ❖ Resistance Roll: Potence + Strength or Strength x2 (the second roll can only be made if the target possesses a natural Strength rating of 5 or more). ❖ Duration: 1 Action (1 second) for the ability to trigger. Once active the ability can only end if the Kindred voluntarily ends it, is incapacitated, the target breaks the hold, or the user's hand is somehow cut off.", 
+                rouseChecks: 1, 
+                amalgamPrerequisites: [], 
+                summary: "Create an unbreakable grip on objects or people.", 
+                dicePool: "Potence + Strength", 
+                level: 2, 
+                discipline: "potence" 
+            },
+            { 
+                name: "Crush", 
+                description: "The Kindred can apply pressure like a hydraulic press. If successful, the Kindred can destroy objects he is holding or cause injury to targets he had grappled with. The extent of this power greatly depends on the number of dots the user possesses in Potence. ●● – The Kindred can destroy most objects made out of wood or hard plastic. ●●● – The Kindred can destroy most objects made out of rock or marble. ●●●● – The Kindred can destroy most objects made out of iron or steel. ●●●●● – The Kindred can destroy most objects, even diamonds. When using this ability on targets of flesh and bone the Kindred does 1 automatic point of Superficial Damage per dot he has in Potence. This damage cannot be halved and armour provides no protection. Additionally, if you are using Discipline Bonuses, the Kindred can apply his Discipline bonus to the damage (changing it to Aggravated Damage). ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: A single object the Kindred can hold or a grappled opponent. ❖ Cost: 1 Rouse Check ❖ Conditions: None ❖ Risk: High. You are destroying objects most strongmen would struggle to even bend. ❖ Test: Potence + Strength (2) ❖ Resistance Roll: None ❖ Duration: 1 Action (a few seconds)", 
+                rouseChecks: 1, 
+                amalgamPrerequisites: [], 
+                summary: "Destroy objects or deal automatic damage through crushing pressure.", 
+                dicePool: "Potence + Strength", 
+                level: 2, 
+                discipline: "potence" 
+            },
 
             // Level 3
-            { name: "Brutal Feed", description: "Drain a person in seconds.", rouseChecks: 0, amalgamPrerequisites: [], summary: "Drain a person in seconds.", dicePool: "Strength + Potence", level: 3, discipline: "potence" },
-            { name: "Spark of Rage", description: "Add Potence to rolls to induce rage. (Amalgam: Presence 3)", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "presence", level: 3 }], summary: "Add Potence to rolls to induce rage.", dicePool: "Strength + Potence", level: 3, discipline: "potence" },
-            { name: "Uncanny Grip", description: "Hold onto any surface.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Hold onto any surface.", dicePool: "Strength + Potence", level: 3, discipline: "potence" },
-            { name: "Wrecker", description: "Double Potence to destroy things. (Amalgam: Prowess)", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "potence", level: 2 }], summary: "Double Potence to destroy things.", dicePool: "Strength + Potence", level: 3, discipline: "potence" },
+            { 
+                name: "Brutal Feed", 
+                description: "In a terrifying display of might and hunger, the Kindred drains its target of its vitae in a heartbeat. If successful, the target is completely drained of all blood and dies. ❖ Type: Reflexive ❖ Tag: Physical ❖ Range & Targets: A single individual the Kindred is about to feed from. ❖ Cost: 1 Rouse Check ❖ Conditions: Must be able to feed from the target. Also, the user must target the neck of the victim or a similarly blood-rich area on the body. A cut on the wrist will not suffice. ❖ Risk: High. There are multiple and severe risks to using this power. To start with, you are draining a target in a bloody display of violence. Secondly, unlike under normal circumstances, the Kindred cannot control the flow of vitae as he drinks so if the vessel is tainted, he will be severely affected. Also, remember that feeding on Supernatural Creatures can have drastic side effects. ❖ Test: Potence + Strength (3) ❖ Resistance Roll: None ❖ Duration: 1 Action (a few seconds)", 
+                rouseChecks: 1, 
+                amalgamPrerequisites: [], 
+                summary: "Completely drain a target of all blood in seconds, killing them.", 
+                dicePool: "Potence + Strength", 
+                level: 3, 
+                discipline: "potence" 
+            },
+            { 
+                name: "Hammer Blows", 
+                description: "The Kindred's attacks become relentless. Damage caused by the Kindred's unarmed attacks cannot be halved, in addition, any Critical Success (it does not have to be a pairing) result you make on unarmed strikes causes an additional point of Superficial Damage to the target (provided you won the roll off/contest). ❖ Type: Upgrade ❖ Tag: Physical ❖ Range & Targets: Targets the user himself. ❖ Cost: None ❖ Conditions: The additional point of Superficial Damage does not benefit from the Discipline bonus. ❖ Risk: Moderate. This ability can quickly breach the Masquerade if used too often. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: Permanent", 
+                rouseChecks: 0, 
+                amalgamPrerequisites: [], 
+                summary: "Unarmed damage cannot be halved, Critical Successes deal extra damage.", 
+                dicePool: "None", 
+                level: 3, 
+                discipline: "potence" 
+            },
+            { 
+                name: "Brutality", 
+                description: "There is nothing subtle about this Kindred, he is an engine of destruction and nothing more. Anytime the user does physical damage, via unarmed strikes, the target receives a number of points of Superficial Damage equal to the number of dots the user has in Potence. This is in addition to any other damage the Kindred just dealt. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: Anyone targeted by the user. ❖ Cost: 1 Rouse Check ❖ Conditions: The additional point(s) of Superficial Damage does not benefit from the Discipline bonus. ❖ Risk: High. You are using Potence to its full effect and can cause a panic. ❖ Test: Potence + Strength (3) ❖ Resistance Roll: None ❖ Duration: 1 Scene (10 minutes) or until the Kindred is incapacitated.", 
+                rouseChecks: 1, 
+                amalgamPrerequisites: [], 
+                summary: "Deal additional Superficial Damage equal to Potence dots on unarmed strikes.", 
+                dicePool: "Potence + Strength", 
+                level: 3, 
+                discipline: "potence" 
+            },
+            { 
+                name: "Might Of Heroes", 
+                description: "The Kindred's strength reaches legendary proportions. Double the Kindred's Strength rating for non-combat and non-supernatural related rolls. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: Targets the user himself. ❖ Cost: 1 Rouse Check ❖ Conditions: Only double the dot rating on the character sheet. Powers such as Prowess do not double their bonus as they add dice to your pool instead of adding extra dots. Additionally, the bonus cannot be used to activate supernatural abilities or resist them. ❖ Risk: Moderate. A Strength rating of 5 is considered the most humans are capable of but still within lines of reason. Anything above that is seen as plainly supernatural. Of course, the power is not apparent until put to use. ❖ Test: Potence + Strength (3) ❖ Resistance Roll: None ❖ Duration: 1 Scene (10 minutes) or until the Kindred is incapacitated.", 
+                rouseChecks: 1, 
+                amalgamPrerequisites: [], 
+                summary: "Double Strength rating for non-combat and non-supernatural rolls.", 
+                dicePool: "Potence + Strength", 
+                level: 3, 
+                discipline: "potence" 
+            },
+            { 
+                name: "Draught Of Might", 
+                description: "The Kindreds vitae is infused with the power of Potence. Enough so that those who drink from it can momentarily develop some of its abilities. The Kindred can voluntarily offer some of its blood to another vampire. If it does so then the target will gain one Potence power which the Kindred already possesses up to level 2. While the power itself is considered an upgrade a Rouse Check still needs to be made each time the Kindred feeds a target some of their blood. Any Ghouls you possess will manifest a permanent Level 1 Potence power (if they do not possess one already) when you next feed them your vitae. ❖ Type: Upgrade / Ability ❖ Tag: Physical ❖ Range & Targets: A single individual who you feed your blood to. ❖ Cost: 1 Round + 1 Rouse Check ❖ Conditions: The cost only applies when feeding someone your blood. ❖ Risk: Varies. You are granting someone the powers of Potence who may not know how to use them. Additionally, the act of feeding someone your blood is a possible Masquerade breach if done in public. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: Permanent for the upgrade, but the effects of your blood on others last only for 1 Session unless they are your Ghouls.", 
+                rouseChecks: 1, 
+                amalgamPrerequisites: [], 
+                summary: "Share Potence powers through your blood, grant permanent powers to ghouls.", 
+                dicePool: "None", 
+                level: 3, 
+                discipline: "potence" 
+            },
 
             // Level 4
-            { name: "Crash Down", description: "Crash to the ground, damaging an area. (Amalgam: Soaring Leap)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "potence", level: 1 }], summary: "Crash to the ground, damaging an area.", dicePool: "Strength + Potence", level: 4, discipline: "potence" },
-            { name: "Draught of Might", description: "Give Potence to others.", rouseChecks: 2, amalgamPrerequisites: [], summary: "Give Potence to others.", dicePool: "Strength + Potence", level: 4, discipline: "potence" },
-            { name: "Exuberance", description: "Increase Potence but hurt your body.", rouseChecks: 2, amalgamPrerequisites: [], summary: "Increase Potence but hurt your body.", dicePool: "Strength + Potence", level: 4, discipline: "potence" },
+            { 
+                name: "Boundless Strength", 
+                description: "The Kindred becomes a master of Potence. The Kindred can re-roll up to 3 black dice whenever activating a Potence ability without having to suffer a point of Superficial Willpower Damage. ❖ Type: Upgrade ❖ Tag: Physical ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: None ❖ Conditions: Only applies when trying to activate a Potence ability. ❖ Risk: None ❖ Test: None ❖ Resistance Roll: None ❖ Duration: Permanent", 
+                rouseChecks: 0, 
+                amalgamPrerequisites: [], 
+                summary: "Re-roll up to 3 black dice when activating Potence without Willpower cost.", 
+                dicePool: "None", 
+                level: 4, 
+                discipline: "potence" 
+            },
+            { 
+                name: "Cain's Fury", 
+                description: "The Kindred becomes the embodiment of Cain's wrath and attacks with enough fury to put Lupine to shame. If successful, the Kindred rolls exclusively red dice for all his Brawl-related rolls. However, unlike normal, each Bestial Failure now counts as a Critical Success and can be paired. Any Brawl-related roll the Kindred wins counts as a messy critical while the power is active. Additionally, while Cain's Fury is active the Kindred causes Aggravated damage to all targets (including supernatural creatures). ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: Targets the user himself. ❖ Cost: 1 Rouse Check ❖ Conditions: None ❖ Risk: High. Your attacks tear enemies apart in a grotesque display of supernatural violence and there is no way to reign in your power. ❖ Test: Potence + Strength (4) ❖ Resistance Roll: None ❖ Duration: 1 Scene (10 minutes) or until the Kindred is incapacitated.", 
+                rouseChecks: 1, 
+                amalgamPrerequisites: [], 
+                summary: "Roll red dice for Brawl, Bestial Failures become Criticals, deal Aggravated damage.", 
+                dicePool: "Potence + Strength", 
+                level: 4, 
+                discipline: "potence" 
+            },
+            { 
+                name: "Aftershock", 
+                description: "Not all Potence users are berserkers, some are deadly assassins for whom overt violence has no meaning. If successful, the Kindred can cause all unarmed damage he made to manifest after roughly 1 hour. The targets are still struck, and the force still causes their bodies to be pushed back but for some reason, the blow doesn't hurt, causes no damage or has any physical effect beyond forcing them back. The Storyteller should keep track of the damage the target receives. Roughly 1 hour later the target will suffer the full extent of the damage as wounds materialise across their body. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: 1 Rouse Check ❖ Conditions: None ❖ Risk: High. This power is often a double-edged sword when it comes to the Masquerade. On one hand, the perpetrator is rarely ever caught. On the other, once the injuries do start to manifest, they do so in spectacular fashion potentially causing a mortal to simply disappear in a cloud of blood and gore which is an obvious Masquerade breach. ❖ Test: Potence + Strength (4) ❖ Resistance Roll: None ❖ Duration: 1 Action (a few seconds) or however long it takes for the Kindred to execute the follow-up attack. After which the damage will materialize after 1 hour. Only certain Blood Sorcery rituals can prevent the delayed damage from occurring.", 
+                rouseChecks: 1, 
+                amalgamPrerequisites: [], 
+                summary: "Delay all unarmed damage to manifest 1 hour later.", 
+                dicePool: "Potence + Strength", 
+                level: 4, 
+                discipline: "potence" 
+            },
 
             // Level 5
-            { name: "Earthshock", description: "Create a shockwave.", rouseChecks: 2, amalgamPrerequisites: [], summary: "Create a shockwave.", dicePool: "Strength + Potence", level: 5, discipline: "potence" },
-            { name: "Fist of Caine", description: "Unarmed attacks do aggravated damage to everything.", rouseChecks: 2, amalgamPrerequisites: [], summary: "Unarmed attacks do agg to everything.", dicePool: "Strength + Potence", level: 5, discipline: "potence" },
-            { name: "Subtle Hammer", description: "Subtle attacks as minor actions.", rouseChecks: 2, amalgamPrerequisites: [], summary: "Subtle attacks as minor actions.", dicePool: "Strength + Potence", level: 5, discipline: "potence" },
+            { 
+                name: "Earth Shock", 
+                description: "The Kindred brings his fists down on the ground causing the earth to shake. If successful, the Kindred causes a very small earthquake. Everyone within 100 meters (300 feet) of the user, excluding the user himself, is knocked off their feet and must spend a Round getting up and taking stock of their situation. Certain powers from Fortitude or Celerity can somewhat mitigate these effects. Do note that you are also causing an earthquake and can bring buildings crashing down or cause serious damage to the surrounding area (best left to the discretion of the Storyteller). ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: Everyone, except for the user himself, within 100 meters (300 feet) of the initial effect and everyone in the general area for the effects of the earthquake. ❖ Cost: 2 Rouse Checks ❖ Conditions: Must be able to strike the ground. ❖ Risk: Very High. Regardless of why it was used this power is considered an automatic Masquerade breach. If used inside a building it can bring the entire structure crashing down and while it is considered a small earthquake if the user rolls exceptionally well or if done in a geologically active area the Storyteller can impose a more destructive outcome. ❖ Test: Potence + Strength (5) ❖ Resistance Roll: None ❖ Duration: 1 Round (a few seconds), although the length of time can vary depending on how well the user rolled (best left to the discretion of the Storyteller).", 
+                rouseChecks: 2, 
+                amalgamPrerequisites: [], 
+                summary: "Create a small earthquake that knocks down everyone within 100 meters.", 
+                dicePool: "Potence + Strength", 
+                level: 5, 
+                discipline: "potence" 
+            },
+            { 
+                name: "Fists of Caine", 
+                description: "The ultimate expression of the might of Potence. There is little protection against the coming storm. The Kindred counts as having just activated Caines Fury, Hammer Blows and Brutality, regardless of whether he actually possesses those powers or not. The Kindred's unarmed attacks cause Aggravated Damage. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: 2 Rouse Checks, if the Kindred possesses one of the 3 powers listed then they only need to make a single Rouse Check. ❖ Conditions: None ❖ Risk: Very high. This is a Kindred at their most destructive, casualties and extensive property damage are all but assured. ❖ Test: Potence + Strength (5 – if the Kindred possesses two of the 3 powers listed then the difficulty is reduced to 4) ❖ Resistance Roll: None ❖ Duration: 1 Scene", 
+                rouseChecks: 2, 
+                amalgamPrerequisites: [], 
+                summary: "Activate Cain's Fury, Hammer Blows, and Brutality simultaneously, deal Aggravated damage.", 
+                dicePool: "Potence + Strength", 
+                level: 5, 
+                discipline: "potence" 
+            },
         ],
     },
     presence: {
@@ -721,48 +902,214 @@ export const disciplines: Record<DisciplineName, Discipline> = {
         logo: presenceLogo,
         powers: [
             // Level 1
-            { name: "Awe", description: "Add Presence to Charisma.", rouseChecks: 0, amalgamPrerequisites: [], summary: "Add Presence to Charisma.", dicePool: "Charisma + Presence", level: 1, discipline: "presence" },
-            { name: "Daunt", description: "Intimidate people and ward off attacks.", rouseChecks: 0, amalgamPrerequisites: [], summary: "Intimidate people and ward off attacks.", dicePool: "Charisma + Presence", level: 1, discipline: "presence" },
-            { name: "Duress", description: "Sap the resolve of others. (Amalgam: Oblivion 1)", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "oblivion", level: 1 }], summary: "Sap the resolve of others.", dicePool: "Manipulation + Presence", level: 1, discipline: "presence" },
-            { name: "Ensnared", description: "Pull on emotional strings to control foes. (Amalgam: Celerity 1)", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "celerity", level: 1 }], summary: "Pull on emotional strings to control foes.", dicePool: "Manipulation + Presence", level: 1, discipline: "presence" },
-            { name: "Scalpel Tongue", description: "Supernaturally sharp wit stuns foes. (Amalgam: Celerity 1)", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "celerity", level: 1 }], summary: "Supernaturally sharp wit stuns foes.", dicePool: "Manipulation + Presence", level: 1, discipline: "presence" },
-            { name: "Eyes of the Serpent", description: "Paralyze someone with eye contact. (Amalgam: Protean 1)", rouseChecks: 0, amalgamPrerequisites: [{ discipline: "protean", level: 1 }], summary: "Paralyze someone with eye contact.", dicePool: "Charisma + Presence", level: 1, discipline: "presence" },
+            { 
+                name: "Awe", 
+                description: "The Kindred grows tired of staying in the shadows and yearns to be the centre of attention. All eyes are drawn to him while the power is in effect. Anyone in the vicinity of the Kindred cannot help but look and pay attention to them. The power can easily be employed to force a target to make Eye Contact with you or listen to your words. Additionally, the power adds 1 dice to any Persuasion or Expression-related rolls you make, per dot in Presence you possess, provided the target failed their Resistance Roll. If more than one instance of Presence is active in the same location at once then the user who has a higher rating in Presence and used their ability more recently is the centre of attention, nullifying their weaker counterpart's ability entirely. ❖ Type: Ability ❖ Tag: Mental ❖ Range & Targets: Anyone in Visual Range of the Kindred. ❖ Cost: None ❖ Conditions: None ❖ Risk: Minor. The ability is intended to hold people's attention, but what you choose to do with that attention is up to you. ❖ Test: None ❖ Resistance Roll: Charisma + Resolve (3, mortals have no resistance against this power) ❖ Duration: 1 Scene (1 hour), until the Kindred voluntarily ends the ability or is incapacitated.", 
+                rouseChecks: 0, 
+                amalgamPrerequisites: [], 
+                summary: "Draw all attention to yourself, gain dice bonuses to social rolls.", 
+                dicePool: "None", 
+                level: 1, 
+                discipline: "presence" 
+            },
+            { 
+                name: "Daunt", 
+                description: "Instead of attracting people to their side the Kindred finds a need to be left alone and repels them instead, causing fear to blossom in their hearts. Those in the vicinity of the Kindred subconsciously give them distance and try not to meet their gaze. The Kindred adds 1 dice to any Intimidation-related roll, per dot in Presence he possesses, while the power is active. Additionally, if a target fails to make any successes at all on their Resistance Roll, they become terrified of the Kindred and will either try to run away or cower before them. ❖ Type: Ability ❖ Tag: Mental ❖ Range & Targets: Anyone in Visual Range of the Kindred. ❖ Cost: None ❖ Conditions: None ❖ Risk: Minor. You could potentially cause a target to draw attention to you with their reaction. ❖ Test: None ❖ Resistance Roll: Charisma + Resolve (3, mortals can attempt to resist this power) ❖ Duration: Until the Kindred voluntarily ends the ability or is incapacitated.", 
+                rouseChecks: 0, 
+                amalgamPrerequisites: [], 
+                summary: "Repel others with fear, gain dice bonuses to Intimidation rolls.", 
+                dicePool: "None", 
+                level: 1, 
+                discipline: "presence" 
+            },
+            { 
+                name: "Intensification", 
+                description: "The Kindred finds they are able to heighten the emotional responses of others. The Kindred can intensify the prevailing emotion of a single individual to extreme heights causing them to become aggressive, infatuated, terrified etc. ❖ Type: Ability ❖ Tag: Mental & Physical ❖ Range & Targets: A single individual within Touch Range. ❖ Cost: None ❖ Conditions: Must make physical contact with the targets skin. Only intensifies the current emotion. ❖ Risk: None. At most the target seems like they are acting out. ❖ Test: None ❖ Resistance Roll: Charisma + Resolve (3, mortals have no resistance against this power) ❖ Duration: 1 Scene (10 minutes)", 
+                rouseChecks: 0, 
+                amalgamPrerequisites: [], 
+                summary: "Intensify a target's current emotion to extreme heights.", 
+                dicePool: "None", 
+                level: 1, 
+                discipline: "presence" 
+            },
+            { 
+                name: "Air Of Elation", 
+                description: "There are always daggers in people's smiles and this Kindred knows how to make people smile. The Kindred tells a joke which the target finds so hilarious they are unable to act for the remainder of the Scene while attracting attention to themselves. ❖ Type: Ability ❖ Tag: Mental ❖ Range & Targets: A single individual within Vocal Range. ❖ Cost: None ❖ Conditions: The Kindred must tell a joke. The target must be within Visual and Vocal range. Only has an effect in Social Scenes. ❖ Risk: None ❖ Test: None ❖ Resistance Roll: Charisma + Resolve (3, mortals have no resistance against this power) ❖ Duration: However long telling the joke takes after which the effects last for 1 Scene (10 minutes) or until the target is snapped out of its laughter by an external effect (a slap on the cheek, a loud commotion, combat breaking out etc.).", 
+                rouseChecks: 0, 
+                amalgamPrerequisites: [], 
+                summary: "Tell a joke that incapacitates the target with laughter.", 
+                dicePool: "None", 
+                level: 1, 
+                discipline: "presence" 
+            },
+            { 
+                name: "Capture Emotion", 
+                description: "The Kindred finds a way to imbue objects with an aura of emotions that can be faintly felt by mortals. The Kindred can imbue objects with an aura of emotion which mortals can pick up on when touching or near the object. Auspex users trying to gain information on the object will simply be able to sense its emotional aura and be blinded to any other clues the object possesses. ❖ Type: Ritual ❖ Tag: Physical & Spiritual ❖ Range & Targets: Anyone within the vicinity of the object. ❖ Cost: 1 Scene (1 hour, to create and imbue the object) ❖ Conditions: There can only be one instance of such an object active at a time. If a new one is created the old one loses its power. ❖ Risk: Moderate. Such objects point to a supernatural presence to those with appropriate knowledge and as such they are considered a potential Masquerade breach. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: The duration of time that the object remains supernaturally imbued depends on the Kindreds rating in Presence. ● – the effects gradually dissipate over a day. ●● – the effects gradually dissipate over a week. ●●● – the effects gradually dissipate over a month. ●●●● – the effects gradually dissipate over a year. ●●●●● – the effects remain permanent until a new art piece is made using this power.", 
+                rouseChecks: 0, 
+                amalgamPrerequisites: [], 
+                summary: "Imbue objects with emotional auras that affect nearby mortals.", 
+                dicePool: "None", 
+                level: 1, 
+                discipline: "presence" 
+            },
 
             // Level 2
-            { name: "Lingering Kiss", description: "Biting gives bonuses but also addiction.", rouseChecks: 0, amalgamPrerequisites: [], summary: "Biting gives bonuses but also addiction.", dicePool: "Charisma + Presence", level: 2, discipline: "presence" },
-            { name: "Kiss of The Molochim", description: "Saps the will to fight when feeding.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Saps the will to fight when feeding.", dicePool: "Charisma + Presence", level: 2, discipline: "presence" },
-            { name: "Kiss of Consuming Inspiration", description: "After a kiss, victim gains an addictive inspiration. (Amalgam: Auspex 1)", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "auspex", level: 1 }], summary: "After a kiss, victim gains an addictive inspiration.", dicePool: "Charisma + Presence", level: 2, discipline: "presence" },
-            { name: "Incite Sin", description: "Infernalist blood is like the kiss on skin. (Amalgam: blood sorcery 2)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "blood sorcery", level: 2 }], summary: "Infernalist blood is like the kiss on skin.", dicePool: "Manipulation + Presence", level: 2, discipline: "presence" },
-            { name: "Wolf Knight's Valour", description: "Inspire those around you. (Amalgam: Fortitude 2)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "fortitude", level: 2 }], summary: "Inspire those around you.", dicePool: "Charisma + Presence", level: 2, discipline: "presence" },
-            { name: "Oppressive Resonance", description: "Broadcast your resonance to others. (Amalgam: Dominate 2)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "dominate", level: 2 }], summary: "Broadcast your resonance to others.", dicePool: "Manipulation + Presence", level: 2, discipline: "presence" },
-            { name: "Melpominee", description: "Transmit Presence through voice alone.", rouseChecks: 0, amalgamPrerequisites: [], summary: "Transmit Presence through voice alone.", dicePool: "Charisma + Presence", level: 2, discipline: "presence" },
+            { 
+                name: "Lingering Kiss", 
+                description: "The Kindred's kiss is not just sensual it becomes addictive. If successful the Kindred makes the target addicted to being fed on by them. Those addicted will not remember the exact details of the experience but will know that the Kindred can grant it and seek them out at least once per week if not daily. The addiction will gradually fade if no contact is made for a month but while it is in place the target will halve all their Resistance Rolls against the Kindred's Presence abilities (rounding up). ❖ Type: Reflexive ❖ Tag: Physical & Mental ❖ Range & Targets: A single individual that the Kindred is currently feeding from. ❖ Cost: 1 Rouse Check ❖ Conditions: Must be feeding from the target. Can only be used during Social Scenes. ❖ Risk: Moderate. You are already feeding from the target so you should already be careful. The ability does however have a side effect in that it can create dangerously addicted individuals if used to frequently. ❖ Test: Presence + Charisma (2) ❖ Resistance Roll: Charisma + Resolve (mortals have no resistance against this power) ❖ Duration: 1 Month if not repeated.", 
+                rouseChecks: 1, 
+                amalgamPrerequisites: [], 
+                summary: "Make targets addicted to being fed on by you.", 
+                dicePool: "Presence + Charisma", 
+                level: 2, 
+                discipline: "presence" 
+            },
+            { 
+                name: "Ironclad Osiris", 
+                description: "The Kindred forces his powers to be uncompromising in entrancing its prey. Willpower cannot be used to re-roll dice when Resisting the Kindred's abilities in Presence. ❖ Type: Upgrade ❖ Tag: Mental ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: None ❖ Conditions: None ❖ Risk: None ❖ Test: None ❖ Resistance Roll: None ❖ Duration: Permanent", 
+                rouseChecks: 0, 
+                amalgamPrerequisites: [], 
+                summary: "Prevent targets from using Willpower to resist your Presence powers.", 
+                dicePool: "None", 
+                level: 2, 
+                discipline: "presence" 
+            },
+            { 
+                name: "Sirens Song", 
+                description: "The Kindred becomes a performer extraordinaire, able to put any mortal competition to shame. If successful this power functions in the same manner as Awe with the addition that those impacted are literally so entranced by the performance, they pay no attention to their surroundings. Nothing short of a direct assault on those affected will break their trance (a slap, punch, shove etc.). Note this will only break the trance for an individual target. ❖ Type: Ability ❖ Tag: Mental ❖ Range & Targets: Anyone in Visual Range of the Kindred. ❖ Cost: 1 Rouse Check ❖ Conditions: The Kindred must be making a performance (singing, dancing or similar) ❖ Risk: High. While the power is not initially suspicious, those who fail to be affected will be able to tell something is wrong. ❖ Test: Presence + Charisma (2) ❖ Resistance Roll: Charisma + Resolve (mortals have no resistance against this power) ❖ Duration: 1 Scene (10 minutes), until the trance is broken by a direct assault or the performance ends.", 
+                rouseChecks: 1, 
+                amalgamPrerequisites: [], 
+                summary: "Entrance audiences with performance, making them oblivious to surroundings.", 
+                dicePool: "Presence + Charisma", 
+                level: 2, 
+                discipline: "presence" 
+            },
+            { 
+                name: "Dark Passions", 
+                description: "The Kindred taps into the dark corner of the victim's soul and intensifies their most fundamental emotions. If successful the Kindred can make the target feel a heightened sense of lust, anger or greed. If the target botched their Resistance Roll or did not have one, to begin with, then the Kindred can force the chosen emotion to become overwhelming. This can cause the victim to act completely against their character, potentially even causing a Frenzy to occur (best left to the discretion of the Storyteller). ❖ Type: Ability ❖ Tag: Mental & Physical ❖ Range & Targets: A single individual within Touch Range. ❖ Cost: 1 Rouse Check, if the Kindred possess Intensification, then no Rouse Check is needed. ❖ Conditions: Must make physical contact with the target's skin. ❖ Risk: Moderate. You are encouraging the target to act somewhat out of character or even completely against their nature. ❖ Test: Presence + Charisma (2) ❖ Resistance Roll: Charisma + Resolve (mortals have no resistance against this power) ❖ Duration: 1 Scene (1 Hour).", 
+                rouseChecks: 1, 
+                amalgamPrerequisites: [], 
+                summary: "Intensify dark emotions like lust, anger, or greed to overwhelming levels.", 
+                dicePool: "Presence + Charisma", 
+                level: 2, 
+                discipline: "presence" 
+            },
+            { 
+                name: "Captured Essence", 
+                description: "The Kindred finds a dark path of making their art resonate with an emotional aura. Those who look at it cannot help but be transfixed. If successful the Kindred creates a piece of art (a statue, painting or similar) using human vitae of a particular resonance. That resonance will saturate any room with the object and draw attention to it. Any Auspex user in the room will not be able to tell the emotional resonance of those around him as the object drowns out all other spiritual auras. ❖ Type: Ritual ❖ Tag: Physical & Spiritual ❖ Range & Targets: Anyone within the vicinity of the object. ❖ Cost: 1 Scene (to create and imbue the object) + 1 Rouse Check, if the Kindred possesses Capture Emotion then no Rouse Check is needed. ❖ Conditions: The Kindred needs human vitae strong in a particular resonance. There can be one instance of such an object active at a time per dot the user has in Presence. If more are created the oldest one loses its power. ❖ Risk: High. Such objects point to a supernatural presence to those with appropriate knowledge and as such they are considered a potential Masquerade breach. ❖ Test: Presence + Craft (2) ❖ Resistance Roll: None ❖ Duration: The duration of time that the object remains supernaturally imbued depends on the Kindreds rating in Presence. ●● – the effects gradually dissipate over a week. ●●● – the effects gradually dissipate over a month. ●●●● – the effects gradually dissipate over a year. ●●●●● – the effects remain permanent.", 
+                rouseChecks: 1, 
+                amalgamPrerequisites: [], 
+                summary: "Create artwork that saturates rooms with emotional resonance.", 
+                dicePool: "Presence + Craft", 
+                level: 2, 
+                discipline: "presence" 
+            },
 
             // Level 3
-            { name: "Passion Leech", description: "Consume human passions to raise your effective Humanity. (Amalgam: Auspex 2)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "auspex", level: 2 }], summary: "Consume human passions to raise your effective Humanity.", dicePool: "Charisma + Presence", level: 3, discipline: "presence" },
-            { name: "Clear the Field", description: "Force everyone to leave the area. (Amalgam: Dominate 3)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "dominate", level: 3 }], summary: "Force everyone to leave the area.", dicePool: "Charisma + Presence", level: 3, discipline: "presence" },
-            { name: "Dread Gaze", description: "Terrify an individual.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Terrify an individual.", dicePool: "Charisma + Presence", level: 3, discipline: "presence" },
-            { name: "Entrancement", description: "Cause infatuation.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Cause infatuation.", dicePool: "Charisma + Presence", level: 3, discipline: "presence" },
-            { name: "Thrown Voice", description: "Project voice anywhere you can see. (Amalgam: Auspex 1)", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "auspex", level: 1 }], summary: "Project voice anywhere you can see.", dicePool: "Charisma + Presence", level: 3, discipline: "presence" },
-            { name: "Twist The Knife", description: "Deal more social damage.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Deal more social damage.", dicePool: "Manipulation + Presence", level: 3, discipline: "presence" },
-            { name: "Lotus Kiss", description: "Sap the emotion of those they feed on.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Sap the emotion of those they feed on.", dicePool: "Charisma + Presence", level: 3, discipline: "presence" },
-            { name: "Eternal Damnation", description: "Stops a victim's mending or healing. (Amalgam: blood sorcery 3 or oblivion 3)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "blood sorcery", level: 3 }, { discipline: "oblivion", level: 3 }], summary: "Stops a victim's mending or healing.", dicePool: "Manipulation + Presence", level: 3, discipline: "presence" },
-            { name: "True Love's Face", description: "Appear as whoever the target loves. (Amalgam: Obfuscate 3)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "obfuscate", level: 3 }], summary: "Appear as whoever the target loves.", dicePool: "Manipulation + Presence", level: 3, discipline: "presence" },
+            { 
+                name: "Dread Gaze", 
+                description: "The Kindred's gaze not only forces others away but downright terrifies them. If successful the Kindred causes all those who look at him to become terrified. The Kindred adds 1 dice to any Intimidation-related roll, per dot in Presence he possesses while the power is active. Additionally, if a Kindred fails to make any successes at all on their Resistance Roll, they suffer a fear Frenzy. ❖ Type: Ability ❖ Tag: Mental ❖ Range & Targets: Anyone in Visual Range of the Kindred. ❖ Cost: 1 Rouse Check ❖ Conditions: None ❖ Risk: High. The power can quickly cause panic to occur. ❖ Test: Presence + Charisma (3– if the Kindred possesses Daunt then the difficulty is reduced to 2) ❖ Resistance Roll: Charisma + Resolve (to resist the condition. However, nothing can prevent the intimidation bonus. Mortals have no resistance against this power and will automatically flee the scene in terror) ❖ Duration: 1 Round (1 minute), or until the Kindred is incapacitated.", 
+                rouseChecks: 1, 
+                amalgamPrerequisites: [], 
+                summary: "Terrify all who look at you, potentially causing fear frenzy.", 
+                dicePool: "Presence + Charisma", 
+                level: 3, 
+                discipline: "presence" 
+            },
+            { 
+                name: "Entrancement", 
+                description: "The Kindred makes others believe he is their friend and quickly moves to exploit their prey's weakness. If successful then all those affected will seek to fulfil the Kindred's wishes and needs. This is not a Dominate power, however, so any request that seems overtly dangerous or self-damaging will be automatically resisted. Otherwise, the Kindred is treated as passing all but the most outlandish Persuasion tests. ❖ Type: Ability ❖ Tag: Mental ❖ Range & Targets: Anyone in Visual and Vocal Range of the Kindred. ❖ Cost: 1 Rouse Check ❖ Conditions: The requests cannot be overtly dangerous or damaging. ❖ Risk: Minor. Other power players will wonder how you wield such influence. ❖ Test: Presence + Charisma (3 – if the Kindred possesses Awe then the difficulty is reduced to 2) ❖ Resistance Roll: Charisma + Resolve (mortals have no resistance against this power) ❖ Duration: 1 Scene (10 minutes), until the Kindred voluntarily ends the ability or is incapacitated.", 
+                rouseChecks: 1, 
+                amalgamPrerequisites: [], 
+                summary: "Make others believe you're their friend and fulfill your wishes.", 
+                dicePool: "Presence + Charisma", 
+                level: 3, 
+                discipline: "presence" 
+            },
+            { 
+                name: "Capture Reality", 
+                description: "The Kindred's power over being able to create objects of great resonance reaches its zenith. When using Capture Essence or Captured Reality the objects remain permanently imbued and the Kindred can make as many of them as they wish. Additionally, anyone being affected by such an object cannot use Willpower when making a Resistance Roll against the Kindred's Presence powers. ❖ Type: Upgrade ❖ Tag: Physical & Spiritual ❖ Range & Targets: The objects themselves and anyone within the vicinity of the objects. ❖ Cost: None ❖ Conditions: None ❖ Risk: High. Normally the power of such objects would fade, but with this ability, they become permanent and a far greater risk. This power allows the Kindred to amass a large collection of potentially dangerous artefacts which can threaten the Masquerade. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: Until the Kindred is killed.", 
+                rouseChecks: 0, 
+                amalgamPrerequisites: [], 
+                summary: "Make emotional artifacts permanent and prevent Willpower resistance.", 
+                dicePool: "None", 
+                level: 3, 
+                discipline: "presence" 
+            },
+            { 
+                name: "Corrupting Vitae", 
+                description: "The Kindred's vitae allows their addiction to carry over to those who drink from them. If successful then those who drink the Kindred's vitae become addicted to all the same substances the Kindred is addicted to with the exception of blood. This ability mainly benefits the character if you took the Addiction Merit or Flaw (V5 page 180). ❖ Type: Reflexive ❖ Tag: Physical ❖ Range & Targets: Anyone who drinks the user's vitae. ❖ Cost: 1 Rouse Check ❖ Conditions: The target must ingest the Kindred's vitae. ❖ Risk: Moderate. You are feeding someone your blood which will look suspicious if done in public. ❖ Test: Presence + Charisma (3) ❖ Resistance Roll: Charisma + Resolve (mortals have no resistance against this power) ❖ Duration: Permanent, or until the target gets rid of the addiction in the normal manner.", 
+                rouseChecks: 1, 
+                amalgamPrerequisites: [], 
+                summary: "Share your addictions with those who drink your vitae.", 
+                dicePool: "Presence + Charisma", 
+                level: 3, 
+                discipline: "presence" 
+            },
+            { 
+                name: "Unholy Penance", 
+                description: "Used to great effect by the followers of the Church of Blood this ability quickly turns the target into a mewling wretch. If successful the target feels extreme waves of remorse and a need to atone for their sins, real or imagined. The target is treated as Impaired (V5 page 126) Physically and Mentally for the Scene. ❖ Type: Ability ❖ Tag: Mental & Physical ❖ Range & Targets: A single individual within Touch and Vocal Range. ❖ Cost: 1 Rouse Check, if the Kindred possess Dark Passions, then no Rouse Check is needed. ❖ Conditions: Must make physical contact with the target's skin and usher an accusation directed at the target (the accusation does not need to be true). ❖ Risk: Moderate. Greatly depends on what your accusation is. ❖ Test: Presence + Charisma (3) ❖ Resistance Roll: Charisma + Resolve (mortals have no resistance against this power) ❖ Duration: 1 Scene (1 Hour)", 
+                rouseChecks: 1, 
+                amalgamPrerequisites: [], 
+                summary: "Make target feel extreme remorse and become impaired.", 
+                dicePool: "Presence + Charisma", 
+                level: 3, 
+                discipline: "presence" 
+            },
 
             // Level 4
-            { name: "Inflame Desire", description: "Turn a desire into an obsession. (Amalgam: Obfuscate 1)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "obfuscate", level: 1 }], summary: "Turn a desire into an obsession.", dicePool: "Manipulation + Presence", level: 4, discipline: "presence" },
-            { name: "Irresistable Voice", description: "Dominate doesn't require eye contact. (Amalgam: Dominate 1)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "dominate", level: 1 }], summary: "Dominate doesn't require eye contact.", dicePool: "Charisma + Presence", level: 4, discipline: "presence" },
-            { name: "Magnum Opus", description: "Imbue Awe or Daunt into an artwork. (Amalgam: Auspex 3)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "auspex", level: 3 }], summary: "Imbue Awe or Daunt into an artwork.", dicePool: "Wits + Presence", level: 4, discipline: "presence" },
-            { name: "Suffuse the Edifice", description: "Apply Presence to buildings.", rouseChecks: 2, amalgamPrerequisites: [], summary: "Apply Presence to buildings.", dicePool: "Charisma + Presence", level: 4, discipline: "presence" },
-            { name: "Summon", description: "Summon a specific person.", rouseChecks: 2, amalgamPrerequisites: [], summary: "Summon a specific person.", dicePool: "Charisma + Presence", level: 4, discipline: "presence" },
-            { name: "Hell Warden", description: "Imprisons someone in an illusion. (Amalgam: Obfuscate 3)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "obfuscate", level: 3 }], summary: "Imprisons someone in an illusion.", dicePool: "Manipulation + Presence", level: 4, discipline: "presence" },
-            { name: "Filigree Entourage", description: "Transfer mental damage to friends. (Amalgam: Fortitude 2)", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "fortitude", level: 2 }], summary: "Transfer mental damage to friends.", dicePool: "Charisma + Presence", level: 4, discipline: "presence" },
-            { name: "Withering Presence", description: "Weaken the mental attack of another.", rouseChecks: 2, amalgamPrerequisites: [], summary: "Weaken the mental attack of another.", dicePool: "Charisma + Presence", level: 4, discipline: "presence" },
-            { name: "Wingman", description: "Apply Presence to other people.", rouseChecks: 2, amalgamPrerequisites: [], summary: "Apply Presence to other people.", dicePool: "Charisma + Presence", level: 4, discipline: "presence" },
+            { 
+                name: "Summon", 
+                description: "The Kindred's powers of Presence linger on the victim for days. If successful the Kindred can summon anyone who had been affected by their powers in the past month to their current location. ❖ Type: Ability ❖ Tag: Mental ❖ Range & Targets: A single individual impacted by one of the Kindred's Presence powers in the last week and who can reach the Kindred within a day. ❖ Cost: 1 Rouse Check ❖ Conditions: The target must be within a day's travel of the Kindred and a Presence ability must have been used on it in the last month. ❖ Risk: Minor. You are filling the target with a need to meet you which could be completely out of the norm for them. ❖ Test: Presence + Charisma (4) ❖ Resistance Roll: Charisma + Resolve (mortals have no resistance against this power) ❖ Duration: Until the target meets with the Kindred or 24 hours have passed.", 
+                rouseChecks: 1, 
+                amalgamPrerequisites: [], 
+                summary: "Summon anyone affected by your Presence powers in the past month.", 
+                dicePool: "Presence + Charisma", 
+                level: 4, 
+                discipline: "presence" 
+            },
+            { 
+                name: "Fires Of Conviction", 
+                description: "Favoured amongst the bishops of the Sabbat, this power turns the crowd into a frenzied mob. If successful then anyone within Vocal Range of the Kindred, who fails their Resistance roll immediately receives the Frenzied Condition and attacks the nearest target. ❖ Type: Power ❖ Tag: Mental ❖ Range & Targets: Anyone within Vocal Range. ❖ Cost: 1 Scene (or however long the speech takes) + 1 Rouse Check ❖ Conditions: Must deliver some form of speech or sermon to fire up the audience. ❖ Risk: This power creates a frenzied mob that will attack anyone in its vicinity. ❖ Test: Presence + Charisma (4) ❖ Resistance Roll: Charisma + Resolve (mortals have no resistance against this power) ❖ Duration: Until the frenzy had run its course for each victim.", 
+                rouseChecks: 1, 
+                amalgamPrerequisites: [], 
+                summary: "Turn crowds into frenzied mobs through speeches.", 
+                dicePool: "Presence + Charisma", 
+                level: 4, 
+                discipline: "presence" 
+            },
+            { 
+                name: "Renew The Earthly Pleasures", 
+                description: "An ability greatly valued by elders. Those who know it can negotiate a high price for their services. If successful the target feels like they are truly alive once more. Kindred and other undead creatures can feel warmth, enjoy food (although they gain no nourishment), feel love, happiness, sadness and more. The target is initially stunned as the emotions come flooding in and cannot act in any way for the remainder of the current and next Round. The victim is hit automatically but cannot be affected by other mental abilities as the rush of emotions effectively makes them blind and deaf. ❖ Type: Ability ❖ Tag: Mental, Physical & Spiritual ❖ Range & Targets: A single individual within Touch Range. ❖ Cost: 1 Rouse Check ❖ Conditions: Can only affect the target once per Week. The target must be a form of Undead (Kindred, Wraiths, etc.). ❖ Risk: Minor. A Kindred might break down mentally after remembering all they lost. ❖ Test: Presence + Charisma (4) ❖ Resistance Roll: None ❖ Duration: 1 Scene (1 hour) although the initial stun only lasts for 2 Rounds (a few seconds).", 
+                rouseChecks: 1, 
+                amalgamPrerequisites: [], 
+                summary: "Allow undead to feel truly alive again temporarily.", 
+                dicePool: "Presence + Charisma", 
+                level: 4, 
+                discipline: "presence" 
+            },
 
             // Level 5
-            { name: "Fervor of A Captured Heart", description: "Utterly capture a target's heart.", rouseChecks: 2, amalgamPrerequisites: [], summary: "Utterly capture a target's heart.", dicePool: "Charisma + Presence", level: 5, discipline: "presence" },
-            { name: "Majesty", description: "Prevent all opposition and aggression.", rouseChecks: 2, amalgamPrerequisites: [], summary: "Prevent all opposition and aggression.", dicePool: "Charisma + Presence", level: 5, discipline: "presence" },
-            { name: "Star Magnetism", description: "Presence works through technology.", rouseChecks: 2, amalgamPrerequisites: [], summary: "Presence works through technology.", dicePool: "Charisma + Presence", level: 5, discipline: "presence" },
+            { 
+                name: "Majesty", 
+                description: "The Kindred's aura flares, allowing none to raise weapons against him in anger. If successful the Kindred cannot be the target of enemy attacks or offensive actions unless he himself launches such an action first. ❖ Type: Ability ❖ Tag: Mental ❖ Range & Targets: Anyone in Visual range of the Kindred. ❖ Cost: 2 Rouse Checks ❖ Conditions: If the Kindred launches an attack or an action which is obviously aggressive against those affected the ability ends. ❖ Risk: Moderate. As it mainly depends on how you use this ability. ❖ Test: Presence + Charisma (5) ❖ Resistance Roll: Charisma + Resolve (mortals have no resistance against this power) ❖ Duration: 1 Scene (1 Hour) or until the Kindred is incapacitated.", 
+                rouseChecks: 2, 
+                amalgamPrerequisites: [], 
+                summary: "Prevent all attacks against you unless you attack first.", 
+                dicePool: "Presence + Charisma", 
+                level: 5, 
+                discipline: "presence" 
+            },
+            { 
+                name: "Star Magnetism", 
+                description: "The Kindred's powers are not muffled by technological devices. The Kindred can now use the power of Awe or Daunt through live broadcasting. Only the live broadcast is affected however and not any sort of recordings. Guards looking at security monitors showing live images are also affected. ❖ Type: Upgrade ❖ Tag: Mental ❖ Range & Targets: Anyone who is looking at the Kindred on a display during a live broadcast. ❖ Cost: None ❖ Conditions: None ❖ Risk: Very High. You are using your abilities blatantly live on television. ❖ Test: None ❖ Resistance Roll: None ❖ Duration: Permanent", 
+                rouseChecks: 0, 
+                amalgamPrerequisites: [], 
+                summary: "Use Awe or Daunt through live broadcasts and security cameras.", 
+                dicePool: "None", 
+                level: 5, 
+                discipline: "presence" 
+            },
         ],
     },
     protean: {
