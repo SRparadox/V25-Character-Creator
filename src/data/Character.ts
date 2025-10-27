@@ -77,7 +77,7 @@ export const getEmptyCharacter = (): Character => ({
     selectedMethuselahPowers: [],
 });
 import { z } from "zod"
-import { Power, powerSchema, ritualSchema, ceremonySchema } from "./Disciplines"
+import { Power, powerSchema, ritualSchema, ceremonySchema, serpentisRitualSchema, spiritusRitualSchema, assamiteSorceryRitualSchema } from "./Disciplines"
 import { alchemyFormulaSchema } from "./Alchemy"
 import { specialtySchema } from "./Specialties"
 import { skillsSchema } from "./Skills"
@@ -157,6 +157,9 @@ export const characterSchema = z.object({
     disciplines: powerSchema.array(),
     rituals: ritualSchema.array(),
     ceremonies: ceremonySchema.array(),
+    serpentisRituals: serpentisRitualSchema.array().optional(),
+    spiritusRituals: spiritusRitualSchema.array().optional(),
+    assamiteSorceryRituals: assamiteSorceryRitualSchema.array().optional(),
     alchemy: alchemyFormulaSchema.array(),
 
     bloodPotency: z.number().min(0).int(),
@@ -182,5 +185,9 @@ export const characterSchema = z.object({
 export type Character = z.infer<typeof characterSchema>;
 
 export const containsBloodSorcery = (powers: Power[]) => powers.filter((power) => power.discipline === "blood sorcery").length > 0
+export const containsOblivion = (powers: Power[]) => powers.filter((power) => power.discipline === "oblivion").length > 0
+export const containsSerpentis = (powers: Power[]) => powers.filter((power) => power.discipline === "serpentis").length > 0
+export const containsSpiritus = (powers: Power[]) => powers.filter((power) => power.discipline === "spiritus").length > 0
+export const containsQuietus = (powers: Power[]) => powers.filter((power) => power.discipline === "quietus").length > 0
 
 export const isThinBlood = (character: Character) => character.clan === "Thin-blood"

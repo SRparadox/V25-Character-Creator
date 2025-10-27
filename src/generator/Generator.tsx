@@ -1,12 +1,12 @@
 import { Center, Text } from "@mantine/core"
-import { Character, containsBloodSorcery, isThinBlood } from "../data/Character"
+import { Character, containsBloodSorcery, containsOblivion, containsSerpentis, containsSpiritus, containsQuietus, isThinBlood } from "../data/Character"
 import AttributePicker from "./components/AttributePicker"
 import BasicsPicker from "./components/BasicsPicker"
 import ClanPicker from "./components/ClanPicker"
 import SectPicker from "./components/SectPicker"
 import ReligionPicker from "./components/ReligionPicker"
 import DisciplinesPicker from "./components/DisciplinesPicker"
-import { Power } from "../data/Disciplines";
+
 import Final from "./components/Final"
 import GenerationPicker from "./components/GenerationPicker"
 import AgePicker from "./components/AgePicker"
@@ -21,13 +21,19 @@ import TouchstonePicker from "./components/TouchstonePicker"
 import ErrorBoundary from "../components/ErrorBoundary"
 import RitualsPicker from "./components/RitualsPicker"
 import CeremoniesPicker from "./components/CeremoniesPicker"
+import SerpentisRitualsPicker from "./components/SerpentisRitualsPicker"
+import SpirituRitualsPicker from "./components/SpirituRitualsPicker"
+import AssamiteSorceryRitualsPicker from "./components/AssamiteSorceryRitualsPicker"
 import AlchemyPicker from "./components/AlchemyPicker"
 
 
 // Export a function to get the step labels dynamically
 export function getStepLabels(character: Character) {
     const hasBloodSorcery = containsBloodSorcery(character.disciplines);
-    const hasOblivion = character.disciplines.some((power: Power) => power.discipline === "oblivion");
+    const hasOblivion = containsOblivion(character.disciplines);
+    const hasSerpentis = containsSerpentis(character.disciplines);
+    const hasSpiritus = containsSpiritus(character.disciplines);
+    const hasQuietus = containsQuietus(character.disciplines);
     const hasThinBloodAlchemy = isThinBlood(character);
     
     // Check if character generation qualifies for Elder/Methuselah powers
@@ -66,6 +72,9 @@ export function getStepLabels(character: Character) {
     
     if (hasBloodSorcery) labels.push("Rituals");
     if (hasOblivion) labels.push("Ceremonies");
+    if (hasSerpentis) labels.push("Serpentis Rituals");
+    if (hasSpiritus) labels.push("Spiritus Rituals");
+    if (hasQuietus) labels.push("Assamite Sorcery Rituals");
     if (hasThinBloodAlchemy) labels.push("Alchemy");
     labels.push("Touchstones");
     labels.push("Merits & Flaws");
@@ -81,11 +90,12 @@ export type GeneratorProps = {
     setSelectedStep: (step: number) => void
 }
 
-const containsOblivion = (powers: Power[]) => powers.some((power) => power.discipline === "oblivion");
-
 const Generator = ({ character, setCharacter, selectedStep, setSelectedStep }: GeneratorProps) => {
     const hasBloodSorcery = containsBloodSorcery(character.disciplines);
     const hasOblivion = containsOblivion(character.disciplines);
+    const hasSerpentis = containsSerpentis(character.disciplines);
+    const hasSpiritus = containsSpiritus(character.disciplines);
+    const hasQuietus = containsQuietus(character.disciplines);
     const hasThinBloodAlchemy = isThinBlood(character);
 
     // Define the props type for all step components
@@ -131,6 +141,9 @@ const Generator = ({ character, setCharacter, selectedStep, setSelectedStep }: G
     
     if (hasBloodSorcery) steps.push((props) => <RitualsPicker {...props} />);
     if (hasOblivion) steps.push((props) => <CeremoniesPicker {...props} />);
+    if (hasSerpentis) steps.push((props) => <SerpentisRitualsPicker {...props} />);
+    if (hasSpiritus) steps.push((props) => <SpirituRitualsPicker {...props} />);
+    if (hasQuietus) steps.push((props) => <AssamiteSorceryRitualsPicker {...props} />);
     if (hasThinBloodAlchemy) steps.push((props) => <AlchemyPicker {...props} />);
     steps.push((props) => <TouchstonePicker {...props} />);
     steps.push((props) => <MeritsAndFlawsPicker {...props} />);
