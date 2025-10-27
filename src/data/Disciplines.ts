@@ -378,6 +378,16 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 level: 1, 
                 discipline: "auspex" 
             },
+            {
+                name: "Cypher Lingua",
+                description: "A somewhat rare and unwieldy power that allows the user to discern meaning from languages they can't understand otherwise, whether in read texts or heard language. Strangely, this power doesn't necessarily grant any lasting context or meaning to the words themselves, merely providing momentary insights, and increased awareness of language. When the user attempts to understand a language they don't know, they may roll Intelligence + Auspex to attempt to understand it. One success grants knowledge of a one or two words, while two grants understanding of a short sentence. Three or more can grant further understanding, up to a paragraph of information at the Storyteller's discretion. A Critical Win allows the user of this power to understand the associated words permanently, though not the whole language. Only the meaning of the words is understood, not the language itself, and the user will be unable to converse in the language properly without taking additional steps to learn it. This power is unable to decipher supernatural languages, such as Thaumaturgical sigils, Abyssal psalms, or markings used in Quietus blood magic. Those who take this power may purchase additional Linguistics Advantages at one less experience as it becomes much easier for them to learn that language over time.",
+                rouseChecks: 0,
+                amalgamPrerequisites: [],
+                summary: "Understand unfamiliar languages momentarily, permanent word knowledge on critical wins.",
+                dicePool: "Intelligence + Auspex",
+                level: 1,
+                discipline: "auspex"
+            },
             // Level 2
             { 
                 name: "Sense Vibrations", 
@@ -428,6 +438,16 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 dicePool: "Auspex + Wits", 
                 level: 2, 
                 discipline: "auspex" 
+            },
+            {
+                name: "Crown of the Lost Clan",
+                description: "The signature power of the Khofolim, who claim it is of their fel-inheritance. This power manifests a crown of psionic power about, or atop, the user's head, which then broadcasts ripples through surrounding darkness, not unlike a kind of radar. This psychic radar forcefully reveals Wraiths, as well as the unnatural fluctuations made by the use of Blood Sorcery and Oblivion. To onlookers with supernatural sight, such as Sense the Unseen, The Binding Fetter, Oblivion's Sight, or other powers of sufficiently high Auspex, the user will appear to have some kind of abstract and ethereal crown on their head, such as a smoldering diadem, a pair of shadowy horns, or even a ringed halo of light. Upon manifestation, Wraiths who are within the user's line of sight must make a test of Wits + Stealth; Difficulty equal to the user's Auspex. If they fail, the emanations from the user's crown reveals them for all to see. Users also feel unnatural fluctuations caused by Blood Sorcery and Oblivion, and they cannot be surprised or ambushed by the use of such powers. Whenever such a power, ritual, or ceremony, is performed within 15 yards/meters, they may make a Test of Wits + Auspex; Difficulty equal to the power's level, to detect the direction of the source. Additionally the crown confers a kind of authority to those beings from beyond mundane reality. The user adds +2 Bonus Dice to Charisma and Composure pools made towards Wraiths, Shades, or demonic manifestations. Bright light prevents this power's 'radar' from detecting things and does not grant improved vision even in regards to what it detects.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [{ discipline: "oblivion", level: 2 }],
+                summary: "Manifest psychic crown that reveals Wraiths, detects Blood Sorcery/Oblivion use, +2 dice vs supernatural beings.",
+                dicePool: "Wits + Auspex",
+                level: 2,
+                discipline: "auspex"
             },
             // Level 3
             { 
@@ -1356,6 +1376,26 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 level: 2,
                 discipline: "dominate",
             },
+            {
+                name: "Body Arsenal",
+                description: "The Baali vampire calls upon infernal power to transform their very flesh into weapons of supernatural menace. Through a ritual combining the manipulative arts of domination with the shapeshifting capabilities of protean, the vampire can cause their bones to extend through their skin as blades, spikes, or other weapon-like protrusions. These bone weapons are supernaturally sharp and durable, capable of cutting through most mundane materials with ease. The transformation is both disturbing and painful to witness, as the vampire's flesh tears and reforms around the emerging bone structures. The weapons retain a connection to the vampire's will, allowing them to reshape and reposition the protrusions during combat. Unlike normal bone, these infernal weapons are resistant to breaking and can harm supernatural creatures that normally resist mundane weapons. The power reflects the Baali's mastery over both their own flesh and their dominion over the fear they inspire in others.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [{ discipline: "protean", level: 2 }],
+                summary: "Transform bones into supernatural weapons that extend through flesh.",
+                dicePool: "Dominate + Protean",
+                level: 2,
+                discipline: "dominate"
+            },
+            {
+                name: "Folderol",
+                description: "One of the many reasons why the Boogeymen are so infamous is due to this particular trick. By simply engaging an individual in a conversation for long enough, the user can cause the conversant to suddenly blurt out any information they were previously attempting to hide or evade discussing. After engaging in a conversation with a victim, the user can activate this power. For the duration of the scene, any time the target attempts an active Subterfuge check against the user of Folderol, they can reflexively roll their Wits + Dominate as a contested pool against the Composure + Subterfuge check. On a success, rather than the lie, the target instead blurts out whatever truth they were previously attempting to obfuscate. The target is not technically aware of the manipulation, though upon being overcome with a sudden bout of honesty can make a Wits + Insight roll versus the user's Charisma or Manipulation + Persuasion or Subterfuge to attempt to determine the true source of their outburst. If the user succeeds on the roll, then they can make another Rouse Check to continue Folderol's effects into the next scene. If the user possesses the Rationalize power, then they do not require the contested Persuasion/Subterfuge check to continue Folderol into the next scene.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [{ discipline: "auspex", level: 2 }],
+                summary: "Force targets to blurt out truths instead of lies during conversation",
+                dicePool: "Wits + Dominate vs. Composure + Subterfuge",
+                level: 2,
+                discipline: "dominate",
+            },
             // Level 3
             {
                 name: "The Forgetful Mind",
@@ -1429,6 +1469,16 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 discipline: "dominate",
             },
             {
+                name: "Mytherceria",
+                description: "By sanctifying a verbal agreement upon the entropic powers of the Abyss, the vampire can ensure a suitable misfortune awaits any who dare violate the agreed terms or otherwise weasel their way out. The user must directly and succinctly state the terms of the agreement - usually having to do with the accomplishment of some sort of task or other action that benefits one or more parties - while they and the individual(s) they are making this agreement with are in the direct vicinity and within earshot. The user can furthermore establish specific 'clauses' within this agreement - of a number equal to their total Oblivion rating - representing specific bans or even ways of ending the agreement early. The user then makes 1 Rouse Check per each individual bound through the Mytherceria, rolling Manipulation + Oblivion to determine the duration of the effect. Each success on the roll extends the duration by a single 24-hour period, though the user is under no obligation to directly inform the contractee as to this fact, unless this was of course part of the initial pact. While under the effect of Mytherceria, anyone who deliberately violates the terms of the agreement or acts contrary to them takes a 2-Die penalty to all pools for the rest of that current day. Out of the blue, they find their efforts from that point on inexplicably hampered: contacts and allies are suddenly beset by problems, daily inconveniences pile up to almost absurd levels, and any lucky breaks they were previously experiencing are jarringly reversed. If they continue to remain obstinate, the die penalty doubles per each day they fail to maintain their end of the bargain. If at any point this cumulative penalty reduces one of the victim's die pools to 0, they suffer 2 points of Aggravated willpower damage as their luck goes from bad to worse. Mortals affected to this extent often suffer nervous breakdowns, as if it feels like the whole of creation is conspiring against them. Kindred who begin suffering Aggravated damage must make a Willpower Check against Fury Frenzy, as their Beast develops a hair-trigger temper. Mytherceria effects the user just as much as it does the target(s). Once active, they cannot go back on their end of the deal or any of its prerequisites without incurring the same penalties as above.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [{ discipline: "oblivion", level: 2 }],
+                summary: "Create mystical contract with escalating penalties for violation",
+                dicePool: "Manipulation + Oblivion",
+                level: 4,
+                discipline: "dominate",
+            },
+            {
                 name: "Tabula Rasa",
                 description: "Sometimes a blank slate is needed, a perfect vessel for your servant's new identity. The word \"Forget\" (or its equivalent for other languages) must be issued as the command trigger. If successful the target forgets all its memories for the past several years. Type: Power. Tag: Mental. Range & Targets: Must make Eye Contact with the target and be understood. Cost: 1 Rouse Check. Conditions: Must make Eye Contact and the word \"Forget\" must be understood. Risk: High, you are potentially creating an amnesiac. Test: Dominate + Manipulation (4). Resistance Roll: Composure + Resolve (Mortals have no defence against this power). Duration: The effects are permanent for Mortals. Enhanced Mortals and Supernatural Creatures suffer from amnesia but can recover their memories through treatment or supernatural means.",
                 rouseChecks: 1,
@@ -1458,6 +1508,16 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 dicePool: "None",
                 level: 5,
                 discipline: "dominate",
+            },
+            {
+                name: "Mitosis",
+                description: "The ultimate expression of Baali domination over flesh and spirit, this terrifying power allows the vampire to split into multiple identical copies while maintaining a shared consciousness. Through a complex ritual involving the spilling of significant vitae and infernal incantations, the vampire can divide their essence and form into two to four identical physical manifestations. Each copy retains access to all the vampire's disciplines and memories, and all copies share awareness and can coordinate their actions with supernatural precision. The copies can act independently but think as one unified entity, making them incredibly effective in combat or manipulation scenarios. The power is extremely taxing, requiring enormous amounts of blood and willpower to maintain. When the power ends, all copies must be within a short distance of each other to reintegrate, or the vampire faces the risk of permanent mental fragmentation. This power represents the pinnacle of Baali mastery over both domination and flesh-crafting, allowing them to be literally omnipresent when needed.",
+                rouseChecks: 3,
+                amalgamPrerequisites: [{ discipline: "protean", level: 5 }],
+                summary: "Split into multiple identical copies with shared consciousness and coordinated abilities.",
+                dicePool: "Dominate + Protean",
+                level: 5,
+                discipline: "dominate"
             },
 
             // Amalgams
@@ -1490,6 +1550,16 @@ export const disciplines: Record<DisciplineName, Discipline> = {
             { name: "Resilience", description: "At its basic level, Fortitude allows the Kindred to become more resilient to physical attacks. Any attacks which have a +1 or higher modifier now add a -1 to their value for each dot the user possesses in Fortitude. The weapon's bonus can only be reduced to +0 at most. The ability can never provide a negative to the basic damage value, it merely lowers its bonus. Type: Upgrade. Tag: Physical. Range & Targets: Targets the user himself. Cost: None. Conditions: None. Risk: Minor. You can pass off the resilience as simply being lucky. Test: None. Resistance Roll: None. Duration: Permanent", rouseChecks: 0, amalgamPrerequisites: [], summary: "Reduce weapon damage bonuses by Fortitude rating (minimum +0).", dicePool: "None", level: 1, discipline: "fortitude" },
             { name: "Personal Armour", description: "The Kindred is a natural at using Fortitude. Treat your Fortitude rating as 2 dots higher than it is for the purposes of the Discipline Bonus and various Upgrade powers, up to a maximum of 5 dots. For instance, if your character possesses 2 dots in Fortitude and has taken the Unswayable Mind as well as Personal Armor powers. Normally they would gain 1 point of Health from the Discipline Bonus and they would add 2 dice to any Resistance Roll against mental abilities (due to having 2 dots in Fortitude). However, as they took Personal Armor they now gain 2 points of Health instead, and add 4 dice to any Resistance Rolls against mental abilities (due to Personal Armor they count as having 4 dots in Fortitude instead of 2). Type: Upgrade. Tag: Physical. Range & Targets: Targets the user himself. Cost: None. Conditions: None. Risk: None. Test: None. Resistance Roll: None. Duration: Permanent", rouseChecks: 0, amalgamPrerequisites: [], summary: "Treat Fortitude as 2 dots higher for bonuses (max 5).", dicePool: "None", level: 1, discipline: "fortitude" },
             { name: "Alabastered", description: "The Kindred's body is built to continue functioning at full capacity regardless of the extent of damage it received. The Kindred suffers no negatives from being Impaired (V5 page 126). Type: Upgrade. Tag: Physical. Range & Targets: Targets the user himself. Cost: None. Conditions: None. Risk: None. Test: None. Resistance Roll: None. Duration: Permanent", rouseChecks: 0, amalgamPrerequisites: [], summary: "Suffer no penalties from being Impaired.", dicePool: "None", level: 1, discipline: "fortitude" },
+            {
+                name: "Rancorous Redress",
+                description: "Payments, wrought from one's own flesh and resolve are commonly used to power Infernalism. Some in the Clan of Devils have taken this a step farther, feeding on the conceptual change from what was, into what has become. When you take damage, of any kind, due to the cost or requirements of a Power, Ritual, or Ceremony, add 1 Bonus die to your pools that include Fortitude or Stamina. This bonus cannot exceed an amount equal to twice your Bane Severity. Bonuses last until the end of the Scene.",
+                rouseChecks: 0,
+                amalgamPrerequisites: [],
+                summary: "Gain bonus dice to Fortitude/Stamina pools when taking damage from power costs.",
+                dicePool: "Fortitude + A number of dice equal to your Marked Health",
+                level: 1,
+                discipline: "fortitude"
+            },
 
             // Level 2
             { name: "Adamantine", description: "The Kindred learns to channel his Will to increase his supernatural resilience. The Kindred can voluntarily choose for the damage they received to be applied to their Willpower instead of their Health. However, if they chose to do so then they cannot halve the damage as they normally would be able to. For example, if the Kindred takes 4 points of Superficial Damage and decides to apply it to his Willpower instead, then he takes 4 points of Superficial Willpower Damage without halving it. Type: Reflexive. Tag: Physical. Range & Targets: Targets the user himself. Cost: None. Conditions: Must be declared after any number of Superficial Damage points are removed due to the effects of Fortitude, or other disciplines (or other unique abilities or items), but before the damage is halved. Risk: None. Test: None. Resistance Roll: None. Duration: 1 Action (1 second) or however long it takes for the enemy's attack to resolve.", rouseChecks: 0, amalgamPrerequisites: [], summary: "Apply damage to Willpower instead of Health (no halving).", dicePool: "None", level: 2, discipline: "fortitude" },
@@ -1497,6 +1567,7 @@ export const disciplines: Record<DisciplineName, Discipline> = {
             { name: "Curse Of The Laurel", description: "Being staked is one of the most uncomfortable experiences for a Kindred to go through, this ability allows the vampire a final chance to act before they are Torpored. If successful, the Kindred can remain active for another Round even if staked. Regardless of the amount of Willpower he possesses he can only use this ability as many times in a Scene as he has dots in Fortitude. Type: Reflexive. Tag: Physical & Spiritual. Range & Targets: Targets the Kindred himself. Cost: 1 point of Superficial Willpower Damage + 1 Rouse Check. Conditions: Can only be used as many times per Scene as the Kindred has dots in Fortitude. Risk: High. You are trying to prevent yourself from entering a death like state after having a wooden block rammed into your chest. If you are forced to use this ability in sight of the uninitiated you will breach the Masquerade. Test: Fortitude + Stamina (2). Resistance Roll: None. Duration: 1 Round (a few seconds)", rouseChecks: 1, amalgamPrerequisites: [], summary: "Remain active for 1 Round even when staked.", dicePool: "Fortitude + Stamina", level: 2, discipline: "fortitude" },
             { name: "Stand Against All Foes", description: "The Kindred uses Fortitude to enhance his willpower, giving him an unnatural degree of courage. The Kindred is immune to all natural and supernatural effects which would cause them to become terrified. This includes mental reactions to fire, sunlight, abilities such as Daunt, Lunacy (generated by Garou) and so on. Type: Reflexive. Tag: Mental. Range & Targets: Targets the user himself. Cost: 1 Rouse Check. Conditions: None. Risk: None. Test: Fortitude + Stamina (2). Resistance Roll: None. Duration: 1 Scene (10 minutes)", rouseChecks: 1, amalgamPrerequisites: [], summary: "Immune to all terror effects for one scene.", dicePool: "Fortitude + Stamina", level: 2, discipline: "fortitude" },
             { name: "Eternal Vigilance", description: "Most Kindred face their Final Death during their daytime slumber, never being conscious of their own demise, let alone able to defend themselves. This ability grants the Kindred a short burst of activity during the day and has been the death of many a would-be assassin. If successful, the Kindred can rouse itself from his daytime slumber if threatened and remain active for 1 Scene or roughly 10 minutes. Type: Reflexive. Tag: Mental. Range & Targets: Targets the user himself. Cost: 1 Rouse Check. Conditions: Can only be activated if attacked while in Torpor. It cannot be used if Torpor is brought about due to damage or hunger. Risk: High. You are a corpse which had suddenly come to life, there can be some uncomfortable questions if you fell asleep in the wrong place. Test: Fortitude + Stamina (2). Resistance Roll: None. Duration: 1 Scene or 10 minutes.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Wake from daytime slumber when attacked, remain active for 1 scene.", dicePool: "Fortitude + Stamina", level: 2, discipline: "fortitude" },
+            { name: "Xantico's Refuge", description: "One of the most inherent abilities of the Tlahuelpuchi is to overcome the Rötschreck with seeming ease, defying the rabid fear brought on by fire with impunity. In truth, it only looks easy. Xantico's Refuge does not actually immunize the user to Frenzy but rather locks it down behind a wall of instinct, delaying its onset. Upon being directly exposed to a Frenzy trigger caused by open flame, the user can make a Rouse Check, ignoring the source of their fear for the duration of the current scene. However, at the end of that scene or the beginning of a new one (which ever comes first), the user must then make a Willpower Check as normal, though they can add their total Protean Rating to the roll (minimum of 1 extra die, as well as any bonuses against Frenzy acquired via Rituals or other Discipline powers). On a success, they do not Frenzy and continue about their actions as normal. On a failure, they succumb to Fear Frenzy as per the usual rules. Once this power has been used in response to a Fear Frenzy trigger, it cannot be used against any other Fear Frenzy triggers during that scene unless the user burns a point of superficial Willpower to make another Rouse Check.", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "protean", level: 1 }], summary: "Delay fire-induced Frenzy until end of scene, then test with Protean bonus.", dicePool: "N/A", level: 2, discipline: "fortitude" },
 
             // Level 3
             { name: "Defy Bane", description: "Fire poses the greatest danger to a Kindred during night-time and is the favourite weapon of many a hunter. This ability allows the Kindred to deal with it just as any other attack. Fire is no longer treated as a bane. Its attacks do only Superficial Damage, however the damage still cannot be halved. Type: Upgrade. Tag: Physical. Range & Targets: Targets the user himself. Cost: None. Conditions: None. Risk: None. Test: None. Resistance Roll: None. Duration: Permanent", rouseChecks: 0, amalgamPrerequisites: [], summary: "Fire deals only Superficial Damage (cannot be halved).", dicePool: "None", level: 3, discipline: "fortitude" },
@@ -1504,6 +1575,17 @@ export const disciplines: Record<DisciplineName, Discipline> = {
             { name: "Seal The Beasts Maw", description: "Kindred know that their greatest enemy resides within them in the form of their inner beast. This ability allows the Kindred a small window to resist its maddening Hunger. The Kindred remains in control of themselves for as many Rounds as they have dots in Fortitude without needing to sacrifice Willpower. This power functions even against abilities that would normally cause an immediate frenzy (such as those from Animalism), however, it is important to note that the effect of Frenzy is merely delayed instead of countered. Type: Reflexive. Tag: Mental. Range & Targets: Targets the user himself. Cost: 1 Rouse Check. Conditions: Is about to enter Frenzy. Risk: None. Test: Fortitude + Stamina (3). Resistance Roll: None. Duration: 1-5 Round (a few seconds to a few minutes) per dot in Fortitude.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Delay Frenzy for Fortitude dots in Rounds without Willpower cost.", dicePool: "Fortitude + Stamina", level: 3, discipline: "fortitude" },
             { name: "Draught Of Endurance", description: "The Kindred's vitae is infused with the power of Fortitude. Enough so that those who drink from it can momentarily develop some of its abilities. The Kindred can voluntarily offer some of its blood to another vampire. If it does so then the target will gain one Fortitude power which the Kindred already possess, up to level 2. While the power itself is considered an upgrade, a Rouse Check still needs to be made each time the Kindred feeds a target some of their blood. Any Ghouls you possess will manifest a permanent Level 1 Fortitude power (if they do not possess one already), when you next feed them your vitae. Note Animal Ghouls do not benefit from this power. Type: Upgrade / Ability. Tag: Physical. Range & Targets: A single individual who you feed your blood to. Cost: 1 Round + 1 Rouse Check. Conditions: The cost only applies when feeding someone your blood. Risk: Varies. You are granting someone the powers of Fortitude who may not know how to use them. Additionally, the act of feeding someone your blood is a possible Masquerade breach if done in public. Test: None. Resistance Roll: None. Duration: Permanent for the upgrade, but the effects of your blood on others last for 1 Session, unless they are your Ghouls.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Give level 1-2 Fortitude powers to others via blood, permanent for ghouls.", dicePool: "None", level: 3, discipline: "fortitude" },
             { name: "Shatter", description: "The Kindred fortifies a portion of his body enough to deflect incoming blows, shattering weapons. The user counts as performing a Block action. If the power's Test is successful, then the attacker halves their dice pool, rounding up. If the attack is made with a melee weapon and Shatter is activated successfully then the weapon is destroyed or damaged beyond use for the remainder of the Scene and the attack fails automatically. Type: Reflexive. Tag: Physical. Range & Targets: Targets the Kindred himself. Cost: 1 Rouse Check. Conditions: Must be done after a physical attack is declared at the Kindred (the power offers no bonuses against ranged attacks). Risk: High. You are shattering weapons with your body, if done in public this ability can breach the Masquerade. Test: Fortitude + Stamina (3). Resistance Roll: None. Duration: 1 Attack (1 second)", rouseChecks: 1, amalgamPrerequisites: [], summary: "Block action that can destroy melee weapons and halve attacker dice.", dicePool: "Fortitude + Stamina", level: 3, discipline: "fortitude" },
+            { name: "Unliving Statue", description: "This disturbing power combines the art of concealment with unnatural resilience, allowing the vampire to become a living statue that can endure tremendous punishment while remaining perfectly still. When activated, the vampire's skin takes on a stone-like texture and pallor, their eyes become glassy and lifeless, and they can remain motionless for hours while taking reduced damage from all sources. The vampire appears as an elaborate statue or gargoyle, allowing them to hide in plain sight in museums, gardens, or gothic architecture. While in this state, they gain significant protection against physical harm but must remain completely motionless to maintain the illusion.", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "obfuscate", level: 3 }], summary: "Become a living statue that takes reduced damage while motionless.", dicePool: "Obfuscate + Fortitude", level: 3, discipline: "fortitude" },
+            {
+                name: "Coiling Spite",
+                description: "An aberrant power with unknown origins. This power has the bizarre property of using the waning durability of one's body as a way to manifest crippling coils of metaphysical agony that rakes the will of other Supernatural beings, though it has no effect on Mortals, even those of True Faith. When activated, the user rolls a Dice Pool equal to their Fortitude + Their own Marked Health to strike all Supernatural beings; Vampires, Werewolves, Wraiths, etc. and deal two non-halved Superficial Willpower Damage. A Critical causes the mental impact of the coils to psychosomatically impact their victims' body, inflicting a Crippling Injury. Defenders can roll their own Dexterity or Wits + Athletics against the user's pool, successfully evading the coils on a Win. This power does not differentiate between friend or foe, and it does not affect mortals.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [{ discipline: "oblivion", level: 3 }],
+                summary: "Strike all supernatural beings with metaphysical coils based on your marked Health.",
+                dicePool: "Fortitude + A number of dice equal to your Marked Health",
+                level: 3,
+                discipline: "fortitude"
+            },
 
             // Level 4
             { name: "Prowess Of Pain", description: "Instead of reinforcing the Kindred's natural defence, this ability focuses on improving the users' offensive capabilities. Add 1 dice to all physical rolls for each point of Aggravated Health Damage the Kindred has. Type: Upgrade. Tag: Physical. Range & Targets: Targets the user himself. Cost: None. Conditions: None. Risk: None. Test: None. Resistance Roll: None. Duration: Permanent", rouseChecks: 0, amalgamPrerequisites: [], summary: "Add 1 dice to physical rolls per point of Aggravated Health Damage.", dicePool: "None", level: 4, discipline: "fortitude" },
@@ -1686,6 +1768,26 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 rouseChecks: 0,
                 amalgamPrerequisites: [],
             },
+            {
+                name: "Unliving Statue",
+                description: "This disturbing power combines the art of concealment with unnatural resilience, allowing the vampire to become a living statue that can endure tremendous punishment while remaining perfectly still. When activated, the vampire's skin takes on a stone-like texture and pallor, their eyes become glassy and lifeless, and they can remain motionless for hours while taking reduced damage from all sources. The vampire appears as an elaborate statue or gargoyle, allowing them to hide in plain sight in museums, gardens, or gothic architecture. While in this state, they gain significant protection against physical harm but must remain completely motionless to maintain the illusion.",
+                rouseChecks: 2,
+                amalgamPrerequisites: [{ discipline: "fortitude", level: 3 }],
+                summary: "Become a living statue that takes reduced damage while motionless.",
+                dicePool: "Obfuscate + Fortitude",
+                level: 3,
+                discipline: "obfuscate",
+            },
+            {
+                name: "Hell Warden",
+                description: "The vampire combines their commanding presence with masterful concealment to create an aura of absolute authority that forces others to acknowledge their dominion while remaining hidden from unwanted attention. When activated, the vampire becomes a paradoxical figure - simultaneously invisible to those they choose to avoid yet impossible to ignore by those they wish to command. The power manifests as a supernatural duality where the vampire can selectively appear or disappear from perception based on their intent. Enemies and unwanted observers find their eyes sliding past the vampire as if they simply weren't there, while chosen targets feel an overwhelming compulsion to obey the vampire's commands, seeing them as a figure of ultimate authority wreathed in shadows and flame. The vampire can issue complex commands to those under their influence while remaining completely undetectable to others in the same area. This power is particularly favored by Baali who must operate in both mortal and supernatural society, commanding cults and servants while avoiding the attention of rival vampires and hunters.",
+                rouseChecks: 2,
+                amalgamPrerequisites: [{ discipline: "presence", level: 4 }],
+                summary: "Combine commanding presence with concealment - invisible to enemies while commanding chosen targets.",
+                dicePool: "Obfuscate + Presence",
+                level: 3,
+                discipline: "obfuscate",
+            },
             // Level 4
             {
                 name: "Cataracty",
@@ -1810,6 +1912,16 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 level: 1, 
                 discipline: "potence" 
             },
+            { 
+                name: "Surge of Tenacity", 
+                description: "The vampire draws upon their supernatural strength to fuel an unnatural determination that pushes them beyond normal physical and mental limits. When activated, the vampire's muscles visibly swell with power while their eyes burn with infernal resolve. This power allows the vampire to continue functioning despite overwhelming obstacles, treating severe injuries as minor inconveniences and pushing through mental barriers that would stop others. The vampire gains increased resistance to pain, fear, and mental influence, while their physical capabilities surge beyond their normal supernatural limits. The power manifests as a combination of raw strength and unbreakable will, making the vampire appear almost demonic in their relentless pursuit of their goals. This tenacity comes at a cost, as the vampire becomes increasingly single-minded and may ignore important details or social nuances while the power is active.", 
+                rouseChecks: 1, 
+                amalgamPrerequisites: [], 
+                summary: "Supernatural determination that boosts physical and mental resistance beyond normal limits.", 
+                dicePool: "Potence + Resolve", 
+                level: 1, 
+                discipline: "potence" 
+            },
 
             // Level 2
             { 
@@ -1849,6 +1961,16 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 amalgamPrerequisites: [], 
                 summary: "Create an unbreakable grip on objects or people.", 
                 dicePool: "Potence + Strength", 
+                level: 2, 
+                discipline: "potence" 
+            },
+            { 
+                name: "Teeth Knight's Vehemence", 
+                description: "The vampire combines raw supernatural strength with the dark energies of oblivion to create attacks that carry the weight of spiritual destruction alongside physical devastation. When activated, the vampire's strikes become infused with necrotic energy that manifests as dark tendrils wrapping around their fists or weapons. These shadow-wreathed attacks not only deliver tremendous physical force but also assault the target's very essence, draining life force and spiritual energy with each blow. The power is particularly effective against supernatural beings, as the oblivion energy disrupts their supernatural defenses and causes wounds that resist supernatural healing. Living targets struck by these attacks feel their vitality being sapped away, while undead creatures find their animating forces temporarily disrupted. The vampire's appearance becomes more fearsome while this power is active, with their eyes glowing with dark energy and shadows seeming to writhe around their body in response to their violent intentions.", 
+                rouseChecks: 2, 
+                amalgamPrerequisites: [{ discipline: "oblivion", level: 2 }], 
+                summary: "Infuse attacks with necrotic energy that drains life force and disrupts supernatural defenses.", 
+                dicePool: "Potence + Oblivion", 
                 level: 2, 
                 discipline: "potence" 
             },
@@ -2039,6 +2161,16 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 level: 1, 
                 discipline: "presence" 
             },
+            { 
+                name: "Duress", 
+                description: "The vampire combines their commanding presence with infernal authority to create an aura of undeniable spiritual pressure. When activated, the vampire's presence becomes infused with the essence of damnation itself, making their words carry the weight of eternal judgment. The vampire can issue simple commands to supernatural beings, including other vampires, wraiths, and even demons, though such creatures can resist if their will is strong enough. The power manifests as an oppressive atmosphere where shadows seem to lean inward and the temperature drops noticeably. Mortals exposed to this power flee in terror unless they possess exceptional courage, while supernatural beings feel compelled to acknowledge the vampire's authority. The effect is particularly potent against creatures with guilty consciences or those who have committed acts they know to be morally wrong.", 
+                rouseChecks: 1, 
+                amalgamPrerequisites: [{ discipline: "oblivion", level: 1 }], 
+                summary: "Create aura of infernal authority that commands supernatural beings and terrifies mortals.", 
+                dicePool: "Presence + Manipulation", 
+                level: 1, 
+                discipline: "presence" 
+            },
 
             // Level 2
             { 
@@ -2091,6 +2223,26 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 level: 2, 
                 discipline: "presence" 
             },
+            { 
+                name: "Kiss of the Molochim", 
+                description: "The vampire's kiss becomes a conduit for infernal corruption, allowing them to mark their victims with the taint of damnation itself. When the vampire feeds from a target, their bite leaves an invisible spiritual mark that brands the victim as belonging to dark powers. This mark manifests as a subtle change in the victim's aura that can be detected by those with supernatural sight - it appears as dark tendrils writhing beneath their spiritual emanations. The marked victim becomes more susceptible to temptation and evil influences, suffering a -2 dice penalty to all rolls when resisting immoral or destructive impulses. Additionally, other supernatural creatures with dark natures (demons, corrupted spirits, vampires with particularly low Humanity) feel drawn to the marked individual and are more likely to approach them. The mark can be removed through specific religious rituals or acts of genuine redemption, but it fades naturally after one month.", 
+                rouseChecks: 1, 
+                amalgamPrerequisites: [], 
+                summary: "Mark feeding victims with infernal taint, making them susceptible to temptation and dark influences.", 
+                dicePool: "Presence + Manipulation", 
+                level: 2, 
+                discipline: "presence" 
+            },
+            { 
+                name: "Incite Sin", 
+                description: "The vampire combines their magnetic presence with forbidden blood magic to awaken the darkest impulses hidden within mortal hearts. Through a ritual involving a few drops of their vitae mixed with specific incantations, the vampire can create an intoxicating aura that compels those nearby to indulge in their most shameful desires and secret vices. The power manifests as an almost palpable atmosphere of moral decay, where inhibitions crumble and ethical boundaries dissolve. Affected individuals find themselves drawn to commit acts they would normally consider abhorrent - theft, adultery, violence, or other sins that reflect their suppressed nature. The effect is particularly potent in locations already steeped in corruption or during times of high stress. Unlike simple emotional manipulation, this power taps into the genuine darkness that exists within each person's soul, making the resulting actions feel natural and justified to the victim. Supernatural beings can resist more effectively, but mortals often succumb completely to their awakened darkness.", 
+                rouseChecks: 2, 
+                amalgamPrerequisites: [{ discipline: "blood sorcery", level: 2 }], 
+                summary: "Ritual combining presence and blood magic to compel targets to indulge in dark impulses and hidden vices.", 
+                dicePool: "Presence + Blood Sorcery", 
+                level: 2, 
+                discipline: "presence" 
+            },
 
             // Level 3
             { 
@@ -2120,6 +2272,16 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 amalgamPrerequisites: [], 
                 summary: "Make emotional artifacts permanent and prevent Willpower resistance.", 
                 dicePool: "None", 
+                level: 3, 
+                discipline: "presence" 
+            },
+            { 
+                name: "Eternal Damnation", 
+                description: "The vampire channels the power of infernal judgment to mark a target's soul for eternal suffering, creating a curse that transcends death itself. When activated, the vampire speaks a formal condemnation that resonates with supernatural authority, branding the target's spiritual essence with dark sigils visible only to those with supernatural sight. The cursed individual becomes a magnet for misfortune, suffering a -1 die penalty to all rolls as minor disasters and unfortunate coincidences plague their existence. More significantly, should the cursed target die while under this effect, their soul becomes trapped in a state of spiritual torment, unable to find peace or move on to whatever afterlife awaits them. The soul lingers in agony, visible to necromancers and mediums as a writhing, tormented shade. This curse can only be broken through specific religious rituals performed by someone of genuine faith, acts of extraordinary redemption by the cursed individual, or the vampire's own death. The effect is permanent until removed and persists even beyond the target's death.", 
+                rouseChecks: 2, 
+                amalgamPrerequisites: [], 
+                summary: "Curse target's soul for eternal suffering, causing misfortune in life and spiritual torment after death.", 
+                dicePool: "Presence + Resolve", 
                 level: 3, 
                 discipline: "presence" 
             },
@@ -2172,6 +2334,16 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 amalgamPrerequisites: [], 
                 summary: "Allow undead to feel truly alive again temporarily.", 
                 dicePool: "Presence + Charisma", 
+                level: 4, 
+                discipline: "presence" 
+            },
+            { 
+                name: "Hell Warden", 
+                description: "The vampire combines their commanding presence with masterful concealment to create an aura of absolute authority that forces others to acknowledge their dominion while remaining hidden from unwanted attention. When activated, the vampire becomes a paradoxical figure - simultaneously invisible to those they choose to avoid yet impossible to ignore by those they wish to command. The power manifests as a supernatural duality where the vampire can selectively appear or disappear from perception based on their intent. Enemies and unwanted observers find their eyes sliding past the vampire as if they simply weren't there, while chosen targets feel an overwhelming compulsion to obey the vampire's commands, seeing them as a figure of ultimate authority wreathed in shadows and flame. The vampire can issue complex commands to those under their influence while remaining completely undetectable to others in the same area. This power is particularly favored by Baali who must operate in both mortal and supernatural society, commanding cults and servants while avoiding the attention of rival vampires and hunters.", 
+                rouseChecks: 2, 
+                amalgamPrerequisites: [{ discipline: "obfuscate", level: 3 }], 
+                summary: "Combine commanding presence with concealment - invisible to enemies while commanding chosen targets.", 
+                dicePool: "Presence + Obfuscate", 
                 level: 4, 
                 discipline: "presence" 
             },
@@ -2277,6 +2449,36 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 rouseChecks: 0,
                 amalgamPrerequisites: [],
                 summary: "Grow webbing between fingers and toes, double Athletics dice pool in water.",
+                dicePool: "None",
+                level: 1,
+                discipline: "protean",
+            },
+            {
+                name: "Vault Welt",
+                description: "The vampire combines their flesh-shaping abilities with necromantic energy to create secure storage space within their own body by opening small portals to the realm of the dead. When activated, the vampire can cause a section of their torso to split open, revealing a dark cavity lined with shadows and whispers from beyond. This internal vault connects to a pocket dimension within the Shadowlands, allowing the vampire to store objects in a space that exists partially outside normal reality. Items stored this way are protected from physical damage, detection, and the passage of time, making this power invaluable for hiding evidence, weapons, or precious artifacts. The process is disturbing to witness, as the vampire's flesh parts to reveal glimpses of the dark realm beyond death. Objects can be retrieved at will, emerging from the shadows with a faint chill and sometimes bearing traces of otherworldly energy.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [{ discipline: "oblivion", level: 1 }],
+                summary: "Create storage space in body connected to Shadowlands for hiding objects.",
+                dicePool: "Protean + Oblivion",
+                level: 1,
+                discipline: "protean",
+            },
+            {
+                name: "Xantico's Refuge",
+                description: "One of the most inherent abilities of the Tlahuelpuchi is to overcome the Rötschreck with seeming ease, defying the rabid fear brought on by fire with impunity. In truth, it only looks easy. Xantico's Refuge does not actually immunize the user to Frenzy but rather locks it down behind a wall of instinct, delaying its onset. Upon being directly exposed to a Frenzy trigger caused by open flame, the user can make a Rouse Check, ignoring the source of their fear for the duration of the current scene. However, at the end of that scene or the beginning of a new one (which ever comes first), the user must then make a Willpower Check as normal, though they can add their total Protean Rating to the roll (minimum of 1 extra die, as well as any bonuses against Frenzy acquired via Rituals or other Discipline powers). On a success, they do not Frenzy and continue about their actions as normal. On a failure, they succumb to Fear Frenzy as per the usual rules. Once this power has been used in response to a Fear Frenzy trigger, it cannot be used against any other Fear Frenzy triggers during that scene unless the user burns a point of superficial Willpower to make another Rouse Check.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [{ discipline: "fortitude", level: 2 }],
+                summary: "Delay fire-induced Frenzy until end of scene, then test with Protean bonus.",
+                dicePool: "N/A",
+                level: 1,
+                discipline: "protean",
+            },
+            {
+                name: "Stone Sense",
+                description: "The vampire develops an intuitive connection to stone and earth, allowing them to sense vibrations, structural weaknesses, and hidden passages within stone structures. When activated, the vampire can place their hands against any stone surface and feel the vibrations traveling through it, detecting movement, hollow spaces, or stress points within a building or underground area. This power also grants the ability to navigate underground tunnel systems instinctively and detect the safest paths through unstable stone structures. The vampire can sense the age and composition of stone, making them excellent at finding secret passages or structural vulnerabilities.",
+                rouseChecks: 0,
+                amalgamPrerequisites: [],
+                summary: "Sense vibrations and structural details through stone, detect hidden passages and weaknesses.",
                 dicePool: "None",
                 level: 1,
                 discipline: "protean",
@@ -2396,6 +2598,16 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 discipline: "protean",
             },
             {
+                name: "Parasitic Bore",
+                description: "The vampire undergoes a horrifying transformation that allows them to burrow into living hosts and feed from within, becoming a true parasitic entity. When activated, the vampire's body becomes fluid and worm-like, allowing them to enter another being through any orifice or wound. Once inside, the vampire can control the host's movements while slowly draining their life force, appearing to outside observers as if the host is simply acting normally. The vampire can remain hidden within the host for extended periods, using them as both sustenance and disguise. While inhabiting a host, the vampire gains access to their memories and can speak in their voice, making this power invaluable for infiltration and espionage. However, the process is extremely traumatic for the host, who remains conscious throughout the experience but unable to control their own body. The vampire can exit the host at will, often leaving them severely weakened or dead depending on the duration of the parasitic bond.",
+                rouseChecks: 3,
+                amalgamPrerequisites: [],
+                summary: "Transform into parasitic form to burrow into and control living hosts from within.",
+                dicePool: "Protean + Stamina",
+                level: 3,
+                discipline: "protean",
+            },
+            {
                 name: "Scaled Armour",
                 description: "The Kindreds skin grows leathery and scales start to form on parts of its body. The Kindred can ignore up to 2 points of Superficial Health Damage after halving the result. ❖ Type: Ability ❖ Tag: Physical ❖ Range & Targets: Targets the Kindred himself. ❖ Cost: None ❖ Conditions: None ❖ Risk: High. The Kindreds skin grows tough and visibly scaly. ❖ Test: Protean + Stamina (3) ❖ Resistance Roll: None ❖ Duration: 1 Scene (1 Hour), until the Kindred ends the ability or is incapacitated.",
                 rouseChecks: 0,
@@ -2411,6 +2623,16 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 rouseChecks: 1,
                 amalgamPrerequisites: [],
                 summary: "Bite becomes impossible to dislodge, attempts to stop feeding are halved.",
+                dicePool: "Protean + Stamina",
+                level: 3,
+                discipline: "protean",
+            },
+            {
+                name: "Visceratika",
+                description: "This grotesque power allows the vampire to externalize and weaponize their internal organs while keeping them connected to their body through stretchy, rope-like sinews. When activated, the vampire can extend their heart, liver, intestines, or other organs outside their body cavity, using them as whips, tentacles, or grappling appendages. These organs retain their supernatural resilience and can stretch up to several meters while remaining connected. The sight is deeply disturbing and the organs can be used to perform attacks, manipulate objects at a distance, or even feed by extending the digestive tract. The vampire remains vulnerable if the organs are severed.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+                summary: "Externalize organs as stretchy appendages for attacks and manipulation.",
                 dicePool: "Protean + Stamina",
                 level: 3,
                 discipline: "protean",
@@ -2447,6 +2669,16 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 level: 4,
                 discipline: "protean",
             },
+            {
+                name: "Ezpitzal",
+                description: "Named after an Aztec obsidian butterfly spirit, this power allows the vampire to transform parts of their body into sharp, glass-like obsidian that can be launched as projectile weapons. When activated, the vampire's bones, fingernails, or even pieces of flesh crystallize into razor-sharp obsidian fragments. These fragments can be fired from the body like bullets or arrows, reforming within the vampire's body after being launched. The obsidian projectiles are incredibly sharp and can pierce most armor, and the vampire can control their trajectory to some degree. The transformation is painful but the vampire's supernatural resilience allows them to endure the process.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+                summary: "Transform body parts into obsidian projectiles that can be fired and reformed.",
+                dicePool: "Protean + Firearms",
+                level: 4,
+                discipline: "protean",
+            },
 
             // Level 5
             {
@@ -2466,6 +2698,26 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 amalgamPrerequisites: [],
                 summary: "Transform into a terrifying man-beast causing terror, +2 dice to physical rolls.",
                 dicePool: "Protean + Stamina",
+                level: 5,
+                discipline: "protean",
+            },
+            {
+                name: "Wrath of Xiuhcoatl",
+                description: "Named after the Aztec fire serpent deity, this ultimate Protean power allows the vampire to transform into a massive, serpentine creature wreathed in supernatural flames that burn cold rather than hot. The vampire becomes a colossal snake-like entity with obsidian scales that reflect no light, burning with blue-white fires that freeze rather than incinerate. In this form, the vampire can breathe gouts of freezing flame that cause frostbite and hypothermia, their coils can crush buildings, and their bite can inject a venom that turns victims to ice from within. The transformation is so terrifying that even other supernatural creatures may flee in terror. The form embodies the duality of fire and ice, destruction and preservation.",
+                rouseChecks: 3,
+                amalgamPrerequisites: [],
+                summary: "Transform into massive ice-fire serpent with freezing flame breath and crushing coils.",
+                dicePool: "Protean + Stamina",
+                level: 5,
+                discipline: "protean",
+            },
+            {
+                name: "Mitosis",
+                description: "The vampire achieves the ultimate fusion of shape-changing mastery and mental domination by literally splitting themselves into multiple identical copies, each retaining a fragment of the original's consciousness and will. When activated, the vampire's body undergoes cellular division on a supernatural scale, creating two to four identical duplicates that share memories, abilities, and purpose while maintaining independent action. Each copy possesses the vampire's full physical capabilities and a portion of their supernatural powers, though the original consciousness is distributed among them, making each copy slightly less mentally potent than the whole. The duplicates can act independently but share an empathic connection, allowing for perfect coordination. They can also combine mental influence powers for devastating effect, as multiple copies can focus their dominating will on a single target simultaneously. The process is exhausting and the copies eventually merge back into a single being, but while active, the vampire essentially becomes a one-person army capable of being in multiple places at once.",
+                rouseChecks: 4,
+                amalgamPrerequisites: [{ discipline: "dominate", level: 2 }],
+                summary: "Split into multiple identical copies with shared consciousness and coordinated abilities.",
+                dicePool: "Protean + Dominate",
                 level: 5,
                 discipline: "protean",
             },
@@ -2528,6 +2780,7 @@ export const disciplines: Record<DisciplineName, Discipline> = {
             // Level 2
             { name: "Extinguish Vitae - Path of Blood", description: "The warlock can deny a target the powers of their own vitae. If successful, the user immediately triggers a Rouse Check for the target and ends any activated Ability they used earlier in the Scene. The power only shuts down Abilities and has no effect on Upgrades, Reflexive powers, or Rituals. Similarly, if the ability is already affecting another individual (such as commands from Dominate) and does not need to be maintained, then the effects of such Abilities continue.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Force a Rouse Check and end active Abilities on target.", dicePool: "Path Mastery + Intelligence", level: 2, discipline: "blood sorcery" },
             { name: "Extinguish Vitae", description: "Make another vampire hungrier.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Make another vampire hungrier.", dicePool: "Resolve + Blood Sorcery", level: 2, discipline: "blood sorcery" },
+            { name: "Strength Of The Shaitan", description: "By galvanizing the very vitae that flows through their veins, the user can greatly enhance their physicality, though such unstable sorcery can wreak untold havoc on their bodies as a result. Once per turn, whenever the user Rouses the Blood to add additional dice to a Physical Pool (such with a Blood Buff or through a Discipline power), they can choose to add a number of extra dice equal Blood Sorcery score. However, at the end of that turn, the user must then make a Stamina + Blood Sorcery roll at a Difficulty equal to the total amount of bonus dice added to that turn's pool. On a failure, the user takes a point of Superficial Damage equal to the margin (minimum of 1). This damage cannot be negated or reduced in any way.", rouseChecks: 0, amalgamPrerequisites: [{ discipline: "potence", level: 2 }], summary: "Add Blood Sorcery rating dice to Physical pools when Rousing, but risk damage.", dicePool: "Stamina + Blood Sorcery", level: 2, discipline: "blood sorcery" },
             { name: "Agatiyon Famulus", description: "Bind more power and intelligence to a bonded Famulus. (Amalgam: Animalism 1, Bond Famulus)", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "animalism", level: 1 }], summary: "Bind more power and intelligence to a bonded Famulus.", dicePool: "Wits + Blood Sorcery", level: 2, discipline: "blood sorcery" },
             { name: "Gnaw", description: "Summon a swarm from oblivion to attack.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Summon a swarm from oblivion to attack.", dicePool: "Manipulation + Blood Sorcery", level: 2, discipline: "blood sorcery" },
             { name: "Sealing Antiphon", description: "Seals another's power with a hymn.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Seals another's power with a hymn.", dicePool: "Charisma + Blood Sorcery", level: 2, discipline: "blood sorcery" },
@@ -2554,6 +2807,8 @@ export const disciplines: Record<DisciplineName, Discipline> = {
             { name: "A Thousand Weary Eyes - Path of Morpheus", description: "To this practitioner, all who enter the realm of slumber are potential points of espionage. The user can hear, see, and smell, using the senses of any individual that is daydreaming, asleep or starting to doze off within 10 meters of a named target.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Use the senses of sleeping or daydreaming mortals for surveillance.", dicePool: "Path Mastery + Wits", level: 2, discipline: "blood sorcery" },
             { name: "Falling - Path of Morpheus", description: "With a sudden scream of terror, the victim wakes up just as their fall ends. The user causes the targets dream to suddenly change into one of falling, culminating in the target waking up with a frightened jolt. This ability is often used as an alert for a sleeping ally or to rob a target of rest.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Force targets to experience falling dreams and wake up frightened.", dicePool: "Path Mastery + Wits", level: 2, discipline: "blood sorcery" },
             { name: "Reality's Mirror - Path of Morpheus", description: "The target awakens and goes about their business, only for reality to unravel and to wake up once more. The user creates a dream within a dream. The target will believe they just woke up and will act accordingly in the dream, all the while the user remains a distant observer. Eventually, the dream will unravel, and the user wakes up, a little confused, but no worse for wear.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Create nested dreams where targets think they've awakened.", dicePool: "Path Mastery + Wits", level: 2, discipline: "blood sorcery" },
+            { name: "Incite Sin", description: "The vampire combines their magnetic presence with forbidden blood magic to awaken the darkest impulses hidden within mortal hearts. Through a ritual involving a few drops of their vitae mixed with specific incantations, the vampire can create an intoxicating aura that compels those nearby to indulge in their most shameful desires and secret vices. The power manifests as an almost palpable atmosphere of moral decay, where inhibitions crumble and ethical boundaries dissolve. Affected individuals find themselves drawn to commit acts they would normally consider abhorrent - theft, adultery, violence, or other sins that reflect their suppressed nature. The effect is particularly potent in locations already steeped in corruption or during times of high stress. Unlike simple emotional manipulation, this power taps into the genuine darkness that exists within each person's soul, making the resulting actions feel natural and justified to the victim. Supernatural beings can resist more effectively, but mortals often succumb completely to their awakened darkness.", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "presence", level: 2 }], summary: "Ritual combining presence and blood magic to compel targets to indulge in dark impulses and hidden vices.", dicePool: "Blood Sorcery + Presence", level: 2, discipline: "blood sorcery" },
+            { name: "Three Drops Found", description: "The Baali user of this ritual creates a powerful tracking connection through blood. By mixing three drops of the target's blood with three drops of their own vitae and speaking an infernal incantation, the vampire establishes a supernatural link that allows them to sense the target's location and emotional state across vast distances. The ritual creates a crimson compass that appears as a tattoo-like mark on the user's palm, which glows warmly when pointing toward the target and grows cold when facing away. Through this connection, the user can sense not only the target's approximate distance and direction but also their general emotional state - fear, anger, joy, or despair. The power is particularly favored by Baali hunters and those who seek to monitor their descendants or enemies. The connection persists until the target dies, the user chooses to sever it, or until dispelled by powerful counter-magic. The ritual requires personal blood from the target, making it both potent and requiring some preparation or access to the intended victim.", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "protean", level: 2 }], summary: "Create tracking connection through blood to sense target's location and emotional state.", dicePool: "Blood Sorcery + Intelligence", level: 1, discipline: "blood sorcery" },
 
             // Level 3 - Path of Blood
             { name: "Chain the Generation - Path of Blood", description: "Clan Tremere cannot blood bond under normal circumstances, a weakness they are eager to erase. Luckily some of their experimentations have yielded interesting results. From this point on, all powers from Dominate succeed automatically when targeting the users childer or those of their bloodline whose generation is higher than their own. This automatic success overrules any form of supernatural resilience the target might have against mental manipulation.", rouseChecks: 0, amalgamPrerequisites: [{ discipline: "dominate", level: 1 }], summary: "Dominate powers automatically succeed against descendants of your bloodline.", dicePool: "None", level: 3, discipline: "blood sorcery" },
@@ -2572,6 +2827,7 @@ export const disciplines: Record<DisciplineName, Discipline> = {
             { name: "Dance Of Vines - Path of Life", description: "The garden erupts in a frenzy of activity, as it moves to protect its master. Any plant that the user targeted with Green Wisdom or Coax The Garden within the last week will undergo a violent growth spurt, manifesting thick vines that grasp and ensnare those who seek to bring harm to the user. Those ensnared cannot physically move until they pass a Resistance Roll.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Animate enhanced plants to entangle and restrain enemies.", dicePool: "Path Mastery + Intelligence", level: 3, discipline: "blood sorcery" },
             { name: "Sleep Of Judas - Path of Morpheus", description: "The disciple had become so adept at their powers, that they can put even other Cainites into a deep slumber. This is an upgrade for Welcomed Slumber. The user can now put other Kindred to sleep/torpor, provided they are an equal, or higher generation than the user. Unlike in Welcomed Slumber, a Kindred will never remain in torpor for more than an hour due to the power's effects.", rouseChecks: 0, amalgamPrerequisites: [], summary: "Upgrade allowing Welcomed Slumber to affect Kindred for one hour.", dicePool: "None", level: 3, discipline: "blood sorcery" },
             { name: "Sandman's Folly - Path of Morpheus", description: "So skilled is the user that he can enter and manipulate the dreams of others. The user can insert themselves into the dream of a victim and begin altering it in any fashion he sees fit. He may even directly communicate with his target in this manner, re-create their memories in vibrant realism, or simply deliver a dire warning in the form of a horrible nightmare.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Enter and manipulate the dreams of others for communication or terror.", dicePool: "Path Mastery + Wits", level: 3, discipline: "blood sorcery" },
+            { name: "Nergal's Feast", description: "Some Molochim are capable of gorging themselves on literal sin rather than blood, satiating the Beast through the metaphysical consumption of spiritual angst and contrition. This ability can be activated either during the act of feeding or while the user is in physical skin-to-skin contact with the target (necessitating some kind of Grapple attempt beforehand). The user then makes a Resolve + Blood Sorcery roll versus the target's Stamina + Composure. On a success, the user automatically resolves a number of Hunger Levels equal to the amount of unfilled boxes on the target's Humanity tracker (varies with Kindred; most mortal targets are considered Humanity 7 unless otherwise specified by the Storyteller). However, if the total levels of Hunger slaked in this manner reduce the user to Hunger 0, they automatically gain a Stain on their own Humanity. Drawing sustenance from a person's darkest self gives the user an uncanny insight into said individual's most private and troubling desires. Until Nergal's Feast is used on a different target, the user of this power gains a 3-Die bonus to any rolls to determine or otherwise anticipate their current victim's Ambition and/or Desire.", rouseChecks: 0, amalgamPrerequisites: [{ discipline: "potence", level: 3 }], summary: "Feed on target's sins to slake Hunger, gain insight into their dark desires.", dicePool: "Resolve + Blood Sorcery vs. Stamina + Composure", level: 3, discipline: "blood sorcery" },
 
 
 
@@ -2599,6 +2855,7 @@ export const disciplines: Record<DisciplineName, Discipline> = {
             { name: "Zeus's Fury - Path of Destruction", description: "Crimson lightning shoots from the user's hands to turn his enemies to dust. This is an upgrade to Zeus's Embrace. The user can now use the ability on any target within 30 meters and Visual Range. You are manifesting lightning from your hands. The effects will be extremely noticeable.", rouseChecks: 0, amalgamPrerequisites: [], summary: "Upgrade Zeus's Embrace to work at 30 meter range.", dicePool: "None", level: 5, discipline: "blood sorcery" },
             { name: "Thaumaturgic Reconstruction - Path of Life", description: "The warlock moulds the body, of his subject, like clay. The user can completely re-arrange all physical dots the target possesses, maintaining at least 1 in each attribute. He can also completely change the physical look and body build, including hair length and skin tone. However, they cannot change things such as sex, nor can they add or subtract mass from the body. If the user rolled exceptional successes, they also add 1 dot to each of the target's physical attributes.", rouseChecks: 2, amalgamPrerequisites: [], summary: "Completely reshape a target's physical form and attributes.", dicePool: "Path Mastery + Intelligence", level: 5, discipline: "blood sorcery" },
             { name: "The Last Nightmare - Path of Morpheus", description: "Like a demon of legend, the user enters their unfortunate victims' dreams. Nightmares soon form and the victim likely never wakes again. The user will enter the target's dream and conjure a nightmare. If the results of the Test Roll are higher than the target's Resistance Roll, then the target dies. Otherwise, a particularly horrible nightmare is experienced by the victim.", rouseChecks: 2, amalgamPrerequisites: [], summary: "Enter dreams to deliver nightmares that can kill the target.", dicePool: "Path Mastery + Wits", level: 5, discipline: "blood sorcery" },
+            { name: "Echo Of Azaneal", description: "Through a combination of mystical focus and sheer vitae-fortified strength, the most powerful of the Damned can temporarily expel a blood-born avatar of their own Beast into the world, though such a creature makes for an unfocused and indiscriminate weapon. The user makes 2 Rouse Checks, and must spend the entire turn concentrating in order to bring this power successfully to bear. At the end of that turn, the vomit forth or otherwise excrete a torrent of ichorous crimson bile that immediately solidifies into a humanoid creature. This beastly Echo resembles its creator in terms of overall size and physical features, though its appearance is always monstrously twisted in some way often indicative of the user's own hidden vices or warped self-image. Its Health and Physical Pools are equal to the user's + 4, with its Social and Mental Pools all being 1. It is immune to Presence and Dominate, as well as any physical damage that is not mystical in nature (with the exceptions being fire and sunlight, which it takes Aggravated Damage from as though it were a vampire). Its attacks deal +3 unhalved superficial damage in the form of beastial fangs and claws, and it can additionally utilize any physical Disciplines other than Blood Sorcery that its creator possesses (though it uses its own Physical Pools). Ultimately, the Echo is an unrestrained engine of destruction that seeks only to kill anything and everything in its immediate vicinity that isn't its initial summoner. Said summoner can attempt to direct the Echo's actions for a turn by making a Stamina + Blood Sorcery roll at Difficulty 4, but otherwise it continues to tear a bloody path through its surroundings until it is either destroyed or the current scene ends, at which point it dissolves into a pool of rapidly coagulating sludge.", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "potence", level: 4 }], summary: "Create a powerful blood-born Echo of your Beast that attacks everything nearby.", dicePool: "Stamina + Blood Sorcery", level: 5, discipline: "blood sorcery" },
 
             // PATH OF WARDING POWERS
             { name: "Servant's Bane - Path of Warding", description: "Those who possess the taint of Cainites, in their blood, find themselves repelled by this symbol. Any Ghoul (Mortal or animal) that touches an item, individual or structure, marked by this ward, will begin to feel ill and lose the benefits of all the bonuses, granted to them by Kindred vitae until they retreat several meters (feet) away from the ward. If they choose to persist under the effects of the ward, they will suffer a 2 dice penalty to all their rolls, in addition to its previously mentioned effects.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Ward that makes ghouls ill and removes vitae bonuses.", dicePool: "None", level: 1, discipline: "blood sorcery" },
@@ -2662,6 +2919,16 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 level: 1,
                 discipline: "blood sorcery",
             },
+            {
+                name: "Seker's Impenitent Eye",
+                description: "The Molochim have long maintained that Kindred are in many ways among the most morally destitute creatures in all of creation. This ritual simply makes this inevitable degeneration all the more apparent to the beholder. The caster coats a bead of turquoise or blue glass in their vitae, letting it dry completely before crushing it into dust and sprinkling the resulting powder over each eye, making a Ritual Check. On a success, any vampire within the caster's direct line of sight appears as though tar-like ichor is seeping from their every pore - unknowingly staining their skin with a physical representation of their ever-depreciating Humanity. Additionally, while this Ritual is active, the caster can make a Resolve + Occult check against another Kindred contested by their Composure + Subterfuge. On a success, the caster is granted a rough notion (at the Storyteller's discretion) as to how in-touch their target is with the remnants of their Humanity, granting subsequent 2-Die bonus on any Social Pools against that individual made to ascertain their hidden desires or dark secrets.",
+                summary: "Ritual: See vampires' Humanity as tar stains, gain bonuses to discern their dark secrets.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+                dicePool: "Resolve + Occult vs. Composure + Subterfuge",
+                level: 1,
+                discipline: "blood sorcery",
+            },
 
             // Amalgams
             { name: "Curse Of Lycos", description: "Named after a cursed Greek king, this power subjects the victim to a terrible, if temporary fate. If successful, the user inflicts a curse to any victim they bite. The victim will, over the course of a week, develop animalistic features (usually those most closely associated with the user) and feel a strong preference towards raw or bloody meat. The physical mutations will slowly disappear after the following week without any lasting harm brought upon the victim. Kindred use this power as a form of blackmail on helpless mortals who have no idea the effects are only temporary.", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "protean", level: 1 }], summary: "Bite curse causing week-long animalistic transformation in victim.", dicePool: "Blood Sorcery + Protean", level: 1, discipline: "blood sorcery" },
@@ -2675,6 +2942,10 @@ export const disciplines: Record<DisciplineName, Discipline> = {
             { name: "Seek The World Vein", description: "The user enters a deep trance and is guided by spirits to a location of significant spiritual power. This power works as an Upgrade and an Ability. As an Upgrade, the user can sense and see Ley Lines when near them (within 10 meters or 30 feet). As an Ability, the user enters a trance-like state in which he will move to a location where a Ley Line can be accessed. When in such a trance they will still be able to operate vehicles, avoid obvious dangers (like walking into traffic) and retain the bare basic communication skills. This trance is broken if the user is attacked, or they reach their desired destination. Once the trance breaks the user will have no memory of their travel to the location and will likely not recognize their new surroundings. Regardless, they are, for all intents and purposes, now standing in front of an active Ley Line.", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "auspex", level: 2 }], summary: "Ritual: Trance-guided travel to nearest Ley Line, can sense Ley Lines.", dicePool: "Auspex + Blood Sorcery", level: 2, discipline: "blood sorcery" },
             { name: "The King In Crimson", description: "Some Blood Sorcery users have consumed such an unfathomable amount of occult knowledge that the forbidden wisdom they possess is reflected in their very souls. The user adds 1 dice to all Social rolls when targeting other Blood Sorcery users (Necromancy and Koldunic Sorcery users are unaffected unless they also use Blood Sorcery), adds 1 dice to all Occult and Academic rolls related to Blood Sorcery and can, once per Session, add 2 automatic successes to any Test or Resistance Roll related to Blood Sorcery.", rouseChecks: 0, amalgamPrerequisites: [{ discipline: "presence", level: 2 }], summary: "Upgrade: +1 dice Social vs Blood Sorcery users, +1 dice Blood Sorcery rolls, once per session +2 successes.", dicePool: "None", level: 2, discipline: "blood sorcery" },
             { name: "Binding Ring", description: "This crimson piece of jewellery often comes in the form of a ring. When worn it makes its wearer susceptible to mental influences or completely at the whims of others. If successful, the user creates a ring or similar piece of jewellery. The ring affects its wearers differently depending on who they are. If worn by a Mortal or Enhanced Mortal, the wearer finds it impossible to refuse the request of another Kindred. The effect is similar to being impacted by Compel or Awe and the wearer will still have enough willpower to not put themselves into situations which would obviously lead to injury and cannot be forced to injure their loved ones. If worn by a Kindred, they automatically fail any Resistance Rolls against Supernatural Mental Manipulation (aside from the one listed under this power) and lose any benefit granted to them by Disciplines or Generational advantage. If worn by other Supernatural Creatures the effects are unknown but it could be guessed that the creature will be easier to manipulate.", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "presence", level: 2 }], summary: "Ritual: Create ring that makes wearer susceptible to mental control, lasts 1 month.", dicePool: "Blood Sorcery + Presence", level: 2, discipline: "blood sorcery" },
+            { name: "Ward Against Magic", description: "Much of the Molochim's Goetia is what one might classify as 'apotropaic' in nature - meaning a form of magic that in of itself is meant to defend against magic. Given what the Molochim claim to face, it's perhaps unsurprising that they jealously guard any knowledge of the ancient sigils and abjurations capable of foiling even other Kindred willworkers. This ritual's activation differs slightly in that instead of being activated when touched, the ward only activates when the object or the object's bearer is subjected to the effects of a Blood Sorcery or Oblivion power, ritual, or ceremony that would directly inflict damage to their Health or Willpower. When this occurs, the creator of the ward makes a Ritual Roll versus the opposing caster's Intelligence + Occult. On a success, the ward instantly negates the oncoming mystical force. This specialized ward can also be used as a means of defense against mysticism of non-vampiric origin, such as the Gifts of the savage Lupines, the spells of mortal Magi, or even the True Faith of zealous Inquisitors.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Ritual: Ward that negates Blood Sorcery/Oblivion damage and other mystical attacks.", dicePool: "Ritual Roll vs. Intelligence + Occult", level: 2, discipline: "blood sorcery" },
+            { name: "Aldramelech's Nitheful Icon", description: "All Kindred have their demons, the Molochim simply bear the distinction of being the most aware of that fact. So deep is this inherent understanding that through knowledge of Goetic sorcery, a Scapegoat can assemble a physical icon that evokes feelings of revulsion and self-hatred so acute that other vampires feel their very will being sapped by its mere presence. The first part of the ritual entails the construction of a 'nithing pole' or 'nithing rod' assembled from a wooden stave or staff carved with goetic symbols, the skull of a goat or other caprid, black hen feathers, twine or strong cord, anointed by at least 1 Rouse Check's worth of the caster's vitae. On a success, whenever the initial caster bears this icon in the direct eyeline of another vampire, they can make a Resolve + Blood Sorcery check versus that target's Resolve + Composure. On a success, the target takes superficial Willpower Damage equal to the margin of failure. If the target's pool to resist was a total failure, or their Willpower tracker is completely reduced by this icon's presence, they instantly succumb to a Fear Frenzy. Planting the icon in the ground transforms it into a potent folkloric block; any vampire other than the caster who attempts to directly approach either it or the threshold it demarcates must make a Resolve + Composure check at a Difficulty equal to the initial caster's Blood Sorcery rank + the beholder's Bane Severity or suffer the same effects while being unable to approach. Only destroying or otherwise removing the Nitheful Icon from its position breaks this effect. Finally, if its butt end is sharpened to a point during the initial preparation, a Nitheful Icon can also be utilized as a wooden stake. A vampire staked by an icon suffers horrifying visions of their own past misdeeds and traumas for as long as it remains impaled through their heart, suffering Superficial Willpower damage equal to their Bane Severity for each night they remain paralyzed. If the icon reduces their Willpower tracker completely, they lapse into Torpor. Ironically enough, these sorcerous implements prove most effective against the Molochim themselves, any of which take a penalty equal to their Bane Severity to any die pools meant to resist the icon's effects.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Ritual: Create powerful icon that drains vampires' Willpower and can block areas.", dicePool: "Resolve + Blood Sorcery vs. Resolve + Composure", level: 3, discipline: "blood sorcery" },
+            { name: "Warding Circle Against Magic", description: "Such warding and ceremonial circles often resemble Solomonic seals, though inscribed not with the name of some biblical demon but rather the hallowed name of some past Ba'al or Ba'alat of the caster's lineage, invoking their ancestral resolve in the face of the Outer Dark. The caster must inscribe the Warding circle with the point of the same knife or blade that they initially use to draw their own vitae in the first place. Similar to the effects of Ward Against Magic, no Blood Sorcery or Oblivion Powers, nor any Rituals or Ceremonies, can be utilized by the caster or any other Kindred while in the circle's boundaries. Anyone attempting to use the effects of such a Power or Ritual against someone within the circle must make a Willpower Check against the caster's Intelligence + Blood Sorcery. On a failure, the intended ability fails to have any effect on the target(s). This specialized ward can also be used as a means of defense against mysticism of non-vampiric origin, such as the Gifts of the savage Lupines, the spells of mortal Magi, or even the True Faith of zealous Inquisitors.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Ritual: Create warding circle that blocks all magic within its boundaries.", dicePool: "Willpower Check vs. Intelligence + Blood Sorcery", level: 4, discipline: "blood sorcery" },
+            { name: "Sahar-Hannibaal's Sundering Edict", description: "Ever since the fall of Carthage, the Molochim know better than to build fortresses: all that does is invite a target. Indeed, ever since they have become quite adept at razing the fields of their enemy - particularly those who think their own sorcerous prowess shields them from the outside world. In a titanic working of Goetic magic, a Sin-Eater might tear asunder any Wards or other supernatural protections that stand between them and their mission. In the beginning stages, the caster must first identify any objects/locations that are affected by wards or other supernatural effects (be they the result of Blood Sorcery, Oblivion Ceremonies, or even workings of non-vampiric enchantment), then ritually mark them with a splash of their own vitae - at least 1 Rouse Check's worth per each without physically touching the ward. This part of the ritual can be done days in advance. Once the chosen wards have been marked, the caster forms a circle of saltpeter or gunpowder and steps inside, lighting it on fire to begin the ritual (the caster must also make a Fear Frenzy check at Difficulty 2 upon doing so). The caster then recites an incantation in ancient Akkadian as loudly as they can for 1 minute, the fires extinguishing themselves at its conclusion. The Ritual Roll is made at a Difficulty of 5 + 1 per every protection so 'marked' by the caster's vitae. On a success, each and every location or so marked is dispelled. The sheer volume of power it brings to bear makes it rather unsubtle: for example, if used to dispel a ward on a door, that door would begin to shake and rattle on its hinges until the incantation is complete. A larger guarded structure like a building or fortification would rock and vibrate as though caught in an earthquake, and items of clothing or artifacts begin to vibrate or even disintegrate depending upon their fragility. A critical success on the ritual roll, however, mitigates this effect, obliterating any wards so thoroughly that they show no physical signs of dispelling.", rouseChecks: 1, amalgamPrerequisites: [], summary: "Ritual: Destroy multiple marked wards with spectacular force.", dicePool: "Ritual Roll at Difficulty 5 + wards marked", level: 5, discipline: "blood sorcery" },
             { name: "Blood Tremor", description: "The user slashes their wrist and wills the blood to gather into a crimson ball in the palm of their hands. The blood starts to glow a faint red and as the user slams it down onto the ground a flash of red momentarily pulses out. If successful, the user cuts their wrist and strikes the ground. A red flash is momentarily seen and all Kindred in the vicinity feel as though their hearts skipped a beat (an odd sensation for creatures whose hearts do not beat at all). All Disciplines currently being conjured or active immediately cease. Upgrades cease to function and any victims under Dominate, Presence or Clan Compulsion effects are immediately snapped out of them. Curses and Poisons already impacting a victim are not affected. The user himself however is impacted even more severely and cannot call upon the powers of the blood for the rest of the Scene.", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "potence", level: 2 }], summary: "Ritual: Disrupt all active Disciplines in 100-foot radius, disable your own powers for the scene.", dicePool: "Blood Sorcery + Potence", level: 2, discipline: "blood sorcery" },
             { name: "Elemental Form", description: "Most Protean users are limited to manifesting purely animalistic aspects. Those who mastered both Koldunism and Protean however can tap into more exotic forms. When manifesting their War Form the user can incorporate elemental aspects into it. If you're not using the remastered series, this upgrade simply adds a 2 dice bonus to any rolls made while in your war form. If you are using Protean Remastered then you can modify your War Form using additional elemental options.", rouseChecks: 0, amalgamPrerequisites: [{ discipline: "protean", level: 2 }], summary: "Upgrade: Add elemental aspects to War Form or +2 dice to War Form rolls.", dicePool: "None", level: 2, discipline: "blood sorcery" },
             { name: "Obscure The Sigil", description: "Thaumaturgy often relies on a plethora of occult symbols, usually drawn in blood, to perform its rituals. These arcane marks often lead to some uncomfortable questions when discovered by mortals and endanger the Masquerade as a whole. Over the years it became imperative for some Warlocks to find a way to quickly obscure signs of their craft. The user can voluntarily prolong a Ritual by another minute to work in a subtle addition to it. If this is done then any mark, symbol or sigil the user had drawn during the Ritual is permanently obfuscated and can only be seen by those who possess supernatural senses. Once the power of the Ritual fades, the symbol itself will also fade as the last portion of the user's alteration to the Ritual plays out, covering their tracks completely. ❖ Type: Upgrade/Ability (if used, the addition to the Ritual can be announced at any point during the ritual) ❖ Tag: Spiritual & Physical ❖ Range & Targets: Any Ritual the user participates in. ❖ Cost: 2 Rounds (1 minute, added to the length of the original Ritual) ❖ Conditions: Occult 3 ❖ Risk: None. The Ability allows you to more effectively cover your tracks. ❖ Test: None (note the original Ritual must succeed for your addition to work) ❖ Resistance Roll: None ❖ Duration: 2 Rounds (1 minute, added to the length of the original Ritual), after which the Ritual is permanently altered.", rouseChecks: 0, amalgamPrerequisites: [{ discipline: "obfuscate", level: 3 }], summary: "Add concealment to rituals, hiding symbols from mundane view.", dicePool: "None", level: 3, discipline: "blood sorcery" },
@@ -2743,6 +3014,26 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 level: 1, 
                 discipline: "oblivion" 
             },
+            { 
+                name: "Duress", 
+                description: "The vampire combines their commanding presence with infernal authority to create an aura of undeniable spiritual pressure. When activated, the vampire's presence becomes infused with the essence of damnation itself, making their words carry the weight of eternal judgment. The vampire can issue simple commands to supernatural beings, including other vampires, wraiths, and even demons, though such creatures can resist if their will is strong enough. The power manifests as an oppressive atmosphere where shadows seem to lean inward and the temperature drops noticeably. Mortals exposed to this power flee in terror unless they possess exceptional courage, while supernatural beings feel compelled to acknowledge the vampire's authority. The effect is particularly potent against creatures with guilty consciences or those who have committed acts they know to be morally wrong.", 
+                rouseChecks: 1, 
+                amalgamPrerequisites: [{ discipline: "presence", level: 1 }], 
+                summary: "Create aura of infernal authority that commands supernatural beings and terrifies mortals.", 
+                dicePool: "Oblivion + Manipulation", 
+                level: 1, 
+                discipline: "oblivion" 
+            },
+            {
+                name: "Vault Welt",
+                description: "The vampire combines their flesh-shaping abilities with necromantic energy to create secure storage space within their own body by opening small portals to the realm of the dead. When activated, the vampire can cause a section of their torso to split open, revealing a dark cavity lined with shadows and whispers from beyond. This internal vault connects to a pocket dimension within the Shadowlands, allowing the vampire to store objects in a space that exists partially outside normal reality. Items stored this way are protected from physical damage, detection, and the passage of time, making this power invaluable for hiding evidence, weapons, or precious artifacts. The process is disturbing to witness, as the vampire's flesh parts to reveal glimpses of the dark realm beyond death. Objects can be retrieved at will, emerging from the shadows with a faint chill and sometimes bearing traces of otherworldly energy.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [{ discipline: "protean", level: 1 }],
+                summary: "Create storage space in body connected to Shadowlands for hiding objects.",
+                dicePool: "Oblivion + Protean",
+                level: 1,
+                discipline: "oblivion"
+            },
 
             // Level 2
             { 
@@ -2762,6 +3053,26 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 amalgamPrerequisites: [], 
                 summary: "Feed on plasm from destroyed spirits to restore Hunger (cannot reach 0).", 
                 dicePool: "None", 
+                level: 2, 
+                discipline: "oblivion" 
+            },
+            {
+                name: "Crown of the Lost Clan",
+                description: "The signature power of the Khofolim, who claim it is of their fel-inheritance. This power manifests a crown of psionic power about, or atop, the user's head, which then broadcasts ripples through surrounding darkness, not unlike a kind of radar. This psychic radar forcefully reveals Wraiths, as well as the unnatural fluctuations made by the use of Blood Sorcery and Oblivion. To onlookers with supernatural sight, such as Sense the Unseen, The Binding Fetter, Oblivion's Sight, or other powers of sufficiently high Auspex, the user will appear to have some kind of abstract and ethereal crown on their head, such as a smoldering diadem, a pair of shadowy horns, or even a ringed halo of light. Upon manifestation, Wraiths who are within the user's line of sight must make a test of Wits + Stealth; Difficulty equal to the user's Auspex. If they fail, the emanations from the user's crown reveals them for all to see. Users also feel unnatural fluctuations caused by Blood Sorcery and Oblivion, and they cannot be surprised or ambushed by the use of such powers. Whenever such a power, ritual, or ceremony, is performed within 15 yards/meters, they may make a Test of Wits + Auspex; Difficulty equal to the power's level, to detect the direction of the source. Additionally the crown confers a kind of authority to those beings from beyond mundane reality. The user adds +2 Bonus Dice to Charisma and Composure pools made towards Wraiths, Shades, or demonic manifestations. Bright light prevents this power's 'radar' from detecting things and does not grant improved vision even in regards to what it detects.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [{ discipline: "auspex", level: 2 }],
+                summary: "Manifest psychic crown that reveals Wraiths, detects Blood Sorcery/Oblivion use, +2 dice vs supernatural beings.",
+                dicePool: "Wits + Auspex",
+                level: 2,
+                discipline: "oblivion"
+            },
+            { 
+                name: "Teeth Knight's Vehemence", 
+                description: "The vampire combines raw supernatural strength with the dark energies of oblivion to create attacks that carry the weight of spiritual destruction alongside physical devastation. When activated, the vampire's strikes become infused with necrotic energy that manifests as dark tendrils wrapping around their fists or weapons. These shadow-wreathed attacks not only deliver tremendous physical force but also assault the target's very essence, draining life force and spiritual energy with each blow. The power is particularly effective against supernatural beings, as the oblivion energy disrupts their supernatural defenses and causes wounds that resist supernatural healing. Living targets struck by these attacks feel their vitality being sapped away, while undead creatures find their animating forces temporarily disrupted. The vampire's appearance becomes more fearsome while this power is active, with their eyes glowing with dark energy and shadows seeming to writhe around their body in response to their violent intentions.", 
+                rouseChecks: 2, 
+                amalgamPrerequisites: [{ discipline: "potence", level: 2 }], 
+                summary: "Infuse attacks with necrotic energy that drains life force and disrupts supernatural defenses.", 
+                dicePool: "Oblivion + Potence", 
                 level: 2, 
                 discipline: "oblivion" 
             },
@@ -2805,6 +3116,16 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 level: 3, 
                 discipline: "oblivion" 
             },
+            {
+                name: "Vitrine Prison",
+                description: "This ceremony allows the caster to trap a spirit or ghost within a reflective surface such as a mirror, pool of water, or polished metal. The ceremony requires the caster to inscribe occult symbols around the reflective surface while chanting in an ancient tongue. If successful, the targeted spirit becomes bound within the reflection, unable to manifest physically or use most of their supernatural abilities. The spirit can still communicate through the reflection and observe the world around them, but remains trapped until the ceremony is reversed or the reflective surface is destroyed. Breaking the surface releases the spirit immediately, though it may be hostile to its former captor.",
+                rouseChecks: 1,
+                amalgamPrerequisites: [],
+                summary: "Ceremony: Trap a spirit within a reflective surface like a mirror or water.",
+                dicePool: "Oblivion + Occult",
+                level: 2,
+                discipline: "oblivion",
+            },
             { 
                 name: "Visions Of Obliteration", 
                 description: "As the user's eyes meet with that of their victim, they impart upon them a sliver of Oblivions true nature. If successful, the target suffers 3 points of Superficial Willpower damage. If this causes the target to have no unmarked Willpower boxes, then the target will spiral. Mortals and Enhanced mortals will break down sobbing and become defenceless, while Kindred will enter a fear Frenzy. ❖ Type: Ability ❖ Tag: Mental + Spiritual ❖ Range & Targets: A single individual within Visual range. ❖ Cost: 1 Rouse Check ❖ Conditions: Eye Contact must be made. Has no effect on Malkavians. ❖ Risk: Low. The target's reaction might draw some unwanted attention. ❖ Test: Oblivion + Composure (4) ❖ Resistance Roll: None ❖ Duration: The ability is instantaneous and its effects last for 1 Scene (1 hour), when targeting Mortals, or until the Frenzy had run its course, when targeting Kindred.", 
@@ -2845,6 +3166,16 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 level: 3, 
                 discipline: "oblivion" 
             },
+            {
+                name: "Craft Fetch",
+                description: "This ceremony allows the necromancer to create a false spirit duplicate of a recently deceased person. The ceremony requires personal items from the deceased and must be performed within three days of death. If successful, the caster creates a fetch - a spiritual construct that appears as the deceased and possesses some of their memories and personality traits. The fetch can interact with the physical world to a limited degree and serves the necromancer's will, though it may occasionally display independent behavior based on the original personality. The fetch lacks the full depth of the original soul and will dissipate if subjected to intense spiritual scrutiny or if the ceremony is reversed.",
+                rouseChecks: 2,
+                amalgamPrerequisites: [],
+                summary: "Ceremony: Create spiritual duplicate of deceased person that serves your will.",
+                dicePool: "Oblivion + Occult",
+                level: 3,
+                discipline: "oblivion",
+            },
 
             // Level 4
             { 
@@ -2856,6 +3187,16 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 dicePool: "Oblivion + Composure", 
                 level: 4, 
                 discipline: "oblivion" 
+            },
+            {
+                name: "Witch-Ridden Slumber",
+                description: "This powerful ceremony allows the necromancer to project malevolent spirits into the dreams of a sleeping target, creating a horrific nightmare experience that can drive victims to madness or death. The ceremony requires a personal item from the target and must be performed while they sleep. If successful, the target becomes trapped in a nightmare realm populated by hostile spirits and manifestations of their deepest fears. The victim suffers both spiritual and mental anguish, taking damage to both Health and Willpower while asleep. The nightmare continues until the victim wakes, dies, or the ceremony is broken. Repeated exposure to this ceremony can permanently damage a victim's psyche and ability to sleep peacefully.",
+                rouseChecks: 2,
+                amalgamPrerequisites: [],
+                summary: "Ceremony: Trap sleeping target in nightmare realm causing Health and Willpower damage.",
+                dicePool: "Oblivion + Occult",
+                level: 4,
+                discipline: "oblivion",
             },
 
             // Level 5
@@ -2891,6 +3232,7 @@ export const disciplines: Record<DisciplineName, Discipline> = {
             { name: "Ashen Drought", description: "A horrible curse is inflicted on the victim turning them into a true horror. This power can only be activated when a successful bite attack is delivered to a target. The power has different effects depending on the victim: Mortals appear pale, unable to sleep, exhibit rabies-like symptoms, can't keep food down, terrified of water (1 month). Ghouls suffer similarly but crave only Kindred vitae, becoming violent against masters if unfed (1 week). Kindred lose Blush of Life, mouth fills with black bile causing speech penalties (-2 dice), Hunger increases by 1 every hour, feeding spreads curse for 24 hours (3 days). Thin-Bloods are unaffected and their vitae cures the curse.", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "animalism", level: 3 }], summary: "Bite curse with different horrific effects per creature type, cured by Thin-Blood vitae.", dicePool: "Oblivion + Animalism", level: 3, discipline: "oblivion" },
             { name: "Arad Asbu", description: "Derived from Sumerian, 'to serve the shadows', this old ritual brings practitioners closer to the font of their power. If successful, the user communicates directly with the Abyss itself. This can be an incredibly uncomfortable experience for new practitioners as they are brought face to face with the font of their power and the malignant intelligence inherent in its predatory nature. Still, if one persists, he will be granted knowledge by the Abyss. The user adds 1 dice to any Oblivion-related roll they make for the rest of the Session. The ritual must be performed in a dark environment with little or no lights present.", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "auspex", level: 3 }], summary: "Ritual: Communicate with the Abyss for knowledge, +1 dice to Oblivion rolls for session.", dicePool: "Oblivion + Auspex", level: 3, discipline: "oblivion" },
             { name: "Shadowlands Quake", description: "The practitioner strikes the ground with their fist and the spirits of undeath around them cry in agony. If successful, the user strikes the ground. As he does so a wave of Shadowlands energy surges through the area which has the following impact: All corpses are momentarily re-animated and enter a frenzy attacking any other creature nearby; All undead spirits such as Wraiths or Ghosts grow stronger, adding 2 dice to any roll and turn on the nearest entity they can find; Kindred, Thin-Bloods and Ghouls feel a shiver run down their spine and are stunned for 1 Round unless they pass their Resistance Roll; Any undead constructs suffer 3 points of Aggravated Damage and are stunned for 1 Round; The barrier between the Shadowlands and the world of the living grows thin allowing creatures to temporarily pass through; All Oblivion and Necromancy users add 1 dice to any of their discipline rolls for the remainder of the Scene; Technological devices which utilize electricity are temporarily disabled.", rouseChecks: 1, amalgamPrerequisites: [{ discipline: "potence", level: 3 }], summary: "Strike ground to cause massive shadowlands effects in 100m radius for 1 scene.", dicePool: "Oblivion + Potence", level: 3, discipline: "oblivion" },
+            { name: "Coiling Spite", description: "The vampire channels their wrath through both supernatural resilience and necrotic energy to create a terrible revenge that transcends death itself. When the vampire suffers damage from any source, they can store that harm within their dead flesh, transforming it into spiritual venom. The vampire gains +1 die to all Intimidation and Resolve rolls for each point of marked Health they possess. Additionally, when the vampire touches a living or supernatural being with marked Health, they can discharge this stored spite as an attack. Roll Fortitude + A number of dice equal to your Marked Health against the target's Stamina + Resolve. Each success deals one point of Aggravated Damage as necrotic energy courses through the victim's body. This damage cannot be healed by supernatural means for the remainder of the scene. The vampire can only discharge spite equal to their marked Health once per scene.", rouseChecks: 0, amalgamPrerequisites: [{ discipline: "fortitude", level: 3 }], summary: "Marked Health empowers intimidation and resolve, discharge as unhealing Aggravated touch attack.", dicePool: "Fortitude + A number of dice equal to your Marked Health", level: 3, discipline: "oblivion" },
             { name: "Shadowland Chantry", description: "Whether Tremere Chantry or Giovanni mansion, the structure only superficially exists in the physical world. This ritual can only be cast on a single structure. The structure itself can be large; a cathedral, a skyscraper, a mansion etc. The structure remains unchanged on the outside and during the day, nothing seems out of the ordinary on the interior either. At night, however, the inside of the building changes drastically as the energies of the Shadowlands seep through. Walls might become mouldy; spectres can be seen moving about at random and haunting echoes are heard in the distance. Those inside the building benefit from a 2 dice bonus to all Oblivion, Obtenebration and Necromantic rolls. Foreign spiritual entities cannot enter the structure as the myriads of Shadowland spirits will pounce on any intruders. Any intruder entering the building will be heavily disorientated and nervous. They will suffer a 2 dice penalty for any Awareness, Survival and Composure rolls they make. Mortals will find the air thin within the structure and begin to suffocate within a few minutes of entering the building. Additionally, if the structure is ever destroyed it will persist in the Shadowlands and its occupants will remain unscathed.", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "blood sorcery", level: 4 }], summary: "Ritual: Transform building into Shadowland nexus with spiritual bonuses and protections.", dicePool: "Blood Sorcery + Oblivion", level: 4, discipline: "oblivion" },
             { name: "The Maw", description: "The Vampire performs a truly horrid ritual and opens a gateway between the Umbra and the heart of Oblivion itself. For this power to work the user must sacrifice a mortal during the Ritual. If successful, the user will open a small tear into Oblivion itself. This tear will make the local spiritual world dangerous, causing all those entering it or using abilities with a Spiritual tag to halve their dice pool (rounding down). Over time the tear will devour or drive out all local spirits (living or dead, good and bad) and the physical world around the ritual site will start to die off (vegetation will rot, animals will be driven away, human structures will rust and crumble). Eventually, if not upkept the tear will seal itself shut and the area (spiritually and physically) will return to normal, overtime.", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "blood sorcery", level: 4 }], summary: "Ritual: Open tear to Oblivion, devastating local spiritual/physical area, requires mortal sacrifice.", dicePool: "Blood Sorcery + Oblivion", level: 4, discipline: "oblivion" },
             { name: "Mortis Engine", description: "The user creates a truly terrifying entity powered by the soul of a Wraith. For this Ritual to work the user must have a fleshcrafted body prepared and a Wraith either willingly waiting or trapped in an item nearby. The fleshcrafted body does not have to be anything special but it must be at least 2 meters tall (roughly 7 feet) and weigh 100 kilograms (200 pounds). If successful, the ritual will create a unique Fleshcrafted monstrosity known as a Mortis Engine. These entities are incredibly violent and will only listen to their creator. The creature is also incredibly resilient. It counts as having 10 health and halves all Superficial Damage. It also counts all Physical Attributes as 5, while the rest of its Attributes and Skills are copied from the Wraith. The creature benefits from its user's fleshcrafting expertise and the body can have 3 upgrades applied to it: Enhanced Musculation, Extra Limbs, Spiked Carapace, or Vicious Talons. Additionally, the creature will also develop 2 further mutations from the Wraith: Ethereal Fires, Debilitating Aura, or Deathless Onslaught. The creature can see and physically attack other spiritual entities and causes terror in mortals.", rouseChecks: 2, amalgamPrerequisites: [{ discipline: "vicissitude", level: 4 }], summary: "Ritual: Create powerful fleshcrafted creature from wraith soul, highly violent and resilient.", dicePool: "Oblivion + Vicissitude", level: 4, discipline: "oblivion" },
