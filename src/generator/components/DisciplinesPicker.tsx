@@ -19,12 +19,17 @@ const getAvailableDisciplines = (character: Character): Record<DisciplineName, D
         return { ...disciplines };
     }
     const availableDisciplines: Record<string, Discipline> = {}
+    console.log('Character availableDisciplineNames:', character.availableDisciplineNames)
     for (const n of character.availableDisciplineNames) {
         // Only add disciplines that actually exist in the disciplines object
+        console.log(`Checking discipline: "${n}", exists: ${!!disciplines[n]}`)
         if (disciplines[n]) {
             availableDisciplines[n] = disciplines[n]
+        } else {
+            console.warn(`Discipline "${n}" not found in disciplines object`)
         }
     }
+    console.log('Available disciplines for clan:', Object.keys(availableDisciplines))
     return availableDisciplines
 }
 
