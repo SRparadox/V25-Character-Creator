@@ -20,7 +20,10 @@ const getAvailableDisciplines = (character: Character): Record<DisciplineName, D
     }
     const availableDisciplines: Record<string, Discipline> = {}
     for (const n of character.availableDisciplineNames) {
-        availableDisciplines[n] = disciplines[n]
+        // Only add disciplines that actually exist in the disciplines object
+        if (disciplines[n]) {
+            availableDisciplines[n] = disciplines[n]
+        }
     }
     return availableDisciplines
 }
@@ -196,6 +199,12 @@ const DisciplinesPicker = ({ character, setCharacter, nextStep }: DisciplinesPic
     }
 
     const getDisciplineAccordionItem = (disciplineName: string, discipline: Discipline, isPredatorType = false) => {
+        // Safety check: ensure discipline is defined
+        if (!discipline || !discipline.powers) {
+            console.warn(`Discipline '${disciplineName}' is undefined or has no powers`);
+            return null;
+        }
+
         const clanHasPrereqDisciplines = (power: Power) => {
             const prereqDisciplines = power.amalgamPrerequisites.map((prereq) => prereq.discipline)
             for (const disc of prereqDisciplines) {
@@ -203,8 +212,6 @@ const DisciplinesPicker = ({ character, setCharacter, nextStep }: DisciplinesPic
             }
             return true
         }
-
-        const clanHasDiscipline = (disciplineName: DisciplineName) => disciplinesForClan[disciplineName] !== undefined
 
         // Only show Amalgams that the clan can theoretically pick; using predator-type to get amalgams is intentionally impossible
         const eligiblePowers = discipline.powers.filter(clanHasPrereqDisciplines)
@@ -215,7 +222,6 @@ const DisciplinesPicker = ({ character, setCharacter, nextStep }: DisciplinesPic
         const lvl4Powers = eligiblePowers.filter((power) => power.level === 4)
         const lvl5Powers = eligiblePowers.filter((power) => power.level === 5)
 
-        const colSpan = smallScreen ? 12 : 4
         return (
             <Accordion.Item key={disciplineName + isPredatorType} value={disciplineName + isPredatorType}>
                 <Accordion.Control icon={<Image src={discipline.logo} />}>{upcase(disciplineName)}</Accordion.Control>
@@ -370,9 +376,10 @@ const DisciplinesPicker = ({ character, setCharacter, nextStep }: DisciplinesPic
                         <ScrollArea h={smallScreen ? height - 320 : height - 400} pb={20} w={"105%"}>
                             <Center>
                                 <Accordion w={smallScreen ? "100%" : "600px"}>
-                                    {Object.entries(disciplinesForClan).map(([name, discipline]) =>
-                                        getDisciplineAccordionItem(name, discipline)
-                                    )}
+                                    {Object.entries(disciplinesForClan).map(([name, discipline]) => {
+                                        const item = getDisciplineAccordionItem(name, discipline);
+                                        return item; // This might be null if discipline is invalid
+                                    }).filter(Boolean)} {/* Filter out null values */}
 
                                     {/* Hide predator type discipline section for Ghouls */}
                                     {character.clan !== "Ghoul" && character.predatorType.pickedDiscipline && predatorTypeDiscipline && (

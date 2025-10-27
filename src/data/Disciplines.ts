@@ -2526,12 +2526,6 @@ export const disciplines: Record<DisciplineName, Discipline> = {
             },
         ],
     },
-    "thin-blood alchemy": {
-        clans: ["Thin-blood"],
-        summary: "",
-        logo: obfuscateLogo,
-        powers: [],
-    },
 
     valeren: {
         clans: ["Salubri"],
@@ -2828,7 +2822,7 @@ export const disciplines: Record<DisciplineName, Discipline> = {
         ],
     },
     necromancy: {
-        clans: ["giovanni", "cappadocian", "samedi"],
+        clans: ["Giovanni", "Cappadocian", "Samedi"],
         summary: "The dark art of commanding the dead and manipulating the forces of death. Necromancy is divided into five distinct paths, each offering unique insights into the mysteries of mortality and beyond.",
         logo: obfuscateLogo,
         powers: [
@@ -3080,16 +3074,10 @@ export const disciplines: Record<DisciplineName, Discipline> = {
         ],
     },
     // Missing disciplines - placeholder entries with obfuscate logo
-    chimestry: {
-        clans: [],
-        summary: "",
-        logo: obfuscateLogo,
-        powers: [],
-    },
-    dementation: {
-        clans: [],
-        summary: "",
-        logo: obfuscateLogo,
+    daimonion: {
+        clans: ["Baali"],
+        summary: "Infernal powers of corruption and darkness",
+        logo: obfuscateLogo, // Using obfuscate logo as placeholder
         powers: [],
     },
     "koldunic sorcery": {
@@ -3786,12 +3774,6 @@ export const disciplines: Record<DisciplineName, Discipline> = {
             },
         ],
     },
-    necromancy: {
-        clans: [],
-        summary: "",
-        logo: obfuscateLogo,
-        powers: [],
-    },
     obtenebration: {
         clans: ["Lasombra", "Caitiff"],
         summary: "Manipulate shadows and darkness, command the abyss",
@@ -4179,6 +4161,12 @@ export const disciplines: Record<DisciplineName, Discipline> = {
                 amalgamPrerequisites: [],
             },
         ],
+    },
+    "thin-blood alchemy": {
+        clans: ["Thin-blood"],
+        summary: "Alchemy formulas available to thin-bloods",
+        logo: obfuscateLogo, // Using obfuscate logo as placeholder
+        powers: [], // Thin blood alchemy is handled separately via the Alchemy system
     },
     "": {
         clans: [],
